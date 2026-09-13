@@ -1,0 +1,11 @@
+2026-09-13, isolated offline Android JVM audit test.
+
+Command: ./gradlew --offline :app:testDebugUnitTest --tests
+  dev.stunmesh.android.config.SecurityAuditTest.duplicateWgQuickPrivateKeySilentlyUsesLastValue
+Result: BUILD SUCCESSFUL; one test, zero failures/errors.
+
+Synthetic [Interface] input specified PrivateKey twice, first as
+"visible-first-key" and then as "hidden-second-key". WgQuickConf.decode
+returned "hidden-second-key" without warning. This is an import-review
+ambiguity requiring a user-selected profile, not a network-origin exploit.
+The full Gradle log remains in the separate local audit scratch workspace.

@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="dev.stunmesh.android.config.SecurityAuditTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2026-09-13T08:23:12.902Z" hostname="e14" time="0.244">
+<testsuite name="dev.stunmesh.android.config.SecurityAuditTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2026-09-13T09:14:44.896Z" hostname="e14" time="0.187">
   <properties/>
-  <testcase name="malformedWgQuickImportErrorCanIncludePrivateKeyText" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.033"/>
-  <testcase name="importedTunnelCanKeepDistinctStoresForDifferentPeers" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.109"/>
-  <testcase name="duplicateYamlPrivateKeySilentlyUsesLastValue" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.029"/>
-  <testcase name="importedYamlPreservesHiddenUapiPeerInEndpointWithValidRoute" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.03"/>
-  <testcase name="malformedImportErrorCanIncludePrivateKeyText" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.003"/>
-  <testcase name="opendhtUrlUserinfoSurvivesRedactedLogConfig" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.015"/>
-  <testcase name="importedYamlPreservesLowOrderPeerPublicKeyAcrossGoBoundary" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.005"/>
-  <testcase name="genericApiKeyIsNotRedactedFromLogExportConfig" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.004"/>
+  <testcase name="malformedWgQuickImportErrorCanIncludePrivateKeyText" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.023"/>
+  <testcase name="importedTunnelCanKeepDistinctStoresForDifferentPeers" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.084"/>
+  <testcase name="duplicateYamlPrivateKeySilentlyUsesLastValue" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.022"/>
+  <testcase name="importedYamlPreservesHiddenUapiPeerInEndpointWithValidRoute" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.021"/>
+  <testcase name="malformedImportErrorCanIncludePrivateKeyText" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.002"/>
+  <testcase name="opendhtUrlUserinfoSurvivesRedactedLogConfig" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.013"/>
+  <testcase name="importedYamlPreservesLowOrderPeerPublicKeyAcrossGoBoundary" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.004"/>
+  <testcase name="duplicateWgQuickPrivateKeySilentlyUsesLastValue" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.001"/>
+  <testcase name="genericApiKeyIsNotRedactedFromLogExportConfig" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.002"/>
   <testcase name="snakeYamlDefaultRejectsArbitraryJavaObjectTag" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.002"/>
   <testcase name="snakeYamlRejectsCollectionAliasExpansion" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.004"/>
-  <testcase name="importedYamlPreservesExecutablePluginTypeAcrossGoBoundary" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.004"/>
-  <testcase name="importedYamlPreservesHiddenUapiLinesInAllowedIpAcrossGoBoundary" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.004"/>
+  <testcase name="importedYamlPreservesExecutablePluginTypeAcrossGoBoundary" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.003"/>
+  <testcase name="importedYamlPreservesHiddenUapiLinesInAllowedIpAcrossGoBoundary" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.003"/>
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[Sep 13, 2026 8:23:13 AM org.yaml.snakeyaml.internal.Logger warn
+  <system-err><![CDATA[Sep 13, 2026 9:14:45 AM org.yaml.snakeyaml.internal.Logger warn
 WARNING: duplicate keys found : private_key
 ]]></system-err>
 </testsuite>

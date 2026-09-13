@@ -184,6 +184,12 @@ class SecurityAuditTest {
     }
 
     @Test
+    fun duplicateWgQuickPrivateKeySilentlyUsesLastValue() {
+        val conf = "[Interface]\nPrivateKey = visible-first-key\nPrivateKey = hidden-second-key\n"
+        assertEquals("hidden-second-key", WgQuickConf.decode(conf, "synthetic").iface.privateKey)
+    }
+
+    @Test
     fun malformedImportErrorCanIncludePrivateKeyText() {
         val malformed = "wireguard:\n  private_key: AUDIT-CANARY: extra\n"
         val error = assertThrows(IllegalArgumentException::class.java) {

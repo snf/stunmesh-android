@@ -1,0 +1,6 @@
+2026-09-13. Isolated offline Android JVM suite after adding the wg-quick duplicate-key audit test.
+
+Command: ./gradlew --offline :app:testDebugUnitTest
+Result: BUILD SUCCESSFUL in 19s; 28 tests across five suites; zero failures, errors or skips.
+SecurityAuditTest: 13 tests, zero failures/errors (see android-audit-test-results.xml).
+The complete Gradle log remains in the separate local audit scratch workspace.
