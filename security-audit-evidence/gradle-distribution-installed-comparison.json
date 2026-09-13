@@ -1,0 +1,13 @@
+{
+  "checked_utc": "2026-09-13T10:52:47.569782+00:00",
+  "limitation": "Matches a publisher-served archive digest and its installed payloads, not an audit of Gradle source or publisher control.",
+  "publisher_sha256_from_gradle_wrapper_properties": "553c78f50dafcd54d65b9a444649057857469edf836431389695608536d6b746",
+  "result": {
+    "archive": "gradle-9.5.0-bin.zip",
+    "archive_sha256": "553c78f50dafcd54d65b9a444649057857469edf836431389695608536d6b746",
+    "installed": "cache/gradle/wrapper/dists/gradle-9.5.0-bin/.../gradle-9.5.0",
+    "mismatches": [],
+    "regular_payloads_matched": 683,
+    "symlink_targets_matched": 0
+  }
+}
