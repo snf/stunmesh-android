@@ -3,7 +3,7 @@
 **Audit window:** 2026-09-13 01:01:47–11:01:47 UTC (ten hours; investigation ongoing).
 
 **Audited tree/release:** `e0cc30951e24ec018423bb113acfe7849f9836d5` (tree `89fec5301ded70d7b76830653cea96d51c79f45d`), `v0.2.1`.
-**Fork:** <https://github.com/snf/stunmesh-android>. The audit branch and this root report are committed locally pending a disclosure decision; the public fork still follows upstream. This branch adds audit-only JVM tests and this report; no production code, phone, NAS or VPS service was changed. The companion Go/mobile-core report is in the sibling `stunmesh-go` checkout.
+**Fork:** <https://github.com/snf/stunmesh-android>. The audit branch and this root report are committed locally pending a disclosure decision; the public fork’s `main` remains at the audited upstream commit. This branch adds audit-only JVM tests and this report; no production code, phone, NAS or VPS service was changed. The companion Go/mobile-core report is in the sibling `stunmesh-go` checkout.
 
 ## Deployment decision and authentication answer
 
