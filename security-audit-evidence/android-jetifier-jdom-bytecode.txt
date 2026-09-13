@@ -1,0 +1,63 @@
+Command: javap -classpath <verified jetifier-processor-1.0.0-beta10.jar> -c -p com.android.tools.build.jetifier.processor.transform.pom.XmlUtils$Companion
+JAR SHA-256: c5067a7b928237a1271a5e9cb5710e9f80b4973293945bc51e3a4c864ea4bfed
+
+public final org.jdom2.Document createDocumentFromByteArray(byte[]);
+    Code:
+       0: aload_1
+       1: ldc           #74                 // String data
+       3: invokestatic  #17                 // Method kotlin/jvm/internal/Intrinsics.checkParameterIsNotNull:(Ljava/lang/Object;Ljava/lang/String;)V
+       6: new           #76                 // class org/jdom2/input/SAXBuilder
+       9: dup
+      10: invokespecial #77                 // Method org/jdom2/input/SAXBuilder."<init>":()V
+      13: astore_2
+      14: aload_1
+      15: astore_3
+      16: iconst_0
+      17: istore        4
+      19: new           #79                 // class java/io/ByteArrayInputStream
+      22: dup
+      23: aload_3
+      24: invokespecial #82                 // Method java/io/ByteArrayInputStream."<init>":([B)V
+      27: checkcast     #28                 // class java/io/Closeable
+      30: astore_3
+      31: iconst_0
+      32: istore        4
+      34: aconst_null
+      35: checkcast     #9                  // class java/lang/Throwable
+      38: astore        5
+      40: nop
+      41: aload_3
+      42: checkcast     #79                 // class java/io/ByteArrayInputStream
+      45: astore        6
+      47: iconst_0
+      48: istore        7
+      50: aload_2
+      51: aload         6
+      53: checkcast     #84                 // class java/io/InputStream
+      56: invokevirtual #88                 // Method org/jdom2/input/SAXBuilder.build:(Ljava/io/InputStream;)Lorg/jdom2/Document;
+      59: dup
+      60: ldc           #90                 // String builder.build(it)
+      62: invokestatic  #53                 // Method kotlin/jvm/internal/Intrinsics.checkExpressionValueIsNotNull:(Ljava/lang/Object;Ljava/lang/String;)V
+      65: astore        8
+      67: aload_3
+      68: aload         5
+      70: invokestatic  #59                 // Method kotlin/io/CloseableKt.closeFinally:(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+      73: aload         8
+      75: areturn
+      76: astore        6
+      78: aload         6
+      80: astore        5
+      82: aload         6
+      84: athrow
+      85: astore        6
+      87: aload_3
+      88: aload         5
+      90: invokestatic  #59                 // Method kotlin/io/CloseableKt.closeFinally:(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+      93: aload         6
+      95: athrow
+    Exception table:
+       from    to  target type
+          40    67    76   Class java/lang/Throwable
+          40    67    85   any
+          76    85    85   any
+          85    87    85   any
