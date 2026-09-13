@@ -1,0 +1,39 @@
+Picked up JAVA_TOOL_OPTIONS: -Duser.home=/work/home
+Starting a Gradle Daemon, 1 incompatible and 2 stopped Daemons could not be reused, use --status for details
+Calculating task graph as no cached configuration is available for tasks: :app:testDebugUnitTest --tests dev.stunmesh.android.config.SecurityAuditTest
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:preDebugUnitTestBuild UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:generateDebugResources
+> Task :app:mapDebugSourceSetPaths
+> Task :app:javaPreCompileDebugUnitTest
+> Task :app:javaPreCompileDebug
+> Task :app:extractDeepLinksDebug
+> Task :app:generateDebugBuildConfig
+> Task :app:processDebugNavigationResources
+> Task :app:compileDebugNavigationResources
+> Task :app:checkDebugAarMetadata
+> Task :app:packageDebugResources
+> Task :app:processDebugMainManifest
+> Task :app:parseDebugLocalResources
+> Task :app:generateDebugRFile
+> Task :app:processDebugManifest
+> Task :app:processDebugManifestForPackage
+> Task :app:mergeDebugResources
+> Task :app:processDebugResources
+> Task :app:compileDebugKotlin
+> Task :app:processDebugJavaRes
+> Task :app:compileDebugJavaWithJavac
+> Task :app:bundleDebugClassesToRuntimeJar
+> Task :app:bundleDebugClassesToCompileJar
+> Task :app:compileDebugUnitTestKotlin
+> Task :app:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :app:processDebugUnitTestJavaRes
+
+> Task :app:testDebugUnitTest
+Picked up JAVA_TOOL_OPTIONS: -Duser.home=/work/home
+
+BUILD SUCCESSFUL in 45s
+26 actionable tasks: 26 executed
+Configuration cache entry stored.

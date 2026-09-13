@@ -76,6 +76,23 @@ class SecurityAuditTest {
     }
 
     @Test
+    fun importedYamlPreservesHiddenUapiLinesInAllowedIpAcrossGoBoundary() {
+        val yaml = """
+            schema: 1
+            wireguard:
+              private_key: synthetic-private-key
+              peers:
+                - public_key: synthetic-peer
+                  allowed_ips: ["10.89.0.2/32\npublic_key=synthetic-rogue\nallowed_ip=10.89.0.3/32"]
+            stunmesh: {}
+        """.trimIndent()
+        val tunnel = TunnelYaml.decode(yaml)
+        val hidden = tunnel.peers.single().allowedIps.single()
+        assertTrue(hidden.contains("\npublic_key=synthetic-rogue\n"))
+        assertEquals(hidden, TunnelConfig.fromJson(tunnel.toJson()).peers.single().allowedIps.single())
+    }
+
+    @Test
     fun genericApiKeyIsNotRedactedFromLogExportConfig() {
         val tunnel = TunnelConfig(
             iface = InterfaceConfig(privateKey = "synthetic-private-key"),
