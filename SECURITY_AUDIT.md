@@ -137,7 +137,7 @@ No Android emulator or device with KVM was available, so VPN lifecycle, Binder/K
 
 ## Sources
 
-The primary evidence is the audited Android source tree, the companion Go/mobile-core tree, and the hashes, manifest/DEX/ELF comparisons, dependency inventories and test logs in [`security-audit-evidence/`](security-audit-evidence/). External platform and supply-chain references used above were checked on 2026-09-13:
+The primary evidence is the audited Android source tree, the companion Go/mobile-core tree, and the hashes, manifest/DEX/ELF comparisons, dependency inventories and test logs in [`security-audit-evidence/`](security-audit-evidence/), including the [network and execution surface inventory](security-audit-evidence/network-and-execution-surface.md). External platform and supply-chain references used above were checked on 2026-09-13:
 
 1. STUNMESH Android, audited source commit `e0cc30951e24ec018423bb113acfe7849f9836d5`, Gradle files and release tag `v0.2.1` ([upstream repository](https://github.com/tjjh89017/stunmesh-android)). STUNMESH Go/mobile core, audited commit `71a73228cd2bc001cdc5d485a16621a24bfae15a` and Go AAR tag `v1.15.1` ([upstream repository](https://github.com/tjjh89017/stunmesh-go)).
 2. Android Developers, [`VpnService` API reference](https://developer.android.com/reference/android/net/VpnService) and [foreground service types](https://developer.android.com/develop/background-work/services/fgs/service-types), living documentation; foreground lifecycle and VPN exemption conditions.
