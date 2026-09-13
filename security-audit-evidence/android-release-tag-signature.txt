@@ -1,0 +1,9 @@
+Audited tag: v0.2.1
+Tag object: a7920fd1b3cf27ae06bc789fca18dde92facd5b9
+Tag target commit: e0cc30951e24ec018423bb113acfe7849f9836d5
+Verification: git tag -v v0.2.1
+Result: error: no signature found
+
+This establishes that the annotated Git tag is unsigned. It does not prove
+who created it, whether the publisher account was compromised, or that the
+source code is safe.
