@@ -1,0 +1,52 @@
+{
+  "command": "./gradlew --offline :app:testDebugUnitTest",
+  "result": "BUILD SUCCESSFUL",
+  "suites": [
+    {
+      "suite": "dev.stunmesh.android.ExampleUnitTest",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "timestamp": "2026-09-13T09:14:44.882Z"
+    },
+    {
+      "suite": "dev.stunmesh.android.config.SecurityAuditTest",
+      "tests": 13,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "timestamp": "2026-09-13T09:14:44.896Z"
+    },
+    {
+      "suite": "dev.stunmesh.android.config.TunnelConfigRedactTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "timestamp": "2026-09-13T09:14:45.085Z"
+    },
+    {
+      "suite": "dev.stunmesh.android.config.TunnelYamlTest",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "timestamp": "2026-09-13T09:14:45.096Z"
+    },
+    {
+      "suite": "dev.stunmesh.android.config.WgQuickConfTest",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "timestamp": "2026-09-13T09:14:45.127Z"
+    }
+  ],
+  "totals": {
+    "tests": 28,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+}
