@@ -1,0 +1,1010 @@
+{
+  "as_of_utc": "2026-09-13T04:47:50.125067+00:00",
+  "scope": "Every cached content-bearing .jar/.aar in resolved build-tool graph. Official Google Maven for com.android.* and androidx.*; Maven Central for others. Compared published SHA-256 sidecar, official Gradle module SHA-256, or independently downloaded official artifact.",
+  "build_tool_coordinates": 115,
+  "cached_content_artifacts": 111,
+  "matches": 111,
+  "mismatches": 0,
+  "errors": 0,
+  "results": [
+    {
+      "coordinate": "com.android.tools.build:gradle:9.3.1",
+      "artifact": "gradle-9.3.1.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://dl.google.com/dl/android/maven2/com/android/tools/build/gradle/9.3.1/gradle-9.3.1.jar.sha256",
+      "local_sha256": "4ae9f55cef115978de7f502e49ea163e89c78a8ab40943504a37c948b94eadb5",
+      "official_sha256": "4ae9f55cef115978de7f502e49ea163e89c78a8ab40943504a37c948b94eadb5",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.android.tools.build:gradle-settings-api:9.3.1",
+      "artifact": "gradle-settings-api-9.3.1.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://dl.google.com/dl/android/maven2/com/android/tools/build/gradle-settings-api/9.3.1/gradle-settings-api-9.3.1.jar.sha256",
+      "local_sha256": "22847e89f125294c301d51ee5b601bf541a4e0c53830cdcfea830046cdc62267",
+      "official_sha256": "22847e89f125294c301d51ee5b601bf541a4e0c53830cdcfea830046cdc62267",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.jetbrains.kotlin:kotlin-stdlib:2.3.20",
+      "artifact": "kotlin-stdlib-2.3.20.jar",
+      "method": "official_gradle_module_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-stdlib/2.3.20/kotlin-stdlib-2.3.20.module",
+      "local_sha256": "0ae12504a5040ebaf37703908483420d1a5624dd1d93f357665f8c77c848a01e",
+      "official_sha256": "0ae12504a5040ebaf37703908483420d1a5624dd1d93f357665f8c77c848a01e",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.jetbrains:annotations:13.0",
+      "artifact": "annotations-13.0.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/jetbrains/annotations/13.0/annotations-13.0.jar",
+      "local_sha256": "ace2a10dc8e2d5fd34925ecac03e4988b2c0f851650c94b8cef49ba1bd111478",
+      "official_sha256": "ace2a10dc8e2d5fd34925ecac03e4988b2c0f851650c94b8cef49ba1bd111478",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.android.tools.build:gradle-common-api:9.3.1",
+      "artifact": "gradle-common-api-9.3.1.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://dl.google.com/dl/android/maven2/com/android/tools/build/gradle-common-api/9.3.1/gradle-common-api-9.3.1.jar.sha256",
+      "local_sha256": "5f8ceb1738037707d166f79b13bde052024a63fc52b8ad11ad2cbc780efbb8d2",
+      "official_sha256": "5f8ceb1738037707d166f79b13bde052024a63fc52b8ad11ad2cbc780efbb8d2",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.android.tools:sdk-common:32.3.1",
+      "artifact": "sdk-common-32.3.1.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://dl.google.com/dl/android/maven2/com/android/tools/sdk-common/32.3.1/sdk-common-32.3.1.jar.sha256",
+      "local_sha256": "7d34308241071e482f47ccb7c5ba53e83858366905061979ae4ed4623c6dcdd6",
+      "official_sha256": "7d34308241071e482f47ccb7c5ba53e83858366905061979ae4ed4623c6dcdd6",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.android.tools.analytics-library:shared:32.3.1",
+      "artifact": "shared-32.3.1.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://dl.google.com/dl/android/maven2/com/android/tools/analytics-library/shared/32.3.1/shared-32.3.1.jar.sha256",
+      "local_sha256": "172a037b11dae0f2cb6b5c47a001c901afcf3631c637526f545e4517b973b68b",
+      "official_sha256": "172a037b11dae0f2cb6b5c47a001c901afcf3631c637526f545e4517b973b68b",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.android.tools.analytics-library:protos:32.3.1",
+      "artifact": "protos-32.3.1.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://dl.google.com/dl/android/maven2/com/android/tools/analytics-library/protos/32.3.1/protos-32.3.1.jar.sha256",
+      "local_sha256": "e9e3f5021b8ec64169b2e9a49232bbe8b2a23e2dcf31223f982163216b32d30f",
+      "official_sha256": "e9e3f5021b8ec64169b2e9a49232bbe8b2a23e2dcf31223f982163216b32d30f",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.google.protobuf:protobuf-java:3.25.5",
+      "artifact": "protobuf-java-3.25.5.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/com/google/protobuf/protobuf-java/3.25.5/protobuf-java-3.25.5.jar",
+      "local_sha256": "8540247fad9e06baefa8fb45eb313802d019f485f14300e0f9d6b556ed88e753",
+      "official_sha256": "8540247fad9e06baefa8fb45eb313802d019f485f14300e0f9d6b556ed88e753",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.android.tools:annotations:32.3.1",
+      "artifact": "annotations-32.3.1.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://dl.google.com/dl/android/maven2/com/android/tools/annotations/32.3.1/annotations-32.3.1.jar.sha256",
+      "local_sha256": "32e90226ae4c7b59ed61b06689ae8356bab080cd79f6569455fd92925439a339",
+      "official_sha256": "32e90226ae4c7b59ed61b06689ae8356bab080cd79f6569455fd92925439a339",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.android.tools:common:32.3.1",
+      "artifact": "common-32.3.1.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://dl.google.com/dl/android/maven2/com/android/tools/common/32.3.1/common-32.3.1.jar.sha256",
+      "local_sha256": "2cb5dfb5fff144088f18887c63c8e7368034ede31e7413405ac3251d1eb9a147",
+      "official_sha256": "2cb5dfb5fff144088f18887c63c8e7368034ede31e7413405ac3251d1eb9a147",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.google.guava:guava:33.4.0-jre",
+      "artifact": "guava-33.4.0-jre.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/com/google/guava/guava/33.4.0-jre/guava-33.4.0-jre.jar",
+      "local_sha256": "b918c98a7e44dbe94ebd9fe3e40cddaadb5a93e6a78eb6008b42df237241e538",
+      "official_sha256": "b918c98a7e44dbe94ebd9fe3e40cddaadb5a93e6a78eb6008b42df237241e538",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.google.guava:failureaccess:1.0.2",
+      "artifact": "failureaccess-1.0.2.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/com/google/guava/failureaccess/1.0.2/failureaccess-1.0.2.jar",
+      "local_sha256": "8a8f81cf9b359e3f6dfa691a1e776985c061ef2f223c9b2c80753e1b458e8064",
+      "official_sha256": "8a8f81cf9b359e3f6dfa691a1e776985c061ef2f223c9b2c80753e1b458e8064",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava",
+      "artifact": "listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar",
+      "local_sha256": "b372a037d4230aa57fbeffdef30fd6123f9c0c2db85d0aced00c91b974f33f99",
+      "official_sha256": "b372a037d4230aa57fbeffdef30fd6123f9c0c2db85d0aced00c91b974f33f99",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.google.code.findbugs:jsr305:3.0.2",
+      "artifact": "jsr305-3.0.2.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar",
+      "local_sha256": "766ad2a0783f2687962c8ad74ceecc38a28b9f72a2d085ee438b7813e928d0c7",
+      "official_sha256": "766ad2a0783f2687962c8ad74ceecc38a28b9f72a2d085ee438b7813e928d0c7",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.checkerframework:checker-qual:3.43.0",
+      "artifact": "checker-qual-3.43.0.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://repo.maven.apache.org/maven2/org/checkerframework/checker-qual/3.43.0/checker-qual-3.43.0.jar.sha256",
+      "local_sha256": "3fbc2e98f05854c3df16df9abaa955b91b15b3ecac33623208ed6424640ef0f6",
+      "official_sha256": "3fbc2e98f05854c3df16df9abaa955b91b15b3ecac33623208ed6424640ef0f6",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.google.errorprone:error_prone_annotations:2.36.0",
+      "artifact": "error_prone_annotations-2.36.0.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_annotations/2.36.0/error_prone_annotations-2.36.0.jar",
+      "local_sha256": "77440e270b0bc9a249903c5a076c36a722c4886ca4f42675f2903a1c53ed61a5",
+      "official_sha256": "77440e270b0bc9a249903c5a076c36a722c4886ca4f42675f2903a1c53ed61a5",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.google.j2objc:j2objc-annotations:3.0.0",
+      "artifact": "j2objc-annotations-3.0.0.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/com/google/j2objc/j2objc-annotations/3.0.0/j2objc-annotations-3.0.0.jar",
+      "local_sha256": "88241573467ddca44ffd4d74aa04c2bbfd11bf7c17e0c342c94c9de7a70a7c64",
+      "official_sha256": "88241573467ddca44ffd4d74aa04c2bbfd11bf7c17e0c342c94c9de7a70a7c64",
+      "status": "match"
+    },
+    {
+      "coordinate": "net.java.dev.jna:jna-platform:5.6.0",
+      "artifact": "jna-platform-5.6.0.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/net/java/dev/jna/jna-platform/5.6.0/jna-platform-5.6.0.jar",
+      "local_sha256": "9ecea8bf2b1b39963939d18b70464eef60c508fed8820f9dcaba0c35518eabf7",
+      "official_sha256": "9ecea8bf2b1b39963939d18b70464eef60c508fed8820f9dcaba0c35518eabf7",
+      "status": "match"
+    },
+    {
+      "coordinate": "net.java.dev.jna:jna:5.6.0",
+      "artifact": "jna-5.6.0.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/net/java/dev/jna/jna/5.6.0/jna-5.6.0.jar",
+      "local_sha256": "5557e235a8aa2f9766d5dc609d67948f2a8832c2d796cea9ef1d6cbe0b3b7eaf",
+      "official_sha256": "5557e235a8aa2f9766d5dc609d67948f2a8832c2d796cea9ef1d6cbe0b3b7eaf",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.2.10",
+      "artifact": "kotlin-stdlib-jdk8-2.2.10.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-stdlib-jdk8/2.2.10/kotlin-stdlib-jdk8-2.2.10.jar",
+      "local_sha256": "8974bfdd08b1d81843fe8d11f0729ab6e5b3c1f88d671ebe0c006358129ce149",
+      "official_sha256": "8974bfdd08b1d81843fe8d11f0729ab6e5b3c1f88d671ebe0c006358129ce149",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.jetbrains.kotlin:kotlin-stdlib-jdk7:2.2.10",
+      "artifact": "kotlin-stdlib-jdk7-2.2.10.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-stdlib-jdk7/2.2.10/kotlin-stdlib-jdk7-2.2.10.jar",
+      "local_sha256": "cf95eccc6cc784dff479dee0b8834f3584b93292cc5d91972e82f5d7b9e13e3b",
+      "official_sha256": "cf95eccc6cc784dff479dee0b8834f3584b93292cc5d91972e82f5d7b9e13e3b",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.google.code.gson:gson:2.11.0",
+      "artifact": "gson-2.11.0.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.11.0/gson-2.11.0.jar",
+      "local_sha256": "57928d6e5a6edeb2abd3770a8f95ba44dce45f3b23b7a9dc2b309c581552a78b",
+      "official_sha256": "57928d6e5a6edeb2abd3770a8f95ba44dce45f3b23b7a9dc2b309c581552a78b",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.9.0",
+      "artifact": "kotlinx-coroutines-core-jvm-1.9.0.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://repo.maven.apache.org/maven2/org/jetbrains/kotlinx/kotlinx-coroutines-core-jvm/1.9.0/kotlinx-coroutines-core-jvm-1.9.0.jar.sha256",
+      "local_sha256": "ad89c2892235e670f222d819cb3d81188143cb19a05b59df9889ae4269f5c70a",
+      "official_sha256": "ad89c2892235e670f222d819cb3d81188143cb19a05b59df9889ae4269f5c70a",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.android.tools.build:aapt2-proto:9.3.1-15703166",
+      "artifact": "aapt2-proto-9.3.1-15703166.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://dl.google.com/dl/android/maven2/com/android/tools/build/aapt2-proto/9.3.1-15703166/aapt2-proto-9.3.1-15703166.jar.sha256",
+      "local_sha256": "5bcdd71fde7863c68c67ee4a69cf86206fbd3a2de66f5a3e4625ce5fb4ead2b5",
+      "official_sha256": "5bcdd71fde7863c68c67ee4a69cf86206fbd3a2de66f5a3e4625ce5fb4ead2b5",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.android.tools.ddms:ddmlib:32.3.1",
+      "artifact": "ddmlib-32.3.1.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://dl.google.com/dl/android/maven2/com/android/tools/ddms/ddmlib/32.3.1/ddmlib-32.3.1.jar.sha256",
+      "local_sha256": "8bc8edf0637a9b520febf83b10b57f3120de5f5f3295cb232c90464f65d44318",
+      "official_sha256": "8bc8edf0637a9b520febf83b10b57f3120de5f5f3295cb232c90464f65d44318",
+      "status": "match"
+    },
+    {
+      "coordinate": "net.sf.kxml:kxml2:2.3.0",
+      "artifact": "kxml2-2.3.0.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar",
+      "local_sha256": "f264dd9f79a1fde10ce5ecc53221eff24be4c9331c830b7d52f2f08a7b633de2",
+      "official_sha256": "f264dd9f79a1fde10ce5ecc53221eff24be4c9331c830b7d52f2f08a7b633de2",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.android.tools.layoutlib:layoutlib-api:32.3.1",
+      "artifact": "layoutlib-api-32.3.1.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://dl.google.com/dl/android/maven2/com/android/tools/layoutlib/layoutlib-api/32.3.1/layoutlib-api-32.3.1.jar.sha256",
+      "local_sha256": "124f04eba80033e5080748a05797003a81c906deb5b76663abc289d009943e82",
+      "official_sha256": "124f04eba80033e5080748a05797003a81c906deb5b76663abc289d009943e82",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.android.tools:sdklib:32.3.1",
+      "artifact": "sdklib-32.3.1.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://dl.google.com/dl/android/maven2/com/android/tools/sdklib/32.3.1/sdklib-32.3.1.jar.sha256",
+      "local_sha256": "4433ca379db0a9f7bd0a5d5b931b0ac671747b10791706dc0d42a348dacbb782",
+      "official_sha256": "4433ca379db0a9f7bd0a5d5b931b0ac671747b10791706dc0d42a348dacbb782",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.android.tools:repository:32.3.1",
+      "artifact": "repository-32.3.1.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://dl.google.com/dl/android/maven2/com/android/tools/repository/32.3.1/repository-32.3.1.jar.sha256",
+      "local_sha256": "b9470bb01fbd8fcad4847e1d10967b20fa93255361c0d2b2103fc6dcff13b177",
+      "official_sha256": "b9470bb01fbd8fcad4847e1d10967b20fa93255361c0d2b2103fc6dcff13b177",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.google.jimfs:jimfs:1.1",
+      "artifact": "jimfs-1.1.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/com/google/jimfs/jimfs/1.1/jimfs-1.1.jar",
+      "local_sha256": "c4828e28d7c0a930af9387510b3bada7daa5c04d7c25a75c7b8b081f1c257ddd",
+      "official_sha256": "c4828e28d7c0a930af9387510b3bada7daa5c04d7c25a75c7b8b081f1c257ddd",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.apache.commons:commons-compress:1.27.1",
+      "artifact": "commons-compress-1.27.1.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.27.1/commons-compress-1.27.1.jar",
+      "local_sha256": "293d80f54b536b74095dcd7ea3cf0a29bbfc3402519281332495f4420d370d16",
+      "official_sha256": "293d80f54b536b74095dcd7ea3cf0a29bbfc3402519281332495f4420d370d16",
+      "status": "match"
+    },
+    {
+      "coordinate": "commons-codec:commons-codec:1.17.1",
+      "artifact": "commons-codec-1.17.1.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.17.1/commons-codec-1.17.1.jar",
+      "local_sha256": "f9f6cb103f2ddc3c99a9d80ada2ae7bf0685111fd6bffccb72033d1da4e6ff23",
+      "official_sha256": "f9f6cb103f2ddc3c99a9d80ada2ae7bf0685111fd6bffccb72033d1da4e6ff23",
+      "status": "match"
+    },
+    {
+      "coordinate": "commons-io:commons-io:2.16.1",
+      "artifact": "commons-io-2.16.1.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/commons-io/commons-io/2.16.1/commons-io-2.16.1.jar",
+      "local_sha256": "f41f7baacd716896447ace9758621f62c1c6b0a91d89acee488da26fc477c84f",
+      "official_sha256": "f41f7baacd716896447ace9758621f62c1c6b0a91d89acee488da26fc477c84f",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.apache.commons:commons-lang3:3.16.0",
+      "artifact": "commons-lang3-3.16.0.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.16.0/commons-lang3-3.16.0.jar",
+      "local_sha256": "08709dd74d602b705ce4017d26544210056a4ba583d5b20c09373406fe7a00f8",
+      "official_sha256": "08709dd74d602b705ce4017d26544210056a4ba583d5b20c09373406fe7a00f8",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.glassfish.jaxb:jaxb-runtime:2.3.2",
+      "artifact": "jaxb-runtime-2.3.2.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/glassfish/jaxb/jaxb-runtime/2.3.2/jaxb-runtime-2.3.2.jar",
+      "local_sha256": "e6e0a1e89fb6ff786279e6a0082d5cef52dc2ebe67053d041800737652b4fd1b",
+      "official_sha256": "e6e0a1e89fb6ff786279e6a0082d5cef52dc2ebe67053d041800737652b4fd1b",
+      "status": "match"
+    },
+    {
+      "coordinate": "jakarta.xml.bind:jakarta.xml.bind-api:2.3.2",
+      "artifact": "jakarta.xml.bind-api-2.3.2.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/jakarta/xml/bind/jakarta.xml.bind-api/2.3.2/jakarta.xml.bind-api-2.3.2.jar",
+      "local_sha256": "69156304079bdeed9fc0ae3b39389f19b3cc4ba4443bc80508995394ead742ea",
+      "official_sha256": "69156304079bdeed9fc0ae3b39389f19b3cc4ba4443bc80508995394ead742ea",
+      "status": "match"
+    },
+    {
+      "coordinate": "jakarta.activation:jakarta.activation-api:1.2.1",
+      "artifact": "jakarta.activation-api-1.2.1.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/jakarta/activation/jakarta.activation-api/1.2.1/jakarta.activation-api-1.2.1.jar",
+      "local_sha256": "8b0a0f52fa8b05c5431921a063ed866efaa41dadf2e3a7ee3e1961f2b0d9645b",
+      "official_sha256": "8b0a0f52fa8b05c5431921a063ed866efaa41dadf2e3a7ee3e1961f2b0d9645b",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.glassfish.jaxb:txw2:2.3.2",
+      "artifact": "txw2-2.3.2.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/glassfish/jaxb/txw2/2.3.2/txw2-2.3.2.jar",
+      "local_sha256": "4a6a9f483388d461b81aa9a28c685b8b74c0597993bf1884b04eddbca95f48fe",
+      "official_sha256": "4a6a9f483388d461b81aa9a28c685b8b74c0597993bf1884b04eddbca95f48fe",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.sun.istack:istack-commons-runtime:3.0.8",
+      "artifact": "istack-commons-runtime-3.0.8.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/com/sun/istack/istack-commons-runtime/3.0.8/istack-commons-runtime-3.0.8.jar",
+      "local_sha256": "4ffabb06be454a05e4398e20c77fa2b6308d4b88dfbef7ca30a76b5b7d5505ef",
+      "official_sha256": "4ffabb06be454a05e4398e20c77fa2b6308d4b88dfbef7ca30a76b5b7d5505ef",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.jvnet.staxex:stax-ex:1.8.1",
+      "artifact": "stax-ex-1.8.1.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/jvnet/staxex/stax-ex/1.8.1/stax-ex-1.8.1.jar",
+      "local_sha256": "20522549056e9e50aa35ef0b445a2e47a53d06be0b0a9467d704e2483ffb049a",
+      "official_sha256": "20522549056e9e50aa35ef0b445a2e47a53d06be0b0a9467d704e2483ffb049a",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.sun.xml.fastinfoset:FastInfoset:1.2.16",
+      "artifact": "FastInfoset-1.2.16.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/com/sun/xml/fastinfoset/FastInfoset/1.2.16/FastInfoset-1.2.16.jar",
+      "local_sha256": "056f3a1e144409f21ed16afc26805f58e9a21f3fce1543c42d400719d250c511",
+      "official_sha256": "056f3a1e144409f21ed16afc26805f58e9a21f3fce1543c42d400719d250c511",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.android.tools:dvlib:32.3.1",
+      "artifact": "dvlib-32.3.1.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://dl.google.com/dl/android/maven2/com/android/tools/dvlib/32.3.1/dvlib-32.3.1.jar.sha256",
+      "local_sha256": "52e27f1364cdb5d4f531f52e4eec5ae48da040daa9417d4f06ddf6a1799a065e",
+      "official_sha256": "52e27f1364cdb5d4f531f52e4eec5ae48da040daa9417d4f06ddf6a1799a065e",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.apache.httpcomponents:httpcore:4.4.16",
+      "artifact": "httpcore-4.4.16.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpcore/4.4.16/httpcore-4.4.16.jar",
+      "local_sha256": "6c9b3dd142a09dc468e23ad39aad6f75a0f2b85125104469f026e52a474e464f",
+      "official_sha256": "6c9b3dd142a09dc468e23ad39aad6f75a0f2b85125104469f026e52a474e464f",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.apache.httpcomponents:httpmime:4.5.6",
+      "artifact": "httpmime-4.5.6.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpmime/4.5.6/httpmime-4.5.6.jar",
+      "local_sha256": "0b2b1102c18d3c7e05a77214b9b7501a6f6056174ae5604e0e256776eda7553e",
+      "official_sha256": "0b2b1102c18d3c7e05a77214b9b7501a6f6056174ae5604e0e256776eda7553e",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.apache.httpcomponents:httpclient:4.5.14",
+      "artifact": "httpclient-4.5.14.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpclient/4.5.14/httpclient-4.5.14.jar",
+      "local_sha256": "c8bc7e1c51a6d4ce72f40d2ebbabf1c4b68bfe76e732104b04381b493478e9d6",
+      "official_sha256": "c8bc7e1c51a6d4ce72f40d2ebbabf1c4b68bfe76e732104b04381b493478e9d6",
+      "status": "match"
+    },
+    {
+      "coordinate": "commons-logging:commons-logging:1.2",
+      "artifact": "commons-logging-1.2.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/commons-logging/commons-logging/1.2/commons-logging-1.2.jar",
+      "local_sha256": "daddea1ea0be0f56978ab3006b8ac92834afeefbd9b7e4e6316fca57df0fa636",
+      "official_sha256": "daddea1ea0be0f56978ab3006b8ac92834afeefbd9b7e4e6316fca57df0fa636",
+      "status": "match"
+    },
+    {
+      "coordinate": "javax.inject:javax.inject:1",
+      "artifact": "javax.inject-1.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/javax/inject/javax.inject/1/javax.inject-1.jar",
+      "local_sha256": "91c77044a50c481636c32d916fd89c9118a72195390452c81065080f957de7ff",
+      "official_sha256": "91c77044a50c481636c32d916fd89c9118a72195390452c81065080f957de7ff",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.bouncycastle:bcpkix-jdk18on:1.79",
+      "artifact": "bcpkix-jdk18on-1.79.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://repo.maven.apache.org/maven2/org/bouncycastle/bcpkix-jdk18on/1.79/bcpkix-jdk18on-1.79.jar.sha256",
+      "local_sha256": "3639a24ddf9ba4b7eba0659b44770e91eba816421888e571f285aadefe532cd6",
+      "official_sha256": "3639a24ddf9ba4b7eba0659b44770e91eba816421888e571f285aadefe532cd6",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.bouncycastle:bcprov-jdk18on:1.79",
+      "artifact": "bcprov-jdk18on-1.79.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://repo.maven.apache.org/maven2/org/bouncycastle/bcprov-jdk18on/1.79/bcprov-jdk18on-1.79.jar.sha256",
+      "local_sha256": "0d81ecc3124536b539bce9aa3fe9621b7f84c9cee371b635a5b31c78b79ab1da",
+      "official_sha256": "0d81ecc3124536b539bce9aa3fe9621b7f84c9cee371b635a5b31c78b79ab1da",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.bouncycastle:bcutil-jdk18on:1.79",
+      "artifact": "bcutil-jdk18on-1.79.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://repo.maven.apache.org/maven2/org/bouncycastle/bcutil-jdk18on/1.79/bcutil-jdk18on-1.79.jar.sha256",
+      "local_sha256": "c70b88ada58938cbc2f005d40329054078bcfa1149e6ffc03e9242eb6ab21836",
+      "official_sha256": "c70b88ada58938cbc2f005d40329054078bcfa1149e6ffc03e9242eb6ab21836",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.jetbrains.kotlin:kotlin-reflect:2.3.20",
+      "artifact": "kotlin-reflect-2.3.20.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-reflect/2.3.20/kotlin-reflect-2.3.20.jar",
+      "local_sha256": "e346fa3c3ff4451f5f707a312887fd4c8555da48cc15fa9db2ba93c33f89f813",
+      "official_sha256": "e346fa3c3ff4451f5f707a312887fd4c8555da48cc15fa9db2ba93c33f89f813",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.android.tools.build:aaptcompiler:9.3.1",
+      "artifact": "aaptcompiler-9.3.1.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://dl.google.com/dl/android/maven2/com/android/tools/build/aaptcompiler/9.3.1/aaptcompiler-9.3.1.jar.sha256",
+      "local_sha256": "aaa3da8e958ac94c3352284224c82c0f153dcbc9376d9ddc0d8e935087849302",
+      "official_sha256": "aaa3da8e958ac94c3352284224c82c0f153dcbc9376d9ddc0d8e935087849302",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.android.tools.analytics-library:crash:32.3.1",
+      "artifact": "crash-32.3.1.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://dl.google.com/dl/android/maven2/com/android/tools/analytics-library/crash/32.3.1/crash-32.3.1.jar.sha256",
+      "local_sha256": "89e33b3eaf05e77576c88ca14a458c47dfe0735efbfa48ee18e5fa85f95f6f2a",
+      "official_sha256": "89e33b3eaf05e77576c88ca14a458c47dfe0735efbfa48ee18e5fa85f95f6f2a",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.android.tools.lint:lint-model:32.3.1",
+      "artifact": "lint-model-32.3.1.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://dl.google.com/dl/android/maven2/com/android/tools/lint/lint-model/32.3.1/lint-model-32.3.1.jar.sha256",
+      "local_sha256": "dba7719ec2ba9f7e800147dd21fb57be65e0ef315a37356f6878d81222e82fc6",
+      "official_sha256": "dba7719ec2ba9f7e800147dd21fb57be65e0ef315a37356f6878d81222e82fc6",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.android.tools.build:builder-model:9.3.1",
+      "artifact": "builder-model-9.3.1.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://dl.google.com/dl/android/maven2/com/android/tools/build/builder-model/9.3.1/builder-model-9.3.1.jar.sha256",
+      "local_sha256": "f1da398dd40d289ae566022b057c7ce7bd93b60d0d747f9938db645f0c872bfc",
+      "official_sha256": "f1da398dd40d289ae566022b057c7ce7bd93b60d0d747f9938db645f0c872bfc",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.android.tools.lint:lint-typedef-remover:32.3.1",
+      "artifact": "lint-typedef-remover-32.3.1.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://dl.google.com/dl/android/maven2/com/android/tools/lint/lint-typedef-remover/32.3.1/lint-typedef-remover-32.3.1.jar.sha256",
+      "local_sha256": "e281e90a6ffc831800e64517be8f1b230a6367bec226f1b0ce1a80d4573deade",
+      "official_sha256": "e281e90a6ffc831800e64517be8f1b230a6367bec226f1b0ce1a80d4573deade",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.ow2.asm:asm:9.9",
+      "artifact": "asm-9.9.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://repo.maven.apache.org/maven2/org/ow2/asm/asm/9.9/asm-9.9.jar.sha256",
+      "local_sha256": "03d99a74ad1ee5c71334ef67437f4ef4fe3488caa7c96d8645abc73c8e2017d4",
+      "official_sha256": "03d99a74ad1ee5c71334ef67437f4ef4fe3488caa7c96d8645abc73c8e2017d4",
+      "status": "match"
+    },
+    {
+      "coordinate": "androidx.databinding:databinding-compiler-common:9.3.1",
+      "artifact": "databinding-compiler-common-9.3.1.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://dl.google.com/dl/android/maven2/androidx/databinding/databinding-compiler-common/9.3.1/databinding-compiler-common-9.3.1.jar.sha256",
+      "local_sha256": "8f42de3ab6d6cae1fb53a14d3396c49b01d6a44921ce70cfd164177bae5ed3b8",
+      "official_sha256": "8f42de3ab6d6cae1fb53a14d3396c49b01d6a44921ce70cfd164177bae5ed3b8",
+      "status": "match"
+    },
+    {
+      "coordinate": "androidx.databinding:databinding-common:9.3.1",
+      "artifact": "databinding-common-9.3.1.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://dl.google.com/dl/android/maven2/androidx/databinding/databinding-common/9.3.1/databinding-common-9.3.1.jar.sha256",
+      "local_sha256": "82816382a2a9dec4f0ab17c79cef08a9e4fe4b97d896ac20d7f215b6dd788b18",
+      "official_sha256": "82816382a2a9dec4f0ab17c79cef08a9e4fe4b97d896ac20d7f215b6dd788b18",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.android.databinding:baseLibrary:9.3.1",
+      "artifact": "baseLibrary-9.3.1.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://dl.google.com/dl/android/maven2/com/android/databinding/baseLibrary/9.3.1/baseLibrary-9.3.1.jar.sha256",
+      "local_sha256": "96ba2a5f000846d317acdd90de6a7429701ac56573de2ccc8423d2ba40446fd9",
+      "official_sha256": "96ba2a5f000846d317acdd90de6a7429701ac56573de2ccc8423d2ba40446fd9",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.android.tools.build.jetifier:jetifier-core:1.0.0-beta10",
+      "artifact": "jetifier-core-1.0.0-beta10.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://dl.google.com/dl/android/maven2/com/android/tools/build/jetifier/jetifier-core/1.0.0-beta10/jetifier-core-1.0.0-beta10.jar.sha256",
+      "local_sha256": "26abb4a13927d9062169c504c9e94fe80e9ae3a4f7b5ab8875ab007536a91f5e",
+      "official_sha256": "26abb4a13927d9062169c504c9e94fe80e9ae3a4f7b5ab8875ab007536a91f5e",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.googlecode.juniversalchardet:juniversalchardet:1.0.3",
+      "artifact": "juniversalchardet-1.0.3.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/com/googlecode/juniversalchardet/juniversalchardet/1.0.3/juniversalchardet-1.0.3.jar",
+      "local_sha256": "757bfe906193b8b651e79dc26cd67d6b55d0770a2cdfb0381591504f779d4a76",
+      "official_sha256": "757bfe906193b8b651e79dc26cd67d6b55d0770a2cdfb0381591504f779d4a76",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.squareup:javapoet:1.13.0",
+      "artifact": "javapoet-1.13.0.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/com/squareup/javapoet/1.13.0/javapoet-1.13.0.jar",
+      "local_sha256": "4c7517e848a71b36d069d12bb3bf46a70fd4cda3105d822b0ed2e19c00b69291",
+      "official_sha256": "4c7517e848a71b36d069d12bb3bf46a70fd4cda3105d822b0ed2e19c00b69291",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.android.tools.build:builder-test-api:9.3.1",
+      "artifact": "builder-test-api-9.3.1.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://dl.google.com/dl/android/maven2/com/android/tools/build/builder-test-api/9.3.1/builder-test-api-9.3.1.jar.sha256",
+      "local_sha256": "3cdf0caf8b2a104eb6239d4ea3e95a6c20ba2e76fa0ad1134c8e93e7757bd432",
+      "official_sha256": "3cdf0caf8b2a104eb6239d4ea3e95a6c20ba2e76fa0ad1134c8e93e7757bd432",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.android.tools.utp:gradle-work-action-api:32.3.1",
+      "artifact": "gradle-work-action-api-32.3.1.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://dl.google.com/dl/android/maven2/com/android/tools/utp/gradle-work-action-api/32.3.1/gradle-work-action-api-32.3.1.jar.sha256",
+      "local_sha256": "de87773a677e87f619c751c306af6ee73a04a7b26e5f205fff287728d8af4ace",
+      "official_sha256": "de87773a677e87f619c751c306af6ee73a04a7b26e5f205fff287728d8af4ace",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.ow2.asm:asm-analysis:9.9",
+      "artifact": "asm-analysis-9.9.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://repo.maven.apache.org/maven2/org/ow2/asm/asm-analysis/9.9/asm-analysis-9.9.jar.sha256",
+      "local_sha256": "6a15d28e8bd29ba4fd5bca4baf9b50e8fba2d7b51fbf78cfa0c875a7214c678b",
+      "official_sha256": "6a15d28e8bd29ba4fd5bca4baf9b50e8fba2d7b51fbf78cfa0c875a7214c678b",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.ow2.asm:asm-tree:9.9",
+      "artifact": "asm-tree-9.9.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://repo.maven.apache.org/maven2/org/ow2/asm/asm-tree/9.9/asm-tree-9.9.jar.sha256",
+      "local_sha256": "42178f3775c9c63f9e5e1446747d29b4eca4d91bd6e75e5c43cfa372a47d38c6",
+      "official_sha256": "42178f3775c9c63f9e5e1446747d29b4eca4d91bd6e75e5c43cfa372a47d38c6",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.ow2.asm:asm-commons:9.9",
+      "artifact": "asm-commons-9.9.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://repo.maven.apache.org/maven2/org/ow2/asm/asm-commons/9.9/asm-commons-9.9.jar.sha256",
+      "local_sha256": "db2f6f26150bbe7c126606b4a1151836bcc22a1e05a423b3585698bece995ff8",
+      "official_sha256": "db2f6f26150bbe7c126606b4a1151836bcc22a1e05a423b3585698bece995ff8",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.ow2.asm:asm-util:9.9",
+      "artifact": "asm-util-9.9.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://repo.maven.apache.org/maven2/org/ow2/asm/asm-util/9.9/asm-util-9.9.jar.sha256",
+      "local_sha256": "3842e13cfe324ee9ab7cdc4914be9943541ead397c17e26daf0b8a755bede717",
+      "official_sha256": "3842e13cfe324ee9ab7cdc4914be9943541ead397c17e26daf0b8a755bede717",
+      "status": "match"
+    },
+    {
+      "coordinate": "net.sf.jopt-simple:jopt-simple:4.9",
+      "artifact": "jopt-simple-4.9.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/net/sf/jopt-simple/jopt-simple/4.9/jopt-simple-4.9.jar",
+      "local_sha256": "26c5856e954b5f864db76f13b86919b59c6eecf9fd930b96baa8884626baf2f5",
+      "official_sha256": "26c5856e954b5f864db76f13b86919b59c6eecf9fd930b96baa8884626baf2f5",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.android.tools.build:bundletool:1.18.3",
+      "artifact": "bundletool-1.18.3.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://dl.google.com/dl/android/maven2/com/android/tools/build/bundletool/1.18.3/bundletool-1.18.3.jar.sha256",
+      "local_sha256": "ccad18514fd97db010856b2bbed40f481f8ba9349368c97ae54d72e3567d0171",
+      "official_sha256": "ccad18514fd97db010856b2bbed40f481f8ba9349368c97ae54d72e3567d0171",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.google.auto.value:auto-value-annotations:1.6.2",
+      "artifact": "auto-value-annotations-1.6.2.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/com/google/auto/value/auto-value-annotations/1.6.2/auto-value-annotations-1.6.2.jar",
+      "local_sha256": "b48b04ddba40e8ac33bf036f06fc43995fc5084bd94bdaace807ce27d3bea3fb",
+      "official_sha256": "b48b04ddba40e8ac33bf036f06fc43995fc5084bd94bdaace807ce27d3bea3fb",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.google.protobuf:protobuf-java-util:3.25.5",
+      "artifact": "protobuf-java-util-3.25.5.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/com/google/protobuf/protobuf-java-util/3.25.5/protobuf-java-util-3.25.5.jar",
+      "local_sha256": "dacc58b2c3d2fa8d4bddc1acb881e78d6cf7c137dd78bc1d67f6aca732436a8d",
+      "official_sha256": "dacc58b2c3d2fa8d4bddc1acb881e78d6cf7c137dd78bc1d67f6aca732436a8d",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.google.dagger:dagger:2.28.3",
+      "artifact": "dagger-2.28.3.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/com/google/dagger/dagger/2.28.3/dagger-2.28.3.jar",
+      "local_sha256": "f1dd23f8ae34a8e91366723991ead0d6499d1a3e9163ce550c200b02d76a872b",
+      "official_sha256": "f1dd23f8ae34a8e91366723991ead0d6499d1a3e9163ce550c200b02d76a872b",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.bitbucket.b_c:jose4j:0.9.5",
+      "artifact": "jose4j-0.9.5.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/bitbucket/b_c/jose4j/0.9.5/jose4j-0.9.5.jar",
+      "local_sha256": "808fb3166f3e67dad9811c331029ab1681242fd52b735bc3f33f281167fcc72e",
+      "official_sha256": "808fb3166f3e67dad9811c331029ab1681242fd52b735bc3f33f281167fcc72e",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.slf4j:slf4j-api:1.7.30",
+      "artifact": "slf4j-api-1.7.30.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar",
+      "local_sha256": "cdba07964d1bb40a0761485c6b1e8c2f8fd9eb1d19c53928ac0d7f9510105c57",
+      "official_sha256": "cdba07964d1bb40a0761485c6b1e8c2f8fd9eb1d19c53928ac0d7f9510105c57",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.android.tools.build.jetifier:jetifier-processor:1.0.0-beta10",
+      "artifact": "jetifier-processor-1.0.0-beta10.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://dl.google.com/dl/android/maven2/com/android/tools/build/jetifier/jetifier-processor/1.0.0-beta10/jetifier-processor-1.0.0-beta10.jar.sha256",
+      "local_sha256": "c5067a7b928237a1271a5e9cb5710e9f80b4973293945bc51e3a4c864ea4bfed",
+      "official_sha256": "c5067a7b928237a1271a5e9cb5710e9f80b4973293945bc51e3a4c864ea4bfed",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.jdom:jdom2:2.0.6",
+      "artifact": "jdom2-2.0.6.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/jdom/jdom2/2.0.6/jdom2-2.0.6.jar",
+      "local_sha256": "1345f11ba606d15603d6740551a8c21947c0215640770ec67271fe78bea97cf5",
+      "official_sha256": "1345f11ba606d15603d6740551a8c21947c0215640770ec67271fe78bea97cf5",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.jetbrains.kotlin:kotlin-gradle-plugin:2.2.10",
+      "artifact": "kotlin-gradle-plugin-2.2.10-gradle813.jar",
+      "method": "official_gradle_module_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-gradle-plugin/2.2.10/kotlin-gradle-plugin-2.2.10.module",
+      "local_sha256": "bd6b97bd9e563bb57db55a98eaad4306e3f0b39c8a0f9be76e476b22ad51f3b8",
+      "official_sha256": "bd6b97bd9e563bb57db55a98eaad4306e3f0b39c8a0f9be76e476b22ad51f3b8",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.jetbrains.kotlin:kotlin-gradle-plugin-idea:2.2.10",
+      "artifact": "kotlin-gradle-plugin-idea-2.2.10.jar",
+      "method": "official_gradle_module_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-gradle-plugin-idea/2.2.10/kotlin-gradle-plugin-idea-2.2.10.module",
+      "local_sha256": "ec969c5f0b099f823846232238f9bd64f3d3741e62ea9050ad2e432fad79d0a0",
+      "official_sha256": "ec969c5f0b099f823846232238f9bd64f3d3741e62ea9050ad2e432fad79d0a0",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.jetbrains.kotlin:kotlin-tooling-core:2.2.10",
+      "artifact": "kotlin-tooling-core-2.2.10.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-tooling-core/2.2.10/kotlin-tooling-core-2.2.10.jar",
+      "local_sha256": "74014ec4f3ef78ce7da7e3e6964f2c526a3121d5c58fef8ca2979e5f344582f4",
+      "official_sha256": "74014ec4f3ef78ce7da7e3e6964f2c526a3121d5c58fef8ca2979e5f344582f4",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.jetbrains.kotlin:kotlin-gradle-plugin-annotations:2.2.10",
+      "artifact": "kotlin-gradle-plugin-annotations-2.2.10.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-gradle-plugin-annotations/2.2.10/kotlin-gradle-plugin-annotations-2.2.10.jar",
+      "local_sha256": "bb84505ddf5f3d6788f0300de99f365c62c98a5cecf2a058278451aa10300036",
+      "official_sha256": "bb84505ddf5f3d6788f0300de99f365c62c98a5cecf2a058278451aa10300036",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.jetbrains.kotlin:kotlin-gradle-plugin-idea-proto:2.2.10",
+      "artifact": "kotlin-gradle-plugin-idea-proto-2.2.10.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-gradle-plugin-idea-proto/2.2.10/kotlin-gradle-plugin-idea-proto-2.2.10.jar",
+      "local_sha256": "efa9a91c17f464d7973de2273b7af8571cd334200baac107b91fc84effc54c1f",
+      "official_sha256": "efa9a91c17f464d7973de2273b7af8571cd334200baac107b91fc84effc54c1f",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.jetbrains.kotlin:kotlin-klib-commonizer-api:2.2.10",
+      "artifact": "kotlin-klib-commonizer-api-2.2.10.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-klib-commonizer-api/2.2.10/kotlin-klib-commonizer-api-2.2.10.jar",
+      "local_sha256": "cc6b3278a16df1ea6f7720cdc1126ea216b4ae642f3454dea7a36b7d903aea41",
+      "official_sha256": "cc6b3278a16df1ea6f7720cdc1126ea216b4ae642f3454dea7a36b7d903aea41",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.jetbrains.kotlin:kotlin-native-utils:2.2.10",
+      "artifact": "kotlin-native-utils-2.2.10.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-native-utils/2.2.10/kotlin-native-utils-2.2.10.jar",
+      "local_sha256": "98c7231c8561fe7befb35500f270b150e1ee0e833bfb0309163384f14878dde6",
+      "official_sha256": "98c7231c8561fe7befb35500f270b150e1ee0e833bfb0309163384f14878dde6",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.jetbrains.kotlin:kotlin-util-io:2.2.10",
+      "artifact": "kotlin-util-io-2.2.10.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-util-io/2.2.10/kotlin-util-io-2.2.10.jar",
+      "local_sha256": "682be217196dd053860f5bea804a0a11fcb777e55eb8a79512659424808d65d3",
+      "official_sha256": "682be217196dd053860f5bea804a0a11fcb777e55eb8a79512659424808d65d3",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.jetbrains.kotlin:kotlin-util-klib:2.2.10",
+      "artifact": "kotlin-util-klib-2.2.10.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-util-klib/2.2.10/kotlin-util-klib-2.2.10.jar",
+      "local_sha256": "9e6d04a60e9b63a51741293c2ec181ddb78b92104d4a10647d4371045a037041",
+      "official_sha256": "9e6d04a60e9b63a51741293c2ec181ddb78b92104d4a10647d4371045a037041",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.jetbrains.kotlin:kotlin-build-statistics:2.2.10",
+      "artifact": "kotlin-build-statistics-2.2.10.jar",
+      "status": "match",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-build-statistics/2.2.10/kotlin-build-statistics-2.2.10.jar",
+      "local_sha256": "4650ac8d0d3bd1563343d66f03570b437887c8209434dfb261ee3baab2201780",
+      "official_sha256": "4650ac8d0d3bd1563343d66f03570b437887c8209434dfb261ee3baab2201780"
+    },
+    {
+      "coordinate": "org.jetbrains.kotlin:kotlin-build-tools-api:2.2.10",
+      "artifact": "kotlin-build-tools-api-2.2.10.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-build-tools-api/2.2.10/kotlin-build-tools-api-2.2.10.jar",
+      "local_sha256": "6f5ca321fcc74e0f8b0c73228aabb5e2f3e22badd07eb214209247d5cbf3e13f",
+      "official_sha256": "6f5ca321fcc74e0f8b0c73228aabb5e2f3e22badd07eb214209247d5cbf3e13f",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.jetbrains.kotlin:kotlin-util-klib-metadata:2.2.10",
+      "artifact": "kotlin-util-klib-metadata-2.2.10.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-util-klib-metadata/2.2.10/kotlin-util-klib-metadata-2.2.10.jar",
+      "local_sha256": "2a07067dcc13481bad4f45e0858123ab930ee04329f86192b9b2f9989f814560",
+      "official_sha256": "2a07067dcc13481bad4f45e0858123ab930ee04329f86192b9b2f9989f814560",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.jetbrains.kotlin:abi-tools-api:2.2.10",
+      "artifact": "abi-tools-api-2.2.10.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/abi-tools-api/2.2.10/abi-tools-api-2.2.10.jar",
+      "local_sha256": "de9b34e9bacda1d0f6857d3e01dcd2852c9498f6611a832c5807fbacc7c1ccdc",
+      "official_sha256": "de9b34e9bacda1d0f6857d3e01dcd2852c9498f6611a832c5807fbacc7c1ccdc",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.jetbrains.kotlin:kotlin-gradle-plugin-api:2.2.10",
+      "artifact": "kotlin-gradle-plugin-api-2.2.10-gradle813.jar",
+      "method": "official_gradle_module_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-gradle-plugin-api/2.2.10/kotlin-gradle-plugin-api-2.2.10.module",
+      "local_sha256": "9411be7345c4161a97d39796041d3b4c5e9d70cea744404f181199256265bfb5",
+      "official_sha256": "9411be7345c4161a97d39796041d3b4c5e9d70cea744404f181199256265bfb5",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.jetbrains.kotlin:kotlin-gradle-plugin-api:2.2.10",
+      "artifact": "kotlin-gradle-plugin-api-2.2.10.jar",
+      "method": "official_gradle_module_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-gradle-plugin-api/2.2.10/kotlin-gradle-plugin-api-2.2.10.module",
+      "local_sha256": "9411be7345c4161a97d39796041d3b4c5e9d70cea744404f181199256265bfb5",
+      "official_sha256": "9411be7345c4161a97d39796041d3b4c5e9d70cea744404f181199256265bfb5",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.jetbrains.kotlin:kotlin-gradle-plugin-model:2.2.10",
+      "artifact": "kotlin-gradle-plugin-model-2.2.10.jar",
+      "method": "official_gradle_module_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-gradle-plugin-model/2.2.10/kotlin-gradle-plugin-model-2.2.10.module",
+      "local_sha256": "90be3a572be6cee45e5cd65f216d446b26942b0e4c5aa7b6cb8733a79fd5a84c",
+      "official_sha256": "90be3a572be6cee45e5cd65f216d446b26942b0e4c5aa7b6cb8733a79fd5a84c",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.jetbrains.kotlin:fus-statistics-gradle-plugin:2.2.10",
+      "artifact": "fus-statistics-gradle-plugin-2.2.10-gradle813.jar",
+      "method": "official_gradle_module_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/fus-statistics-gradle-plugin/2.2.10/fus-statistics-gradle-plugin-2.2.10.module",
+      "local_sha256": "5b6e2c379cb83f3eed18094f3de5e1e168f71be73f26b6618efcd39cd90324c3",
+      "official_sha256": "5b6e2c379cb83f3eed18094f3de5e1e168f71be73f26b6618efcd39cd90324c3",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.jetbrains.kotlin:kotlin-compiler-runner:2.2.10",
+      "artifact": "kotlin-compiler-runner-2.2.10.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-compiler-runner/2.2.10/kotlin-compiler-runner-2.2.10.jar",
+      "local_sha256": "6ac159f175510bf81989a87b03cf7bb1e790e961f48ad0e0848b58c87785e52c",
+      "official_sha256": "6ac159f175510bf81989a87b03cf7bb1e790e961f48ad0e0848b58c87785e52c",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.jetbrains.kotlin:kotlin-daemon-client:2.2.10",
+      "artifact": "kotlin-daemon-client-2.2.10.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-daemon-client/2.2.10/kotlin-daemon-client-2.2.10.jar",
+      "local_sha256": "2e18ccb9ae8388a32c16c9fee68093d7a204ff714fd3717423824b8b8537f0df",
+      "official_sha256": "2e18ccb9ae8388a32c16c9fee68093d7a204ff714fd3717423824b8b8537f0df",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.google.crypto.tink:tink:1.7.0",
+      "artifact": "tink-1.7.0.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/com/google/crypto/tink/tink/1.7.0/tink-1.7.0.jar",
+      "local_sha256": "88970a456a08ba4c66b01b23e5846ca1095cc14e54cb48363e5d2e15a1307308",
+      "official_sha256": "88970a456a08ba4c66b01b23e5846ca1095cc14e54cb48363e5d2e15a1307308",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.tensorflow:tensorflow-lite-metadata:0.2.0",
+      "artifact": "tensorflow-lite-metadata-0.2.0.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/tensorflow/tensorflow-lite-metadata/0.2.0/tensorflow-lite-metadata-0.2.0.jar",
+      "local_sha256": "e9f18b8a41f017e9033cb0ed85c8a2ba2307292cdfe25eae365923e7a31d2a70",
+      "official_sha256": "e9f18b8a41f017e9033cb0ed85c8a2ba2307292cdfe25eae365923e7a31d2a70",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.google.flatbuffers:flatbuffers-java:1.12.0",
+      "artifact": "flatbuffers-java-1.12.0.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/com/google/flatbuffers/flatbuffers-java/1.12.0/flatbuffers-java-1.12.0.jar",
+      "local_sha256": "3f8c088b4dd04a9858721f2e162508c94db0dd86f961e306ee63ef2eda871bf7",
+      "official_sha256": "3f8c088b4dd04a9858721f2e162508c94db0dd86f961e306ee63ef2eda871bf7",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.android.tools.build:builder:9.3.1",
+      "artifact": "builder-9.3.1.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://dl.google.com/dl/android/maven2/com/android/tools/build/builder/9.3.1/builder-9.3.1.jar.sha256",
+      "local_sha256": "873e0e9feda8762ead0ff1ce60c30cc2bf1c0859e139245a723248d998b009fa",
+      "official_sha256": "873e0e9feda8762ead0ff1ce60c30cc2bf1c0859e139245a723248d998b009fa",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.android:signflinger:9.3.1",
+      "artifact": "signflinger-9.3.1.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://dl.google.com/dl/android/maven2/com/android/signflinger/9.3.1/signflinger-9.3.1.jar.sha256",
+      "local_sha256": "7d82126c9483b540173a65b0354fe27f067ec85c8e64676795873640a06b288d",
+      "official_sha256": "7d82126c9483b540173a65b0354fe27f067ec85c8e64676795873640a06b288d",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.android.tools.build:apksig:9.3.1",
+      "artifact": "apksig-9.3.1.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://dl.google.com/dl/android/maven2/com/android/tools/build/apksig/9.3.1/apksig-9.3.1.jar.sha256",
+      "local_sha256": "562cd0a88890960d2ece48e116c61f12872222f1dcc306890799382bc019b201",
+      "official_sha256": "562cd0a88890960d2ece48e116c61f12872222f1dcc306890799382bc019b201",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.android:zipflinger:9.3.1",
+      "artifact": "zipflinger-9.3.1.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://dl.google.com/dl/android/maven2/com/android/zipflinger/9.3.1/zipflinger-9.3.1.jar.sha256",
+      "local_sha256": "0a1984d14cc8070f734ddcc5a947f122dfee364cdbe18595afb691aa803890e0",
+      "official_sha256": "0a1984d14cc8070f734ddcc5a947f122dfee364cdbe18595afb691aa803890e0",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.android.tools.analytics-library:tracker:32.3.1",
+      "artifact": "tracker-32.3.1.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://dl.google.com/dl/android/maven2/com/android/tools/analytics-library/tracker/32.3.1/tracker-32.3.1.jar.sha256",
+      "local_sha256": "f083e82627981dbe1312b5e805e9470d26b4ff56d09ae8fddcce8f862d2e807a",
+      "official_sha256": "f083e82627981dbe1312b5e805e9470d26b4ff56d09ae8fddcce8f862d2e807a",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.android.tools.build:manifest-merger:32.3.1",
+      "artifact": "manifest-merger-32.3.1.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://dl.google.com/dl/android/maven2/com/android/tools/build/manifest-merger/32.3.1/manifest-merger-32.3.1.jar.sha256",
+      "local_sha256": "e35ff7aa0a4b29660d58b0a667df7b543aa85f7f1dd462a1dd2b021a3a175a30",
+      "official_sha256": "e35ff7aa0a4b29660d58b0a667df7b543aa85f7f1dd462a1dd2b021a3a175a30",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.android.tools.build:apkzlib:9.3.1",
+      "artifact": "apkzlib-9.3.1.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://dl.google.com/dl/android/maven2/com/android/tools/build/apkzlib/9.3.1/apkzlib-9.3.1.jar.sha256",
+      "local_sha256": "a7146985112bba9118c04b0e9745bab736a6673a8143f1467c2f3e4c262bde24",
+      "official_sha256": "a7146985112bba9118c04b0e9745bab736a6673a8143f1467c2f3e4c262bde24",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.squareup:javawriter:2.5.0",
+      "artifact": "javawriter-2.5.0.jar",
+      "method": "official_artifact_download_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/com/squareup/javawriter/2.5.0/javawriter-2.5.0.jar",
+      "local_sha256": "fcfb09fb0ea0aa97d3cfe7ea792398081348e468f126b3603cb3803f240197f0",
+      "official_sha256": "fcfb09fb0ea0aa97d3cfe7ea792398081348e468f126b3603cb3803f240197f0",
+      "status": "match"
+    },
+    {
+      "coordinate": "com.android.tools.build:gradle-api:9.3.1",
+      "artifact": "gradle-api-9.3.1.jar",
+      "method": "official_sha256_sidecar",
+      "official_url": "https://dl.google.com/dl/android/maven2/com/android/tools/build/gradle-api/9.3.1/gradle-api-9.3.1.jar.sha256",
+      "local_sha256": "22fe12b730c9125a834a8d00c78453ce1f94b5388331e3d31d78409d7298812d",
+      "official_sha256": "22fe12b730c9125a834a8d00c78453ce1f94b5388331e3d31d78409d7298812d",
+      "status": "match"
+    },
+    {
+      "coordinate": "org.jetbrains.kotlin:compose-compiler-gradle-plugin:2.2.10",
+      "artifact": "compose-compiler-gradle-plugin-2.2.10-gradle813.jar",
+      "method": "official_gradle_module_sha256",
+      "official_url": "https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/compose-compiler-gradle-plugin/2.2.10/compose-compiler-gradle-plugin-2.2.10.module",
+      "local_sha256": "736d595884c87f3fb88df50c0d6fdfd0b651f5117aefacaeabeb19c4f3b15b1a",
+      "official_sha256": "736d595884c87f3fb88df50c0d6fdfd0b651f5117aefacaeabeb19c4f3b15b1a",
+      "status": "match"
+    }
+  ]
+}

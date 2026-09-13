@@ -1,0 +1,27 @@
+{
+  "method": "Downloaded official GitHub release assets; each local SHA-256 matched its GitHub asset digest; Android SDK apksigner verified APK Signature Scheme v3 and printed the signer certificate digest.",
+  "signer_certificate_sha256": "6a732efac9b43afe280d513ca31b32c802537644b11333d5b34dd9d6179742cc",
+  "releases": [
+    {
+      "tag": "v0.1.0-rc1",
+      "asset_sha256": "923b8a546bd82debf72f0aef57b9139d6554858d77e8a5dad133405a9b5383e6",
+      "signature_v3_valid": true
+    },
+    {
+      "tag": "v0.1.0",
+      "asset_sha256": "8c499bee7c961ae62af4c8de8ae81a344e0f4389db600de8cd3208b8fa6d0a92",
+      "signature_v3_valid": true
+    },
+    {
+      "tag": "v0.2.0",
+      "asset_sha256": "61c4c6d7a4f594a0f54843b16847fe33341ff51f54a6d8665afa3cdae5d6ef8f",
+      "signature_v3_valid": true
+    },
+    {
+      "tag": "v0.2.1",
+      "asset_sha256": "9125271e7f205a3c222ada3704db86e9559fb359ca106c8305b4cece8aba97b3",
+      "signature_v3_valid": true
+    }
+  ],
+  "limit": "Continuity from the first selected prerelease does not independently establish who controls the signing key or prove that intervening releases were safe."
+}

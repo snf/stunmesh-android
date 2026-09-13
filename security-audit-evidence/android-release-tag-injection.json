@@ -1,0 +1,11 @@
+{
+  "workflow": ".github/workflows/release.yml",
+  "affected_lines": [31, 69, 79],
+  "trigger": "push tag matching v*",
+  "synthetic_tag": "v$(printf${IFS}AUDIT_CANARY)",
+  "git_check_ref_format_exit_code": 0,
+  "rendered_version_command": "echo \"VERSION_NAME=v$(printf${IFS}AUDIT_CANARY)\" >> \"$GITHUB_ENV\"",
+  "local_shell_exit_code": 0,
+  "local_github_env_result": "VERSION_NAME=vAUDIT_CANARY",
+  "scope": "Harmless local interpolation proof. No GitHub tag was pushed, no remote workflow was executed, and no credentials were read."
+}
