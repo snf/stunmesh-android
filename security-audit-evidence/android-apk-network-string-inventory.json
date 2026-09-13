@@ -1,0 +1,152 @@
+[
+  {
+    "entry": "classes.dex",
+    "bytes": 14551196,
+    "domains": [
+      [
+        "developer.android.com",
+        4
+      ],
+      [
+        "i.Me",
+        1
+      ],
+      [
+        "r.android.com",
+        1
+      ],
+      [
+        "www.w3.org",
+        1
+      ],
+      [
+        "youtrack.jetbrains.com",
+        1
+      ]
+    ],
+    "urls": [
+      "http://www.w3.org/2000/svg",
+      "https://goo.gle/compose-feedback",
+      "https://r.android.com/3610053",
+      "https://youtrack.jetbrains.com/issue/KT-46465"
+    ]
+  },
+  {
+    "entry": "classes2.dex",
+    "bytes": 7331572,
+    "domains": [
+      [
+        "yaml.org",
+        17
+      ],
+      [
+        "Dispatchers.IO",
+        2
+      ],
+      [
+        "youtrack.jetbrains.com",
+        2
+      ],
+      [
+        "schemas.android.com",
+        1
+      ],
+      [
+        "dhtproxy2.jami.net",
+        1
+      ],
+      [
+        "github.com",
+        1
+      ]
+    ],
+    "urls": [
+      "http://schemas.android.com/apk/res/android",
+      "https://dhtproxy2.jami.net",
+      "https://github.com/tjjh89017/stunmesh-android",
+      "https://yaml.org/spec/1.1/#id934537",
+      "https://youtrack.jetbrains.com/issue/KT-55980",
+      "https://youtrack.jetbrains.com/issue/KT-67202"
+    ]
+  },
+  {
+    "entry": "lib/arm64-v8a/libgojni.so",
+    "bytes": 8136104,
+    "domains": [
+      [
+        "golang.org",
+        644
+      ],
+      [
+        "golang.zx2c4.com",
+        488
+      ],
+      [
+        "github.com",
+        360
+      ],
+      [
+        "go.dev",
+        3
+      ],
+      [
+        "0github.com",
+        2
+      ],
+      [
+        "4github.com",
+        2
+      ],
+      [
+        "yaml.org",
+        1
+      ],
+      [
+        "expiredstun.l.google.com",
+        1
+      ],
+      [
+        "api.cloudflare.com",
+        1
+      ],
+      [
+        "7github.com",
+        1
+      ],
+      [
+        "9github.com",
+        1
+      ],
+      [
+        "Cgithub.com",
+        1
+      ],
+      [
+        "android.googlesource.com",
+        1
+      ]
+    ],
+    "urls": [
+      "http://upgradeUpgradechunkedCreatedIM",
+      "https://android.googlesource.com/toolchain/llvm-project",
+      "https://api.cloudflare.com/client/v4opendht",
+      "https://go.dev/doc/godebug#go-1casgstatus:",
+      "https://go.dev/issue/66821):",
+      "https://go.dev/pkg/crypto/rsa#hdr-Minimum_key_size)Go",
+      "https://net/http:"
+    ]
+  },
+  {
+    "entry": "lib/arm64-v8a/libandroidx.graphics.path.so",
+    "bytes": 10096,
+    "domains": [
+      [
+        "android.googlesource.com",
+        1
+      ]
+    ],
+    "urls": [
+      "https://android.googlesource.com/toolchain/llvm-project"
+    ]
+  }
+]
