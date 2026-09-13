@@ -172,6 +172,18 @@ class SecurityAuditTest {
     }
 
     @Test
+    fun duplicateYamlPrivateKeySilentlyUsesLastValue() {
+        val yaml = """
+            schema: 1
+            wireguard:
+              private_key: visible-first-key
+              private_key: hidden-second-key
+            stunmesh: {}
+        """.trimIndent()
+        assertEquals("hidden-second-key", TunnelYaml.decode(yaml).iface.privateKey)
+    }
+
+    @Test
     fun malformedImportErrorCanIncludePrivateKeyText() {
         val malformed = "wireguard:\n  private_key: AUDIT-CANARY: extra\n"
         val error = assertThrows(IllegalArgumentException::class.java) {
