@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="dev.stunmesh.android.config.SecurityAuditTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-09-13T07:00:29.345Z" hostname="e14" time="0.201">
+<testsuite name="dev.stunmesh.android.config.SecurityAuditTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-09-13T07:02:35.657Z" hostname="e14" time="0.202">
   <properties/>
-  <testcase name="malformedWgQuickImportErrorCanIncludePrivateKeyText" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.036"/>
-  <testcase name="importedTunnelCanKeepDistinctStoresForDifferentPeers" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.101"/>
-  <testcase name="malformedImportErrorCanIncludePrivateKeyText" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.004"/>
-  <testcase name="importedYamlPreservesLowOrderPeerPublicKeyAcrossGoBoundary" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.027"/>
-  <testcase name="genericApiKeyIsNotRedactedFromLogExportConfig" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.013"/>
-  <testcase name="snakeYamlDefaultRejectsArbitraryJavaObjectTag" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.002"/>
-  <testcase name="snakeYamlRejectsCollectionAliasExpansion" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.004"/>
-  <testcase name="importedYamlPreservesExecutablePluginTypeAcrossGoBoundary" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.004"/>
-  <testcase name="importedYamlPreservesHiddenUapiLinesInAllowedIpAcrossGoBoundary" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.003"/>
+  <testcase name="malformedWgQuickImportErrorCanIncludePrivateKeyText" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.035"/>
+  <testcase name="importedTunnelCanKeepDistinctStoresForDifferentPeers" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.093"/>
+  <testcase name="malformedImportErrorCanIncludePrivateKeyText" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.003"/>
+  <testcase name="importedYamlPreservesLowOrderPeerPublicKeyAcrossGoBoundary" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.025"/>
+  <testcase name="genericApiKeyIsNotRedactedFromLogExportConfig" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.014"/>
+  <testcase name="snakeYamlDefaultRejectsArbitraryJavaObjectTag" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.003"/>
+  <testcase name="snakeYamlRejectsCollectionAliasExpansion" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.005"/>
+  <testcase name="importedYamlPreservesExecutablePluginTypeAcrossGoBoundary" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.005"/>
+  <testcase name="importedYamlPreservesHiddenUapiLinesInAllowedIpAcrossGoBoundary" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.011"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

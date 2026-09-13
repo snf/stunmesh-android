@@ -77,18 +77,21 @@ class SecurityAuditTest {
 
     @Test
     fun importedYamlPreservesHiddenUapiLinesInAllowedIpAcrossGoBoundary() {
+        val privateKey = "AQIDBAUGBwgJCgsMDQ4PEBESExQVFhcYGRobHB0eHyA="
+        val peerKey = "ISIjJCUmJygpKissLS4vMDEyMzQ1Njc4OTo7PD0+P0A="
+        val rogueHex = "4142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f60"
         val yaml = """
             schema: 1
             wireguard:
-              private_key: synthetic-private-key
+              private_key: $privateKey
               peers:
-                - public_key: synthetic-peer
-                  allowed_ips: ["10.89.0.2/32\npublic_key=synthetic-rogue\nallowed_ip=10.89.0.3/32"]
+                - public_key: $peerKey
+                  allowed_ips: ["10.89.0.2/32\npublic_key=$rogueHex\nallowed_ip=10.89.0.3/32"]
             stunmesh: {}
         """.trimIndent()
         val tunnel = TunnelYaml.decode(yaml)
         val hidden = tunnel.peers.single().allowedIps.single()
-        assertTrue(hidden.contains("\npublic_key=synthetic-rogue\n"))
+        assertTrue(hidden.contains("\npublic_key=$rogueHex\n"))
         assertEquals(hidden, TunnelConfig.fromJson(tunnel.toJson()).peers.single().allowedIps.single())
     }
 
