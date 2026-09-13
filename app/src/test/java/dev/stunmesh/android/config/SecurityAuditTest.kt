@@ -128,6 +128,24 @@ class SecurityAuditTest {
     }
 
     @Test
+    fun opendhtUrlUserinfoSurvivesRedactedLogConfig() {
+        val tunnel = TunnelConfig(
+            plugins = listOf(
+                PluginDefinition(
+                    name = "opendht",
+                    config = mapOf(
+                        "endpoint" to "https://audit-user:audit-secret@example.invalid",
+                        "endpoints" to listOf("https://audit-other:audit-list-secret@example.invalid"),
+                    ),
+                ),
+            ),
+        )
+        val exported = TunnelYaml.encode(tunnel.redactSecrets())
+        assertTrue("URL userinfo in singular endpoint is not redacted", exported.contains("audit-secret"))
+        assertTrue("URL userinfo in endpoints list is not redacted", exported.contains("audit-list-secret"))
+    }
+
+    @Test
     fun snakeYamlDefaultRejectsArbitraryJavaObjectTag() {
         val yaml = """
             schema: 1

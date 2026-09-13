@@ -1,0 +1,19 @@
+2026-09-13. Synthetic credentials only; no phone or production secret used.
+
+Command (isolated bubblewrap namespace, SDK installed after user approval):
+  ./gradlew --offline :app:testDebugUnitTest --tests dev.stunmesh.android.config.SecurityAuditTest
+Result: BUILD SUCCESSFUL. The audit-only test
+  opendhtUrlUserinfoSurvivesRedactedLogConfig
+proved that both plugin.config.endpoint and plugin.config.endpoints URLs keep
+their synthetic userinfo password after TunnelConfig.redactSecrets() and
+TunnelYaml.encode().
+The full offline :app:testDebugUnitTest task then passed 26 tests across five
+suites, with zero failures, errors or skips. The updated audit-suite XML is
+stored in android-audit-test-results.xml.
+
+StatusScreen.buildLogExport includes that encoded configuration under the
+label "secrets redacted", then appends TunnelManager.logLines verbatim.
+stunmesh-go's independent synthetic proxy test showed that a failed OpenDHT
+request returns an error containing the configured URL's synthetic password;
+mobile/controller.go forwards that error to OnLog. This is a conditional
+local/share-export disclosure, not evidence of automatic remote exfiltration.
