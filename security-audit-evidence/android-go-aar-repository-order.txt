@@ -1,0 +1,19 @@
+Read-only repository-origin check, 2026-09-13 06:32 UTC.
+
+settings.gradle.kts declares google(), mavenCentral(), then an Ivy repository
+for dev.stunmesh pointing at the upstream GitHub release download path. The
+Ivy repository's includeGroup("dev.stunmesh") is a repository-local filter,
+not exclusive content filtering. Gradle documents that earlier repositories
+remain eligible and recommends exclusiveContent when only one origin should
+provide an artifact:
+https://docs.gradle.org/current/userguide/filtering_repository_content.html
+https://docs.gradle.org/current/userguide/declaring_repositories_basics.html
+
+Read-only HEAD/GET-style checks of the current coordinates returned 404:
+https://repo.maven.apache.org/maven2/dev/stunmesh/stunmesh-android/v1.15.1/stunmesh-android-v1.15.1.pom -> 404
+https://repo.maven.apache.org/maven2/dev/stunmesh/stunmesh-android/v1.15.1/stunmesh-android-v1.15.1.aar -> 404
+https://dl.google.com/dl/android/maven2/dev/stunmesh/stunmesh-android/v1.15.1/stunmesh-android-v1.15.1.pom -> 404
+
+This documents a conditional dependency-origin risk on a future clean build,
+not evidence that the checked release resolved a substitute artifact. The
+checked cached Go AAR was independently compared to upstream release source.
