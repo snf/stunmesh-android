@@ -59,9 +59,9 @@ The OpenDHT HTTPS proxy is needed for periodic discovery records, **not** an ong
 
 ### A-07 — Low/medium local denial of service: unbounded imported document
 
-`MainActivity.kt:102–105` uses `InputStream.readBytes()` on a user-selected content URI before YAML or wg-quick parsing, with no size limit. An untrusted provider or selected oversized file can exhaust process memory. This requires the user's import action and does not grant network access. SnakeYAML 2.5's default loader rejected a synthetic arbitrary Java object tag and a 100-entry collection-alias expansion in `SecurityAuditTest`; no YAML deserialization RCE was demonstrated. These checks do not bound the preceding file read or prove every YAML resource limit.
+`MainActivity.kt:102–105` uses `InputStream.readBytes()` on a user-selected content URI before YAML or wg-quick parsing, with no size limit. An untrusted provider or selected oversized file can exhaust process memory. This requires the user's import action and does not grant network access. The exact published SnakeYAML 2.5 JAR's `Yaml(DumperOptions)` bytecode creates default `LoaderOptions` with `UnTrustedTagInspector`, a 50-collection-alias limit, a nesting limit of 50 and a 3,145,728-code-point document limit; duplicate keys remain allowed (`security-audit-evidence/android-snakeyaml-loader-defaults.txt`). The app's JVM tests also rejected a synthetic arbitrary Java object tag and a 100-entry alias expansion; no YAML deserialization RCE was demonstrated. These parser limits apply **after** the unbounded file read and do not prove every YAML resource limit or remove duplicate-key ambiguity.
 
-**Fix:** Bound reads to a small configuration limit, reject oversized/malformed inputs before persisting, and validate peer/plugin counts and string lengths.
+**Fix:** Bound reads to a small configuration limit, reject oversized/malformed inputs before persisting, disallow duplicate YAML keys, and validate peer/plugin counts and string lengths.
 
 ### A-08 — Build and update-chain residual risks
 

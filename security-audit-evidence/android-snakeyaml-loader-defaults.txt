@@ -1,0 +1,57 @@
+e6682acf1ace77508ef13649cbf4f8d09d2cf5457bdb61d25ffb6ac0233d78dd  /workspace/stunmesh-audit-2026-09-13/cache/gradle/caches/modules-2/files-2.1/org.yaml/snakeyaml/2.5/2d53ddec134280cb384c1e35d094e5f71c1f2316/snakeyaml-2.5.jar
+  public org.yaml.snakeyaml.LoaderOptions();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: iconst_1
+       6: putfield      #2                  // Field allowDuplicateKeys:Z
+       9: aload_0
+      10: iconst_1
+      11: putfield      #3                  // Field warnOnDuplicateKeys:Z
+      14: aload_0
+      15: iconst_0
+      16: putfield      #4                  // Field wrappedToRootException:Z
+      19: aload_0
+      20: bipush        50
+      22: putfield      #5                  // Field maxAliasesForCollections:I
+      25: aload_0
+      26: iconst_0
+      27: putfield      #6                  // Field allowRecursiveKeys:Z
+      30: aload_0
+      31: iconst_0
+      32: putfield      #7                  // Field processComments:Z
+      35: aload_0
+      36: iconst_1
+      37: putfield      #8                  // Field enumCaseSensitive:Z
+      40: aload_0
+      41: bipush        50
+      43: putfield      #9                  // Field nestingDepthLimit:I
+      46: aload_0
+      47: ldc           #10                 // int 3145728
+      49: putfield      #11                 // Field codePointLimit:I
+      52: aload_0
+      53: iconst_0
+      54: putfield      #12                 // Field mergeOnCompose:Z
+      57: aload_0
+      58: new           #13                 // class org/yaml/snakeyaml/inspector/UnTrustedTagInspector
+      61: dup
+      62: invokespecial #14                 // Method org/yaml/snakeyaml/inspector/UnTrustedTagInspector."<init>":()V
+      65: putfield      #15                 // Field tagInspector:Lorg/yaml/snakeyaml/inspector/TagInspector;
+      68: return
+  public org.yaml.snakeyaml.Yaml(org.yaml.snakeyaml.DumperOptions);
+    Code:
+       0: aload_0
+       1: new           #1                  // class org/yaml/snakeyaml/constructor/Constructor
+       4: dup
+       5: new           #2                  // class org/yaml/snakeyaml/LoaderOptions
+       8: dup
+       9: invokespecial #3                  // Method org/yaml/snakeyaml/LoaderOptions."<init>":()V
+      12: invokespecial #4                  // Method org/yaml/snakeyaml/constructor/Constructor."<init>":(Lorg/yaml/snakeyaml/LoaderOptions;)V
+      15: new           #5                  // class org/yaml/snakeyaml/representer/Representer
+      18: dup
+      19: aload_1
+      20: invokespecial #8                  // Method org/yaml/snakeyaml/representer/Representer."<init>":(Lorg/yaml/snakeyaml/DumperOptions;)V
+      23: aload_1
+      24: invokespecial #10                 // Method "<init>":(Lorg/yaml/snakeyaml/constructor/BaseConstructor;Lorg/yaml/snakeyaml/representer/Representer;Lorg/yaml/snakeyaml/DumperOptions;)V
+      27: return
