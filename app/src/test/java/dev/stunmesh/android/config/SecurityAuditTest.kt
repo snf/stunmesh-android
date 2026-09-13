@@ -96,6 +96,28 @@ class SecurityAuditTest {
     }
 
     @Test
+    fun importedYamlPreservesHiddenUapiPeerInEndpointWithValidRoute() {
+        val privateKey = "AQIDBAUGBwgJCgsMDQ4PEBESExQVFhcYGRobHB0eHyA="
+        val peerKey = "ISIjJCUmJygpKissLS4vMDEyMzQ1Njc4OTo7PD0+P0A="
+        val rogueHex = "4142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f60"
+        val yaml = """
+            schema: 1
+            wireguard:
+              private_key: $privateKey
+              peers:
+                - public_key: $peerKey
+                  endpoint: "127.0.0.1:9\npublic_key=$rogueHex"
+                  allowed_ips: [10.89.0.2/32]
+            stunmesh: {}
+        """.trimIndent()
+        val tunnel = TunnelYaml.decode(yaml)
+        val peer = tunnel.peers.single()
+        assertEquals(listOf("10.89.0.2/32"), peer.allowedIps)
+        assertTrue(peer.endpoint.contains("\npublic_key=$rogueHex"))
+        assertEquals(peer.endpoint, TunnelConfig.fromJson(tunnel.toJson()).peers.single().endpoint)
+    }
+
+    @Test
     fun genericApiKeyIsNotRedactedFromLogExportConfig() {
         val tunnel = TunnelConfig(
             iface = InterfaceConfig(privateKey = "synthetic-private-key"),
