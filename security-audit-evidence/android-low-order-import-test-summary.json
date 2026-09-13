@@ -1,0 +1,44 @@
+{
+  "gradle_task": "testDebugUnitTest",
+  "suite_count": 5,
+  "tests": 22,
+  "failures": 0,
+  "errors": 0,
+  "suites": [
+    {
+      "name": "dev.stunmesh.android.ExampleUnitTest",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "dev.stunmesh.android.config.SecurityAuditTest",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "dev.stunmesh.android.config.TunnelConfigRedactTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "dev.stunmesh.android.config.TunnelYamlTest",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "dev.stunmesh.android.config.WgQuickConfTest",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ]
+}

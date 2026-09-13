@@ -27,6 +27,23 @@ class SecurityAuditTest {
     }
 
     @Test
+    fun importedYamlPreservesLowOrderPeerPublicKeyAcrossGoBoundary() {
+        val zeroKey = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+        val yaml = """
+            schema: 1
+            wireguard:
+              private_key: synthetic-private-key
+              peers:
+                - public_key: $zeroKey
+                  allowed_ips: [10.89.0.2/32]
+            stunmesh: {}
+        """.trimIndent()
+        val tunnel = TunnelYaml.decode(yaml)
+        assertEquals(zeroKey, tunnel.peers.single().publicKey)
+        assertEquals(zeroKey, TunnelConfig.fromJson(tunnel.toJson()).peers.single().publicKey)
+    }
+
+    @Test
     fun genericApiKeyIsNotRedactedFromLogExportConfig() {
         val tunnel = TunnelConfig(
             iface = InterfaceConfig(privateKey = "synthetic-private-key"),
