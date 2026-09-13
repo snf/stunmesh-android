@@ -1,0 +1,90 @@
+[
+  {
+    "tag": "v0.2.1",
+    "asset": "stunmesh-android-v0.2.1.apk",
+    "size": 56148865,
+    "sha256": "sha256:9125271e7f205a3c222ada3704db86e9559fb359ca106c8305b4cece8aba97b3",
+    "github_digest": "sha256:9125271e7f205a3c222ada3704db86e9559fb359ca106c8305b4cece8aba97b3",
+    "digest_matches": true,
+    "apksigner_exit": 0,
+    "cert_sha256": "6a732efac9b43afe280d513ca31b32c802537644b11333d5b34dd9d6179742cc",
+    "error": ""
+  },
+  {
+    "tag": "v0.2.0",
+    "asset": "stunmesh-android-v0.2.0.apk",
+    "size": 56147681,
+    "sha256": "sha256:61c4c6d7a4f594a0f54843b16847fe33341ff51f54a6d8665afa3cdae5d6ef8f",
+    "github_digest": "sha256:61c4c6d7a4f594a0f54843b16847fe33341ff51f54a6d8665afa3cdae5d6ef8f",
+    "digest_matches": true,
+    "apksigner_exit": 0,
+    "cert_sha256": "6a732efac9b43afe280d513ca31b32c802537644b11333d5b34dd9d6179742cc",
+    "error": ""
+  },
+  {
+    "tag": "v0.1.1",
+    "asset": "stunmesh-android-v0.1.1.apk",
+    "size": 56120897,
+    "sha256": "sha256:cd1de18beb1ac7b6966a20a4a640ac8bf02bf5f7ad5ba12b1a5baf9d33100bad",
+    "github_digest": "sha256:cd1de18beb1ac7b6966a20a4a640ac8bf02bf5f7ad5ba12b1a5baf9d33100bad",
+    "digest_matches": true,
+    "apksigner_exit": 0,
+    "cert_sha256": "6a732efac9b43afe280d513ca31b32c802537644b11333d5b34dd9d6179742cc",
+    "error": ""
+  },
+  {
+    "tag": "v0.1.0",
+    "asset": "stunmesh-android-v0.1.0.apk",
+    "size": 54156513,
+    "sha256": "sha256:8c499bee7c961ae62af4c8de8ae81a344e0f4389db600de8cd3208b8fa6d0a92",
+    "github_digest": "sha256:8c499bee7c961ae62af4c8de8ae81a344e0f4389db600de8cd3208b8fa6d0a92",
+    "digest_matches": true,
+    "apksigner_exit": 0,
+    "cert_sha256": "6a732efac9b43afe280d513ca31b32c802537644b11333d5b34dd9d6179742cc",
+    "error": ""
+  },
+  {
+    "tag": "v0.1.0-rc4",
+    "asset": "stunmesh-android-v0.1.0-rc4.apk",
+    "size": 54156513,
+    "sha256": "sha256:6189d8f53f4e1f9f104641fd438d16bc712a75d117ab925a714a50eb8a2cd938",
+    "github_digest": "sha256:6189d8f53f4e1f9f104641fd438d16bc712a75d117ab925a714a50eb8a2cd938",
+    "digest_matches": true,
+    "apksigner_exit": 0,
+    "cert_sha256": "6a732efac9b43afe280d513ca31b32c802537644b11333d5b34dd9d6179742cc",
+    "error": ""
+  },
+  {
+    "tag": "v0.1.0-rc3",
+    "asset": "stunmesh-android-v0.1.0-rc3.apk",
+    "size": 54156513,
+    "sha256": "sha256:8551d9a98ba672598dd958de0991012f90176faa13e3f388839fdd2ae2bdd83b",
+    "github_digest": "sha256:8551d9a98ba672598dd958de0991012f90176faa13e3f388839fdd2ae2bdd83b",
+    "digest_matches": true,
+    "apksigner_exit": 0,
+    "cert_sha256": "6a732efac9b43afe280d513ca31b32c802537644b11333d5b34dd9d6179742cc",
+    "error": ""
+  },
+  {
+    "tag": "v0.1.0-rc2",
+    "asset": "stunmesh-android-v0.1.0-rc2.apk",
+    "size": 54156517,
+    "sha256": "sha256:f0ba5f140f019a8f5b172fee676f419f4d5924a235d790beafe73546ac80531e",
+    "github_digest": "sha256:f0ba5f140f019a8f5b172fee676f419f4d5924a235d790beafe73546ac80531e",
+    "digest_matches": true,
+    "apksigner_exit": 0,
+    "cert_sha256": "6a732efac9b43afe280d513ca31b32c802537644b11333d5b34dd9d6179742cc",
+    "error": ""
+  },
+  {
+    "tag": "v0.1.0-rc1",
+    "asset": "stunmesh-android-v0.1.0-rc1.apk",
+    "size": 54152929,
+    "sha256": "sha256:923b8a546bd82debf72f0aef57b9139d6554858d77e8a5dad133405a9b5383e6",
+    "github_digest": "sha256:923b8a546bd82debf72f0aef57b9139d6554858d77e8a5dad133405a9b5383e6",
+    "digest_matches": true,
+    "apksigner_exit": 0,
+    "cert_sha256": "6a732efac9b43afe280d513ca31b32c802537644b11333d5b34dd9d6179742cc",
+    "error": ""
+  }
+]
