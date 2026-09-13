@@ -44,6 +44,8 @@
         "exported": "true",
         "permission": "android.permission.BIND_VPN_SERVICE"
       }
-    ]
+    ],
+    "debuggable": false,
+    "debuggable_evidence": "Official v0.2.1 APK: aapt dump badging has no application-debuggable marker, and aapt dump xmltree AndroidManifest.xml has no android:debuggable=true attribute."
   }
 }
