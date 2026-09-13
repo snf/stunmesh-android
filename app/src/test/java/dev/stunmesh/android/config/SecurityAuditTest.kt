@@ -8,6 +8,38 @@ import org.junit.Test
 /** Baseline behavior checks for the 2026-09-13 security audit. Synthetic data only. */
 class SecurityAuditTest {
     @Test
+    fun importedTunnelCanKeepDistinctStoresForDifferentPeers() {
+        val yaml = """
+            schema: 1
+            wireguard:
+              private_key: synthetic-private-key
+              peers:
+                - public_key: synthetic-peer-a
+                - public_key: synthetic-peer-b
+            stunmesh:
+              plugins:
+                - instance: first
+                  type: builtin
+                  name: opendht
+                  config:
+                    endpoint: https://first.example.test
+                - instance: second
+                  type: builtin
+                  name: opendht
+                  config:
+                    endpoint: https://second.example.test
+              peers:
+                - public_key: synthetic-peer-a
+                  plugin: first
+                - public_key: synthetic-peer-b
+                  plugin: second
+        """.trimIndent()
+        val tunnel = TunnelYaml.decode(yaml)
+        assertEquals(listOf("first", "second"), tunnel.plugins.map { it.instance })
+        assertEquals(listOf("first", "second"), tunnel.peers.map { it.plugin })
+    }
+
+    @Test
     fun importedYamlPreservesExecutablePluginTypeAcrossGoBoundary() {
         val yaml = """
             schema: 1
