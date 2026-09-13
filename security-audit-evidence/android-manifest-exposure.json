@@ -25,6 +25,12 @@
   "release": {
     "package": "dev.stunmesh.android",
     "allow_backup": "true",
+    "requested_permissions": [
+      "android.permission.INTERNET",
+      "android.permission.ACCESS_NETWORK_STATE",
+      "dev.stunmesh.android.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+    ],
+    "declared_signature_permission": "dev.stunmesh.android.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION",
     "receivers": [
       {
         "name": "androidx.profileinstaller.ProfileInstallReceiver",
