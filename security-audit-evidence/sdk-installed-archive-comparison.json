@@ -1,0 +1,38 @@
+{
+  "checked_utc": "2026-09-13T10:47:43.954270+00:00",
+  "results": [
+    {
+      "archive": "android-ndk-r29-linux.zip",
+      "archive_sha256": "4abbbcdc842f3d4879206e9695d52709603e52dd68d3c1fff04b3b5e7a308ecf",
+      "installed": "scratch/android-sdk/ndk/29.0.14206865",
+      "mismatches": [],
+      "regular_payloads_matched": 9655,
+      "symlink_targets_matched": 37
+    },
+    {
+      "archive": "build-tools_r36.1_linux.zip",
+      "archive_sha256": "a7b5889e4a79fcf3b0976bef40d401f4240fb1eed891d9d91169da1111e11d78",
+      "installed": "scratch/android-sdk/build-tools/36.1.0",
+      "mismatches": [],
+      "regular_payloads_matched": 168,
+      "symlink_targets_matched": 0
+    },
+    {
+      "archive": "build-tools_r36_linux.zip",
+      "archive_sha256": "5d9ac77fb6ff43d9da518a337b4fcf8f9097113df531d99ccefe80ef7ce8250b",
+      "installed": "scratch/android-sdk/build-tools/36.0.0",
+      "mismatches": [],
+      "regular_payloads_matched": 168,
+      "symlink_targets_matched": 0
+    },
+    {
+      "archive": "platform-36.1_r01.zip",
+      "archive_sha256": "265e9aa7d8db6abe7ad1696085d5d62784b341084c625de46db530970b1e806d",
+      "installed": "scratch/android-sdk/platforms/android-36.1",
+      "mismatches": [],
+      "regular_payloads_matched": 11373,
+      "symlink_targets_matched": 0
+    }
+  ],
+  "scope": "Every archive regular payload and symlink target compared to isolated sdkmanager installation for NDK 29, build-tools 36/36.1 and platform 36.1; archive bytes separately match Google repository digest metadata; generated SDK package.xml files not covered"
+}
