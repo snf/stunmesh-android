@@ -1,0 +1,18 @@
+Picked up JAVA_TOOL_OPTIONS: -Duser.home=/work/home
+Verifies
+Verified using v1 scheme (JAR signing): false
+Verified using v2 scheme (APK Signature Scheme v2): false
+Verified using v3 scheme (APK Signature Scheme v3): true
+Verified using v3.1 scheme (APK Signature Scheme v3.1): false
+Verified using v4 scheme (APK Signature Scheme v4): false
+Verified for SourceStamp: false
+Number of signers: 1
+Signer #1 certificate DN: CN=Date Huang, OU=Individual, O=DozenIdea, L=Taichung, ST=Taiwan, C=TW
+Signer #1 certificate SHA-256 digest: 6a732efac9b43afe280d513ca31b32c802537644b11333d5b34dd9d6179742cc
+Signer #1 certificate SHA-1 digest: 82829d4c2233ad25cac1a83c0aa9e41f092faf27
+Signer #1 certificate MD5 digest: b18b1c01f2d80dd722569d1de69de1dd
+Signer #1 key algorithm: RSA
+Signer #1 key size (bits): 4096
+Signer #1 public key SHA-256 digest: 48ded4f0e9e09e6a0436478f74d6c661579752928f9b7e70342ca87c56ed47b2
+Signer #1 public key SHA-1 digest: 72fc5066ea61d774b71ab0a07210be089cae1d39
+Signer #1 public key MD5 digest: f944febee5054cacaffcaea17583db98

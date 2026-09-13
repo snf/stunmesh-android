@@ -1,0 +1,126 @@
+Picked up JAVA_TOOL_OPTIONS: -Duser.home=/work/home
+Downloading https://services.gradle.org/distributions/gradle-9.5.0-bin.zip
+.............10%.............20%..............30%.............40%.............50%..............60%.............70%..............80%.............90%.............100%
+
+Welcome to Gradle 9.5.0!
+
+Here are the highlights of this release:
+ - Task provenance in reports and failure messages
+ - Type-safe accessors for precompiled Kotlin Settings plugins
+
+For more details see https://docs.gradle.org/9.5.0/release-notes.html
+
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.5.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+Calculating task graph as no cached configuration is available for tasks: testDebugUnitTest assembleRelease
+
+> Configure project :app
+w: file:///work/android-baseline/app/build.gradle.kts:138:39: 'fun srcDir(srcDir: Any): Any' is deprecated. Use `directories` mutable set instead.
+w: file:///work/android-baseline/app/build.gradle.kts:141:41: 'fun srcDir(srcDir: Any): Any' is deprecated. Use `directories` mutable set instead.
+Checking the license for package Android SDK Build-Tools 36 in /work/android-sdk/licenses
+License for package Android SDK Build-Tools 36 accepted.
+Preparing "Install Android SDK Build-Tools 36 v.36.0.0".
+"Install Android SDK Build-Tools 36 v.36.0.0" ready.
+Installing Android SDK Build-Tools 36 in /work/android-sdk/build-tools/36.0.0
+"Install Android SDK Build-Tools 36 v.36.0.0" complete.
+"Install Android SDK Build-Tools 36 v.36.0.0" finished.
+[=========                              ] 25%                                   Picked up JAVA_TOOL_OPTIONS: -Duser.home=/work/home
+
+Picked up JAVA_TOOL_OPTIONS: -Duser.home=/work/home
+
+Picked up JAVA_TOOL_OPTIONS: -Duser.home=/work/home
+
+
+> Task :app:generateReleaseAssets UP-TO-DATE
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:preDebugUnitTestBuild UP-TO-DATE
+> Task :app:preReleaseBuild UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:mapDebugSourceSetPaths
+> Task :app:mapReleaseSourceSetPaths
+> Task :app:javaPreCompileDebug
+> Task :app:extractDeepLinksDebug
+> Task :app:generateDebugBuildConfig
+> Task :app:generateReleaseBuildConfig
+> Task :app:mergeReleaseJniLibFolders
+> Task :app:generateDebugResources
+> Task :app:generateReleaseResources
+> Task :app:createReleaseCompatibleScreenManifests
+> Task :app:extractDeepLinksRelease
+> Task :app:desugarReleaseFileDependencies
+> Task :app:mergeReleaseStartupProfile
+> Task :app:packageDebugResources
+> Task :app:packageReleaseResources
+> Task :app:extractProguardFiles
+> Task :app:collectReleaseDependencies
+> Task :app:extractReleaseVersionControlInfo
+> Task :app:writeReleaseAppMetadata
+> Task :app:writeReleaseSigningConfigVersions
+> Task :app:sdkReleaseDependencyData
+> Task :app:javaPreCompileDebugUnitTest
+> Task :app:javaPreCompileRelease
+> Task :app:checkReleaseDuplicateClasses
+> Task :app:processDebugNavigationResources
+> Task :app:processReleaseNavigationResources
+> Task :app:checkReleaseAarMetadata
+> Task :app:compileDebugNavigationResources
+> Task :app:compileReleaseNavigationResources
+> Task :app:processReleaseMainManifest
+> Task :app:processDebugMainManifest
+> Task :app:processReleaseManifest
+> Task :app:processDebugManifest
+> Task :app:parseReleaseLocalResources
+> Task :app:parseDebugLocalResources
+> Task :app:mergeReleaseArtProfile
+> Task :app:generateDebugRFile
+> Task :app:mergeReleaseAssets
+> Task :app:compressReleaseAssets
+> Task :app:checkDebugAarMetadata
+> Task :app:processDebugManifestForPackage
+> Task :app:processReleaseManifestForPackage
+> Task :app:mergeDebugResources
+> Task :app:mergeReleaseResources
+> Task :app:mergeReleaseNativeLibs
+> Task :app:generateReleaseRFile
+
+> Task :app:stripReleaseDebugSymbols
+Unable to strip the following libraries, packaging them as they are: libandroidx.graphics.path.so, libgojni.so. Run with --info option to learn more.
+
+> Task :app:extractReleaseNativeSymbolTables
+> Task :app:mergeReleaseNativeDebugMetadata NO-SOURCE
+> Task :app:mergeExtDexRelease
+> Task :app:compileDebugKotlin
+> Task :app:compileReleaseKotlin
+> Task :app:processReleaseResources
+> Task :app:processDebugResources
+> Task :app:optimizeReleaseResources
+> Task :app:processReleaseJavaRes
+> Task :app:processDebugJavaRes
+> Task :app:mergeReleaseJavaResource
+> Task :app:compileDebugJavaWithJavac
+> Task :app:compileReleaseJavaWithJavac
+> Task :app:bundleDebugClassesToCompileJar
+> Task :app:bundleDebugClassesToRuntimeJar
+> Task :app:dexBuilderRelease
+> Task :app:mergeReleaseGlobalSynthetics
+> Task :app:compileDebugUnitTestKotlin
+> Task :app:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :app:processDebugUnitTestJavaRes
+> Task :app:generateReleaseLintVitalReportModel
+
+> Task :app:testDebugUnitTest
+Picked up JAVA_TOOL_OPTIONS: -Duser.home=/work/home
+
+> Task :app:mergeDexRelease
+> Task :app:compileReleaseArtProfile
+> Task :app:lintVitalAnalyzeRelease
+> Task :app:lintVitalReportRelease
+> Task :app:lintVitalRelease
+> Task :app:packageRelease
+> Task :app:assembleRelease
+> Task :app:createReleaseApkListingFileRedirect
+
+BUILD SUCCESSFUL in 6m 27s
+75 actionable tasks: 75 executed
+Configuration cache entry stored.

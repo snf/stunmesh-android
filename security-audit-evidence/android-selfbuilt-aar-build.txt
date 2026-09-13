@@ -1,0 +1,102 @@
+Picked up JAVA_TOOL_OPTIONS: -Duser.home=/work/home
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.5.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+Calculating task graph as no cached configuration is available for tasks: testDebugUnitTest assembleRelease
+
+> Configure project :app
+w: file:///work/android-selfbuilt/app/build.gradle.kts:138:39: 'fun srcDir(srcDir: Any): Any' is deprecated. Use `directories` mutable set instead.
+w: file:///work/android-selfbuilt/app/build.gradle.kts:141:41: 'fun srcDir(srcDir: Any): Any' is deprecated. Use `directories` mutable set instead.
+
+> Task :app:preBuild UP-TO-DATE
+> Task :app:generateReleaseAssets UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:preReleaseBuild UP-TO-DATE
+> Task :app:preDebugUnitTestBuild UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:mapDebugSourceSetPaths
+> Task :app:javaPreCompileDebugUnitTest
+> Task :app:generateReleaseResources
+> Task :app:javaPreCompileDebug
+> Task :app:mapReleaseSourceSetPaths
+> Task :app:javaPreCompileRelease
+> Task :app:generateDebugBuildConfig
+> Task :app:generateDebugResources
+> Task :app:generateReleaseBuildConfig
+> Task :app:extractDeepLinksDebug
+> Task :app:mergeReleaseStartupProfile
+> Task :app:mergeReleaseJniLibFolders
+> Task :app:createReleaseCompatibleScreenManifests
+> Task :app:extractDeepLinksRelease
+> Task :app:extractReleaseVersionControlInfo
+> Task :app:packageDebugResources
+> Task :app:packageReleaseResources
+> Task :app:writeReleaseAppMetadata
+> Task :app:extractProguardFiles
+> Task :app:checkReleaseDuplicateClasses
+> Task :app:writeReleaseSigningConfigVersions
+> Task :app:collectReleaseDependencies
+> Task :app:sdkReleaseDependencyData
+> Task :app:processReleaseNavigationResources
+> Task :app:processDebugNavigationResources
+> Task :app:mergeReleaseAssets
+> Task :app:checkReleaseAarMetadata
+> Task :app:compileDebugNavigationResources
+> Task :app:checkDebugAarMetadata
+> Task :app:compressReleaseAssets
+> Task :app:compileReleaseNavigationResources
+> Task :app:mergeReleaseArtProfile
+> Task :app:mergeReleaseNativeLibs
+
+> Task :app:stripReleaseDebugSymbols
+Unable to strip the following libraries, packaging them as they are: libandroidx.graphics.path.so, libgojni.so. Run with --info option to learn more.
+
+> Task :app:extractReleaseNativeSymbolTables
+> Task :app:mergeReleaseNativeDebugMetadata NO-SOURCE
+> Task :app:processDebugMainManifest
+> Task :app:processReleaseMainManifest
+> Task :app:parseDebugLocalResources
+> Task :app:parseReleaseLocalResources
+> Task :app:processReleaseManifest
+> Task :app:processDebugManifest
+> Task :app:processDebugManifestForPackage
+> Task :app:processReleaseManifestForPackage
+> Task :app:generateDebugRFile
+> Task :app:generateReleaseRFile
+> Task :app:mergeReleaseResources
+> Task :app:mergeDebugResources
+> Task :app:desugarReleaseFileDependencies
+> Task :app:processReleaseResources
+> Task :app:processDebugResources
+> Task :app:optimizeReleaseResources
+> Task :app:mergeExtDexRelease
+> Task :app:compileDebugKotlin
+> Task :app:compileReleaseKotlin
+> Task :app:processReleaseJavaRes
+> Task :app:processDebugJavaRes
+> Task :app:mergeReleaseJavaResource
+> Task :app:compileReleaseJavaWithJavac
+> Task :app:compileDebugJavaWithJavac
+> Task :app:bundleDebugClassesToCompileJar
+> Task :app:bundleDebugClassesToRuntimeJar
+> Task :app:generateReleaseLintVitalReportModel
+> Task :app:compileDebugUnitTestKotlin
+> Task :app:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :app:processDebugUnitTestJavaRes
+> Task :app:dexBuilderRelease
+> Task :app:mergeReleaseGlobalSynthetics
+
+> Task :app:testDebugUnitTest
+Picked up JAVA_TOOL_OPTIONS: -Duser.home=/work/home
+
+> Task :app:mergeDexRelease
+> Task :app:compileReleaseArtProfile
+> Task :app:lintVitalAnalyzeRelease
+> Task :app:lintVitalReportRelease
+> Task :app:lintVitalRelease
+> Task :app:packageRelease
+> Task :app:assembleRelease
+> Task :app:createReleaseApkListingFileRedirect
+
+BUILD SUCCESSFUL in 3m 3s
+75 actionable tasks: 75 executed
+Configuration cache entry stored.

@@ -1,0 +1,113 @@
+{
+  "upstream_sha256": "9125271e7f205a3c222ada3704db86e9559fb359ca106c8305b4cece8aba97b3",
+  "rebuilt_sha256": "b91c7566e692223e006735a8752f89101e88ea02e90ea291a3d40e65bc70f462",
+  "entry_count_upstream": 146,
+  "entry_count_rebuilt": 146,
+  "only_upstream": [],
+  "only_rebuilt": [],
+  "equal_entry_count": 141,
+  "different_entries": [
+    "META-INF/version-control-info.textproto",
+    "lib/arm64-v8a/libgojni.so",
+    "lib/armeabi-v7a/libgojni.so",
+    "lib/x86/libgojni.so",
+    "lib/x86_64/libgojni.so"
+  ],
+  "mapped_libraries": {
+    "arm64-v8a": {
+      "pt_load_count": 3,
+      "pt_load_equal_except_e_shoff": true,
+      "pt_load_ranges": [
+        [
+          0,
+          6973296
+        ],
+        [
+          6973312,
+          781016
+        ],
+        [
+          7754336,
+          378976
+        ]
+      ],
+      "pt_load_hashes": [
+        "1d31b8272a87f19765ae2a32ded3a31b1845e6ad2f380999aec634c54fa38487",
+        "b700a8b16ee812918a5192df66e5ae34f4e7f0e49681dbe9677950c7676725c6",
+        "86106333bbd27f2357c63ede2ddd8d02d5a10490eed1f9034d89dccf2d4e4505"
+      ]
+    },
+    "armeabi-v7a": {
+      "pt_load_count": 3,
+      "pt_load_equal_except_e_shoff": true,
+      "pt_load_ranges": [
+        [
+          0,
+          7344448
+        ],
+        [
+          7344448,
+          568604
+        ],
+        [
+          7913056,
+          338200
+        ]
+      ],
+      "pt_load_hashes": [
+        "455f79dd826a70d056ffd93362cde884ab0ec00424254b655ea73127caf783f0",
+        "7b9d7f54625bfa538aa78ae7e6b60a3a7d0f051d200087046d6841b20996c6b0",
+        "a6c1eb1d371eadc0684507abc8f9f4fbef9cffb65e1a31a51bba1cd4ff95a178"
+      ]
+    },
+    "x86": {
+      "pt_load_count": 3,
+      "pt_load_equal_except_e_shoff": true,
+      "pt_load_ranges": [
+        [
+          0,
+          7389952
+        ],
+        [
+          7389952,
+          570684
+        ],
+        [
+          7960640,
+          339056
+        ]
+      ],
+      "pt_load_hashes": [
+        "a514fa108baf6a5f2e718e7db959e068b4aa71bc22336e477634cc89f75d2b34",
+        "72726d2364f4e8d51f1f24f301c9b9beb5ebc0e7eae8b3fbf170ec3b5c772868",
+        "a22d479e4a4b4a265cbf633afbeb214704cd79b5c9a51f93ef409b7c3d339fd7"
+      ]
+    },
+    "x86_64": {
+      "pt_load_count": 3,
+      "pt_load_equal_except_e_shoff": true,
+      "pt_load_ranges": [
+        [
+          0,
+          7720992
+        ],
+        [
+          7720992,
+          783968
+        ],
+        [
+          8504960,
+          379008
+        ]
+      ],
+      "pt_load_hashes": [
+        "9eb95214e2ece6653b2e78a83f863b5ecb297a7557e4676f7ecd16f5385e4b52",
+        "d86dae611fb682595f070c1e553385fc7091a00ad74f8fd7e6268abbed93f9bf",
+        "4068a26869444e9138d1f2eb25ac054d934d796564d234977daef754b64ccd1f"
+      ]
+    }
+  },
+  "manifest_equal": true,
+  "classes_dex_equal": true,
+  "classes2_dex_equal": true
+}

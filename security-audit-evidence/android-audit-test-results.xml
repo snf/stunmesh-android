@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dev.stunmesh.android.config.SecurityAuditTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-09-13T03:42:28.498Z" hostname="e14" time="0.25">
+  <properties/>
+  <testcase name="genericApiKeyIsNotRedactedFromLogExportConfig" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.14"/>
+  <testcase name="snakeYamlDefaultRejectsArbitraryJavaObjectTag" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.025"/>
+  <testcase name="snakeYamlRejectsCollectionAliasExpansion" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.043"/>
+  <testcase name="importedYamlPreservesExecutablePluginTypeAcrossGoBoundary" classname="dev.stunmesh.android.config.SecurityAuditTest" time="0.029"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,43 @@
+{
+  "debug": {
+    "package": "dev.stunmesh.android.debug",
+    "allow_backup": "true",
+    "receivers": [
+      {
+        "name": "dev.stunmesh.android.debug.ConfigImportReceiver",
+        "exported": "true",
+        "permission": null
+      },
+      {
+        "name": "androidx.profileinstaller.ProfileInstallReceiver",
+        "exported": "true",
+        "permission": "android.permission.DUMP"
+      }
+    ],
+    "services": [
+      {
+        "name": "dev.stunmesh.android.service.StunmeshVpnService",
+        "exported": "true",
+        "permission": "android.permission.BIND_VPN_SERVICE"
+      }
+    ]
+  },
+  "release": {
+    "package": "dev.stunmesh.android",
+    "allow_backup": "true",
+    "receivers": [
+      {
+        "name": "androidx.profileinstaller.ProfileInstallReceiver",
+        "exported": "true",
+        "permission": "android.permission.DUMP"
+      }
+    ],
+    "services": [
+      {
+        "name": "dev.stunmesh.android.service.StunmeshVpnService",
+        "exported": "true",
+        "permission": "android.permission.BIND_VPN_SERVICE"
+      }
+    ]
+  }
+}
