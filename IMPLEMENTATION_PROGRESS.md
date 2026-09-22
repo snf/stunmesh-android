@@ -78,3 +78,9 @@ Security and simplicity take precedence over legacy features: OpenDHT hints cann
 | `9baf28f` | — | Actual image/kernel WG authorization integration gate |
 
 Final documentation/evidence commits follow these build/test commits. See Git history for their IDs; artifacts deliberately retain the exact build commits rather than claiming they were built from a later documentation-only revision.
+
+## Device-test planning update — 2026-09-22
+
+- Owner selected **this working container → phone over Wi-Fi** for ADB; `nas` is only for the server side, always in rootless Podman. No NAS ADB service or additional phone agent. Documented native TLS pairing with no initial USB, explicit phone ports, private diagnostic credentials separate from build/signing inputs, and optional USB only for uninterrupted live debugging.
+- Expanded `DEVICE_TESTS.md` with staged inventory, actual existing hardware-test invocation, release routing/service tests, carrier/handover failures, encrypted OS recovery, disconnected battery measurements and evidence/cleanup gates. Wireless ADB loss during Wi-Fi-off is expected and must not be confused with VPN failure.
+- Verified current Android/AOSP/GrapheneOS documentation and the instrumentation package in the already built APK. These edits are a test plan only: no ADB installation/pairing, device access, NAS/container deployment or firewall change was performed. App binaries and recorded artifact hashes are unchanged.
