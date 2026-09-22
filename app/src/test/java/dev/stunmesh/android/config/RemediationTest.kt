@@ -1,7 +1,6 @@
 package dev.stunmesh.android.config
 
 import java.util.Base64
-import java.util.UUID
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.Executors
 import org.junit.Assert.*
@@ -221,9 +220,10 @@ stunmesh:
 
     @Test
     fun enrollmentMayCarryPskButNeverPhoneIdentity() {
-        val text = javaClass.getResourceAsStream("/enrollment-with-psk.json")!!.use {
-            it.readBytes().toString(Charsets.UTF_8)
-        }
+        val text =
+            javaClass.getResourceAsStream("/enrollment-with-psk.json")!!.use {
+                it.readBytes().toString(Charsets.UTF_8)
+            }
         val psk = Base64.getEncoder().encodeToString(ByteArray(32) { 7 })
         val proposal = Provisioning.decode(text)
         assertEquals(psk, proposal.presharedKey)
@@ -233,16 +233,30 @@ stunmesh:
         for (field in listOf("private_key", "encrypted_key", "command", "psk_required")) reject {
             Provisioning.decode(text.trim().dropLast(1) + ",\"$field\":\"$privateKey\"}")
         }
-        for (bad in listOf("", "canary", Base64.getEncoder().encodeToString(ByteArray(32)), psk + "\\n")) reject {
-            Provisioning.decode(text.replace(psk, bad))
-        }
+        for (bad in
+            listOf(
+                "",
+                "canary",
+                Base64.getEncoder().encodeToString(ByteArray(32)),
+                psk + "\\n",
+            )) reject { Provisioning.decode(text.replace(psk, bad)) }
         for (bad in listOf("null", "true", "[]")) reject {
             Provisioning.decode(text.replace("\"$psk\"", bad))
         }
         reject { Provisioning.decode(text.replace("10.77.0.1/32", "0.0.0.0/0")) }
         reject { Provisioning.decode(text.replace(Provisioning.SCHEMA, "stunmesh-enroll-v1")) }
-        val reply = Provisioning.response(PublicTunnel("id", "Server", publicKey,
-            listOf(publicKey), listOf("10.77.0.2/32"), listOf("10.77.0.1/32"), "proposal"))
+        val reply =
+            Provisioning.response(
+                PublicTunnel(
+                    "id",
+                    "Server",
+                    publicKey,
+                    listOf(publicKey),
+                    listOf("10.77.0.2/32"),
+                    listOf("10.77.0.1/32"),
+                    "proposal",
+                )
+            )
         assertFalse(reply.contains(psk))
         assertFalse(reply.contains("preshared_key"))
         assertFalse(reply.contains("private_key"))

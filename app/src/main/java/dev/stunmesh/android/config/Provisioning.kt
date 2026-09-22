@@ -26,9 +26,7 @@ object Provisioning {
             "protocol",
             "preshared_key",
         )
-        require(text.toByteArray(Charsets.UTF_8).size <= 2048) {
-            "Enrollment exceeds QR limit"
-        }
+        require(text.toByteArray(Charsets.UTF_8).size <= 2048) { "Enrollment exceeds QR limit" }
         require(o.text("schema") == SCHEMA) { "Unsupported enrollment" }
         val proposal = o.text("proposal_id")
         require(

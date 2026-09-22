@@ -256,7 +256,11 @@ private fun ServerScreen() {
                         },
                         label = { Text("Enrollment text") },
                         visualTransformation = PasswordVisualTransformation(),
-                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password, autoCorrectEnabled = false),
+                        keyboardOptions =
+                            KeyboardOptions(
+                                keyboardType = KeyboardType.Password,
+                                autoCorrectEnabled = false,
+                            ),
                         modifier = Modifier.fillMaxWidth(),
                         maxLines = 6,
                     )
@@ -317,9 +321,11 @@ private fun ServerScreen() {
                     Text(
                         "Saving creates a fresh phone identity. Copy its public reply to the owner and add that peer on the server before connecting."
                     )
-                    Text(if (candidate.presharedKey.isNotEmpty())
-                        "WireGuard shared key included. It will be protected with the local configuration."
-                    else "No additional WireGuard shared key is included.")
+                    Text(
+                        if (candidate.presharedKey.isNotEmpty())
+                            "WireGuard shared key included. It will be protected with the local configuration."
+                        else "No additional WireGuard shared key is included."
+                    )
                 }
             },
             confirmButton = {
@@ -330,14 +336,17 @@ private fun ServerScreen() {
                         scope.launch {
                             try {
                                 withContext(Dispatchers.IO) {
-                                    repository.enroll(candidate.publicConfig, candidate.presharedKey)
+                                    repository.enroll(
+                                        candidate.publicConfig,
+                                        candidate.presharedKey,
+                                    )
                                 }
                                 enrollment = null
                                 notice =
                                     "Identity saved. Copy the public reply and authorize it on the server; the VPN remains off."
                             } catch (_: Throwable) {
                                 notice =
-                                        "Enrollment failed. Check the profile and hardware key storage."
+                                    "Enrollment failed. Check the profile and hardware key storage."
                             } finally {
                                 busy = false
                             }
@@ -348,14 +357,7 @@ private fun ServerScreen() {
                 }
             },
             dismissButton = {
-                TextButton(
-                    enabled = !busy,
-                    onClick = {
-                        enrollment = null
-                    },
-                ) {
-                    Text("Cancel")
-                }
+                TextButton(enabled = !busy, onClick = { enrollment = null }) { Text("Cancel") }
             },
         )
     }
@@ -404,4 +406,3 @@ private fun ServerScreen() {
         )
     }
 }
-

@@ -1,6 +1,6 @@
 # NAS / Android acceptance tests
 
-Local evidence covers source tests, release compilation, artifact checks and isolated namespace tests. It does **not** establish real carrier NAT success, NAS service access, hardware Keystore/Seedvault recovery or battery consumption. Those tests require the server/phone access the owner will provide later.
+Local evidence covers source tests, release compilation, artifact checks and isolated namespace tests. It does **not** establish real carrier NAT success, NAS service access, hardware Keystore/Seedvault recovery or battery consumption. Current physical results are recorded in `DEVICE_TEST_RESULTS.md`; hardware storage and rootless startup now pass, while other gates remain pending.
 
 ## Connection plan: wireless debugging first
 
@@ -70,13 +70,13 @@ Allow one interactive session for phases 0–4, a separate recovery session if n
 
 ### Reviewed install and hardware-test commands
 
-These are future session commands, not actions already performed. Use the existing signed APK in this container; no signing key is needed for installation. `install -r` preserves an existing compatible app's data. A signature conflict is a stop-and-review condition, not permission to uninstall/clear the app. Set `PHONE_USER_ID` to the agreed test profile's numeric ID after phase-0 inventory; installing APK code is device-wide even though enabling it and its data are per user, so a secondary profile is not a separate package-signing boundary.
+These commands describe the current reviewed artifacts; executed results are recorded separately. Use the existing signed APK in this container; no signing key is needed for installation. `install -r` preserves an existing compatible app's data. A signature conflict is a stop-and-review condition, not permission to uninstall/clear the app. Set `PHONE_USER_ID` to the agreed test profile's numeric ID after phase-0 inventory; installing APK code is device-wide even though enabling it and its data are per user, so a secondary profile is not a separate package-signing boundary.
 
 ```sh
 STUNMESH_TEST_ARTIFACTS=/workspace/stunmesh-build/artifacts
-adb -s "$PHONE_SERIAL" install --user "$PHONE_USER_ID" -r "$STUNMESH_TEST_ARTIFACTS/release/stunmesh-0.3.0-local.1.apk"
-adb -s "$PHONE_SERIAL" install --user "$PHONE_USER_ID" -r "$STUNMESH_TEST_ARTIFACTS/stunmesh-debug.apk"
-adb -s "$PHONE_SERIAL" install --user "$PHONE_USER_ID" -r -t "$STUNMESH_TEST_ARTIFACTS/stunmesh-debug-androidTest.apk"
+adb -s "$PHONE_SERIAL" install --user "$PHONE_USER_ID" -r "$STUNMESH_TEST_ARTIFACTS/release/stunmesh-0.3.0-local.2.apk"
+adb -s "$PHONE_SERIAL" install --user "$PHONE_USER_ID" -r "$STUNMESH_TEST_ARTIFACTS/enrollment-v2/stunmesh-debug.apk"
+adb -s "$PHONE_SERIAL" install --user "$PHONE_USER_ID" -r -t "$STUNMESH_TEST_ARTIFACTS/enrollment-v2/stunmesh-debug-androidTest.apk"
 adb -s "$PHONE_SERIAL" shell pm list instrumentation
 adb -s "$PHONE_SERIAL" shell am instrument --user "$PHONE_USER_ID" -w -r \
   -e class dev.stunmesh.android.config.HardwareStorageTest \
@@ -112,7 +112,7 @@ Install the final signed release APK, verify package `dev.stunmesh.local`, versi
 | Device reboot then unlock | Credential-encrypted/hardware-key availability is handled without replacing unreadable state. Confirm the owner's chosen always-on behavior. |
 | Diagnostics/clipboard/scanner/files/logcat | Only public reply/status appears in outputs; no private key, PSK, raw config, blob, URL credentials or exception excerpt. A trusted inbound scanner/file channel may see the explicitly included PSK; never the phone private key. |
 
-The debug APK/instrumentation target has a different ID. `HardwareStorageTest` uses synthetic bytes, verifies hardware wrapping/non-exportability and GCM tamper rejection without replacing the app's store. Compile success is recorded locally; execution requires the phone and must not be claimed until done. Test the **release** UI/OS lifecycle separately; instrumentation is not a substitute.
+The debug APK/instrumentation target has a different ID. `HardwareStorageTest` uses synthetic bytes, verifies hardware wrapping/non-exportability and GCM tamper rejection without replacing the app's store. Two tests have now passed on the provided Pixel 4a; consult the dated evidence rather than extending that result to other devices or untested OS recovery. Test the **release** UI/OS lifecycle separately; instrumentation is not a substitute.
 
 ## Authorized encrypted Android backup
 

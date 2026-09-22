@@ -1,16 +1,17 @@
 {
   "schema": 1,
-  "created_utc": "2026-09-22T07:33:47.345018+00:00",
-  "scope": "local validated artifacts; NAS/GrapheneOS deployment checks pending",
+  "created_utc": "2026-09-22T14:21:36.135516+00:00",
+  "scope": "local validated artifacts; Pixel 4a hardware/enrollment tests and NAS rootless startup passed; VPN connectivity/recovery/battery pending",
   "source_commits": {
     "go": "ca7f90144dfc944900769c5764a1eb5779f5d479",
-    "android": "0bd8fe0c063e2f32b3188c7a229d47cac9f1ef29",
-    "kernel_integration_test": "9baf28f74f46f855075e0a5655eada88a522e605"
+    "android": "abcf4cdf85ff42f8e1554218701aaabc88882a8e",
+    "kernel_integration_test": "9baf28f74f46f855075e0a5655eada88a522e605",
+    "provisioner": "893c85a677c3138690144056cb2937b458496002"
   },
   "android": {
     "application_id": "dev.stunmesh.local",
-    "version_name": "0.3.0-local.1",
-    "version_code": 1,
+    "version_name": "0.3.0-local.2",
+    "version_code": 2,
     "min_sdk": 28,
     "target_sdk": 36,
     "abis": [
@@ -19,7 +20,8 @@
     ],
     "signer_certificate_sha256": "1e7a77c5f73ccb78259d60677e37147d7e50c5a50644e2ecb57cc6b58b1cef82",
     "signature_scheme_verified": "v3",
-    "owner_key_location": "/workspace/stunmesh-signing (private; never commit or publish)"
+    "owner_key_location": "/workspace/stunmesh-signing (private; never commit or publish)",
+    "device_validation": "Pixel 4a Android 13/API 33: release installed and exact APK hash verified; debug hardware wrapping and PSK enrollment/reload tests 2/2 pass"
   },
   "oci": {
     "manifest_digest": "sha256:e7adc0bcde9fa2f621dff5ce771993dceac9ec78dfb20259514e2f22d314dea3",
@@ -32,18 +34,18 @@
       "usr/local/bin/stunmesh-go",
       "usr/local/bin/wg"
     ],
-    "runtime_test": "isolated rootless namespace, NET_ADMIN only, real kernel WG and daemon proxy; actual Podman host not yet tested"
+    "runtime_test": "Prior isolated kernel/WG authorization gate passed; actual rootless Podman on nas also started with only NET_ADMIN, zero enrolled peers, expected UID mapping/ports; phone traffic pending"
   },
   "artifacts": [
     {
-      "path": "release/stunmesh-0.3.0-local.1.apk",
+      "path": "release/stunmesh-0.3.0-local.2.apk",
       "size": 36821786,
-      "sha256": "81d22d48d1374257368fb6ee578f7e737b2b2d2401906d0e98f57bd79e663f3c"
+      "sha256": "d01e7dcca9f470732fbf7aa30f634481eabfea4426404a6a022710d6cda371a0"
     },
     {
-      "path": "stunmesh-release-unsigned.apk",
+      "path": "enrollment-v2/stunmesh-release-unsigned.apk",
       "size": 36796578,
-      "sha256": "2d5a02f02efa13501e8d7209ad3eaed5938895b9b2239337e1258ef9c9011a77"
+      "sha256": "be680b4085da9979a516bd6c28a6d2e20ccab3030513fc258a9c404b01da63af"
     },
     {
       "path": "stunmesh-core.aar",
@@ -71,19 +73,19 @@
       "sha256": "9a7f322c1877c0d46a49b94012ab2887d267bc2c922d7adee06f5ec4fea4c7f1"
     },
     {
-      "path": "provision",
-      "size": 6807712,
-      "sha256": "050aea6a40b1fa4d62d55590afaab115dcb526b50b41e565f0464c93d5d4fd4c"
+      "path": "enrollment-v2/provision",
+      "size": 6811808,
+      "sha256": "9421884d4f36c8dbae95c96c52799dba2189dda46246ac7ec5fd4e1f5e3a41e1"
     },
     {
-      "path": "stunmesh-debug.apk",
+      "path": "enrollment-v2/stunmesh-debug.apk",
       "size": 42983008,
-      "sha256": "b81e50b6a63a7eda6df006c1f39ed50138c14d76589415f15367b4bef7a5fb4d"
+      "sha256": "78d1df7d4f4ca1af015132b3ed2a2e1810d30ee310c4f5d5cd8614f2f639e48d"
     },
     {
-      "path": "stunmesh-debug-androidTest.apk",
-      "size": 1540672,
-      "sha256": "a71ea42662a823b29a0746b240e72774e43b12ce65b5f998dad5383ee3f551a9"
+      "path": "enrollment-v2/stunmesh-debug-androidTest.apk",
+      "size": 1544836,
+      "sha256": "77ff586bc23f944cdc15c9d97a7ab36ed84f649b3056578351774b6d72fab847"
     },
     {
       "path": "kernel-integration.test",
@@ -91,14 +93,14 @@
       "sha256": "bfd61d814d5a9e84172d07d08ae5cb32029170f4e55fbab5ddeda346edac0f78"
     },
     {
-      "path": "enrollment-example.json",
-      "size": 347,
-      "sha256": "f9f8d58182a90ea46a4f9f0046081c5daa9e19ff4c9ec3d2dfafde1f0d79706c"
+      "path": "enrollment-v2/enrollment-example.json",
+      "size": 390,
+      "sha256": "e162a0521f81c1c25533d0eb247367f0616c7f686f94c35362f77e01d738c6cf"
     },
     {
-      "path": "enrollment-example.svg",
-      "size": 163524,
-      "sha256": "413cf666984875d96b5a93b3797a0e70578428e6eb1f05de02fb87e69a779e2d"
+      "path": "enrollment-v2/enrollment-example.svg",
+      "size": 181162,
+      "sha256": "58072ae4953f5b103139db23a294bdaf7cff4bed2618fa284363223c47da31e8"
     }
   ],
   "tool_archives": [
@@ -135,5 +137,5 @@
       "sha256": "af459827b80bfd31b83b08077f4b5843acb7d18ad9a33a2ef532d3090f291fbf"
     }
   ],
-  "reproducibility": "Offline committed source builds and provenance verified; no independent bit-for-bit reproducibility claim. Production artifacts use the Go/Android commits above; the additional kernel test uses its separately recorded test commit."
+  "reproducibility": "Offline committed-source builds and provenance verified; no independent bit-for-bit reproducibility claim. Runtime Go/AAR/image retain their prior exact commit and bytes; only the provisioner and Android app were rebuilt for QR PSK support. Later Android changes are formatter-only. Manifest commits identify actual build inputs."
 }

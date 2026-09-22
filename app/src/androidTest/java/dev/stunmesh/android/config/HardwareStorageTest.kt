@@ -16,7 +16,8 @@ class HardwareStorageTest {
         assertTrue(context.packageName.endsWith(".debug"))
         val psk = java.util.Base64.getEncoder().encodeToString(ByteArray(32) { 7 })
         val server = java.util.Base64.getEncoder().encodeToString(ByteArray(32) { 2 })
-        val text = """{"schema":"${Provisioning.SCHEMA}","proposal_id":"${java.util.UUID.randomUUID()}","name":"Synthetic enrollment test","address":"10.77.0.2/32","server_public_key":"$server","allowed_ips":["10.77.0.1/32"],"stun_servers":["stun.example.com:3478"],"opendht":["https://proxy.example.com"],"preshared_key":"$psk"}"""
+        val text =
+            """{"schema":"${Provisioning.SCHEMA}","proposal_id":"${java.util.UUID.randomUUID()}","name":"Synthetic enrollment test","address":"10.77.0.2/32","server_public_key":"$server","allowed_ips":["10.77.0.1/32"],"stun_servers":["stun.example.com:3478"],"opendht":["https://proxy.example.com"],"preshared_key":"$psk"}"""
         val enrollment = Provisioning.decode(text)
         val repository = ConfigRepository.get(context)
         repository.load()
