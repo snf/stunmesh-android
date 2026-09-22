@@ -3,77 +3,27 @@ package dev.stunmesh.android.backend
 import mobile.Mobile
 import mobile.Node
 
-/**
- * Backend backed by the stunmesh-go `mobile/` package (stunmesh.aar,
- * `libgojni.so`). This source directory is only compiled when
- * `app/libs/stunmesh.aar` exists; without it the app falls back to
- * [StubBackend]. [dev.stunmesh.android.tunnel.TunnelManager] picks this class
- * up via reflection.
- */
-class GoBackend : StunmeshBackend {
-
-    @Volatile
-    private var node: Node? = null
-
-    override val isRunning: Boolean
-        get() = node?.isRunning ?: false
-
-    override val coreVersion: String
-        get() = Mobile.version()
-
-    override fun start(
-        configJson: String,
-        tunProvider: TunProvider,
-        socketProtector: SocketProtector,
-        eventListener: EventListener,
-    ) {
-        check(node == null) { "backend already running" }
-        val goNode = Mobile.newNode(
-            configJson,
-            { mtu -> tunProvider.openTun(mtu) },
-            { fd -> socketProtector.protect(fd) },
-            object : mobile.EventListener {
-                override fun onStateChanged(state: String) {
-                    eventListener.onStateChanged(state.toBackendState())
-                }
-
-                override fun onLog(level: String, message: String) {
-                    eventListener.onLog(level, message)
-                }
-
-                override fun onEvent(kind: String, peerPublicKey: String, detail: String) {
-                    eventListener.onEvent(
-                        BackendEvent(kind, peerPublicKey.ifEmpty { null }, detail)
-                    )
-                }
-            },
-        )
-        node = goNode
-        try {
-            goNode.start()
-        } catch (t: Throwable) {
-            node = null
-            throw t
-        }
+/** Concrete, mandatory local core. Owned and serialized by the VPN service. */
+class GoBackend {
+    private var node:Node?=null
+    private var online=false
+    private var ipv4=false
+    private var ipv6=false
+    private var dns=""
+    val isRunning:Boolean get()=node?.isRunning?:false
+    fun start(configJson:String,tunProvider:TunProvider,socketProtector:SocketProtector,eventListener:EventListener){
+        check(node==null)
+        val current=Mobile.newNode(configJson,{mtu->tunProvider.openTun(mtu)},{fd->socketProtector.protect(fd)},object:mobile.EventListener{
+            override fun onStateChanged(state:String){eventListener.onStateChanged(when(state){"starting"->BackendState.STARTING;"up"->BackendState.UP;"stopping"->BackendState.STOPPING;else->BackendState.DOWN})}
+            override fun onLog(level:String,message:String){eventListener.onLog(level,message)}
+            override fun onEvent(kind:String,peerPublicKey:String,detail:String){eventListener.onEvent(BackendEvent(kind,peerPublicKey.ifEmpty{null},detail))}
+        })
+        node=current
+        try{current.setDNSServers(dns);current.setUnderlay(online,ipv4,ipv6,false);current.start()}catch(t:Throwable){current.stop();node=null;throw t}
     }
-
-    override fun stop() {
-        node?.stop()
-        node = null
+    fun stop(){try{node?.stop()}finally{node=null}}
+    fun underlay(available:Boolean,v4:Boolean,v6:Boolean,servers:String,rebind:Boolean){
+        online=available;ipv4=v4;ipv6=v6;dns=servers
+        node?.setDNSServers(servers);node?.setUnderlay(available,v4,v6,rebind)
     }
-
-    override fun renewTun(fd: Int) {
-        node?.renewTun(fd)
-    }
-
-    override fun setDnsServers(servers: String) {
-        node?.setDNSServers(servers)
-    }
-}
-
-private fun String.toBackendState(): BackendState = when (this) {
-    "starting" -> BackendState.STARTING
-    "up" -> BackendState.UP
-    "stopping" -> BackendState.STOPPING
-    else -> BackendState.DOWN
 }

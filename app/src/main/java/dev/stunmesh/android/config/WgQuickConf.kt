@@ -1,103 +1,27 @@
 package dev.stunmesh.android.config
 
-/**
- * Parses a standard wg-quick `.conf` (the `[Interface]`/`[Peer]` INI format
- * every WireGuard tool exports) into a [TunnelConfig], so a user coming from
- * an existing WireGuard setup only has to add the STUNMESH overlay — pick a
- * plugin, name the peers — instead of retyping the whole device.
- *
- * Keys wg-quick owns but the app has no use for (`Table`, `PostUp`,
- * `SaveConfig`, ...) are skipped; keys nothing recognizes are an error, since
- * a typo like `PublicKay` silently dropped would produce a peer that never
- * handshakes.
- */
+/** Strict public-only wg-quick subset. Scripting, DNS override, private keys and
+ * PSKs are rejected. Repeated lists are deliberate; singletons cannot repeat. */
 object WgQuickConf {
-
-    /** A `.conf` is recognized by its `[Interface]` section header. */
-    fun looksLikeConf(text: String): Boolean =
-        text.lineSequence().any { it.trim().equals("[Interface]", ignoreCase = true) }
-
-    fun decode(text: String, name: String): TunnelConfig {
-        var iface = InterfaceConfig()
-        var sawInterface = false
-        val peers = mutableListOf<PeerConfig>()
-        // Which config object the key/value lines currently apply to; null
-        // until the first section header.
-        var inPeer = false
-
-        for ((index, rawLine) in text.lineSequence().withIndex()) {
-            // wg-quick strips comments anywhere in the line, not only at the start.
-            val line = rawLine.substringBefore('#').trim()
-            if (line.isEmpty()) continue
-
-            when {
-                line.equals("[Interface]", ignoreCase = true) -> {
-                    require(!sawInterface) { "line ${index + 1}: duplicate [Interface] section" }
-                    sawInterface = true
-                    inPeer = false
-                }
-                line.equals("[Peer]", ignoreCase = true) -> {
-                    peers.add(PeerConfig(name = "peer${peers.size + 1}"))
-                    inPeer = true
-                }
-                else -> {
-                    val key = line.substringBefore('=', "").trim()
-                    val value = line.substringAfter('=', "").trim()
-                    require(key.isNotEmpty() && '=' in line) {
-                        "line ${index + 1}: expected key = value, got \"$line\""
-                    }
-                    if (inPeer) {
-                        peers[peers.lastIndex] = peerKey(peers.last(), key, value, index + 1)
-                    } else {
-                        require(sawInterface) {
-                            "line ${index + 1}: \"$key\" before any [Interface] section"
-                        }
-                        iface = interfaceKey(iface, key, value, index + 1)
-                    }
-                }
-            }
+    fun looksLikeConf(text:String)=text.lineSequence().any{it.trim().equals("[Interface]",true)}
+    fun decode(text:String,name:String):TunnelConfig {
+        require(text.toByteArray().size<=StrictDocument.MAX_BYTES){"Oversized configuration"}
+        var iface=InterfaceConfig();val peers=mutableListOf<PeerConfig>();var section="";var interfaceSeen=false;var singleton=mutableSetOf<String>()
+        for(raw in text.lineSequence()){
+            require(raw.length<=4096){"Oversized configuration line"};val line=raw.substringBefore('#').trim();if(line.isEmpty())continue
+            if(line.equals("[Interface]",true)){require(!interfaceSeen&&peers.isEmpty());interfaceSeen=true;section="interface";singleton=mutableSetOf();continue}
+            if(line.equals("[Peer]",true)){require(interfaceSeen&&peers.size<32);peers.add(PeerConfig());section="peer";singleton=mutableSetOf();continue}
+            require('=' in line&&section.isNotEmpty()){"Invalid configuration line"}
+            val key=line.substringBefore('=').trim().lowercase();val value=line.substringAfter('=').trim()
+            if(key !in setOf("address","allowedips"))require(singleton.add(key)){"Repeated singleton field"}
+            if(section=="interface")iface=when(key){
+                "address"->iface.copy(addresses=iface.addresses+list(value));"listenport"->iface.copy(listenPort=integer(value));"mtu"->iface.copy(mtu=integer(value));else->throw IllegalArgumentException("Unsupported or secret interface field")
+            }else {val p=peers.last();peers[peers.lastIndex]=when(key){
+                "publickey"->p.copy(publicKey=value);"allowedips"->p.copy(allowedIps=p.allowedIps+list(value));"endpoint"->p.copy(endpoint=value);"persistentkeepalive"->p.copy(persistentKeepalive=integer(value));else->throw IllegalArgumentException("Unsupported or secret peer field")
+            }}
         }
-
-        require(sawInterface) { "no [Interface] section — not a wg-quick config" }
-        require(iface.privateKey.isNotEmpty()) { "[Interface] has no PrivateKey" }
-        return TunnelConfig(name = name, iface = iface, peers = peers)
+        require(interfaceSeen);return TunnelConfig(name=name,iface=iface,peers=peers).also{ConfigPolicy.validate(it,false)}
     }
-
-    private fun interfaceKey(
-        iface: InterfaceConfig,
-        key: String,
-        value: String,
-        line: Int,
-    ): InterfaceConfig = when (key.lowercase()) {
-        "privatekey" -> iface.copy(privateKey = value)
-        "address" -> iface.copy(addresses = iface.addresses + splitList(value))
-        "dns" -> iface.copy(dnsServers = iface.dnsServers + splitList(value))
-        "listenport" -> iface.copy(listenPort = intValue(key, value, line))
-        "mtu" -> iface.copy(mtu = intValue(key, value, line))
-        // wg-quick's own scripting/routing machinery; the app does that itself.
-        "table", "saveconfig", "fwmark",
-        "preup", "postup", "predown", "postdown" -> iface
-        else -> throw IllegalArgumentException("line $line: unknown [Interface] key \"$key\"")
-    }
-
-    private fun peerKey(
-        peer: PeerConfig,
-        key: String,
-        value: String,
-        line: Int,
-    ): PeerConfig = when (key.lowercase()) {
-        "publickey" -> peer.copy(publicKey = value)
-        "presharedkey" -> peer.copy(presharedKey = value)
-        "allowedips" -> peer.copy(allowedIps = peer.allowedIps + splitList(value))
-        "endpoint" -> peer.copy(endpoint = value)
-        "persistentkeepalive" -> peer.copy(persistentKeepalive = intValue(key, value, line))
-        else -> throw IllegalArgumentException("line $line: unknown [Peer] key \"$key\"")
-    }
-
-    private fun splitList(value: String): List<String> =
-        value.split(',').map { it.trim() }.filter { it.isNotEmpty() }
-
-    private fun intValue(key: String, value: String, line: Int): Int =
-        value.toIntOrNull()
-            ?: throw IllegalArgumentException("line $line: $key wants a number, got \"$value\"")
+    private fun list(value:String)=value.split(',').map{it.trim().also{v->require(v.isNotEmpty())}}
+    private fun integer(value:String)=value.toIntOrNull()?:throw IllegalArgumentException("Invalid integer")
 }

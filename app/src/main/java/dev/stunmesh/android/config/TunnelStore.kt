@@ -1,59 +1,32 @@
 package dev.stunmesh.android.config
-
 import org.json.JSONArray
 import org.json.JSONObject
 
-/**
- * All stored tunnels plus which one the VPN service brings up. Android
- * permits one active VPN, so only [activeId] runs at a time; turning on
- * another tunnel replaces it.
- */
-data class TunnelStore(
-    val tunnels: List<TunnelConfig> = emptyList(),
-    val activeId: String = "",
-) {
-    val active: TunnelConfig?
-        get() = tunnels.firstOrNull { it.id == activeId }
-
-    fun upsert(tunnel: TunnelConfig): TunnelStore {
-        val index = tunnels.indexOfFirst { it.id == tunnel.id }
-        val updated = if (index >= 0) {
-            tunnels.toMutableList().apply { set(index, tunnel) }
-        } else {
-            tunnels + tunnel
-        }
-        return copy(tunnels = updated)
-    }
-
-    fun remove(id: String): TunnelStore = copy(
-        tunnels = tunnels.filterNot { it.id == id },
-        activeId = if (activeId == id) "" else activeId,
-    )
-
-    fun toJson(): String {
-        val o = JSONObject()
-        o.put("tunnels", JSONArray().apply { tunnels.forEach { put(it.toJsonObject()) } })
-        o.put("active_id", activeId)
-        return o.toString(2)
-    }
-
+data class TunnelStore(val tunnels:List<TunnelConfig> = emptyList(),val activeId:String="") {
+    val active:TunnelConfig? get()=tunnels.firstOrNull{it.id==activeId}
+    fun toJson():String=JSONObject().put("schema",1).put("active_id",activeId).put("tunnels",JSONArray().apply{tunnels.forEach{put(it.storedJson())}}).toString()
+    override fun toString()="TunnelStore(private)"
     companion object {
-        fun fromJson(json: String): TunnelStore {
-            val o = JSONObject(json)
-            // A store written before multi-tunnel support holds a single
-            // tunnel at the top level; adopt it as the only entry.
-            val array = o.optJSONArray("tunnels")
-                ?: return TunnelConfig.fromJsonObject(o).let {
-                    TunnelStore(listOf(it), it.id)
-                }
-            val tunnels = (0 until array.length()).map {
-                TunnelConfig.fromJsonObject(array.getJSONObject(it))
-            }
-            val activeId = o.optString("active_id")
-            return TunnelStore(
-                tunnels = tunnels,
-                activeId = if (tunnels.any { it.id == activeId }) activeId else "",
-            )
+        fun fromJson(text:String):TunnelStore {
+            val o=StrictDocument.parse(text);o.fields("schema","active_id","tunnels");require(o.number("schema",0)==1){"Unsupported store version"}
+            val a=o.array("tunnels");require(a.length()<=16){"Too many profiles"}
+            val tunnels=(0 until a.length()).map{TunnelConfig.fromJsonObject(a.getJSONObject(it)).also{t->ConfigPolicy.validate(t)}}
+            require(tunnels.map{it.id}.distinct().size==tunnels.size){"Duplicate profile identity"}
+            val active=o.text("active_id");require(active.isEmpty()||tunnels.any{it.id==active}){"Unknown active profile"}
+            return TunnelStore(tunnels,active)
         }
+    }
+}
+
+/** Serialize read-modify-write; publish state only after a durable replacement.
+ * The Android adapter uses AtomicFile. Failing writes retain the old snapshot. */
+internal class StoreCoordinator(private val read:()->TunnelStore,private val write:(TunnelStore)->Unit) {
+    private var cached:TunnelStore?=null
+    @Synchronized fun snapshot():TunnelStore=cached?:read().also{cached=it}
+    @Synchronized fun update(change:(TunnelStore)->TunnelStore):Pair<TunnelStore,Boolean>{
+        val previous=snapshot();val next=change(previous)
+        if(next==previous)return previous to false
+        require(next.toJson().toByteArray().size<=StrictDocument.MAX_BYTES)
+        write(next);cached=next;return next to true
     }
 }

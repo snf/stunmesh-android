@@ -1,82 +1,79 @@
 package dev.stunmesh.android.config
 
+import dev.stunmesh.android.readBounded
+import android.app.backup.BackupManager
 import android.content.Context
-import android.security.keystore.KeyGenParameterSpec
-import android.security.keystore.KeyProperties
+import android.util.AtomicFile
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import mobile.Mobile
 import java.io.File
-import java.security.KeyStore
-import javax.crypto.Cipher
-import javax.crypto.KeyGenerator
-import javax.crypto.SecretKey
-import javax.crypto.spec.GCMParameterSpec
+import java.io.IOException
 
-/**
- * Persists all tunnels as one JSON blob, encrypted at rest with an
- * AES-256-GCM key that lives in the Android Keystore (the key material never
- * leaves the secure hardware). The config holds WG private keys and plugin
- * API tokens, so it must not sit on disk in plain text.
- */
-class ConfigRepository(context: Context) {
+sealed interface RepositoryState {
+    data object Loading:RepositoryState
+    data class Ready(val profiles:List<PublicTunnel>,val selectedId:String):RepositoryState
+    data object Unavailable:RepositoryState
+}
 
-    private val file = File(context.filesDir, "tunnel_config.bin")
+/** Single process-wide authority. No caller can save an old UI snapshot over a
+ * newer selection. Errors preserve the file; only a missing file means empty. */
+class ConfigRepository private constructor(context:Context) {
+    private val app=context.applicationContext
+    private val atomic=AtomicFile(File(app.noBackupFilesDir,"configuration.v1.bin"))
+    private val crypto=HardwareCipher(app)
+    private val coordinator=StoreCoordinator(::read,::write)
+    private val mutableState=MutableStateFlow<RepositoryState>(RepositoryState.Loading)
+    val state:StateFlow<RepositoryState> = mutableState.asStateFlow()
 
-    fun load(): TunnelStore {
-        if (!file.exists()) return TunnelStore()
-        return runCatching {
-            TunnelStore.fromJson(decrypt(file.readBytes()).decodeToString())
-        }.getOrDefault(TunnelStore())
+    @Synchronized fun load(){try{publish(coordinator.snapshot())}catch(_:Exception){mutableState.value=RepositoryState.Unavailable}}
+    @Synchronized fun activeTunnel():TunnelConfig?=coordinator.snapshot().active
+    @Synchronized fun select(id:String)=change{old->require(old.tunnels.any{it.id==id});old.copy(activeId=id)}
+    @Synchronized fun deselect()=change{it.copy(activeId="")}
+    @Synchronized fun remove(id:String)=change{old->old.copy(tunnels=old.tunnels.filterNot{it.id==id},activeId=old.activeId.takeUnless{it==id}?:"")}
+    @Synchronized fun rename(id:String,name:String)=change{old->old.copy(tunnels=old.tunnels.map{if(it.id==id)it.copy(name=name).also{t->validate(t)}else it})}
+    @Synchronized fun enroll(public: TunnelConfig, psk:String=""):PublicTunnel {
+        ConfigPolicy.validate(public,needsPrivateKey=false)
+        require(public.peers.all{it.presharedKey.isEmpty()})
+        if(psk.isNotEmpty()){ConfigPolicy.key(psk);require(public.peers.size==1)}
+        val identity=Mobile.generatePrivateKey()
+        val enrolled=public.copy(iface=public.iface.copy(privateKey=identity),peers=public.peers.map{it.copy(presharedKey=psk)})
+        validate(enrolled)
+        change{old->require(old.tunnels.size<16);require(old.tunnels.none{it.id==enrolled.id || enrolled.proposalId.isNotEmpty()&&it.proposalId==enrolled.proposalId}){"Proposal already enrolled"};old.copy(tunnels=old.tunnels+enrolled)}
+        return summary(enrolled)
     }
-
-    fun save(store: TunnelStore) {
-        val tmp = File(file.parentFile, file.name + ".tmp")
-        tmp.writeBytes(encrypt(store.toJson().encodeToByteArray()))
-        check(tmp.renameTo(file) || (file.delete() && tmp.renameTo(file))) {
-            "config write failed"
-        }
+    /** Called only by the OS-bound BackupAgent; never exposed through IPC/UI. */
+    @Synchronized internal fun backupSnapshot():ByteArray=coordinator.snapshot().toJson().toByteArray(Charsets.UTF_8).also{require(it.size<=StrictDocument.MAX_BYTES)}
+    @Synchronized internal fun restoreSnapshot(bytes:ByteArray){
+        require(bytes.size<=StrictDocument.MAX_BYTES)
+        val restored=TunnelStore.fromJson(bytes.toString(Charsets.UTF_8)).copy(activeId="")
+        restored.tunnels.forEach(::validate)
+        // snapshot() must succeed: unreadable existing data is never replaced.
+        change(notifyBackup=false){restored}
     }
-
-    /** The tunnel the VPN service should bring up, or null if none is set. */
-    fun activeTunnel(): TunnelConfig? = load().active
-
-    fun setActive(id: String) {
-        save(load().copy(activeId = id))
+    private fun validate(t:TunnelConfig){ConfigPolicy.validate(t);Mobile.validateConfig(t.toJson())}
+    private fun read():TunnelStore {
+        if(!atomic.baseFile.exists() && !File(atomic.baseFile.path+".bak").exists())return TunnelStore()
+        val bytes=atomic.openRead().use{it.readBounded(StrictDocument.MAX_BYTES+64)}
+        require(bytes.size<=StrictDocument.MAX_BYTES+32)
+        val plain=crypto.decrypt(bytes)
+        return try{TunnelStore.fromJson(plain.toString(Charsets.UTF_8)).also{it.tunnels.forEach(::validate)}}finally{plain.fill(0);bytes.fill(0)}
     }
-
-    private fun key(): SecretKey {
-        val ks = KeyStore.getInstance(KEYSTORE).apply { load(null) }
-        (ks.getKey(KEY_ALIAS, null) as? SecretKey)?.let { return it }
-        val generator = KeyGenerator.getInstance(KeyProperties.KEY_ALGORITHM_AES, KEYSTORE)
-        generator.init(
-            KeyGenParameterSpec.Builder(
-                KEY_ALIAS,
-                KeyProperties.PURPOSE_ENCRYPT or KeyProperties.PURPOSE_DECRYPT,
-            )
-                .setBlockModes(KeyProperties.BLOCK_MODE_GCM)
-                .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_NONE)
-                .setKeySize(256)
-                .build()
-        )
-        return generator.generateKey()
+    private fun write(store:TunnelStore){
+        val plain=store.toJson().toByteArray(Charsets.UTF_8)
+        val encrypted=try{crypto.encrypt(plain)}finally{plain.fill(0)}
+        var stream:java.io.FileOutputStream?=null
+        try{stream=atomic.startWrite();stream.write(encrypted);atomic.finishWrite(stream)}catch(e:Exception){atomic.failWrite(stream);throw IOException("Configuration could not be saved",e)}finally{encrypted.fill(0)}
     }
-
-    private fun encrypt(plain: ByteArray): ByteArray {
-        val cipher = Cipher.getInstance(TRANSFORMATION)
-        cipher.init(Cipher.ENCRYPT_MODE, key())
-        return cipher.iv + cipher.doFinal(plain)
+    private fun change(notifyBackup:Boolean=true, transform:(TunnelStore)->TunnelStore){
+        val (next,changed)=coordinator.update(transform);publish(next)
+        if(changed&&notifyBackup)BackupManager(app).dataChanged() // OS coalesces; no app timer/job
     }
-
-    private fun decrypt(blob: ByteArray): ByteArray {
-        require(blob.size > IV_SIZE) { "config blob too short" }
-        val cipher = Cipher.getInstance(TRANSFORMATION)
-        val iv = GCMParameterSpec(128, blob, 0, IV_SIZE)
-        cipher.init(Cipher.DECRYPT_MODE, key(), iv)
-        return cipher.doFinal(blob, IV_SIZE, blob.size - IV_SIZE)
-    }
-
-    private companion object {
-        const val KEYSTORE = "AndroidKeyStore"
-        const val KEY_ALIAS = "stunmesh_config"
-        const val TRANSFORMATION = "AES/GCM/NoPadding"
-        const val IV_SIZE = 12
+    private fun summary(t:TunnelConfig)=PublicTunnel(t.id,t.name,Mobile.publicKey(t.iface.privateKey),t.peers.map{it.publicKey},t.iface.addresses,t.peers.flatMap{it.allowedIps}.map{ConfigPolicy.cidr(it,true).text},t.proposalId)
+    private fun publish(store:TunnelStore){mutableState.value=RepositoryState.Ready(store.tunnels.map(::summary),store.activeId)}
+    companion object {
+        @Volatile private var instance:ConfigRepository?=null
+        fun get(context:Context):ConfigRepository=instance?:synchronized(this){instance?:ConfigRepository(context).also{instance=it}}
     }
 }

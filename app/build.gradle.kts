@@ -1,174 +1,67 @@
+import java.security.MessageDigest
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
 }
 
-// How each build type gets the Go core (stunmesh-go's mobile package, built
-// with gomobile):
-//
-//   debug   - any .aar dropped in libs/, so the app can be
-//             iterated against an unreleased core; otherwise the pinned release
-//   release - always the pinned release, never the local file: a shipped build
-//             must be reproducible from the sources alone
-//
-// Without either, the build falls back to the stub backend, which moves no
-// packets. Set stunmeshCoreVersion in gradle.properties to a stunmesh-go tag
-// whose release carries the AAR.
-// Any AAR dropped in libs/, since the artifact carries its version in the name
-// (stunmesh-android-<version>.aar) and pinning one spelling would silently
-// ignore the file a developer just downloaded.
-val localGoCore = fileTree("libs") { include("*.aar") }.files.firstOrNull()
-val goCoreVersion = providers.gradleProperty("stunmeshCoreVersion")
-    .orNull
-    ?.takeIf { it.isNotBlank() }
-val debugHasGoCore = (localGoCore != null) || goCoreVersion != null
-val releaseHasGoCore = goCoreVersion != null
-val GO_BACKEND_SRC = "src/gobackend/kotlin"
-
-// Output stunmesh-android-<buildtype>.apk rather than app-<buildtype>.apk, so
-// a downloaded artifact says what it is.
-base {
-    archivesName = "stunmesh-android"
+// There is exactly one core input for every variant. No upstream/stub fallback.
+val corePath = providers.gradleProperty("coreAar").orNull
+    ?: error("Pass -PcoreAar=/absolute/path/to/the/locally-built.aar")
+val coreHash = providers.gradleProperty("coreAarSha256").orNull
+    ?: error("Pass the reviewed local AAR SHA-256 as -PcoreAarSha256")
+require(coreHash.matches(Regex("[0-9a-f]{64}"))) { "Invalid core SHA-256" }
+val core = file(corePath)
+require(core.isAbsolute && core.isFile) { "Local core AAR is missing" }
+val actual = core.inputStream().use { stream ->
+    val hash = MessageDigest.getInstance("SHA-256")
+    val bytes = ByteArray(8192)
+    while (true) { val n=stream.read(bytes); if(n<0) break; hash.update(bytes,0,n) }
+    hash.digest().joinToString("") { "%02x".format(it) }
 }
+require(actual == coreHash) { "Local core AAR hash mismatch" }
 
-// Version, in precedence order: an explicit -PversionName / VERSION_NAME from
-// whatever drives the build, then git, then a placeholder. The override lets a
-// release pipeline pin the version without the build script depending on git
-// at all; the git fallback keeps local builds meaningful.
-//
-// Reading git needs the full history: git describe wants the tags and
-// rev-list --count wants the commits, so a shallow CI checkout silently
-// produces "dev" and 1 unless it overrides or fetches with depth 0.
-fun git(vararg args: String): String? = runCatching {
-    providers.exec {
-        commandLine("git", *args)
-        isIgnoreExitValue = true
-    }.standardOutput.asText.get().trim().ifEmpty { null }
-}.getOrNull()
-
-fun override(property: String, environment: String): String? =
-    providers.gradleProperty(property).orNull?.takeIf { it.isNotBlank() }
-        ?: providers.environmentVariable(environment).orNull?.takeIf { it.isNotBlank() }
-
-val appVersionName = override("versionName", "VERSION_NAME")
-    ?: git("describe", "--tags", "--always", "--dirty")
-    ?: "dev"
-
-val appVersionCode = (override("versionCode", "VERSION_CODE")
-    ?: git("rev-list", "--count", "HEAD"))
-    ?.toIntOrNull()
-    ?: 1
-
-// Release signing comes from the environment, never from a file in the repo, so
-// no key material is ever committed and the release pipeline can inject a
-// keystore it decodes from a secret. Without all four, assembleRelease still
-// builds — it just produces the -unsigned APK, which no device will install.
-val signingStoreFile = override("keystoreFile", "KEYSTORE_FILE")
-val signingStorePassword = override("keystorePassword", "KEYSTORE_PASSWORD")
-val signingKeyAlias = override("keyAlias", "KEY_ALIAS")
-val signingKeyPassword = override("keyPassword", "KEY_PASSWORD")
-val hasSigningKey = signingStoreFile != null && signingStorePassword != null &&
-    signingKeyAlias != null && signingKeyPassword != null
-
+base { archivesName = "stunmesh" }
 android {
     namespace = "dev.stunmesh.android"
-    compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
-    }
-
+    compileSdk { version = release(36) { minorApiLevel = 1 } }
+    buildToolsVersion = "36.1.0"
     defaultConfig {
-        applicationId = "dev.stunmesh.android"
+        applicationId = "dev.stunmesh.local"
         minSdk = 28
         targetSdk = 36
-        versionCode = appVersionCode
-        versionName = appVersionName
-
+        versionCode = 1
+        versionName = "0.3.0-local.1"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        ndk { abiFilters += listOf("arm64-v8a", "x86_64") }
     }
-
-    signingConfigs {
-        if (hasSigningKey) {
-            create("release") {
-                storeFile = file(signingStoreFile!!)
-                storePassword = signingStorePassword
-                keyAlias = signingKeyAlias
-                keyPassword = signingKeyPassword
-                // AGP would default to v2 alone, which installs fine at
-                // minSdk 28 but leaves no way to ever rotate this key: only a
-                // v3 block can carry a signing lineage. Every device at
-                // minSdk 28 verifies v3, and AGP drops the redundant v2 block
-                // once v3 is on, so this is v3-only by design.
-                enableV3Signing = true
-            }
-        }
-    }
-
     buildTypes {
-        debug {
-            // A distinct applicationId so a debug build and an installed
-            // release can coexist: they are signed with different keys, so
-            // sharing one applicationId means every switch between them is an
-            // uninstall, which takes the encrypted tunnel config with it.
-            applicationIdSuffix = ".debug"
-            versionNameSuffix = "-debug"
-        }
-        release {
-            optimization {
-                enable = false
-            }
-            if (hasSigningKey) {
-                signingConfig = signingConfigs.getByName("release")
-            }
-        }
+        debug { applicationIdSuffix = ".debug"; versionNameSuffix = "-debug" }
+        release { isDebuggable = false; optimization { enable = false } }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-    buildFeatures {
-        compose = true
-        // The about screen reads the version and build type from BuildConfig.
-        buildConfig = true
-    }
-    sourceSets {
-        // GoBackend only compiles where the AAR it binds against is present.
-        if (debugHasGoCore) {
-            getByName("debug").kotlin.srcDir(GO_BACKEND_SRC)
-        }
-        if (releaseHasGoCore) {
-            getByName("release").kotlin.srcDir(GO_BACKEND_SRC)
-        }
-    }
+    // Signing is a separate apksigner step. Gradle never receives signing keys.
+    compileOptions { sourceCompatibility = JavaVersion.VERSION_11; targetCompatibility = JavaVersion.VERSION_11 }
+    buildFeatures { compose = true; buildConfig = true }
+    sourceSets { getByName("main").kotlin.srcDir("src/gobackend/kotlin") }
 }
-
+configurations.configureEach {
+    resolutionStrategy { activateDependencyLocking() }
+}
 dependencies {
-    if (localGoCore != null) {
-        debugImplementation(files(localGoCore!!))
-    } else if (goCoreVersion != null) {
-        debugImplementation("dev.stunmesh:stunmesh-android:$goCoreVersion@aar")
-    }
-    if (goCoreVersion != null) {
-        releaseImplementation("dev.stunmesh:stunmesh-android:$goCoreVersion@aar")
-    }
-
+    implementation(files(core))
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.compose.material3)
-    implementation(libs.androidx.compose.material.icons.core)
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.graphics)
-    implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.snakeyaml)
     testImplementation(libs.junit)
     testImplementation(libs.org.json)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
-    debugImplementation(libs.androidx.compose.ui.test.manifest)
-    debugImplementation(libs.androidx.compose.ui.tooling)
 }
+
+// Exercise the same admission/storage code against the release variant too.
+androidComponents { beforeVariants { it.hostTests[com.android.build.api.variant.HostTestBuilder.UNIT_TEST_TYPE]?.enable = true } }

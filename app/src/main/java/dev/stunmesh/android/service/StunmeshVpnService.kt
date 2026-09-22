@@ -1,260 +1,127 @@
 package dev.stunmesh.android.service
 
+import android.app.Notification
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Intent
+import android.content.pm.ServiceInfo
 import android.net.ConnectivityManager
 import android.net.LinkProperties
 import android.net.Network
 import android.net.NetworkCapabilities
 import android.net.NetworkRequest
 import android.net.VpnService
+import android.os.Build
+import android.os.ParcelFileDescriptor
+import android.system.OsConstants
+import dev.stunmesh.android.MainActivity
+import dev.stunmesh.android.R
+import dev.stunmesh.android.backend.GoBackend
 import dev.stunmesh.android.backend.SocketProtector
 import dev.stunmesh.android.backend.TunProvider
+import dev.stunmesh.android.config.ConfigPolicy
 import dev.stunmesh.android.config.ConfigRepository
 import dev.stunmesh.android.config.TunnelConfig
 import dev.stunmesh.android.tunnel.TunnelManager
-import java.util.concurrent.ExecutorService
+import java.net.Inet4Address
+import java.net.Inet6Address
 import java.util.concurrent.Executors
+import java.util.concurrent.atomic.AtomicReference
 
-/**
- * Owns the tun device. The backend pulls the fd through [TunProvider]
- * (`VpnService.Builder.establish()` + `detachFd()`) and protects its outer
- * UDP sockets through [SocketProtector] so no routing loop forms. On a
- * default-network change a fresh tun fd goes to the backend via `renewTun` —
- * the WG device must survive without a restart.
- */
-class StunmeshVpnService : VpnService() {
-
-    // Serializes up/down/renew; backend.start blocks and must stay off the
-    // main thread.
-    private lateinit var executor: ExecutorService
-    private var networkCallback: ConnectivityManager.NetworkCallback? = null
-    private var lastNetwork: Network? = null
-    private var dnsCallback: ConnectivityManager.NetworkCallback? = null
-    private val dnsServersByNetwork = mutableMapOf<Network, List<String>>()
-
-    override fun onCreate() {
-        super.onCreate()
-        executor = Executors.newSingleThreadExecutor()
-    }
-
-    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        when (intent?.action) {
-            // stopSelf(startId) rather than stopSelf(): a start that arrives
-            // while this is queued must not be cancelled by it.
-            ACTION_DOWN -> executor.execute {
-                down()
-                stopSelf(startId)
-            }
-            // ACTION_UP from the UI; null on service restart; SERVICE_INTERFACE
-            // when the system starts us for always-on VPN.
-            else -> executor.execute { up() }
-        }
+/** One serialized owner, one underlay callback, one Go discovery scheduler.
+ * A network change rebinds protected outer sockets, never rebuilds the TUN. */
+class StunmeshVpnService:VpnService() {
+    private val worker=Executors.newSingleThreadExecutor()
+    private val backend=GoBackend()
+    private var callback:ConnectivityManager.NetworkCallback?=null
+    private val networks=mutableMapOf<Network,LinkProperties>()
+    private val selected=AtomicReference<Network?>(null)
+    private var lastUnderlay:Underlay?=null
+    private var activeId=""
+ private var generation=0
+    private var foreground=false
+    private val cm:ConnectivityManager get()=getSystemService(ConnectivityManager::class.java)
+    override fun onCreate(){super.onCreate();getSystemService(NotificationManager::class.java).createNotificationChannel(NotificationChannel(CHANNEL,"Server VPN",NotificationManager.IMPORTANCE_LOW))}
+    override fun onStartCommand(intent:Intent?,flags:Int,startId:Int):Int {
+        if(intent?.action==ACTION_DOWN){submit{down();stopSelf(startId)};return START_NOT_STICKY}
+        try{promote()}catch(_:Throwable){TunnelManager.failed();stopSelf(startId);return START_NOT_STICKY}
+        submit{try{up()}catch(_:Throwable){down();TunnelManager.failed();stopSelf(startId)}}
         return START_STICKY
     }
-
-    override fun onRevoke() {
-        // Another VPN app took over (Android permits one active VPN).
-        executor.execute {
-            down()
-            stopSelf()
+    override fun onRevoke(){submit{down();runCatching{ConfigRepository.get(this).deselect()};stopSelf()}}
+    override fun onDestroy(){submit{down()};worker.shutdown();super.onDestroy()}
+    private fun submit(work:()->Unit){if(!worker.isShutdown)runCatching{worker.execute(work)}}
+    private fun up(){
+        val config=ConfigRepository.get(this).activeTunnel()?:run{down();stopSelf();return}
+        if(backend.isRunning&&activeId==config.id)return
+        down(removeNotification=false);ConfigPolicy.validate(config)
+        registerUnderlay();updateUnderlay()
+        activeId=config.id;TunnelManager.active(config.id)
+        val session=++generation
+        val listener=object:dev.stunmesh.android.backend.EventListener {
+            override fun onStateChanged(state:dev.stunmesh.android.backend.BackendState){TunnelManager.onStateChanged(state);if(state==dev.stunmesh.android.backend.BackendState.DOWN)submit{if(generation==session&&activeId.isNotEmpty()){down();stopSelf()}}}
+            override fun onLog(level:String,message:String){TunnelManager.onLog(level,message)}
+            override fun onEvent(event:dev.stunmesh.android.backend.BackendEvent){TunnelManager.onEvent(event)}
         }
+        backend.start(config.toJson(),TunProvider{mtu->establish(config,mtu)},SocketProtector{fd->protectOuter(fd)},listener)
+        TunnelManager.underlay(selected.get()!=null)
     }
-
-    override fun onDestroy() {
-        executor.execute { down() }
-        executor.shutdown()
-        super.onDestroy()
+    private fun down(removeNotification:Boolean=true){
+ generation++
+        callback?.let{runCatching{cm.unregisterNetworkCallback(it)}};callback=null
+        networks.clear();selected.set(null);lastUnderlay=null;activeId=""
+        try{backend.stop()}finally{TunnelManager.onStateChanged(dev.stunmesh.android.backend.BackendState.DOWN);if(removeNotification&&foreground){stopForeground(STOP_FOREGROUND_REMOVE);foreground=false}}
     }
-
-    private fun up() {
-        // Android permits one active VPN, so bringing up a tunnel while
-        // another runs replaces it.
-        if (TunnelManager.backend.isRunning) {
-            down()
+    private fun establish(config:TunnelConfig,mtu:Int):Int {
+        ConfigPolicy.validate(config)
+        val b=Builder().setSession("Server services").setMtu(mtu)
+            .allowFamily(OsConstants.AF_INET).allowFamily(OsConstants.AF_INET6)
+        config.iface.addresses.map{ConfigPolicy.cidr(it,false)}.forEach{b.addAddress(it.address,it.bits)}
+        config.peers.flatMap{it.allowedIps}.map{ConfigPolicy.cidr(it,true)}.forEach{b.addRoute(it.address,it.bits)}
+        if(Build.VERSION.SDK_INT>=29)b.setMetered(false) // inherit underlying networks; does not force unmetered
+        b.setUnderlyingNetworks(selected.get()?.let{arrayOf(it)})
+        return b.establish()?.detachFd()?:throw IllegalStateException("VPN consent unavailable")
+    }
+    private fun protectOuter(fd:Int):Boolean {return try{
+        if(!protect(fd))false else {
+            val network=selected.get()?:return false
+            ParcelFileDescriptor.fromFd(fd).use{network.bindSocket(it.fileDescriptor)};true
         }
-        val config = ConfigRepository(this).activeTunnel()
-        if (config == null) {
-            TunnelManager.appendLog("[error] no tunnel selected")
-            stopSelf()
-            return
+    }catch(_:Throwable){false}}
+    private fun registerUnderlay(){
+        lateinit var current:ConnectivityManager.NetworkCallback
+        current=object:ConnectivityManager.NetworkCallback(){
+            override fun onLinkPropertiesChanged(network:Network,properties:LinkProperties){submit{if(callback!==current)return@submit;networks[network]=properties;transition()}}
+            override fun onCapabilitiesChanged(network:Network,capabilities:NetworkCapabilities){submit{if(callback!==current)return@submit;cm.getLinkProperties(network)?.let{networks[network]=it};transition()}}
+            override fun onLost(network:Network){submit{if(callback!==current)return@submit;networks.remove(network);transition()}}
         }
-        TunnelManager.setActiveTunnel(config.id, config.name)
-        try {
-            TunnelManager.backend.start(
-                configJson = config.toJson(),
-                tunProvider = TunProvider { mtu -> establishTun(config, mtu) },
-                socketProtector = SocketProtector { fd -> protect(fd) },
-                eventListener = TunnelManager.eventListener,
-            )
-            registerNetworkCallback()
-            registerDnsCallback()
-        } catch (t: Throwable) {
-            TunnelManager.appendLog("[error] tunnel up failed: ${t.message}")
-            stopSelf()
-        }
+        callback=current
+        cm.registerNetworkCallback(NetworkRequest.Builder().addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET).addCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN).build(),current)
+        @Suppress("DEPRECATION")
+        for(network in cm.allNetworks){val caps=cm.getNetworkCapabilities(network);if(caps?.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN)==true&&caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)){cm.getLinkProperties(network)?.let{networks[network]=it}}}
     }
-
-    private fun down() {
-        unregisterNetworkCallback()
-        unregisterDnsCallback()
-        TunnelManager.backend.stop()
+    private fun transition(){try{updateUnderlay()}catch(_:Throwable){down();TunnelManager.failed();stopSelf()}}
+    private fun updateUnderlay(){
+        val eligible=networks.keys.filter{n->cm.getNetworkCapabilities(n)?.let{it.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN)&&it.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)}==true}
+        val network=cm.activeNetwork?.takeIf{it in eligible}?:eligible.sortedWith(compareByDescending<Network>{cm.getNetworkCapabilities(it)?.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED)==true}.thenByDescending{cm.getNetworkCapabilities(it)?.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)==true}.thenBy{it.networkHandle}).firstOrNull()
+        val lp=network?.let{networks[it]};val links=if(lp==null)emptyList()else listOf(lp)
+        val addresses=links.flatMap{it.linkAddresses}.map{it.address}.filterNot{it.isLinkLocalAddress||it.isLoopbackAddress}
+        val dns=lp?.dnsServers.orEmpty().filterNot{it.isLinkLocalAddress}.mapNotNull{it.hostAddress}.sorted().joinToString(",")
+        val next=Underlay(network,dns,addresses.any{it is Inet4Address} || (Build.VERSION.SDK_INT>=30 && lp?.nat64Prefix!=null),addresses.any{it is Inet6Address})
+        if(next==lastUnderlay)return
+        val rebind=lastUnderlay?.network!=network || lastUnderlay?.v4!=next.v4 || lastUnderlay?.v6!=next.v6
+        selected.set(network);setUnderlyingNetworks(network?.let{arrayOf(it)});lastUnderlay=next
+        backend.underlay(network!=null,next.v4,next.v6,dns,rebind)
+        if(backend.isRunning)TunnelManager.underlay(network!=null)
     }
-
-    /**
-     * Builds and establishes the tun device, returning a detached fd the Go
-     * side owns from here on. Returns -1 when establish fails (e.g. VPN
-     * consent was revoked).
-     */
-    private fun establishTun(config: TunnelConfig, fallbackMtu: Int): Int {
-        val builder = Builder().setSession(SESSION_NAME)
-        builder.setMtu(if (config.iface.mtu > 0) config.iface.mtu else fallbackMtu)
-        config.iface.addresses.forEach { cidr ->
-            val parsed = parseCidr(cidr)
-            if (parsed == null) {
-                TunnelManager.appendLog("[warn] address \"$cidr\" is not a valid CIDR, skipped")
-            } else {
-                builder.addAddress(parsed.first, parsed.second)
-            }
-        }
-        config.iface.dnsServers.forEach { dns ->
-            runCatching { builder.addDnsServer(dns) }.onFailure {
-                TunnelManager.appendLog("[warn] dns server $dns rejected: ${it.message}")
-            }
-        }
-        // Allowed IPs double as the routes captured into the tunnel.
-        config.peers.flatMap { it.allowedIps }.forEach { cidr ->
-            val parsed = parseCidr(cidr)
-            if (parsed == null) {
-                TunnelManager.appendLog("[warn] allowed ip \"$cidr\" is not a valid CIDR, skipped")
-            } else {
-                runCatching { builder.addRoute(parsed.first, parsed.second) }.onFailure {
-                    TunnelManager.appendLog("[warn] route $cidr rejected: ${it.message}")
-                }
-            }
-        }
-        val pfd = builder.establish() ?: return -1
-        return pfd.detachFd()
+    private fun promote(){
+        val open=PendingIntent.getActivity(this,0,Intent(this,MainActivity::class.java),PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT)
+        val n=Notification.Builder(this,CHANNEL).setSmallIcon(R.drawable.ic_launcher_foreground).setContentTitle("Server VPN enabled")
+            .setContentText("Selected server routes only · tap for status").setOngoing(true).setContentIntent(open).build()
+        if(Build.VERSION.SDK_INT>=34)startForeground(NOTIFICATION,n,ServiceInfo.FOREGROUND_SERVICE_TYPE_SYSTEM_EXEMPTED) else startForeground(NOTIFICATION,n)
+        foreground=true
     }
-
-    private fun registerNetworkCallback() {
-        val cm = getSystemService(ConnectivityManager::class.java)
-        val callback = object : ConnectivityManager.NetworkCallback() {
-            override fun onAvailable(network: Network) {
-                // Callbacks can still be in flight briefly after
-                // unregisterNetworkCallback(); the executor may already be shut down.
-                runCatching { executor.execute { onDefaultNetworkChanged(network) } }
-            }
-        }
-        cm.registerDefaultNetworkCallback(callback)
-        networkCallback = callback
-    }
-
-    private fun unregisterNetworkCallback() {
-        networkCallback?.let {
-            runCatching {
-                getSystemService(ConnectivityManager::class.java).unregisterNetworkCallback(it)
-            }
-        }
-        networkCallback = null
-        lastNetwork = null
-    }
-
-    /**
-     * Tracks the underlay networks' DNS servers (not the tunnel's — plugin
-     * sockets are protected out of the tunnel, so a tunnel-internal resolver
-     * would be unreachable from them). NOT_VPN excludes the VPN itself, which
-     * `registerDefaultNetworkCallback` above would otherwise see as default
-     * once up, feeding the core its own unreachable DNS.
-     *
-     * More than one underlay can be up at once (handover windows, "mobile
-     * data always active", dual-SIM), and this request matches all of them —
-     * there is no cheap way to single out the one protected sockets actually
-     * route over. So every change pushes the union of all tracked networks'
-     * servers rather than guessing a "current" one; the core already retries
-     * the next server in the list on a dial failure, so unreachable entries
-     * from a non-default network are harmless.
-     */
-    private fun registerDnsCallback() {
-        val cm = getSystemService(ConnectivityManager::class.java)
-        val request = NetworkRequest.Builder()
-            .addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
-            .addCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN)
-            .build()
-        lateinit var callback: ConnectivityManager.NetworkCallback
-        callback = object : ConnectivityManager.NetworkCallback() {
-            override fun onLinkPropertiesChanged(network: Network, linkProperties: LinkProperties) {
-                // Same in-flight-after-unregister race as onAvailable above.
-                runCatching {
-                    executor.execute {
-                        // Tasks queued before down()'s unregister() land after its
-                        // clear(); a stale callback must not repopulate the map.
-                        if (dnsCallback !== callback) return@execute
-                        // Link-local resolvers (e.g. RA RDNSS fe80::1) carry a %zone
-                        // in hostAddress that the core can't dial on API 30+.
-                        dnsServersByNetwork[network] = linkProperties.dnsServers
-                            .filterNot { it.isLinkLocalAddress }
-                            .mapNotNull { it.hostAddress }
-                        pushDnsServers()
-                    }
-                }
-            }
-
-            override fun onLost(network: Network) {
-                runCatching {
-                    executor.execute {
-                        if (dnsCallback !== callback) return@execute
-                        dnsServersByNetwork.remove(network)
-                        pushDnsServers()
-                    }
-                }
-            }
-        }
-        cm.registerNetworkCallback(request, callback)
-        dnsCallback = callback
-    }
-
-    private fun pushDnsServers() {
-        val servers = dnsServersByNetwork.values.flatten().distinct().joinToString(",")
-        TunnelManager.backend.setDnsServers(servers)
-    }
-
-    private fun unregisterDnsCallback() {
-        dnsCallback?.let {
-            runCatching {
-                getSystemService(ConnectivityManager::class.java).unregisterNetworkCallback(it)
-            }
-        }
-        dnsCallback = null
-        dnsServersByNetwork.clear()
-    }
-
-    private fun onDefaultNetworkChanged(network: Network) {
-        val previous = lastNetwork
-        lastNetwork = network
-        if (previous == null || previous == network || !TunnelManager.backend.isRunning) return
-        TunnelManager.appendLog("[info] default network changed, renewing tun fd")
-        val config = ConfigRepository(this).activeTunnel() ?: return
-        val fd = establishTun(config, config.iface.mtu)
-        if (fd >= 0) {
-            TunnelManager.backend.renewTun(fd)
-        } else {
-            TunnelManager.appendLog("[error] tun renewal failed")
-        }
-    }
-
-    /** "10.0.0.2/32" → address + prefix length; null when malformed. */
-    private fun parseCidr(cidr: String): Pair<String, Int>? {
-        val trimmed = cidr.trim()
-        if (trimmed.isEmpty()) return null
-        val slash = trimmed.lastIndexOf('/')
-        if (slash <= 0) return null
-        val prefix = trimmed.substring(slash + 1).toIntOrNull() ?: return null
-        return trimmed.substring(0, slash) to prefix
-    }
-
-    companion object {
-        const val ACTION_UP = "dev.stunmesh.android.action.UP"
-        const val ACTION_DOWN = "dev.stunmesh.android.action.DOWN"
-        private const val SESSION_NAME = "STUNMESH"
-    }
+    private data class Underlay(val network:Network?,val dns:String,val v4:Boolean,val v6:Boolean)
+    companion object {const val ACTION_UP="dev.stunmesh.local.UP";const val ACTION_DOWN="dev.stunmesh.local.DOWN";private const val CHANNEL="vpn";private const val NOTIFICATION=1}
 }

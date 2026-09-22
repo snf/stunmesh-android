@@ -2,223 +2,67 @@ package dev.stunmesh.android.config
 
 import org.json.JSONArray
 import org.json.JSONObject
+import java.util.UUID
 
-/**
- * Tunnel configuration. Serialized to JSON with [toJson] — the same string
- * that crosses the gomobile boundary into the Go core (gomobile cannot pass
- * maps or arbitrary slices, so complex data travels as JSON).
- *
- * Field names follow the stunmesh-go YAML config (`internal/config`): peers
- * carry `public_key`/`plugin`/`protocol`, plugin definitions carry `type`
- * plus plugin-specific keys (cloudflare: `zone`, `token`, `subdomain`).
- * Interface-level WG fields (private key, addresses, DNS, MTU, allowed IPs,
- * keepalive) are Android additions: the desktop daemon attaches to an
- * existing WG interface, but on Android the app owns the whole device.
- */
+/** Private in-process model. It is serialized only to the core, protected local
+ * storage or the OS backup agent. UI/sharing uses PublicTunnel, never this model. */
 data class TunnelConfig(
-    /**
-     * Stable identity, kept across renames so the active-tunnel pointer and
-     * any references survive editing. Generated when the tunnel is created.
-     */
-    val id: String = java.util.UUID.randomUUID().toString(),
-    /** Tunnel display name. */
-    val name: String = "stunmesh",
+    val id: String = UUID.randomUUID().toString(),
+    val name: String = "Server",
     val iface: InterfaceConfig = InterfaceConfig(),
     val peers: List<PeerConfig> = emptyList(),
     val plugins: List<PluginDefinition> = emptyList(),
     val stunServers: List<String> = emptyList(),
-    val refreshIntervalSeconds: Int = 600,
+    val refreshIntervalSeconds: Int = 180,
     val logLevel: String = "info",
+    val proposalId: String = "",
 ) {
-    fun toJson(): String = toJsonObject().toString(2)
-
-    fun toJsonObject(): JSONObject {
-        val o = JSONObject()
-        o.put("id", id)
-        o.put("name", name)
-        o.put("interface", iface.toJson())
-        o.put("peers", JSONArray().apply { peers.forEach { put(it.toJson()) } })
-        o.put("plugins", JSONArray().apply { plugins.forEach { put(it.toJson()) } })
-        o.put("stun", JSONObject().put("addresses", JSONArray(stunServers)))
-        o.put("refresh_interval_seconds", refreshIntervalSeconds)
-        o.put("log", JSONObject().put("level", logLevel))
-        return o
+    fun toJson(): String = toJsonObject().toString()
+    fun toJsonObject(): JSONObject = JSONObject().apply {
+        put("id", id); put("name", name); put("interface", iface.toJson())
+        put("peers", JSONArray().apply { peers.forEach { put(it.toJson()) } })
+        put("plugins", JSONArray().apply { plugins.forEach { put(it.toJson()) } })
+        put("stun", JSONObject().put("addresses", JSONArray(stunServers)))
+        put("refresh_interval_seconds", refreshIntervalSeconds)
+        put("log", JSONObject().put("level", logLevel))
+        // Local enrollment metadata is deliberately absent from the core schema.
     }
-
-    /**
-     * Copy with every secret replaced by [REDACTED], for including the config
-     * in a shareable log export. Empty secrets stay empty so the reader can
-     * still tell whether one was configured. Not meant to be imported back.
-     */
-    fun redactSecrets(): TunnelConfig = copy(
-        iface = iface.copy(privateKey = redact(iface.privateKey)),
-        peers = peers.map { it.copy(presharedKey = redact(it.presharedKey)) },
-        plugins = plugins.map { plugin ->
-            plugin.copy(
-                config = plugin.config.mapValues { (key, value) ->
-                    if (SECRET_KEY.containsMatchIn(key) && value is String) redact(value) else value
-                }
-            )
-        },
-    )
-
+    fun storedJson(): JSONObject = toJsonObject().put("proposal_id", proposalId)
+    override fun toString(): String = "TunnelConfig(private)"
     companion object {
-        const val REDACTED = "<redacted>"
-
-        private val SECRET_KEY = Regex("token|secret|password|passphrase", RegexOption.IGNORE_CASE)
-
-        private fun redact(value: String): String = if (value.isEmpty()) "" else REDACTED
-
-        fun fromJson(json: String): TunnelConfig = fromJsonObject(JSONObject(json))
-
+        fun fromJson(json: String): TunnelConfig = fromJsonObject(StrictDocument.parse(json))
         fun fromJsonObject(o: JSONObject): TunnelConfig {
-            val peersArray = o.optJSONArray("peers") ?: JSONArray()
-            val pluginsArray = o.optJSONArray("plugins") ?: JSONArray()
+            o.fields("id","name","interface","peers","plugins","stun","refresh_interval_seconds","log","proposal_id")
+            val stun=o.obj("stun").apply { fields("addresses") }
+            val log=o.obj("log").apply { fields("level") }
             return TunnelConfig(
-                // A config written before tunnels had ids gets one now.
-                id = o.optString("id").ifEmpty { java.util.UUID.randomUUID().toString() },
-                name = o.optString("name", "stunmesh"),
-                iface = InterfaceConfig.fromJson(o.optJSONObject("interface") ?: JSONObject()),
-                peers = (0 until peersArray.length()).map {
-                    PeerConfig.fromJson(peersArray.getJSONObject(it))
-                },
-                plugins = (0 until pluginsArray.length()).map {
-                    PluginDefinition.fromJson(pluginsArray.getJSONObject(it))
-                },
-                stunServers = (o.optJSONObject("stun")?.optJSONArray("addresses")).toStringList(),
-                refreshIntervalSeconds = o.optInt("refresh_interval_seconds", 600),
-                logLevel = o.optJSONObject("log")?.optString("level", "info") ?: "info",
+                id=o.text("id").ifEmpty { UUID.randomUUID().toString() },name=o.text("name","Server"),
+                iface=InterfaceConfig.fromJson(o.obj("interface")),
+                peers=o.array("peers").let { a -> (0 until a.length()).map { PeerConfig.fromJson(a.getJSONObject(it)) } },
+                plugins=o.array("plugins").let { a -> (0 until a.length()).map { PluginDefinition.fromJson(a.getJSONObject(it)) } },
+                stunServers=stun.strings("addresses"),refreshIntervalSeconds=o.number("refresh_interval_seconds",180),
+                logLevel=log.text("level","info"),proposalId=o.text("proposal_id"),
             )
         }
     }
 }
-
-data class InterfaceConfig(
-    /** Base64 WireGuard private key. */
-    val privateKey: String = "",
-    /** Tunnel addresses in CIDR form, e.g. "10.0.0.2/32". */
-    val addresses: List<String> = emptyList(),
-    val dnsServers: List<String> = emptyList(),
-    /** 0 lets the core pick an ephemeral port. */
-    val listenPort: Int = 0,
-    val mtu: Int = 1420,
-    /** STUN discovery protocol: "ipv4", "ipv6" or "dualstack". */
-    val protocol: String = "ipv4",
-) {
-    fun toJson(): JSONObject = JSONObject().apply {
-        put("private_key", privateKey)
-        put("addresses", JSONArray(addresses))
-        put("dns_servers", JSONArray(dnsServers))
-        put("listen_port", listenPort)
-        put("mtu", mtu)
-        put("protocol", protocol)
-    }
-
-    companion object {
-        fun fromJson(o: JSONObject): InterfaceConfig = InterfaceConfig(
-            privateKey = o.optString("private_key"),
-            addresses = o.optJSONArray("addresses").toStringList(),
-            dnsServers = o.optJSONArray("dns_servers").toStringList(),
-            listenPort = o.optInt("listen_port", 0),
-            mtu = o.optInt("mtu", 1420),
-            protocol = o.optString("protocol", "ipv4"),
-        )
-    }
+data class InterfaceConfig(val privateKey:String="",val addresses:List<String> = emptyList(),val dnsServers:List<String> = emptyList(),val listenPort:Int=0,val mtu:Int=1420,val protocol:String="ipv4") {
+    fun toJson():JSONObject=JSONObject().apply {put("private_key",privateKey);put("addresses",JSONArray(addresses));put("dns_servers",JSONArray(dnsServers));put("listen_port",listenPort);put("mtu",mtu);put("protocol",protocol)}
+    override fun toString()="InterfaceConfig(private)"
+    companion object {fun fromJson(o:JSONObject):InterfaceConfig {o.fields("private_key","addresses","dns_servers","listen_port","mtu","protocol");return InterfaceConfig(o.text("private_key"),o.strings("addresses"),o.strings("dns_servers"),o.number("listen_port",0),o.number("mtu",1420),o.text("protocol","ipv4"))}}
+}
+data class PeerConfig(val name:String="",val description:String="",val publicKey:String="",val presharedKey:String="",val allowedIps:List<String> = emptyList(),val endpoint:String="",val plugin:String="",val protocol:String="ipv4",val persistentKeepalive:Int=25) {
+    fun toJson():JSONObject=JSONObject().apply {put("name",name);put("description",description);put("public_key",publicKey);put("preshared_key",presharedKey);put("allowed_ips",JSONArray(allowedIps));put("endpoint",endpoint);put("plugin",plugin);put("protocol",protocol);put("persistent_keepalive",persistentKeepalive)}
+    override fun toString()="PeerConfig(private)"
+    companion object {fun fromJson(o:JSONObject):PeerConfig {o.fields("name","description","public_key","preshared_key","allowed_ips","endpoint","plugin","protocol","persistent_keepalive");return PeerConfig(o.text("name"),o.text("description"),o.text("public_key"),o.text("preshared_key"),o.strings("allowed_ips"),o.text("endpoint"),o.text("plugin"),o.text("protocol","ipv4"),o.number("persistent_keepalive",25))}}
+}
+data class PluginDefinition(val instance:String="dht",val type:String="builtin",val name:String="opendht",val config:Map<String,Any> = emptyMap()) {
+    fun toJson():JSONObject=JSONObject().put("instance",instance).put("type",type).put("name",name).put("config",JSONObject(config))
+    companion object {fun fromJson(o:JSONObject):PluginDefinition {
+        o.fields("instance","type","name","config");val c=o.obj("config");c.fields("endpoint","endpoints","timeout","dedup")
+        val values=c.keys().asSequence().associateWith { key -> when(key) {"endpoints"->c.strings(key);"dedup"->c.get(key).also { require(it==false) };else->c.text(key)} }
+        return PluginDefinition(o.text("instance","dht"),o.text("type","builtin"),o.text("name","opendht"),values)
+    }}
 }
 
-data class PeerConfig(
-    /** Peer name — the map key in the desktop YAML. */
-    val name: String = "",
-    val description: String = "",
-    /** Base64 WireGuard public key. */
-    val publicKey: String = "",
-    /** Base64 WireGuard pre-shared key; empty means none. */
-    val presharedKey: String = "",
-    /** Allowed IPs in CIDR form; also installed as tunnel routes. */
-    val allowedIps: List<String> = emptyList(),
-    /**
-     * Optional static endpoint "host:port", as in a plain WG config. Usually
-     * empty — STUNMESH discovers and sets endpoints at run time; a static
-     * value only serves as the initial endpoint before discovery.
-     */
-    val endpoint: String = "",
-    /** Name of the plugin instance used for endpoint exchange. */
-    val plugin: String = "",
-    /** Endpoint selection: "ipv4", "ipv6", "prefer_ipv4" or "prefer_ipv6". */
-    val protocol: String = "ipv4",
-    val persistentKeepalive: Int = 25,
-) {
-    fun toJson(): JSONObject = JSONObject().apply {
-        put("name", name)
-        put("description", description)
-        put("public_key", publicKey)
-        put("preshared_key", presharedKey)
-        put("allowed_ips", JSONArray(allowedIps))
-        put("endpoint", endpoint)
-        put("plugin", plugin)
-        put("protocol", protocol)
-        put("persistent_keepalive", persistentKeepalive)
-    }
-
-    companion object {
-        fun fromJson(o: JSONObject): PeerConfig = PeerConfig(
-            name = o.optString("name"),
-            description = o.optString("description"),
-            publicKey = o.optString("public_key"),
-            presharedKey = o.optString("preshared_key"),
-            allowedIps = o.optJSONArray("allowed_ips").toStringList(),
-            endpoint = o.optString("endpoint"),
-            plugin = o.optString("plugin"),
-            protocol = o.optString("protocol", "ipv4"),
-            persistentKeepalive = o.optInt("persistent_keepalive", 25),
-        )
-    }
-}
-
-/**
- * A named endpoint-exchange plugin instance. v1 supports built-in plugins
- * only (`exec`/`shell` need external processes and stay desktop-only).
- * Mirrors `pluginapi.PluginDefinition`: `type` plus free-form config keys.
- */
-data class PluginDefinition(
-    /** Instance name peers reference, e.g. "cloudflare_builtin". */
-    val instance: String = "cloudflare_builtin",
-    /** Plugin type; only "builtin" is valid on Android. */
-    val type: String = "builtin",
-    /** Built-in plugin name, e.g. "cloudflare". */
-    val name: String = "cloudflare",
-    /**
-     * Plugin-specific keys. Values are strings or lists of strings, as in
-     * the desktop YAML (opendht's `endpoints` is a list). Cloudflare:
-     * `zone`, `token`, optional `subdomain`.
-     */
-    val config: Map<String, Any> = emptyMap(),
-) {
-    fun toJson(): JSONObject = JSONObject().apply {
-        put("instance", instance)
-        put("type", type)
-        put("name", name)
-        // JSONObject(Map) wraps a List value as a JSON array.
-        put("config", JSONObject(config as Map<*, *>))
-    }
-
-    companion object {
-        fun fromJson(o: JSONObject): PluginDefinition {
-            val configObj = o.optJSONObject("config") ?: JSONObject()
-            return PluginDefinition(
-                instance = o.optString("instance", "cloudflare_builtin"),
-                type = o.optString("type", "builtin"),
-                name = o.optString("name", "cloudflare"),
-                config = configObj.keys().asSequence().associateWith { key ->
-                    when (val value = configObj.get(key)) {
-                        is JSONArray -> (0 until value.length()).map { value.getString(it) }
-                        else -> value.toString()
-                    }
-                },
-            )
-        }
-    }
-}
-
-private fun JSONArray?.toStringList(): List<String> =
-    if (this == null) emptyList() else (0 until length()).map { getString(it) }
+data class PublicTunnel(val id:String,val name:String,val publicKey:String,val serverKeys:List<String>,val addresses:List<String>,val routes:List<String>,val proposalId:String)

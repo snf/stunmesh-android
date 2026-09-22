@@ -2,103 +2,41 @@ package dev.stunmesh.android.tunnel
 
 import android.content.Context
 import android.content.Intent
-import android.util.Log
+import androidx.core.content.ContextCompat
 import dev.stunmesh.android.backend.BackendEvent
 import dev.stunmesh.android.backend.BackendState
 import dev.stunmesh.android.backend.EventListener
-import dev.stunmesh.android.backend.StubBackend
-import dev.stunmesh.android.backend.StunmeshBackend
 import dev.stunmesh.android.config.ConfigRepository
 import dev.stunmesh.android.service.StunmeshVpnService
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 
-/**
- * Process-wide tunnel state shared between the UI and [StunmeshVpnService].
- * The service drives the backend; the UI observes [state] and [logLines] and
- * asks for transitions with [start]/[stop].
- */
-object TunnelManager {
-
-    /**
-     * The Go-core backend when the AAR is bundled (GoBackend only exists in
-     * builds that include app/libs/stunmesh.aar), otherwise the stub. A
-     * ClassNotFoundException is the expected stub-build path; anything else
-     * means the Go core is present but unusable, which must be visible
-     * rather than silently degrade to a data plane that moves no packets.
-     */
-    val backend: StunmeshBackend = loadBackend()
-
-    private fun loadBackend(): StunmeshBackend = try {
-        Class.forName("dev.stunmesh.android.backend.GoBackend")
-            .getDeclaredConstructor()
-            .newInstance() as StunmeshBackend
-    } catch (e: ClassNotFoundException) {
-        Log.i(TAG, "Go core not bundled, using stub backend")
-        StubBackend()
-    } catch (t: Throwable) {
-        Log.e(TAG, "Go core present but failed to load, using stub backend", t)
-        StubBackend()
-    }
-
-    private val _state = MutableStateFlow(BackendState.DOWN)
-    val state: StateFlow<BackendState> = _state.asStateFlow()
-
-    private val _logLines = MutableStateFlow<List<String>>(emptyList())
-    val logLines: StateFlow<List<String>> = _logLines.asStateFlow()
-
-    /** Id of the tunnel the service is running, empty when none. */
-    private val _activeTunnelId = MutableStateFlow("")
-    val activeTunnelId: StateFlow<String> = _activeTunnelId.asStateFlow()
-
-    private val _activeTunnelName = MutableStateFlow("")
-    val activeTunnelName: StateFlow<String> = _activeTunnelName.asStateFlow()
-
-    fun setActiveTunnel(id: String, name: String) {
-        _activeTunnelId.value = id
-        _activeTunnelName.value = name
-    }
-
-    val eventListener: EventListener = object : EventListener {
-        override fun onStateChanged(state: BackendState) {
-            _state.value = state
-        }
-
-        override fun onLog(level: String, message: String) {
-            appendLog("[$level] $message")
-        }
-
-        override fun onEvent(event: BackendEvent) {
-            val peer = event.peerPublicKey?.let { " peer=${it.take(8)}…" } ?: ""
-            appendLog("event ${event.kind}$peer: ${event.detail}")
+/** Public event state only; secrets and the backend stay with their owners. */
+object TunnelManager:EventListener {
+    private val mutableState=MutableStateFlow(BackendState.DOWN)
+    val state=mutableState.asStateFlow()
+    private val mutableActive=MutableStateFlow("")
+    val activeTunnelId=mutableActive.asStateFlow()
+    private val mutableStatus=MutableStateFlow("Stopped")
+    val status=mutableStatus.asStateFlow()
+    private val mutableAuth=MutableStateFlow<Map<String,Long>>(emptyMap())
+    val authenticated=mutableAuth.asStateFlow()
+    private val mutableLog=MutableStateFlow<List<String>>(emptyList())
+    val logLines=mutableLog.asStateFlow()
+    fun active(id:String){mutableActive.value=id;mutableAuth.value=emptyMap()}
+    fun start(context:Context,id:String){ConfigRepository.get(context).select(id);ContextCompat.startForegroundService(context,Intent(context,StunmeshVpnService::class.java).setAction(StunmeshVpnService.ACTION_UP))}
+    fun stop(context:Context){ConfigRepository.get(context).deselect();context.startService(Intent(context,StunmeshVpnService::class.java).setAction(StunmeshVpnService.ACTION_DOWN))}
+    override fun onStateChanged(state:BackendState){mutableState.value=state;mutableStatus.value=when(state){BackendState.DOWN->"Stopped";BackendState.STARTING->"Starting / discovering";BackendState.UP->"Interface ready; awaiting authenticated traffic";BackendState.STOPPING->"Stopping"};if(state==BackendState.DOWN){mutableActive.value="";mutableAuth.value=emptyMap()}}
+    override fun onLog(level:String,message:String){if(level=="warn"||level=="error")record("Discovery operation unavailable; bounded retry")}
+    override fun onEvent(event:BackendEvent){
+        when(event.kind){
+            "peer_authenticated"->event.peerPublicKey?.takeIf{it.matches(Regex("[A-Za-z0-9+/]{43}="))}?.let{key->mutableAuth.update{(it+ (key to System.currentTimeMillis())).entries.take(32).associate{e->e.toPair()}}}
+            "peer_endpoint_updated"->record("Peer endpoint hint applied; awaiting WireGuard authentication")
         }
     }
-
-    /**
-     * Brings up [tunnelId], which becomes the stored active tunnel. Caller
-     * must have completed the `VpnService.prepare()` consent flow. Android
-     * permits one active VPN, so a running tunnel is stopped first.
-     */
-    fun start(context: Context, tunnelId: String) {
-        ConfigRepository(context).setActive(tunnelId)
-        // The service replaces a running tunnel itself; sending a stop first
-        // would race its stopSelf against this start.
-        context.startService(serviceIntent(context, StunmeshVpnService.ACTION_UP))
-    }
-
-    fun stop(context: Context) {
-        context.startService(serviceIntent(context, StunmeshVpnService.ACTION_DOWN))
-    }
-
-    fun appendLog(line: String) {
-        _logLines.update { (it + line).takeLast(MAX_LOG_LINES) }
-    }
-
-    private fun serviceIntent(context: Context, action: String): Intent =
-        Intent(context, StunmeshVpnService::class.java).setAction(action)
-
-    private const val MAX_LOG_LINES = 200
-    private const val TAG = "Stunmesh"
+    fun underlay(available:Boolean){mutableStatus.value=if(available)"Interface ready; discovery active" else "Interface ready; waiting for network"}
+    fun failed(){onStateChanged(BackendState.DOWN);mutableStatus.value="VPN could not start; check configuration, consent and hardware key storage";record("VPN operation failed; resources released")}
+    private fun record(category:String){mutableLog.update{(it+category).takeLast(64)}}
+    fun diagnostics():String=(listOf("STUNMESH ${dev.stunmesh.android.BuildConfig.VERSION_NAME}","State: ${state.value}")+logLines.value).joinToString("\n")
 }
