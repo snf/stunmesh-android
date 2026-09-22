@@ -270,12 +270,12 @@ stunmesh:
         val androidJson = store.toJson().replace("/", "\\/")
         assertEquals(store, TunnelStore.fromJson(androidJson))
         val escaped =
-            StrictDocument.parse("""{"path":"a\\/b", "literal":"a\\\\/b", "odd":"a\\\\\\/b"}""")
+            StrictDocument.parse("""{"path":"a\/b", "literal":"a\\/b", "odd":"a\\\/b"}""")
         assertEquals("a/b", escaped.text("path"))
         assertEquals("a\\/b", escaped.text("literal"))
         assertEquals("a\\/b", escaped.text("odd"))
-        reject { StrictDocument.parse("""{"a/b":1,"a\\/b":2}""") }
-        reject { StrictDocument.parse("""{"x":"\\q"}""") }
+        reject { StrictDocument.parse("""{"a/b":1,"a\/b":2}""") }
+        reject { StrictDocument.parse("""{"x":"\q"}""") }
     }
 
     @Test
