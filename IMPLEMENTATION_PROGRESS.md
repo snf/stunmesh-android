@@ -110,3 +110,5 @@ Final documentation/evidence commits follow these build/test commits. See Git hi
 - NAS trial now starts with zero authorized peers, NET_ADMIN only, expected UID mapping and separate proxy/WG ports. Runtime configs committed at NAS `ac5a7e7`. No service shares, host firewall or startup changes.
 
 - Current interactive gate is phone unlock: ADB remains connected, but the lock screen hides the app controls. Requested unlock to attempt normal UI enrollment/public-reply retrieval. Existing WireGuard remains active. Verified actual NAS process capability mask NET_ADMIN only, NoNewPrivs and seccomp; new trial has zero peers pending enrollment. No authenticated device VPN traffic is claimed yet.
+
+- Phone enrollment completed by the owner. Validated its public reply against the confidential v2 proposal; authorized only its phone-generated public key/address while preserving the NAS-local PSK. Explicit trial configs committed at NAS `e139b7d`; only the new container restarted. Removed and verified absence of the temporary credential download. Official WireGuard remains active pending the authorized VPN switch; latest handshake is still zero before activation.
