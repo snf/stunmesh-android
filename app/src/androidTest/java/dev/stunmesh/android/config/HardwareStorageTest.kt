@@ -11,6 +11,36 @@ import org.junit.Test
  */
 class HardwareStorageTest {
     @Test
+    fun enrollmentWrapsIncludedPskAndReturnsOnlyPublicIdentity() {
+        val context = InstrumentationRegistry.getInstrumentation().targetContext
+        assertTrue(context.packageName.endsWith(".debug"))
+        val psk = java.util.Base64.getEncoder().encodeToString(ByteArray(32) { 7 })
+        val server = java.util.Base64.getEncoder().encodeToString(ByteArray(32) { 2 })
+        val text = """{"schema":"${Provisioning.SCHEMA}","proposal_id":"${java.util.UUID.randomUUID()}","name":"Synthetic enrollment test","address":"10.77.0.2/32","server_public_key":"$server","allowed_ips":["10.77.0.1/32"],"stun_servers":["stun.example.com:3478"],"opendht":["https://proxy.example.com"],"preshared_key":"$psk"}"""
+        val enrollment = Provisioning.decode(text)
+        val repository = ConfigRepository.get(context)
+        repository.load()
+        val before = repository.state.value as RepositoryState.Ready
+        val peer = repository.enroll(enrollment.publicConfig, enrollment.presharedKey)
+        try {
+            val reply = Provisioning.response(peer)
+            assertTrue(peer.publicKey.isNotEmpty())
+            assertNotEquals(server, peer.publicKey)
+            assertFalse(reply.contains(psk))
+            assertFalse(reply.contains("private_key"))
+            assertFalse(reply.contains("preshared_key"))
+            val bytes = java.io.File(context.noBackupFilesDir, "configuration.v1.bin").readBytes()
+            assertFalse(bytes.toString(Charsets.ISO_8859_1).contains(psk))
+            repository.load()
+            val reloaded = repository.state.value as RepositoryState.Ready
+            assertEquals(before.selectedId, reloaded.selectedId)
+            assertEquals(peer, reloaded.profiles.single { it.id == peer.id })
+        } finally {
+            repository.remove(peer.id) // only this synthetic profile; never clear app state
+        }
+    }
+
+    @Test
     fun verifiedHardwareWrappingRejectsTamperingAndNeverExportsKey() {
         val context = InstrumentationRegistry.getInstrumentation().targetContext
         assertTrue(context.packageName.endsWith(".debug"))

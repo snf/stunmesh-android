@@ -38,7 +38,7 @@ class RemediationTest {
                 it.readBytes().toString(Charsets.UTF_8)
             }
         val p = Provisioning.decode(text)
-        assertTrue(p.requiresPsk)
+        assertTrue(p.presharedKey.isEmpty())
         assertEquals("10.77.0.1/32", p.publicConfig.peers.single().allowedIps.single())
         assertTrue(p.publicConfig.iface.privateKey.isEmpty())
     }
@@ -220,16 +220,32 @@ stunmesh:
     }
 
     @Test
-    fun qrIsPublicAndCannotSmuggleIdentity() {
-        val json =
-            """{"schema":"${Provisioning.SCHEMA}","proposal_id":"${UUID.randomUUID()}","name":"Server","address":"10.89.0.2/32","server_public_key":"$publicKey","allowed_ips":["10.89.0.1/32"],"stun_servers":["stun.example.com:3478"],"opendht":["https://example.com"],"psk_required":true}"""
-        val proposal = Provisioning.decode(json)
-        assertTrue(proposal.requiresPsk)
-        assertEquals("", proposal.publicConfig.iface.privateKey)
-        for (field in listOf("private_key", "preshared_key", "encrypted_key", "command")) reject {
-            Provisioning.decode(json.dropLast(1) + ",\"$field\":\"$privateKey\"}")
+    fun enrollmentMayCarryPskButNeverPhoneIdentity() {
+        val text = javaClass.getResourceAsStream("/enrollment-with-psk.json")!!.use {
+            it.readBytes().toString(Charsets.UTF_8)
         }
-        reject { Provisioning.decode(json.replace("10.89.0.1/32", "0.0.0.0/0")) }
+        val psk = Base64.getEncoder().encodeToString(ByteArray(32) { 7 })
+        val proposal = Provisioning.decode(text)
+        assertEquals(psk, proposal.presharedKey)
+        assertEquals("", proposal.publicConfig.iface.privateKey)
+        assertTrue(proposal.publicConfig.peers.all { it.presharedKey.isEmpty() })
+        assertFalse(proposal.toString().contains(psk))
+        for (field in listOf("private_key", "encrypted_key", "command", "psk_required")) reject {
+            Provisioning.decode(text.trim().dropLast(1) + ",\"$field\":\"$privateKey\"}")
+        }
+        for (bad in listOf("", "canary", Base64.getEncoder().encodeToString(ByteArray(32)), psk + "\\n")) reject {
+            Provisioning.decode(text.replace(psk, bad))
+        }
+        for (bad in listOf("null", "true", "[]")) reject {
+            Provisioning.decode(text.replace("\"$psk\"", bad))
+        }
+        reject { Provisioning.decode(text.replace("10.77.0.1/32", "0.0.0.0/0")) }
+        reject { Provisioning.decode(text.replace(Provisioning.SCHEMA, "stunmesh-enroll-v1")) }
+        val reply = Provisioning.response(PublicTunnel("id", "Server", publicKey,
+            listOf(publicKey), listOf("10.77.0.2/32"), listOf("10.77.0.1/32"), "proposal"))
+        assertFalse(reply.contains(psk))
+        assertFalse(reply.contains("preshared_key"))
+        assertFalse(reply.contains("private_key"))
     }
 
     @Test

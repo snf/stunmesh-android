@@ -8,24 +8,23 @@ import android.content.pm.PackageManager
 import android.net.VpnService
 import android.os.Build
 import android.os.Bundle
-import android.text.InputType
 import android.view.WindowManager
-import android.view.inputmethod.EditorInfo
-import android.widget.EditText
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.viewinterop.AndroidView
 import dev.stunmesh.android.backend.BackendState
 import dev.stunmesh.android.config.*
 import dev.stunmesh.android.tunnel.TunnelManager
@@ -40,7 +39,7 @@ import mobile.Mobile
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // The only secret input is an optional PSK, never a private-key editor.
+        // Enrollment may contain a PSK; a phone private key is never imported.
         window.addFlags(WindowManager.LayoutParams.FLAG_SECURE)
         setContent { StunmeshTheme { ServerScreen() } }
     }
@@ -58,7 +57,6 @@ private fun ServerScreen() {
     val scope = rememberCoroutineScope()
     var input by remember { mutableStateOf("") }
     var enrollment by remember { mutableStateOf<Enrollment?>(null) }
-    var psk by remember { mutableStateOf("") }
     var notice by remember { mutableStateOf("") }
     var busy by remember { mutableStateOf(false) }
     var pendingId by remember { mutableStateOf("") }
@@ -112,6 +110,7 @@ private fun ServerScreen() {
         if (request == null) afterConsent() else consent.launch(request)
     }
     fun review(text: String) {
+        input = ""
         scope.launch {
             busy = true
             try {
@@ -124,12 +123,11 @@ private fun ServerScreen() {
                         }
                     }
                 enrollment = candidate
-                psk = ""
                 notice = ""
                 input = ""
             } catch (_: Throwable) {
                 notice =
-                    "Public configuration rejected: check schema, keys and narrow routes. Private keys and secret blobs cannot be imported."
+                    "Enrollment rejected: check its version, keys and narrow routes. Phone private keys and encrypted key blobs cannot be imported."
             } finally {
                 busy = false
             }
@@ -149,7 +147,7 @@ private fun ServerScreen() {
                             }
                         review(text)
                     } catch (_: Throwable) {
-                        notice = "Cannot read this public profile, or it exceeds 256 KiB."
+                        notice = "Cannot read this enrollment, or it exceeds 256 KiB."
                     } finally {
                         busy = false
                     }
@@ -248,7 +246,7 @@ private fun ServerScreen() {
                     HorizontalDivider()
                     Text("Add a device", style = MaterialTheme.typography.titleLarge)
                     Text(
-                        "Scan the owner's QR with GrapheneOS Camera, then paste its public text here. Compare the server key and routes before saving."
+                        "Scan the owner's QR with a trusted scanner or open its local file. Enrollment may include a shared key: keep the QR, file and clipboard private. The phone's private key is generated here."
                     )
                     OutlinedTextField(
                         value = input,
@@ -256,7 +254,9 @@ private fun ServerScreen() {
                             if (it.length <= StrictDocument.MAX_BYTES) input = it
                             else notice = "Input exceeds 256 KiB."
                         },
-                        label = { Text("Public enrollment text") },
+                        label = { Text("Enrollment text") },
+                        visualTransformation = PasswordVisualTransformation(),
+                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password, autoCorrectEnabled = false),
                         modifier = Modifier.fillMaxWidth(),
                         maxLines = 6,
                     )
@@ -277,7 +277,7 @@ private fun ServerScreen() {
                                 )
                             },
                         ) {
-                            Text("Open public file")
+                            Text("Open enrollment file")
                         }
                     }
                 }
@@ -300,10 +300,9 @@ private fun ServerScreen() {
             onDismissRequest = {
                 if (!busy) {
                     enrollment = null
-                    psk = ""
                 }
             },
-            title = { Text("Verify public enrollment") },
+            title = { Text("Verify enrollment") },
             text = {
                 Column(
                     Modifier.verticalScroll(rememberScrollState()),
@@ -318,32 +317,27 @@ private fun ServerScreen() {
                     Text(
                         "Saving creates a fresh phone identity. Copy its public reply to the owner and add that peer on the server before connecting."
                     )
-                    if (candidate.requiresPsk) {
-                        Text(
-                            "This proposal requires a separately supplied WireGuard PSK. Use a trusted keyboard; it is not part of the QR."
-                        )
-                        SecretPskField { psk = it }
-                    }
+                    Text(if (candidate.presharedKey.isNotEmpty())
+                        "WireGuard shared key included. It will be protected with the local configuration."
+                    else "No additional WireGuard shared key is included.")
                 }
             },
             confirmButton = {
                 TextButton(
-                    enabled = !busy && (!candidate.requiresPsk || psk.length == 44),
+                    enabled = !busy,
                     onClick = {
-                        val secret = psk
-                        psk = ""
                         busy = true
                         scope.launch {
                             try {
                                 withContext(Dispatchers.IO) {
-                                    repository.enroll(candidate.publicConfig, secret)
+                                    repository.enroll(candidate.publicConfig, candidate.presharedKey)
                                 }
                                 enrollment = null
                                 notice =
                                     "Identity saved. Copy the public reply and authorize it on the server; the VPN remains off."
                             } catch (_: Throwable) {
                                 notice =
-                                    "Enrollment failed. Check the public profile, PSK requirement and hardware key storage."
+                                        "Enrollment failed. Check the profile and hardware key storage."
                             } finally {
                                 busy = false
                             }
@@ -358,7 +352,6 @@ private fun ServerScreen() {
                     enabled = !busy,
                     onClick = {
                         enrollment = null
-                        psk = ""
                     },
                 ) {
                     Text("Cancel")
@@ -412,46 +405,3 @@ private fun ServerScreen() {
     }
 }
 
-@Composable
-private fun SecretPskField(onChange: (String) -> Unit) {
-    AndroidView(
-        factory = { context ->
-            EditText(context).apply {
-                hint = "Pre-shared key"
-                inputType =
-                    InputType.TYPE_CLASS_TEXT or
-                        InputType.TYPE_TEXT_VARIATION_PASSWORD or
-                        InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
-                imeOptions =
-                    EditorInfo.IME_FLAG_NO_PERSONALIZED_LEARNING or EditorInfo.IME_ACTION_DONE
-                importantForAutofill =
-                    android.view.View.IMPORTANT_FOR_AUTOFILL_NO_EXCLUDE_DESCENDANTS
-                isSaveEnabled = false
-                filterTouchesWhenObscured = true
-                filters = arrayOf(android.text.InputFilter.LengthFilter(44))
-                addTextChangedListener(
-                    object : android.text.TextWatcher {
-                        override fun beforeTextChanged(
-                            s: CharSequence?,
-                            start: Int,
-                            count: Int,
-                            after: Int,
-                        ) {}
-
-                        override fun onTextChanged(
-                            s: CharSequence?,
-                            start: Int,
-                            before: Int,
-                            count: Int,
-                        ) {
-                            onChange(s?.toString().orEmpty())
-                        }
-
-                        override fun afterTextChanged(s: android.text.Editable?) {}
-                    }
-                )
-            }
-        },
-        modifier = Modifier.fillMaxWidth(),
-    )
-}

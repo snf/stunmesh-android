@@ -99,3 +99,8 @@ Final documentation/evidence commits follow these build/test commits. See Git hi
 
 - Owner applied the temporary kernel key-count allowance; verified 512/20000 and the pinned container image now starts successfully with its normal private keyring. No isolation bypass was needed.
 - Owner changed provisioning: include the PSK in a confidential local QR/file instead of separate manual entry. Implementing a narrow new enrollment schema plus public-only reply, deleting the extra PSK UI, retaining local phone-key generation and unchanged runtime/network/battery behavior. No new dependencies.
+
+## PSK enrollment simplification — implementation in progress
+
+- Owner selected credential QR/file transfer over separate manual PSK entry. New `stunmesh-enroll-v2` adds optional canonical nonzero `preshared_key`; public response is unchanged. Removed the redundant requirement flag and custom manual secret-entry widget. Pasted enrollment is masked; no private-key/blob import or new dependency/background work.
+- Provisioner reads the PSK from a private file or stdin, writes mode-0600/exclusive output and keeps public replies/error formatting free of the credential. Go/Android share public and synthetic-PSK fixtures. Go race tests for parser/provisioner pass, including invalid PSKs, redaction, output permissions and no overwrite. Android tests/build/device rerun are pending.

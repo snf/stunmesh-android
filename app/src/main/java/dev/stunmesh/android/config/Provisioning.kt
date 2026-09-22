@@ -2,10 +2,12 @@ package dev.stunmesh.android.config
 
 import org.json.JSONObject
 
-data class Enrollment(val publicConfig: TunnelConfig, val requiresPsk: Boolean = false)
+class Enrollment(val publicConfig: TunnelConfig, val presharedKey: String = "") {
+    override fun toString() = "Enrollment{credentials redacted}"
+}
 
 object Provisioning {
-    const val SCHEMA = "stunmesh-enroll-v1"
+    const val SCHEMA = "stunmesh-enroll-v2"
 
     fun decode(text: String): Enrollment {
         if (WgQuickConf.looksLikeConf(text)) return Enrollment(WgQuickConf.decode(text, "Server"))
@@ -22,12 +24,12 @@ object Provisioning {
             "opendht",
             "endpoint",
             "protocol",
-            "psk_required",
+            "preshared_key",
         )
         require(text.toByteArray(Charsets.UTF_8).size <= 2048) {
-            "Public enrollment exceeds QR limit"
+            "Enrollment exceeds QR limit"
         }
-        require(o.text("schema") == SCHEMA) { "Unsupported public enrollment" }
+        require(o.text("schema") == SCHEMA) { "Unsupported enrollment" }
         val proposal = o.text("proposal_id")
         require(
             proposal.matches(
@@ -36,11 +38,8 @@ object Provisioning {
         ) {
             "Invalid proposal identifier"
         }
-        val requires =
-            if (o.has("psk_required"))
-                o.get("psk_required") as? Boolean
-                    ?: throw IllegalArgumentException("Invalid PSK requirement")
-            else false
+        val psk = o.text("preshared_key")
+        if (o.has("preshared_key")) ConfigPolicy.key(psk)
         val protocol = o.text("protocol", "ipv4")
         val t =
             TunnelConfig(
@@ -67,7 +66,7 @@ object Provisioning {
                 stunServers = o.strings("stun_servers"),
             )
         ConfigPolicy.validate(t, false)
-        return Enrollment(t, requires)
+        return Enrollment(t, psk)
     }
 
     /** Public response only. A proposal ID matches paperwork, never authorizes a peer. */

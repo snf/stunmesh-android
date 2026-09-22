@@ -49,7 +49,7 @@ ADB can install the signed release, install/run the separate debug instrumentati
 
 Turning off Wi-Fi interrupts this management path; Android also disables wireless debugging on Wi-Fi loss in the framework. Reboot/network changes can require unlocking, re-enabling debugging and reading the new connection port. For pure carrier tests, agree on short actions first, disconnect Wi-Fi, observe the server and phone, then reconnect and retrieve available diagnostics promptly. The log buffer is finite and reboot can lose it; no guarantee of a complete post-hoc trace. Use USB only if reproducing a failure needs continuous live capture. Do not route ADB through the VPN to work around this dependency. [AOSP network-loss handling](https://android.googlesource.com/platform/frameworks/base/+/refs/heads/main/services/core/java/com/android/server/adb/AdbDebuggingManager.java).
 
-The app deliberately sets `FLAG_SECURE`; screenshots/screen mirroring of its UI may be blank. Preserve that protection. The owner will handle OS consent/unlock, public QR review and optional PSK entry locally. An emulator can supplement parser/UI checks, but cannot establish this phone's hardware key security, GrapheneOS backup behavior, carrier NAT or battery life.
+The app deliberately sets `FLAG_SECURE`; screenshots/screen mirroring of its UI may be blank. Preserve that protection. The owner will handle OS consent/unlock, enrollment review and VPN consent locally. An emulator can supplement parser/UI checks, but cannot establish this phone's hardware key security, GrapheneOS backup behavior, carrier NAT or battery life.
 
 ## Execution order and evidence
 
@@ -59,7 +59,7 @@ The phases below define the acceptance plan. Current executed checks and pending
 | --- | --- | --- |
 | 0. Inventory and pairing | Record phone model, Android/GrapheneOS build, active user/profile, backup transport, current VPN/battery settings, artifact hashes and NAS UID/GID/network state. Pair this container; verify install/shell access. | Unlock and enable/pair wireless debugging; identify the intended test profile. |
 | 1. Hardware/storage | Run the existing `HardwareStorageTest` in the separate debug app. Require hardware-backed wrapping, distinct GCM ciphertexts, tamper rejection, preserved valid ciphertext and non-exportable wrapping key. | Keep phone unlocked for initial key creation. No production configuration is replaced. |
-| 2. Isolated server and enrollment | On `nas`, prepare only the dedicated Podman VPN trial; verify required permissions/ports and review explicit connections to the selected services before phase 3. Import public proposal, generate phone identity, review/add its public peer explicitly. No secret QR or key copy. | Approve public peer details, VPN consent and notifications; enter optional PSK through the protected UI. |
+| 2. Isolated server and enrollment | On `nas`, prepare only the dedicated Podman VPN trial; verify required permissions/ports and review explicit connections to the selected services before phase 3. Import the reviewed proposal (confidential when carrying a PSK), generate phone identity, review/add its public peer explicitly. No phone private-key QR or key copy. | Approve public peer details, VPN consent and notifications; use the PSK-bearing local enrollment record. |
 | 3. Release connectivity and routing | On release APK, prove WG handshake plus real Samba/Syncthing service transfers using disposable test data, and ordinary internet/DNS bypass. Two apps targeting the same server address must follow the same route policy. Wrong key/PSK/source must fail. | A few phone interactions; existing sync data/shares remain untouched. |
 | 4. Failure and mobility | Test Wi-Fi ↔ actual SIM data, short airplane-mode interval, inaccessible discovery, unavailable peer, screen lock/background, VPN revoke and restart/reboot. Record time from usable underlay to authenticated traffic and recovery. Distinguish loss of ADB from loss of VPN. | Toggle networks/reconnect debugging; unlock after reboot. Any reboot is scheduled with the owner. |
 | 5. Encrypted recovery | Test the actual OS backup transport with a disposable identity. Restore validates/re-wraps and remains inactive; old device copy stays off. Missing/unencrypted transport or broken restore is a failed recovery gate, not a reason to add secret export. | Use OS backup/restore UI and retain recovery secret privately. Prefer a spare device or verified disposable-profile workflow; no personal-phone factory reset or production-data clearing. |
@@ -85,7 +85,7 @@ adb -s "$PHONE_SERIAL" shell am start --user "$PHONE_USER_ID" -W \
   -n dev.stunmesh.local/dev.stunmesh.android.MainActivity
 ```
 
-The runner package was checked against the built test APK; the existing suite contains **one hardware test**, not a complete automated VPN/backup test suite. Expect it to report one passed test with no instrumentation errors. Use the release app for final acceptance and the debug app only for synthetic instrumentation/diagnosis. [Android instrumentation CLI](https://developer.android.com/studio/test/command-line#RunTestsDevice).
+The runner package was checked against the built test APK; the revised suite contains **two hardware/enrollment tests**, not a complete automated VPN/backup test suite. Expect it to report two passed tests with no instrumentation errors. Use the release app for final acceptance and the debug app only for synthetic instrumentation/diagnosis. [Android instrumentation CLI](https://developer.android.com/studio/test/command-line#RunTestsDevice).
 
 Keep scoped logcat, public WG handshake/counter evidence, instrumentation output and timing notes. Avoid private-key dumps, PSK-bearing arguments, unfiltered device-wide bugreports, heap dumps or screenshots containing unrelated personal data. Record the raw diagnostics privately; commit only reviewed summaries/public evidence under a new device-test session directory in both repositories. Record `not run`/`blocked` honestly for unavailable transport, address family or hardware, along with the next required check.
 
@@ -97,7 +97,7 @@ Use the selected proxy UDP port `51820` and a different unexposed kernel WG port
 
 ## Phone / network matrix
 
-Install the final signed release APK, verify package `dev.stunmesh.local`, version and signing certificate against ARTIFACT_MANIFEST.json. This is a separate installation from upstream. Use public enrollment and an explicit server peer addition; no server-generated phone private key or legacy private profile import. Keep Android **Block connections without VPN disabled**.
+Install the final signed release APK, verify package `dev.stunmesh.local`, version and signing certificate against ARTIFACT_MANIFEST.json. This is a separate installation from upstream. Use reviewed enrollment and an explicit server peer addition; no server-generated phone private key or legacy private profile import. Keep Android **Block connections without VPN disabled**.
 
 | Check | Required result |
 | --- | --- |
@@ -110,7 +110,7 @@ Install the final signed release APK, verify package `dev.stunmesh.local`, versi
 | Wrong public key / wrong PSK / unknown peer | No authenticated traffic; hints cannot enroll the unknown peer or disable PSK. |
 | App backgrounded / screen off / process killed / VPN revoked | Foreground notification is present, resources are released on stop/revoke, sticky restart uses the durably selected profile, and failures are visible without secret logs. |
 | Device reboot then unlock | Credential-encrypted/hardware-key availability is handled without replacing unreadable state. Confirm the owner's chosen always-on behavior. |
-| Diagnostics/clipboard/scanner/files/logcat | Only public enrollment/status appears; no private key, PSK, raw config, blob, URL credentials or exception excerpt. |
+| Diagnostics/clipboard/scanner/files/logcat | Only public reply/status appears in outputs; no private key, PSK, raw config, blob, URL credentials or exception excerpt. A trusted inbound scanner/file channel may see the explicitly included PSK; never the phone private key. |
 
 The debug APK/instrumentation target has a different ID. `HardwareStorageTest` uses synthetic bytes, verifies hardware wrapping/non-exportability and GCM tamper rejection without replacing the app's store. Compile success is recorded locally; execution requires the phone and must not be claimed until done. Test the **release** UI/OS lifecycle separately; instrumentation is not a substitute.
 
