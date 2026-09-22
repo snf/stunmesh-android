@@ -12,6 +12,7 @@ import org.yaml.snakeyaml.nodes.Node
 import org.yaml.snakeyaml.nodes.ScalarNode
 import org.yaml.snakeyaml.nodes.SequenceNode
 import org.yaml.snakeyaml.nodes.Tag
+import org.yaml.snakeyaml.scanner.ScannerImpl
 
 /**
  * One bounded parser for JSON/YAML. Never construct user-selected classes or include parser
@@ -20,6 +21,14 @@ import org.yaml.snakeyaml.nodes.Tag
  */
 object StrictDocument {
     const val MAX_BYTES = 256 * 1024
+
+    init {
+        // Android JSONObject escapes '/' as '\/'. The pinned YAML 1.1 scanner
+        // lacks this JSON/YAML 1.2 escape. Extend its explicit escape table once,
+        // before any parser is used; retain the original bytes and all bounds,
+        // duplicate-key checks and strict schema/type validation.
+        ScannerImpl.ESCAPE_REPLACEMENTS['/'] = "/"
+    }
 
     fun parse(text: String): JSONObject =
         try {

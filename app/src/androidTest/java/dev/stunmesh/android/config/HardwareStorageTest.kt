@@ -19,15 +19,6 @@ class HardwareStorageTest {
         val text =
             """{"schema":"${Provisioning.SCHEMA}","proposal_id":"${java.util.UUID.randomUUID()}","name":"Synthetic enrollment test","address":"10.77.0.2/32","server_public_key":"$server","allowed_ips":["10.77.0.1/32"],"stun_servers":["stun.example.com:3478"],"opendht":["https://proxy.example.com"],"preshared_key":"$psk"}"""
         val enrollment = Provisioning.decode(text)
-        // Public-only diagnostic fixture: identify platform serializer/parser
-        // differences without reading or printing an enrolled identity.
-        val publicText = TunnelStore(listOf(enrollment.publicConfig)).toJson()
-        println("Synthetic public serialization: $publicText")
-        org.yaml.snakeyaml.Yaml(
-                org.yaml.snakeyaml.constructor.SafeConstructor(org.yaml.snakeyaml.LoaderOptions())
-            )
-            .compose(java.io.StringReader(publicText))
-        StrictDocument.parse(publicText)
         val repository = ConfigRepository.get(context)
         repository.load()
         val before = repository.state.value as RepositoryState.Ready

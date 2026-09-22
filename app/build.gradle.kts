@@ -30,8 +30,8 @@ android {
         applicationId = "dev.stunmesh.local"
         minSdk = 28
         targetSdk = 36
-        versionCode = 3
-        versionName = "0.3.0-local.3"
+        versionCode = 4
+        versionName = "0.3.0-local.4"
         buildConfigField("String", "CORE_SHA256", "\"$coreHash\"")
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         ndk { abiFilters += listOf("arm64-v8a", "x86_64") }

@@ -263,6 +263,22 @@ stunmesh:
     }
 
     @Test
+    fun androidJsonSolidusEscapesRoundTripWithoutChangingLiteralBackslashes() {
+        val t = tunnel().copy(name = "Folder \\ / name")
+        val store = TunnelStore(listOf(t), t.id)
+        // Android's writer escapes all slashes; the JVM JSON implementation does not.
+        val androidJson = store.toJson().replace("/", "\\/")
+        assertEquals(store, TunnelStore.fromJson(androidJson))
+        val escaped =
+            StrictDocument.parse("""{"path":"a\\/b", "literal":"a\\\\/b", "odd":"a\\\\\\/b"}""")
+        assertEquals("a/b", escaped.text("path"))
+        assertEquals("a\\/b", escaped.text("literal"))
+        assertEquals("a\\/b", escaped.text("odd"))
+        reject { StrictDocument.parse("""{"a/b":1,"a\\/b":2}""") }
+        reject { StrictDocument.parse("""{"x":"\\q"}""") }
+    }
+
+    @Test
     fun storeRestoreVersionAndInactiveReview() {
         val t = tunnel()
         val stored = TunnelStore(listOf(t), t.id)
