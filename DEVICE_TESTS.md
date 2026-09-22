@@ -1,4 +1,4 @@
-# Later NAS / GrapheneOS acceptance gate
+# NAS / Android acceptance tests
 
 Local evidence covers source tests, release compilation, artifact checks and isolated namespace tests. It does **not** establish real carrier NAT success, NAS service access, hardware Keystore/Seedvault recovery or battery consumption. Those tests require the server/phone access the owner will provide later.
 
@@ -53,7 +53,7 @@ The app deliberately sets `FLAG_SECURE`; screenshots/screen mirroring of its UI 
 
 ## Execution order and evidence
 
-All phases below are **planned, not yet executed on the devices**. Run functional checks before the longer unattended tests. The detailed acceptance matrix and recovery checks below remain authoritative.
+The phases below define the acceptance plan. Current executed checks and pending prerequisites are recorded in [`DEVICE_TEST_RESULTS.md`](DEVICE_TEST_RESULTS.md). Run functional checks before the longer unattended tests. The detailed acceptance matrix and recovery checks below remain authoritative.
 
 | Phase | Work / passing result | Owner involvement |
 | --- | --- | --- |
