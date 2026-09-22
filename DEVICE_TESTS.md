@@ -1,6 +1,6 @@
 # NAS / Android acceptance tests
 
-Local evidence covers source tests, release compilation, artifact checks and isolated namespace tests. It does **not** establish real carrier NAT success, NAS service access, hardware Keystore/Seedvault recovery or battery consumption. Current physical results are recorded in `DEVICE_TEST_RESULTS.md`; hardware storage and rootless startup now pass, while other gates remain pending.
+Local evidence covers source tests, release compilation, artifact checks and isolated namespace tests. It does **not** establish real carrier NAT success, NAS service access, hardware Keystore/Seedvault recovery or battery consumption. Current physical results are recorded in `DEVICE_TEST_RESULTS.md`: updated storage/LAN checks and the prior release’s external hotspot path pass; updated roaming and remaining device/service gates are tracked separately.
 
 ## Connection plan: wireless debugging first
 
@@ -74,9 +74,9 @@ These commands describe the current reviewed artifacts; executed results are rec
 
 ```sh
 STUNMESH_TEST_ARTIFACTS=/workspace/stunmesh-build/artifacts
-adb -s "$PHONE_SERIAL" install --user "$PHONE_USER_ID" -r "$STUNMESH_TEST_ARTIFACTS/release/stunmesh-0.3.0-local.2.apk"
-adb -s "$PHONE_SERIAL" install --user "$PHONE_USER_ID" -r "$STUNMESH_TEST_ARTIFACTS/enrollment-v2/stunmesh-debug.apk"
-adb -s "$PHONE_SERIAL" install --user "$PHONE_USER_ID" -r -t "$STUNMESH_TEST_ARTIFACTS/enrollment-v2/stunmesh-debug-androidTest.apk"
+adb -s "$PHONE_SERIAL" install --user "$PHONE_USER_ID" -r "$STUNMESH_TEST_ARTIFACTS/release/stunmesh-0.3.0-local.4.apk"
+adb -s "$PHONE_SERIAL" install --user "$PHONE_USER_ID" -r "$STUNMESH_TEST_ARTIFACTS/handover4/stunmesh-debug.apk"
+adb -s "$PHONE_SERIAL" install --user "$PHONE_USER_ID" -r -t "$STUNMESH_TEST_ARTIFACTS/handover4/stunmesh-debug-androidTest.apk"
 adb -s "$PHONE_SERIAL" shell pm list instrumentation
 adb -s "$PHONE_SERIAL" shell am instrument --user "$PHONE_USER_ID" -w -r \
   -e class dev.stunmesh.android.config.HardwareStorageTest \
@@ -85,7 +85,7 @@ adb -s "$PHONE_SERIAL" shell am start --user "$PHONE_USER_ID" -W \
   -n dev.stunmesh.local/dev.stunmesh.android.MainActivity
 ```
 
-The runner package was checked against the built test APK; the revised suite contains **two hardware/enrollment tests**, not a complete automated VPN/backup test suite. Expect it to report two passed tests with no instrumentation errors. Use the release app for final acceptance and the debug app only for synthetic instrumentation/diagnosis. [Android instrumentation CLI](https://developer.android.com/studio/test/command-line#RunTestsDevice).
+The runner package was checked against the built test APK; the revised suite contains **two hardware/enrollment tests**, not a complete automated VPN/backup test suite. Expect it to report two passed tests with no instrumentation errors. The enrollment test must decrypt and validate actual saved bytes, independently of the repository’s process cache. Check profile reload after a compatible release update/restart without clearing data or reenrolling. Use the release app for final acceptance and the debug app only for synthetic instrumentation/diagnosis. [Android instrumentation CLI](https://developer.android.com/studio/test/command-line#RunTestsDevice).
 
 Keep scoped logcat, public WG handshake/counter evidence, instrumentation output and timing notes. Avoid private-key dumps, PSK-bearing arguments, unfiltered device-wide bugreports, heap dumps or screenshots containing unrelated personal data. Record the raw diagnostics privately; commit only reviewed summaries/public evidence under a new device-test session directory in both repositories. Record `not run`/`blocked` honestly for unavailable transport, address family or hardware, along with the next required check.
 

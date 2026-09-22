@@ -173,6 +173,8 @@ Use the existing local UDP proxy for the intended Linux/rootless build if its na
 
 Observe non-VPN network availability/loss/capabilities using the existing underlay callback. Debounce duplicate callbacks; renew/rebind sockets/TUN only when actually necessary. Serialize lifecycle work, cancel obsolete attempts, suspend network work when no usable underlay exists, and stop everything when the tunnel is off. A bounded retry sequence rejoins the stable cadence; no second permanent timer. Check actual proxy TTL/rate limits before finalizing intervals. Shortening cadence alone is not a handover fix.
 
+**Physical-test correction:** after the initial observation, endpoint retention requires a new WG handshake or authenticated receive progress; repeatedly reading the same historical handshake is insufficient. Reset the observation baseline and candidate order on underlay change. Keep the owner-reviewed LAN bootstrap among the four bounded recovery candidates, including when DHT is unavailable; this does not permit private addresses supplied by DHT. Applying an endpoint is not authenticated success and must not prematurely reset recovery backoff. Keep the existing scheduler and offline suspension.
+
 **Files/acceptance:** Go `internal/config/config.go`, `mobile/config.go`, `mobile/controller.go`; Android `StunmeshVpnService.kt`. Test multiple TTL periods, skipped publications, changed mappings, Wi-Fi↔cellular and sleep/wake. Measure cycles, bytes, wakeups and reconnection. A slower DHT refresh does not preserve a UDP NAT mapping; tune WG keepalive separately under section 3A.
 
 ### F6. Enforce split scope and prevent DHT redirect traversal
