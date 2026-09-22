@@ -13,8 +13,8 @@ Security and simplicity take precedence over legacy features: OpenDHT hints cann
 | Stage / plan IDs | State | Evidence / next action |
 | --- | --- | --- |
 | 0: baseline and toolchain | In progress | Go 1.27.1/JDK 21/SDK archives restored at their audited hashes; isolated build wrapper added. SDK extraction and Gradle setup continue. |
-| 1: typed config/UAPI, public discovery, OpenDHT only (D1/D2, F1/F2) | In progress | Typed mobile UAPI, bounded JSON/YAML, low-order key/port/route checks pass targeted race tests. D1/D2 and Android validation remain. |
-| 2: bounded discovery/STUN/proxy and power behavior (F3–F7) | Pending | Fake-network, race and fuzz tests; delete unused raw capture paths. |
+| 1: typed config/UAPI, public discovery, OpenDHT only (D1/D2, F1/F2) | In progress | Typed mobile UAPI, bounded JSON/YAML, low-order key/port/route checks pass targeted race tests. D1/D2 public hints and OpenDHT-only path implemented; Android admission remains. |
+| 2: bounded discovery/STUN/proxy and power behavior (F3–F7) | In progress | Shared STUN parser/source checks, proxy collision ownership, bounded HTTPS discovery and mobile event loop implemented. Race suites pass; additional lifecycle/fuzz/real WG tests continue. |
 | 3: Android storage/backup/import/lifecycle (F8–F12/F16, N2) | Pending | Unit and release tests, foreground VPN, serialized state, safe diagnostics. |
 | 4: local artifacts/dependency/image trust (D3, F13–F15/F17) | Pending | Exact local AAR, verified offline inputs, unsigned build then isolated signing. |
 | 5: public QR provisioning and local integration (F18) | Pending | Bounded public schema, no secret QR, WG authorization tests. |
@@ -33,3 +33,11 @@ Security and simplicity take precedence over legacy features: OpenDHT hints cann
 - Baseline: both worktrees clean; identical plan and complete original audit evidence.
 - F1/F2 first increment: `go test -race -tags mobile ./internal/validation ./mobile ./internal/config ./internal/wg` passes inside `scripts/sandbox.py`. New tests assert malicious endpoints/routes never mutate real in-memory WG peer keys, PSKs or AllowedIPs. YAML nil-key/duplicate and bad cadence/port fixtures reject without panics. See `security-remediation-evidence/stage1-boundary-tests.txt`.
 - Some historical `security_audit` tests still intentionally assert vulnerabilities; they will be replaced alongside D1/D2/F3/F4 rather than treated as a passing security gate. Full suites, fuzzing and builds remain pending.
+
+- Public discovery increment: removed custom NaCl endpoint encryption, private keys from discovery configuration, exec/shell/Cloudflare stores, registry and DI generator. New `stunmesh-hints-v2` namespace is deliberately incompatible with upstream encrypted records. No legacy fallback.
+- Server metadata reads use public-only `wg show` fields; the daemon no longer requests dumps/private keys/PSKs. WireGuard retains authentication. Candidate health comes only from WG; recent authenticated sessions survive hostile hints.
+- OpenDHT now requires HTTPS origins, rejects redirects, caps decompressed responses (256 KiB), records (64) and candidates (4), ignores publisher timestamp authority and tries another proxy for unusable successes. TTL renewal is never suppressed by unchanged values.
+- Removed raw/pcap STUN paths and their production dependencies; the server now requires the shared UDP proxy. Android/server use the same bounded binding parser; reply source, transaction, class/type and full lengths must match. Duplicate proxy endpoints cannot steal/delete another peer's mapping.
+- Mobile scheduling uses one cancellable loop with underlay events, no disconnected timer and no unsupported-family probes. Existing-cycle WG health sampling replaces an extra health timer. Android callback wiring/device power tests remain.
+- Validation: full `go test -race -tags 'mobile security_audit builtin_all' ./...` passed after converting historical vulnerability demonstrations into rejection regressions. Evidence: `security-remediation-evidence/discovery-network-tests.txt`. Tests run only in an isolated network namespace with synthetic keys.
+- Build note: Google's pinned SDK wrapper attempts to download a new Android CLI. That download was confined to the build sandbox and failed before installation; do not use that mutable bootstrap for the artifact. The already hash-verified SDK archives are extracted; package metadata will be restored from official repository XML instead.
