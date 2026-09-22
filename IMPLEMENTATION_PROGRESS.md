@@ -12,8 +12,8 @@ Security and simplicity take precedence over legacy features: OpenDHT hints cann
 
 | Stage / plan IDs | State | Evidence / next action |
 | --- | --- | --- |
-| 0: baseline and toolchain | In progress | Clean starting worktrees; inspect cached verified toolchains and source. |
-| 1: typed config/UAPI, public discovery, OpenDHT only (D1/D2, F1/F2) | Pending | Convert exploit regressions into rejection tests; remove unused plugins/crypto. |
+| 0: baseline and toolchain | In progress | Go 1.27.1/JDK 21/SDK archives restored at their audited hashes; isolated build wrapper added. SDK extraction and Gradle setup continue. |
+| 1: typed config/UAPI, public discovery, OpenDHT only (D1/D2, F1/F2) | In progress | Typed mobile UAPI, bounded JSON/YAML, low-order key/port/route checks pass targeted race tests. D1/D2 and Android validation remain. |
 | 2: bounded discovery/STUN/proxy and power behavior (F3–F7) | Pending | Fake-network, race and fuzz tests; delete unused raw capture paths. |
 | 3: Android storage/backup/import/lifecycle (F8–F12/F16, N2) | Pending | Unit and release tests, foreground VPN, serialized state, safe diagnostics. |
 | 4: local artifacts/dependency/image trust (D3, F13–F15/F17) | Pending | Exact local AAR, verified offline inputs, unsigned build then isolated signing. |
@@ -25,8 +25,11 @@ Security and simplicity take precedence over legacy features: OpenDHT hints cann
 - Preserve existing package namespaces unless a targeted change is needed; the installed fork gets a distinct stable application ID before its first release.
 - Do not introduce a second backup mechanism: implement the small platform key-value adapter. Device-specific transport/StrongBox validation remains a real-phone gate.
 - Synthetic test keys/configuration only in tracked tests and logs. Owner signing material stays outside both repositories and the build context.
+- Service routes are limited to IPv4 /24 or narrower and IPv6 /64 or narrower, with the plan's count limits. This prevents equivalent default routes assembled from broad prefixes; actual server /32-/128 routes remain the intended deployment. Legacy broad profiles must be narrowed deliberately.
+- The old audit download/installed-tool caches had been removed. Fetch the same recorded versions from publishers and verify the historical hashes; this is restoration of pins, not an upgrade. Build/test sandbox excludes host home, credentials and signer, and defaults to no network.
 
 ## Validation and commits
 
 - Baseline: both worktrees clean; identical plan and complete original audit evidence.
-- Progress will be recorded here at each coherent implementation milestone, including failing checks and remaining work.
+- F1/F2 first increment: `go test -race -tags mobile ./internal/validation ./mobile ./internal/config ./internal/wg` passes inside `scripts/sandbox.py`. New tests assert malicious endpoints/routes never mutate real in-memory WG peer keys, PSKs or AllowedIPs. YAML nil-key/duplicate and bad cadence/port fixtures reject without panics. See `security-remediation-evidence/stage1-boundary-tests.txt`.
+- Some historical `security_audit` tests still intentionally assert vulnerabilities; they will be replaced alongside D1/D2/F3/F4 rather than treated as a passing security gate. Full suites, fuzzing and builds remain pending.
