@@ -16,3 +16,26 @@
 local.properties
 /tmp/
 /app/libs/
+
+# Local signing, device-access and enrollment credentials.
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.key
+adbkey
+adbkey.pub
+adb_known_hosts.pb
+.env
+.env.*
+!.env.example
+password.txt
+keystore.properties
+signing.properties
+*-enrollment-v*.json
+*-enrollment-v*.svg
+/local-secrets/
+
+# Only this reviewed, owner-signed release is versioned.
+*.apk
+!/releases/stunmesh-0.3.0-local.4.apk

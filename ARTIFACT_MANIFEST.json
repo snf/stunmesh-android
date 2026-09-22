@@ -158,5 +158,11 @@
   "previous_artifacts": {
     "manifest": "history/manifest-before-handover-0.3.0-local.2.json",
     "retained_for": "Provenance and server rollback; previous bytes retained outside Git. Android release 3 was an intermediate recovery build that exposed the pre-existing persisted JSON-read defect; use release 4."
+  },
+  "repository_release": {
+    "repository": "snf/stunmesh-android",
+    "path": "releases/stunmesh-0.3.0-local.4.apk",
+    "sha256": "8bed3a5ec0196e6aa28ff4a7de1118e073a8e80f2399d0a58f8f8860f51e409e",
+    "note": "Exact signed release copied into Android Git without rebuilding; source_commits remain the actual build inputs. Other artifact paths are relative to the external stunmesh-build/artifacts directory."
   }
 }
