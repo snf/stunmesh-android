@@ -32,6 +32,19 @@ class HardwareStorageTest {
             assertFalse(reply.contains("preshared_key"))
             val bytes = java.io.File(context.noBackupFilesDir, "configuration.v1.bin").readBytes()
             assertFalse(bytes.toString(Charsets.ISO_8859_1).contains(psk))
+            // load() can reuse the process cache. Exercise actual persisted bytes
+            // with Android's JSON implementation and the native admission path.
+            val plain = HardwareCipher(context).decrypt(bytes)
+            try {
+                val persisted = TunnelStore.fromJson(plain.toString(Charsets.UTF_8))
+                val profile = persisted.tunnels.single { it.id == peer.id }
+                mobile.Mobile.validateConfig(profile.toJson())
+                assertEquals(peer.publicKey, mobile.Mobile.publicKey(profile.iface.privateKey))
+                assertEquals(psk, profile.peers.single().presharedKey)
+            } finally {
+                plain.fill(0)
+                bytes.fill(0)
+            }
             repository.load()
             val reloaded = repository.state.value as RepositoryState.Ready
             assertEquals(before.selectedId, reloaded.selectedId)
