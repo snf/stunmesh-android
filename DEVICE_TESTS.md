@@ -93,7 +93,7 @@ Keep scoped logcat, public WG handshake/counter evidence, instrumentation output
 
 Record the existing rootless service user, process UID/GID maps, image/config Git commit, container networks/ports and filesystem ownership. Preserve encrypted-mount startup, Samba/NFS, credentials/history and disabled Restic. Load only the verified OCI archive; compare its SHA-256 and recorded image config/manifest digests. Review the dedicated trial compose config and the WG public peer entries before starting it. Mount no share/data directory into discovery.
 
-Use the selected proxy UDP port `51820` and a different unexposed kernel WG port `51822`. Confirm namespace `NET_ADMIN` suffices; do not add `NET_RAW`/privileged/host networking or a broad ownership change if a check fails. Diagnose the actual failure. The later service integration must explicitly connect selected Samba/Syncthing service addresses; a successful isolated `.1` ping does not prove either service is reachable. Explain any necessary routing/firewall change before making it.
+Use separate same-port container/host mappings: kernel WG `51824` for explicit LAN bootstrap and proxy `51826` for public discovery, both bound only to the NAS LAN IP. The first real phone test showed that the proxy rejects LAN sources when its mapping contains only the public STUN endpoint; the direct listener lets WG authenticate/roam without adding untrusted source-learning. Confirm namespace `NET_ADMIN` suffices; do not add `NET_RAW`/privileged/host networking or a broad ownership change if a check fails. Diagnose the actual failure. The later service integration must explicitly connect selected Samba/Syncthing service addresses; a successful isolated `.1` ping does not prove either service is reachable. Explain any necessary routing/firewall change before making it.
 
 ## Phone / network matrix
 
@@ -131,3 +131,18 @@ Ordinary USB/MTP/non-debug ADB is not a private-key export path. Possession of a
 Compare VPN off, active-idle and actual Syncthing sync over comparable Wi-Fi/cellular periods, including overnight idle and repeated handovers. Record CPU, wakeups, network bytes/radio activity, app battery use and reconnect delay. Expect one discovery scheduler (healthy ~180 seconds, TTL 600 seconds), bounded backoff and separate WG keepalive (initially 25 seconds). Keepalive itself has a radio cost; tune it only after NAT measurements, never by adding another health poll/job/wake lock or an automatic battery exemption.
 
 Only after these checks should the trial be considered for boot startup or production service routing. Commit each reviewed server configuration change; retain the prior image/config for scoped rollback. No NFS, Samba, Restic or host-firewall change is implied by installing this fork.
+
+## Live split-route application probe
+
+`LiveSplitTunnelTest` is an opt-in debug instrumentation test. It uses ordinary sockets through the separately installed signed release VPN and never reads its identity/store. Start the temporary echo fixture **inside the dedicated trial**, bound only to its WG address (no host TCP publish):
+
+```sh
+podman exec -d stunmesh-audit-trial /bin/busybox timeout 600 \
+  /bin/busybox nc -lk -s 10.77.0.1 -p 18080 -e /bin/busybox cat
+adb -s "$PHONE_SERIAL" shell am instrument --user 0 -w -r \
+  -e class dev.stunmesh.android.config.LiveSplitTunnelTest \
+  -e live_split_tunnel 1 \
+  dev.stunmesh.local.debug.test/androidx.test.runner.AndroidJUnitRunner
+```
+
+It asserts a selected `10.77.0.1/32` route, no VPN default routes/DNS override, exact 32768-byte bidirectional echo and ordinary HTTPS with normal certificate validation. The fixture expires after ten minutes; stop it sooner at closeout. No recurring job, permission or library is added to the release. This proves a real second UID/application path alongside the shell probe; it is not Samba/Syncthing integration or a carrier test.
