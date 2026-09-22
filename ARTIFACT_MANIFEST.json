@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "created_utc": "2026-09-22T15:58:01.403908+00:00",
-  "scope": "Recovery release: offline source/build/image checks pass; physical encrypted storage round-trip, compatible profile reload, authenticated LAN/split routing and ordinary HTTPS pass. Prior release passed the external hotspot path after slow recovery; updated roaming retest pending. Service integration, encrypted OS restore, IPv6, reboot/Doze and battery remain untested.",
+  "scope": "Recovery release: source/build/image checks, physical hardware/encrypted disk round-trip, compatible owner-profile reload, authenticated LAN/split routing and actual external-hotspot/home-return traffic pass. Owner estimates 10s home recovery; outbound setup still depends on discovery. One tested NAT path only. Service integration, encrypted OS restore, IPv6, reboot/Doze and battery remain untested.",
   "source_commits": {
     "go": "d4d12e9f2e17f6259fbb496854b7117ac300e6c8",
     "android": "3cfcb6116a1d8f10baa76eb16aed44df70731e49",
@@ -35,7 +35,7 @@
       "usr/local/bin/stunmesh-go",
       "usr/local/bin/wg"
     ],
-    "runtime_test": "Rootless Podman operator, NAS trial commit 18826ce: NET_ADMIN only, expected ownership and read-only confinement. New image/kernel positive and negative WG tests pass. Updated phone authenticated LAN traffic passes. Existing LAN bindings WG51824/proxy51826 retained."
+    "runtime_test": "Rootless Podman operator, NAS trial commit 18826ce: NET_ADMIN only, expected ownership and read-only confinement. New image/kernel positive and negative WG tests pass. Updated phone authenticated LAN traffic passes. Existing LAN bindings WG51824/proxy51826 retained. Updated external hotspot and home return pass; temporary diagnostic listeners removed and info logging restored at NAS 0f1b00d."
   },
   "artifacts": [
     {
