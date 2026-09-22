@@ -50,7 +50,7 @@ python3 ../stunmesh-go/scripts/sandbox.py --repo android --snapshot -- \
 
 ## Separate owner signing
 
-In the Android checkout, run `scripts/sign-release.py --help`. Pass the unsigned APK's SHA, tool directory, an owner-private key directory outside source/build, and a new output filename. First use additionally requires `--initialize-key`; subsequent releases must reuse the existing key. The script runs only the pinned JDK/keytool and Android apksigner inside a separate offline namespace: no Gradle, plugins, source or build cache. It checks v2/v3 signatures after signing.
+In the Android checkout, run `scripts/sign-release.py --help`. Pass the unsigned APK's SHA, tool directory, an owner-private key directory outside source/build, and a new output filename. First use additionally requires `--initialize-key`; subsequent releases must reuse the existing key and increment Android's versionCode. The script runs only the pinned JDK/keytool and Android apksigner inside a separate offline namespace: no Gradle, plugins, source or build cache. It verifies the resulting APK signature. This API-28+ release uses v3; apksigner omits the redundant v2 block for this minimum SDK.
 
 Keep `owner-release.p12` and `password.txt` together in an encrypted offline backup accessible only to the owner. Both are necessary to issue compatible updates; never commit, publish, or copy them to NAS service containers. A malicious signer/compiler remains a supply-chain risk: hash verification establishes artifact identity, not proof of benign code. This local owner certificate differs from upstream; application ID `dev.stunmesh.local` prevents accidental replacement.
 
@@ -71,6 +71,18 @@ podman save --format oci-archive -o ../stunmesh-build/artifacts/stunmesh-linux-a
 ```
 
 The context builder verifies every OCI blob and both retained utility hashes. Seven allowlisted context files produce five regular image files; no source tree, Git, production config, keys, provisioner, compiler or package manager is copied. The Dockerfile executes **no RUN commands**. Local validation used rootless Buildah 1.39.3 to assemble this standard OCI image because Podman is not installed in the audit workspace; the exact image rootfs was smoke-tested in an isolated user/network namespace with only `NET_ADMIN`. Actual Podman service-user mapping is a later NAS test, not inferred from that smoke test. See `deploy/README.md`.
+
+The stronger image integration gate uses real kernel WG, the daemon/proxy, the mobile shared-socket WG bind and a synthetic HTTPS discovery proxy. It tests authorized bidirectional traffic plus unknown keys, incorrect PSKs and unauthorized tunnel source addresses. Every interface/route and test CA stays in the disposable namespace:
+
+```sh
+python3 scripts/sandbox.py -- env CGO_ENABLED=0 go test -c \
+  -tags 'mobile security_audit' -o /artifacts/kernel-integration.test ./test/e2e/kernel
+python3 scripts/test-image.py \
+  --image ../stunmesh-build/artifacts/stunmesh-linux-amd64.oci.tar \
+  --test-binary ../stunmesh-build/artifacts/kernel-integration.test
+```
+
+This is not a carrier/NAT test and does not mount production configuration or change the host firewall. The fake-TUN helper's packet checksums are repaired for the kernel stack; a mock byte-for-byte echo alone would not test real IP delivery.
 
 ## Verification limits
 

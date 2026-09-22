@@ -10,15 +10,15 @@ Security and simplicity take precedence over legacy features: OpenDHT hints cann
 
 ## Work checklist
 
-| Stage / plan IDs | State | Evidence / next action |
+| Stage / plan IDs | State | Evidence |
 | --- | --- | --- |
-| 0: baseline and toolchain | In progress | Pinned Go 1.27.1/JDK 21/Gradle 9.5/SDK installed in isolated workspace. ARM64/x86-64 AAR built; full graph verification/offline final builds continue. |
-| 1: typed config/UAPI, public discovery, OpenDHT only (D1/D2, F1/F2) | In progress | Typed mobile UAPI, bounded JSON/YAML, low-order key/port/route checks pass targeted race tests. D1/D2 public hints and OpenDHT-only path implemented; Android bounded public-only admission implemented; release validation continues. |
-| 2: bounded discovery/STUN/proxy and power behavior (F3–F7) | In progress | Shared STUN parser/source checks, proxy collision ownership, bounded HTTPS discovery and mobile event loop implemented. Race suites pass; additional lifecycle/fuzz/real WG tests continue. |
-| 3: Android storage/backup/import/lifecycle (F8–F12/F16, N2) | In progress | Hardware wrapping, atomic store, encrypted OS-only backup, public enrollment and foreground VPN implemented; compiling/testing both variants. |
-| 4: local artifacts/dependency/image trust (D3, F13–F15/F17) | In progress | Exact local AAR, verified offline inputs, unsigned build then isolated signing. |
-| 5: public QR provisioning and local integration (F18) | Implemented | Shared public schema/fixtures; WG authorization and negative-peer tests pass. Real device scan remains a device gate. |
-| 6: final verification and device handoff | Pending | All local tests/builds; exact artifacts/checksums and documented pending device tests. |
+| 0: baseline and toolchain | Complete locally | Exact restored publisher pins, committed snapshots, offline builds and inventories. |
+| 1: typed config/UAPI, public discovery, OpenDHT only (D1/D2, F1/F2) | Complete | Typed endpoint-only updates, strict bounded admission, no custom discovery crypto/process plugins. Race/fuzz/WG authorization tests pass. |
+| 2: bounded discovery/STUN/proxy and power behavior (F3–F7) | Complete locally | Bounded/cancellable/coalesced work, offline suspension, split routes, STUN validation/collision ownership; real userspace and kernel WG tests pass. Actual carrier/battery measurements are pending hardware. |
+| 3: Android storage/backup/import/lifecycle (F8–F12/F16, N2) | Complete locally | Hardware wrapping/atomic store, encrypted OS adapter/inactive restore, public enrollment, real foreground lifecycle; 11 debug + 11 release JVM tests and lint pass. Hardware/transport execution pending. |
+| 4: local artifacts/dependency/image trust (D3, F13–F15/F17) | Complete | 839 publisher artifact hashes, strict locks, corrupt-input rejection, clean offline APK/AAR/image, isolated owner signature and manifests. |
+| 5: public QR provisioning and local integration (F18) | Complete locally | Shared public schema/fixture/provisioner; kernel WG rejects wrong keys/PSKs/sources. Actual camera scan remains a device check. |
+| 6: final verification and device handoff | Complete locally | `VALIDATION.md`, `ARTIFACT_MANIFEST.json`, `LOCAL_BUILD.md`, `PROVISIONING.md`, `deploy/README.md`, `DEVICE_TESTS.md`. No production deployment claimed. |
 
 ## Decisions during implementation
 
@@ -56,3 +56,25 @@ Security and simplicity take precedence over legacy features: OpenDHT hints cann
 - Advisory refresh: 551 full-graph coordinate queries. Newly reported Go advisories affect packages absent from daemon/core/gomobile imports; the compiler is patched Go 1.27.1. Android host-tool advisories are separately triaged from release-runtime dependencies. No cosmetic upgrades or scanner-count-based claims. Final inventory/signature and device handoff are in progress.
 
 - Final Go race/vet/module checks pass. The first final fuzz command matched three similarly named historical targets and correctly refused to run; rerunning with an anchored exact target passed (132,157 executions). Strict Android dependency-lock enforcement also passes.
+
+## Final local acceptance
+
+- Production Go/core artifacts built offline from `ca7f90144dfc944900769c5764a1eb5779f5d479`; Android from `0bd8fe0` (full hash in artifact manifest). Final Android build executed all 135 tasks from fresh output/project-cache directories, with network/build cache off. Debug 11/11 and release 11/11 JVM tests, release lint, release/debug APKs and instrumentation APK compilation pass.
+- Separate owner release signature verifies (v3 for API 28+). Release is non-debuggable/non-test-only; ARM64 and x86-64 core libraries exactly match the locally built AAR, with 16 KiB ELF/ZIP alignment. Owner key/password are only in `/workspace/stunmesh-signing/`, outside source/build/Git; preserve an encrypted private backup for future updates.
+- Kernel/image integration test commit `9baf28f` exercises the actual final daemon/proxy image, public-only WG metadata reader, a synthetic HTTPS DHT and real mobile shared-socket WG bind. Authorized kernel echo passes; unknown-key, wrong-PSK and unauthorized-source rejection pass. All work occurs in a disposable rootless user/network namespace with NET_ADMIN only. The fixture needs valid IP checksums (the upstream fake-TUN echo helper does not supply them); production code did not need changing for this test.
+- Final whole Go race suite (including compilation of the new test package), vet and module verification pass; see `go-acceptance.txt`. Legacy opt-in host/netns harnesses remain skipped, with the isolated image gate executed separately. Deliberately tampered Maven/AAR inputs fail, then original bytes are restored before final builds.
+- Artifacts/checksums and signed APK are in `../stunmesh-build/artifacts/`. All changed source, decisions, evidence and progress are committed locally; no push, release publication, NAS/phone deployment, host firewall or production-configuration change.
+- Remaining work explicitly requires the later provided devices: actual rootless Podman mappings/service bindings, NAT/carrier access, GrapheneOS hardware wrapping/encrypted OS restore, real route/lifecycle/handover behavior and battery measurements. `DEVICE_TESTS.md` is the acceptance checklist. Structural battery reductions are implemented; measured savings are not claimed.
+
+## Implementation commit map
+
+| Go | Android | Increment |
+| --- | --- | --- |
+| `f0f08bb` | `18c5666` | Progress/baseline |
+| `9f889da` | `3769bbe` | Typed configuration / WG admission |
+| `8acb543` | `26e54e0` | Public discovery, OpenDHT-only, deleted crypto/plugins/raw paths |
+| `1b3a6bd` | `e08af6d` | Mobile lifecycle/WG auth; Android protected store/backup/service |
+| `ca7f901` | `0bd8fe0` | Public enrollment, bounded daemon, minimal image / strict verified build |
+| `9baf28f` | — | Actual image/kernel WG authorization integration gate |
+
+Final documentation/evidence commits follow these build/test commits. See Git history for their IDs; artifacts deliberately retain the exact build commits rather than claiming they were built from a later documentation-only revision.

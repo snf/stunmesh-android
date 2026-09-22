@@ -1,0 +1,78 @@
+Picked up JAVA_TOOL_OPTIONS: -Duser.home=/work/java-user
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.5.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file '/src/app/build.gradle.kts' line: 22
+
+* What went wrong:
+Local core AAR hash mismatch
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 7s
+
+--- Cached dependency mutation, restored in finally ---
+Picked up JAVA_TOOL_OPTIONS: -Duser.home=/work/java-user
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.5.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+Loading local repository...                                                     
+Info: Parsing legacy package: /tools/android-sdk/cmdline-tools/latest
+Info: SDK Manager found the following installed packages: build-tools;36.1.0 ndk;29.0.14206865 platforms;android-36.1
+[=========                              ] 25% Loading local repository...       
+WARNING: platform-tools package is not installed.
+Add android.sync.suppressAgpWarnings=MISSING_SDK_PACKAGE to the gradle.properties file to suppress this warning.
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preReleaseBuild UP-TO-DATE
+> Task :app:generateReleaseBuildConfig
+> Task :app:generateReleaseResources
+> Task :app:packageReleaseResources
+> Task :app:processReleaseNavigationResources
+> Task :app:javaPreCompileRelease
+> Task :app:mapReleaseSourceSetPaths
+> Task :app:checkReleaseAarMetadata
+> Task :app:compileReleaseNavigationResources
+> Task :app:parseReleaseLocalResources
+> Task :app:createReleaseCompatibleScreenManifests
+> Task :app:extractDeepLinksRelease
+> Task :app:processReleaseMainManifest
+> Task :app:generateReleaseRFile
+> Task :app:processReleaseManifest
+> Task :app:mergeReleaseResources
+> Task :app:preReleaseUnitTestBuild UP-TO-DATE
+> Task :app:javaPreCompileReleaseUnitTest
+> Task :app:processReleaseManifestForPackage
+> Task :app:processReleaseResources
+> Task :app:compileReleaseKotlin
+> Task :app:compileReleaseJavaWithJavac
+> Task :app:bundleReleaseClassesToRuntimeJar
+> Task :app:bundleReleaseClassesToCompileJar
+> Task :app:processReleaseJavaRes
+> Task :app:compileReleaseUnitTestKotlin FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileReleaseUnitTestKotlin' (registered by plugin 'com.android.internal.application').
+> Dependency verification failed for configuration ':app:detachedConfiguration7'
+  One artifact failed verification: json-20250517.jar (org.json:json:20250517) from repository MavenRepo
+  This can indicate that a dependency has been compromised. Please carefully verify the checksums.
+  
+  Open this report for more details: file:///src/build/reports/dependency-verification/at-1790061483148/dependency-verification-report.html
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 27s
+24 actionable tasks: 24 executed
+
+PASS: altered AAR and altered cached Maven JAR rejected; original dependency bytes restored.

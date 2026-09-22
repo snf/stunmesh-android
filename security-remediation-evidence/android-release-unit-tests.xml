@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dev.stunmesh.android.config.RemediationTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-09-22T07:20:06.100Z" hostname="e14" time="0.141">
+  <properties/>
+  <testcase name="publicWgQuickRejectsSecretsDuplicatesAndScripts" classname="dev.stunmesh.android.config.RemediationTest" time="0.049"/>
+  <testcase name="narrowDestinationRoutesOnly" classname="dev.stunmesh.android.config.RemediationTest" time="0.005"/>
+  <testcase name="sharedPublicProposalMatchesGoTool" classname="dev.stunmesh.android.config.RemediationTest" time="0.032"/>
+  <testcase name="failedWritesAndUnreadableDataNeverBecomeEmptyStore" classname="dev.stunmesh.android.config.RemediationTest" time="0.002"/>
+  <testcase name="strictDocumentsRejectAmbiguityAndUnboundedInput" classname="dev.stunmesh.android.config.RemediationTest" time="0.011"/>
+  <testcase name="invalidIntervalsAndKeysAreRejected" classname="dev.stunmesh.android.config.RemediationTest" time="0.003"/>
+  <testcase name="qrIsPublicAndCannotSmuggleIdentity" classname="dev.stunmesh.android.config.RemediationTest" time="0.01"/>
+  <testcase name="yamlMultiStorePreservesFieldsAndHasNoExport" classname="dev.stunmesh.android.config.RemediationTest" time="0.01"/>
+  <testcase name="serializedChangesPreserveSelectionAndUndisplayedFields" classname="dev.stunmesh.android.config.RemediationTest" time="0.004"/>
+  <testcase name="httpsOriginsAndOpenDhtOnly" classname="dev.stunmesh.android.config.RemediationTest" time="0.003"/>
+  <testcase name="storeRestoreVersionAndInactiveReview" classname="dev.stunmesh.android.config.RemediationTest" time="0.007"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

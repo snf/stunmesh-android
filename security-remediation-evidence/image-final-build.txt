@@ -1,0 +1,21 @@
+STEP 1/9: FROM scratch
+STEP 2/9: COPY --chmod=0755 build/image/busybox /bin/busybox
+STEP 3/9: COPY --chmod=0755 build/image/ld-musl-x86_64.so.1 /lib/ld-musl-x86_64.so.1
+STEP 4/9: COPY --chmod=0755 build/image/wg /usr/local/bin/wg
+STEP 5/9: COPY --chmod=0755 build/image/stunmesh-go /usr/local/bin/stunmesh-go
+STEP 6/9: COPY --chmod=0755 deploy/entrypoint.sh /entrypoint.sh
+STEP 7/9: ENV PATH=/usr/local/bin:/bin
+STEP 8/9: USER 0:0
+STEP 9/9: ENTRYPOINT ["/bin/busybox", "sh", "/entrypoint.sh"]
+COMMIT localhost/stunmesh:0.3.0-local.1-ca7f901
+Getting image source signatures
+Copying blob sha256:c83956ecf4455637b00982288d9191161aa01d857f727a72420823051e497b2f
+Copying config sha256:d82a71b76bd192e8d7504e63ec46517d6d34c5677a6ee13d8b4a00e5f4cb0e3d
+Writing manifest to image destination
+--> d82a71b76bd1
+Successfully tagged localhost/stunmesh:0.3.0-local.1-ca7f901
+d82a71b76bd192e8d7504e63ec46517d6d34c5677a6ee13d8b4a00e5f4cb0e3d
+Getting image source signatures
+Copying blob sha256:c83956ecf4455637b00982288d9191161aa01d857f727a72420823051e497b2f
+Copying config sha256:d82a71b76bd192e8d7504e63ec46517d6d34c5677a6ee13d8b4a00e5f4cb0e3d
+Writing manifest to image destination

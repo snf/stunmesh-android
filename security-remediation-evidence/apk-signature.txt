@@ -1,0 +1,20 @@
+Generating 4,096 bit RSA key pair and self-signed certificate (SHA256withRSA) with a validity of 10,000 days
+	for: CN=STUNMESH
+Verifies
+Verified using v1 scheme (JAR signing): false
+Verified using v2 scheme (APK Signature Scheme v2): false
+Verified using v3 scheme (APK Signature Scheme v3): true
+Verified using v3.1 scheme (APK Signature Scheme v3.1): false
+Verified using v4 scheme (APK Signature Scheme v4): false
+Verified for SourceStamp: false
+Number of signers: 1
+Signer #1 certificate DN: CN=STUNMESH
+Signer #1 certificate SHA-256 digest: 1e7a77c5f73ccb78259d60677e37147d7e50c5a50644e2ecb57cc6b58b1cef82
+Signer #1 certificate SHA-1 digest: d11275e29b182be31db73971560864382a836dbe
+Signer #1 certificate MD5 digest: 5c7b75411d1d42019c9450077ae36a28
+Signer #1 key algorithm: RSA
+Signer #1 key size (bits): 4096
+Signer #1 public key SHA-256 digest: 4cbe460d7ace7feb4b9b874e0e4415dfb31ddeac5d94aa5765e79c6a8e80f1f6
+Signer #1 public key SHA-1 digest: 6a57857518fe3a23561ead98fe57a6f31d9a0036
+Signer #1 public key MD5 digest: 6d3f47e55649ea091e0748cfb85acb78
+APK SHA-256: 81d22d48d1374257368fb6ee578f7e737b2b2d2401906d0e98f57bd79e663f3c

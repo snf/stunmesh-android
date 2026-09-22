@@ -1,0 +1,58 @@
+{
+  "unsigned_sha256": "2d5a02f02efa13501e8d7209ad3eaed5938895b9b2239337e1258ef9c9011a77",
+  "aar_sha256": "f98ff5b752ea57652052d577bb7153404a2e0428ac165cf16f989a8c7193ccb3",
+  "native_libraries": [
+    {
+      "file": "lib/arm64-v8a/libandroidx.graphics.path.so",
+      "sha256": "41e9a793c43a0f4fddb19e33f346bace464f30f888ba7b9eaf96294ea115bfb6",
+      "exact_local_core": null,
+      "load_segment_alignment": [
+        16384,
+        16384,
+        16384
+      ]
+    },
+    {
+      "file": "lib/arm64-v8a/libgojni.so",
+      "sha256": "e55b77da7fa6b6ef2e6dcda8c2044a2909acab44c912b37811daed7b351814e0",
+      "exact_local_core": true,
+      "load_segment_alignment": [
+        16384,
+        16384,
+        16384
+      ]
+    },
+    {
+      "file": "lib/x86_64/libandroidx.graphics.path.so",
+      "sha256": "4e56c996f13670e70082658de7880c4020eabf4f25e43387f88ed78a713fc9f0",
+      "exact_local_core": null,
+      "load_segment_alignment": [
+        16384,
+        16384,
+        16384
+      ]
+    },
+    {
+      "file": "lib/x86_64/libgojni.so",
+      "sha256": "0f578fe3e8a033c6fe41aaefc399b4a8aaffd51afbf34cdbe4e00a57cc0fff38",
+      "exact_local_core": true,
+      "load_segment_alignment": [
+        16384,
+        16384,
+        16384
+      ]
+    }
+  ],
+  "absent_dex_prefixes": [
+    "Lio/netty/",
+    "Lorg/bouncycastle/",
+    "Lorg/jose4j/",
+    "Lorg/jdom2/",
+    "Lorg/apache/http/",
+    "Lorg/jetbrains/kotlin/gradle/",
+    "StubBackend",
+    "ConfigImportReceiver"
+  ],
+  "release_not_debuggable_or_test_only": true,
+  "zip_alignment_16k": true
+}

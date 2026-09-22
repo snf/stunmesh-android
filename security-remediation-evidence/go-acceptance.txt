@@ -1,0 +1,35 @@
+go test -race -tags 'mobile security_audit' ./...
+?   	github.com/tjjh89017/stunmesh-go	[no test files]
+ok  	github.com/tjjh89017/stunmesh-go/app	1.015s
+?   	github.com/tjjh89017/stunmesh-go/cmd/provision	[no test files]
+ok  	github.com/tjjh89017/stunmesh-go/internal/config	1.062s
+ok  	github.com/tjjh89017/stunmesh-go/internal/ctrl	1.377s
+?   	github.com/tjjh89017/stunmesh-go/internal/ctrl/mock	[no test files]
+ok  	github.com/tjjh89017/stunmesh-go/internal/daemon	(cached)
+ok  	github.com/tjjh89017/stunmesh-go/internal/discovery	(cached)
+ok  	github.com/tjjh89017/stunmesh-go/internal/entity	(cached)
+?   	github.com/tjjh89017/stunmesh-go/internal/entity/mock	[no test files]
+ok  	github.com/tjjh89017/stunmesh-go/internal/logger	(cached)
+ok  	github.com/tjjh89017/stunmesh-go/internal/mobilebind	(cached)
+ok  	github.com/tjjh89017/stunmesh-go/internal/plugin	(cached)
+ok  	github.com/tjjh89017/stunmesh-go/internal/plugin/builtin	(cached)
+ok  	github.com/tjjh89017/stunmesh-go/internal/plugin/builtin/opendht	(cached)
+ok  	github.com/tjjh89017/stunmesh-go/internal/plugin/dialer	(cached)
+ok  	github.com/tjjh89017/stunmesh-go/internal/provision	(cached)
+ok  	github.com/tjjh89017/stunmesh-go/internal/queue	(cached)
+ok  	github.com/tjjh89017/stunmesh-go/internal/repo	(cached)
+?   	github.com/tjjh89017/stunmesh-go/internal/repo/mock	[no test files]
+ok  	github.com/tjjh89017/stunmesh-go/internal/routeprobe	(cached)
+ok  	github.com/tjjh89017/stunmesh-go/internal/stun	1.016s
+?   	github.com/tjjh89017/stunmesh-go/internal/stunwire	[no test files]
+ok  	github.com/tjjh89017/stunmesh-go/internal/validation	(cached)
+ok  	github.com/tjjh89017/stunmesh-go/internal/wg	(cached)
+ok  	github.com/tjjh89017/stunmesh-go/internal/wgproxy	(cached)
+ok  	github.com/tjjh89017/stunmesh-go/mobile	(cached)
+?   	github.com/tjjh89017/stunmesh-go/pluginapi	[no test files]
+ok  	github.com/tjjh89017/stunmesh-go/test/e2e/kernel	1.008s
+ok  	github.com/tjjh89017/stunmesh-go/test/e2e/proxy	(cached)
+?   	github.com/tjjh89017/stunmesh-go/test/e2e/proxy/runner	[no test files]
+?   	github.com/tjjh89017/stunmesh-go/test/e2e/realnet/canary	[no test files]
+go vet -tags 'mobile security_audit' ./...
+all modules verified

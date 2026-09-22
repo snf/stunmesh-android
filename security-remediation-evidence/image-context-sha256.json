@@ -1,0 +1,9 @@
+{
+  ".dockerignore": "65d64a9fe51cff38b460c69c64721bf179a40c2ae890adb676e816404fb5289a",
+  "Dockerfile": "e0b59aaf734a948b696415f1612bb8b9492e383b814675637a595cd1a332ea29",
+  "build/image/busybox": "f3547b3d78d08a028a4833ddb83b77cf012838c078bfd2b76355f53d1d8bba62",
+  "build/image/ld-musl-x86_64.so.1": "99eab0629ed5e6bc258bea735a128d1de30c5a8b52f39eed4919452d03c6c4ee",
+  "build/image/stunmesh-go": "6669508b2618ed00f41ac03b8307ef5fce715a2e1468f52ea5baef67fbef065e",
+  "build/image/wg": "9a7f322c1877c0d46a49b94012ab2887d267bc2c922d7adee06f5ec4fea4c7f1",
+  "deploy/entrypoint.sh": "14091f20a0bdd6d5d8b3068298db33c1c34055e0da4e117ba3ab52e16663366f"
+}

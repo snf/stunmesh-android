@@ -19,3 +19,5 @@ One foreground service owns the backend. Underlay callbacks suspend network work
 [LOCAL_BUILD.md](LOCAL_BUILD.md) describes verified offline builds, mandatory local AAR input and isolated owner signing. [IMPLEMENTATION_PROGRESS.md](IMPLEMENTATION_PROGRESS.md) records work and validation; [DEVICE_TESTS.md](DEVICE_TESTS.md) covers the later NAS/GrapheneOS tests. The original [SECURITY_AUDIT.md](SECURITY_AUDIT.md) describes the upstream baseline; [SECURITY_REMEDIATION_PLAN.md](SECURITY_REMEDIATION_PLAN.md) records decisions and acceptance criteria.
 
 App code is [Apache-2.0](LICENSE); the Go core and WireGuard retain their own licenses. WireGuard is a registered trademark of Jason A. Donenfeld.
+
+[VALIDATION.md](VALIDATION.md) records local acceptance results and residual risks. [ARTIFACT_MANIFEST.json](ARTIFACT_MANIFEST.json) identifies the signed APK, image and exact inputs.

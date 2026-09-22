@@ -1,0 +1,11 @@
+=== RUN   TestImageDaemonProxyWithKernelWireGuard
+=== RUN   TestImageDaemonProxyWithKernelWireGuard/authorized
+=== RUN   TestImageDaemonProxyWithKernelWireGuard/unknown-key
+=== RUN   TestImageDaemonProxyWithKernelWireGuard/wrong-psk
+=== RUN   TestImageDaemonProxyWithKernelWireGuard/unapproved-source
+--- PASS: TestImageDaemonProxyWithKernelWireGuard (7.34s)
+    --- PASS: TestImageDaemonProxyWithKernelWireGuard/authorized (0.33s)
+    --- PASS: TestImageDaemonProxyWithKernelWireGuard/unknown-key (2.35s)
+    --- PASS: TestImageDaemonProxyWithKernelWireGuard/wrong-psk (2.40s)
+    --- PASS: TestImageDaemonProxyWithKernelWireGuard/unapproved-source (2.27s)
+PASS

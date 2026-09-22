@@ -1,0 +1,78 @@
+{
+  "manifest_digest": "sha256:e7adc0bcde9fa2f621dff5ce771993dceac9ec78dfb20259514e2f22d314dea3",
+  "config_digest": "sha256:d82a71b76bd192e8d7504e63ec46517d6d34c5677a6ee13d8b4a00e5f4cb0e3d",
+  "config": {
+    "created": "1970-01-01T00:00:00Z",
+    "architecture": "amd64",
+    "os": "linux",
+    "config": {
+      "User": "0:0",
+      "Env": [
+        "PATH=/usr/local/bin:/bin"
+      ],
+      "Entrypoint": [
+        "/bin/busybox",
+        "sh",
+        "/entrypoint.sh"
+      ],
+      "WorkingDir": "/",
+      "Labels": {
+        "io.buildah.version": "1.39.3"
+      }
+    },
+    "rootfs": {
+      "type": "layers",
+      "diff_ids": [
+        "sha256:c83956ecf4455637b00982288d9191161aa01d857f727a72420823051e497b2f"
+      ]
+    },
+    "history": [
+      {
+        "created": "1970-01-01T00:00:00Z",
+        "created_by": "/bin/sh -c #(nop) COPY file:a84ffa90a8d74089b40ae4d49913e6006f77d66b699802f76ea9013510960978 in /bin/busybox ",
+        "empty_layer": true
+      },
+      {
+        "created": "1970-01-01T00:00:00Z",
+        "created_by": "/bin/sh -c #(nop) COPY file:88490f86da171569d469cf33c2acdf80224a7c21258bd279956158b5faadab27 in /lib/ld-musl-x86_64.so.1 ",
+        "empty_layer": true
+      },
+      {
+        "created": "1970-01-01T00:00:00Z",
+        "created_by": "/bin/sh -c #(nop) COPY file:76e84ae84d50d09040e749f6ccf79e1c7ee57339a9b683ccd8e2622b20054699 in /usr/local/bin/wg ",
+        "empty_layer": true
+      },
+      {
+        "created": "1970-01-01T00:00:00Z",
+        "created_by": "/bin/sh -c #(nop) COPY file:0fcb4b5b6440ad24d5f19ce8334ebb24959d0db3fbe15c24d3d612b798a3ebbe in /usr/local/bin/stunmesh-go ",
+        "empty_layer": true
+      },
+      {
+        "created": "1970-01-01T00:00:00Z",
+        "created_by": "/bin/sh -c #(nop) COPY file:9dd7ab26b790d7811cfacea480fdfcae0c660237f5f3c57a30b8431074598999 in /entrypoint.sh ",
+        "empty_layer": true
+      },
+      {
+        "created": "1970-01-01T00:00:00Z",
+        "created_by": "/bin/sh -c #(nop) ENV PATH=/usr/local/bin:/bin",
+        "empty_layer": true
+      },
+      {
+        "created": "1970-01-01T00:00:00Z",
+        "created_by": "/bin/sh -c #(nop) USER 0:0",
+        "empty_layer": true
+      },
+      {
+        "created": "1970-01-01T00:00:00Z",
+        "created_by": "/bin/sh -c #(nop) ENTRYPOINT [\"/bin/busybox\", \"sh\", \"/entrypoint.sh\"]"
+      }
+    ]
+  },
+  "files": [
+    "bin/busybox",
+    "entrypoint.sh",
+    "lib/ld-musl-x86_64.so.1",
+    "usr/local/bin/stunmesh-go",
+    "usr/local/bin/wg"
+  ]
+}
