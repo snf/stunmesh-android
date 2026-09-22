@@ -1,0 +1,22 @@
+gpg: keybox '/workspace/stunmesh-build/work/gnupg/pubring.kbx' created
+gpg: /workspace/stunmesh-build/work/gnupg/trustdb.gpg: trustdb created
+gpg: key 49FC7012A5DE03AE: public key "Jason A. Donenfeld <Jason@zx2c4.com>" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+[GNUPG:] NEWSIG jason@zx2c4.com
+gpg: Signature made Mon Feb 23 22:24:27 2026 UTC
+gpg:                using RSA key AB9942E6D4A4CFC3412620A749FC7012A5DE03AE
+gpg:                issuer "jason@zx2c4.com"
+[GNUPG:] KEY_CONSIDERED AB9942E6D4A4CFC3412620A749FC7012A5DE03AE 0
+[GNUPG:] SIG_ID Kj4njaUvCl/JYFE1QOwth4qHgEc 2026-02-23 1771885467
+[GNUPG:] GOODSIG 49FC7012A5DE03AE Jason A. Donenfeld <Jason@zx2c4.com>
+gpg: Good signature from "Jason A. Donenfeld <Jason@zx2c4.com>" [unknown]
+gpg: Signature notation: manu=2,2.5+1.12,2,2
+[GNUPG:] NOTATION_NAME manu
+[GNUPG:] NOTATION_FLAGS 0 1
+[GNUPG:] NOTATION_DATA 2,2.5+1.12,2,2
+[GNUPG:] VALIDSIG AB9942E6D4A4CFC3412620A749FC7012A5DE03AE 2026-02-23 1771885467 0 4 0 1 8 00 AB9942E6D4A4CFC3412620A749FC7012A5DE03AE
+[GNUPG:] TRUST_UNDEFINED 0 pgp jason@zx2c4.com
+gpg: WARNING: The key's User ID is not certified with a trusted signature!
+gpg:          There is no indication that the signature belongs to the owner.
+Primary key fingerprint: AB99 42E6 D4A4 CFC3 4126  20A7 49FC 7012 A5DE 03AE

@@ -1,0 +1,5922 @@
+{
+  "queries": 551,
+  "results": [
+    {
+      "query": {
+        "package": {
+          "name": "github.com/coreos/go-systemd/v22",
+          "ecosystem": "Go"
+        },
+        "version": "v22.7.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "github.com/davecgh/go-spew",
+          "ecosystem": "Go"
+        },
+        "version": "v1.1.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "github.com/go-viper/mapstructure/v2",
+          "ecosystem": "Go"
+        },
+        "version": "v2.5.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "github.com/google/btree",
+          "ecosystem": "Go"
+        },
+        "version": "v1.1.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "github.com/google/go-cmp",
+          "ecosystem": "Go"
+        },
+        "version": "v0.7.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "github.com/josharian/native",
+          "ecosystem": "Go"
+        },
+        "version": "v1.1.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "github.com/mattn/go-colorable",
+          "ecosystem": "Go"
+        },
+        "version": "v0.1.14"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "github.com/mattn/go-isatty",
+          "ecosystem": "Go"
+        },
+        "version": "v0.0.20"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "github.com/mdlayher/genetlink",
+          "ecosystem": "Go"
+        },
+        "version": "v1.3.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "github.com/mdlayher/netlink",
+          "ecosystem": "Go"
+        },
+        "version": "v1.8.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "github.com/mdlayher/socket",
+          "ecosystem": "Go"
+        },
+        "version": "v0.5.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "github.com/mikioh/ipaddr",
+          "ecosystem": "Go"
+        },
+        "version": "v0.0.0-20190404000644-d465c8ab6721"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "github.com/pion/dtls/v3",
+          "ecosystem": "Go"
+        },
+        "version": "v3.1.5"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "github.com/pion/logging",
+          "ecosystem": "Go"
+        },
+        "version": "v0.2.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "github.com/pion/stun/v3",
+          "ecosystem": "Go"
+        },
+        "version": "v3.1.7"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "github.com/pion/transport/v4",
+          "ecosystem": "Go"
+        },
+        "version": "v4.1.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "github.com/pkg/errors",
+          "ecosystem": "Go"
+        },
+        "version": "v0.9.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "github.com/pmezard/go-difflib",
+          "ecosystem": "Go"
+        },
+        "version": "v1.0.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "github.com/rs/xid",
+          "ecosystem": "Go"
+        },
+        "version": "v1.6.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "github.com/rs/zerolog",
+          "ecosystem": "Go"
+        },
+        "version": "v1.35.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "github.com/stretchr/testify",
+          "ecosystem": "Go"
+        },
+        "version": "v1.12.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "github.com/wlynxg/anet",
+          "ecosystem": "Go"
+        },
+        "version": "v0.0.5"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "github.com/yuin/goldmark",
+          "ecosystem": "Go"
+        },
+        "version": "v1.4.13"
+      },
+      "vulnerabilities": [
+        {
+          "id": "GO-2026-5320",
+          "modified": "2026-07-22T20:59:36.886153Z"
+        }
+      ]
+    },
+    {
+      "query": {
+        "package": {
+          "name": "go.uber.org/mock",
+          "ecosystem": "Go"
+        },
+        "version": "v0.6.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "go.yaml.in/yaml/v3",
+          "ecosystem": "Go"
+        },
+        "version": "v3.0.5"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "golang.org/x/crypto",
+          "ecosystem": "Go"
+        },
+        "version": "v0.55.0"
+      },
+      "vulnerabilities": [
+        {
+          "id": "GO-2026-5932",
+          "modified": "2026-07-10T05:44:31.101996Z"
+        },
+        {
+          "id": "GO-2026-6354",
+          "modified": "2026-09-03T10:10:55.147673Z"
+        },
+        {
+          "id": "GO-2026-6355",
+          "modified": "2026-09-03T10:10:55.101133Z"
+        }
+      ]
+    },
+    {
+      "query": {
+        "package": {
+          "name": "golang.org/x/crypto/x509roots/fallback",
+          "ecosystem": "Go"
+        },
+        "version": "v0.0.0-20260723152544-d701c51f7e4e"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "golang.org/x/exp/shiny",
+          "ecosystem": "Go"
+        },
+        "version": "v0.0.0-20260611194520-c48552f49976"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "golang.org/x/image",
+          "ecosystem": "Go"
+        },
+        "version": "v0.44.0"
+      },
+      "vulnerabilities": [
+        {
+          "id": "GO-2026-6222",
+          "modified": "2026-08-15T09:41:53.891904Z"
+        }
+      ]
+    },
+    {
+      "query": {
+        "package": {
+          "name": "golang.org/x/mobile",
+          "ecosystem": "Go"
+        },
+        "version": "v0.0.0-20260709172247-6129f5bee9d5"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "golang.org/x/mod",
+          "ecosystem": "Go"
+        },
+        "version": "v0.38.0"
+      },
+      "vulnerabilities": [
+        {
+          "id": "GO-2026-6179",
+          "modified": "2026-08-19T12:25:40.780492Z"
+        },
+        {
+          "id": "GO-2026-6180",
+          "modified": "2026-08-19T12:25:49.995487Z"
+        }
+      ]
+    },
+    {
+      "query": {
+        "package": {
+          "name": "golang.org/x/net",
+          "ecosystem": "Go"
+        },
+        "version": "v0.58.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "golang.org/x/sync",
+          "ecosystem": "Go"
+        },
+        "version": "v0.22.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "golang.org/x/sys",
+          "ecosystem": "Go"
+        },
+        "version": "v0.47.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "golang.org/x/telemetry",
+          "ecosystem": "Go"
+        },
+        "version": "v0.0.0-20260708182218-49f421fb7959"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "golang.org/x/term",
+          "ecosystem": "Go"
+        },
+        "version": "v0.45.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "golang.org/x/text",
+          "ecosystem": "Go"
+        },
+        "version": "v0.41.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "golang.org/x/time",
+          "ecosystem": "Go"
+        },
+        "version": "v0.14.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "golang.org/x/tools",
+          "ecosystem": "Go"
+        },
+        "version": "v0.48.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "golang.org/x/tools/go/expect",
+          "ecosystem": "Go"
+        },
+        "version": "v0.1.1-deprecated"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "golang.org/x/tools/go/packages/packagestest",
+          "ecosystem": "Go"
+        },
+        "version": "v0.1.1-deprecated"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "golang.zx2c4.com/wintun",
+          "ecosystem": "Go"
+        },
+        "version": "v0.0.0-20230126152724-0fa3db229ce2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "golang.zx2c4.com/wireguard",
+          "ecosystem": "Go"
+        },
+        "version": "v0.0.0-20250521234502-f333402bd9cb"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "golang.zx2c4.com/wireguard/wgctrl",
+          "ecosystem": "Go"
+        },
+        "version": "v0.0.0-20241231184526-a9ab2273dd10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "gopkg.in/yaml.v3",
+          "ecosystem": "Go"
+        },
+        "version": "v3.0.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "gvisor.dev/gvisor",
+          "ecosystem": "Go"
+        },
+        "version": "v0.0.0-20250503011706-39ed1f5ac29c"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "stdlib",
+          "ecosystem": "Go"
+        },
+        "version": "v1.27.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.activity:activity",
+          "ecosystem": "Maven"
+        },
+        "version": "1.8.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.activity:activity",
+          "ecosystem": "Maven"
+        },
+        "version": "1.8.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.activity:activity-compose",
+          "ecosystem": "Maven"
+        },
+        "version": "1.8.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.activity:activity-compose",
+          "ecosystem": "Maven"
+        },
+        "version": "1.8.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.activity:activity-ktx",
+          "ecosystem": "Maven"
+        },
+        "version": "1.7.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.activity:activity-ktx",
+          "ecosystem": "Maven"
+        },
+        "version": "1.8.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.activity:activity-ktx",
+          "ecosystem": "Maven"
+        },
+        "version": "1.8.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.annotation:annotation",
+          "ecosystem": "Maven"
+        },
+        "version": "1.1.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.annotation:annotation",
+          "ecosystem": "Maven"
+        },
+        "version": "1.2.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.annotation:annotation",
+          "ecosystem": "Maven"
+        },
+        "version": "1.6.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.annotation:annotation",
+          "ecosystem": "Maven"
+        },
+        "version": "1.8.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.annotation:annotation",
+          "ecosystem": "Maven"
+        },
+        "version": "1.9.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.annotation:annotation-experimental",
+          "ecosystem": "Maven"
+        },
+        "version": "1.1.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.annotation:annotation-experimental",
+          "ecosystem": "Maven"
+        },
+        "version": "1.3.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.annotation:annotation-experimental",
+          "ecosystem": "Maven"
+        },
+        "version": "1.4.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.annotation:annotation-jvm",
+          "ecosystem": "Maven"
+        },
+        "version": "1.6.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.annotation:annotation-jvm",
+          "ecosystem": "Maven"
+        },
+        "version": "1.8.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.annotation:annotation-jvm",
+          "ecosystem": "Maven"
+        },
+        "version": "1.9.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.arch.core:core-common",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.arch.core:core-runtime",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.autofill:autofill",
+          "ecosystem": "Maven"
+        },
+        "version": "1.0.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.collection:collection",
+          "ecosystem": "Maven"
+        },
+        "version": "1.0.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.collection:collection",
+          "ecosystem": "Maven"
+        },
+        "version": "1.4.5"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.collection:collection",
+          "ecosystem": "Maven"
+        },
+        "version": "1.5.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.collection:collection-jvm",
+          "ecosystem": "Maven"
+        },
+        "version": "1.5.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.collection:collection-ktx",
+          "ecosystem": "Maven"
+        },
+        "version": "1.5.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.compose:compose-bom",
+          "ecosystem": "Maven"
+        },
+        "version": "2026.02.01"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.compose.animation:animation",
+          "ecosystem": "Maven"
+        },
+        "version": "1.10.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.compose.animation:animation-android",
+          "ecosystem": "Maven"
+        },
+        "version": "1.10.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.compose.animation:animation-core",
+          "ecosystem": "Maven"
+        },
+        "version": "1.10.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.compose.animation:animation-core-android",
+          "ecosystem": "Maven"
+        },
+        "version": "1.10.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.compose.foundation:foundation",
+          "ecosystem": "Maven"
+        },
+        "version": "1.10.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.compose.foundation:foundation-android",
+          "ecosystem": "Maven"
+        },
+        "version": "1.10.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.compose.foundation:foundation-layout",
+          "ecosystem": "Maven"
+        },
+        "version": "1.10.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.compose.foundation:foundation-layout-android",
+          "ecosystem": "Maven"
+        },
+        "version": "1.10.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.compose.material:material-ripple",
+          "ecosystem": "Maven"
+        },
+        "version": "1.10.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.compose.material:material-ripple-android",
+          "ecosystem": "Maven"
+        },
+        "version": "1.10.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.compose.material3:material3",
+          "ecosystem": "Maven"
+        },
+        "version": "1.4.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.compose.material3:material3-android",
+          "ecosystem": "Maven"
+        },
+        "version": "1.4.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.compose.runtime:runtime",
+          "ecosystem": "Maven"
+        },
+        "version": "1.10.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.compose.runtime:runtime-android",
+          "ecosystem": "Maven"
+        },
+        "version": "1.10.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.compose.runtime:runtime-annotation",
+          "ecosystem": "Maven"
+        },
+        "version": "1.10.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.compose.runtime:runtime-annotation-android",
+          "ecosystem": "Maven"
+        },
+        "version": "1.10.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.compose.runtime:runtime-retain",
+          "ecosystem": "Maven"
+        },
+        "version": "1.10.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.compose.runtime:runtime-retain-android",
+          "ecosystem": "Maven"
+        },
+        "version": "1.10.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.compose.runtime:runtime-saveable",
+          "ecosystem": "Maven"
+        },
+        "version": "1.10.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.compose.runtime:runtime-saveable-android",
+          "ecosystem": "Maven"
+        },
+        "version": "1.10.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.compose.ui:ui",
+          "ecosystem": "Maven"
+        },
+        "version": "1.10.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.compose.ui:ui-android",
+          "ecosystem": "Maven"
+        },
+        "version": "1.10.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.compose.ui:ui-geometry",
+          "ecosystem": "Maven"
+        },
+        "version": "1.10.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.compose.ui:ui-geometry-android",
+          "ecosystem": "Maven"
+        },
+        "version": "1.10.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.compose.ui:ui-graphics",
+          "ecosystem": "Maven"
+        },
+        "version": "1.10.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.compose.ui:ui-graphics-android",
+          "ecosystem": "Maven"
+        },
+        "version": "1.10.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.compose.ui:ui-text",
+          "ecosystem": "Maven"
+        },
+        "version": "1.10.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.compose.ui:ui-text-android",
+          "ecosystem": "Maven"
+        },
+        "version": "1.10.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.compose.ui:ui-unit",
+          "ecosystem": "Maven"
+        },
+        "version": "1.10.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.compose.ui:ui-unit-android",
+          "ecosystem": "Maven"
+        },
+        "version": "1.10.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.compose.ui:ui-util",
+          "ecosystem": "Maven"
+        },
+        "version": "1.10.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.compose.ui:ui-util-android",
+          "ecosystem": "Maven"
+        },
+        "version": "1.10.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.concurrent:concurrent-futures",
+          "ecosystem": "Maven"
+        },
+        "version": "1.0.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.concurrent:concurrent-futures",
+          "ecosystem": "Maven"
+        },
+        "version": "1.1.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.core:core",
+          "ecosystem": "Maven"
+        },
+        "version": "1.10.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.core:core",
+          "ecosystem": "Maven"
+        },
+        "version": "1.16.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.core:core-ktx",
+          "ecosystem": "Maven"
+        },
+        "version": "1.10.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.core:core-ktx",
+          "ecosystem": "Maven"
+        },
+        "version": "1.16.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.core:core-viewtree",
+          "ecosystem": "Maven"
+        },
+        "version": "1.0.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.customview:customview-poolingcontainer",
+          "ecosystem": "Maven"
+        },
+        "version": "1.0.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.databinding:databinding-common",
+          "ecosystem": "Maven"
+        },
+        "version": "9.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.databinding:databinding-compiler-common",
+          "ecosystem": "Maven"
+        },
+        "version": "9.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.documentfile:documentfile",
+          "ecosystem": "Maven"
+        },
+        "version": "1.0.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.dynamicanimation:dynamicanimation",
+          "ecosystem": "Maven"
+        },
+        "version": "1.0.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.emoji2:emoji2",
+          "ecosystem": "Maven"
+        },
+        "version": "1.2.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.emoji2:emoji2",
+          "ecosystem": "Maven"
+        },
+        "version": "1.3.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.emoji2:emoji2",
+          "ecosystem": "Maven"
+        },
+        "version": "1.4.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.graphics:graphics-path",
+          "ecosystem": "Maven"
+        },
+        "version": "1.0.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.interpolator:interpolator",
+          "ecosystem": "Maven"
+        },
+        "version": "1.0.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.legacy:legacy-support-core-utils",
+          "ecosystem": "Maven"
+        },
+        "version": "1.0.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-common",
+          "ecosystem": "Maven"
+        },
+        "version": "2.6.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-common",
+          "ecosystem": "Maven"
+        },
+        "version": "2.8.7"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-common",
+          "ecosystem": "Maven"
+        },
+        "version": "2.9.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-common",
+          "ecosystem": "Maven"
+        },
+        "version": "2.9.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-common-java8",
+          "ecosystem": "Maven"
+        },
+        "version": "2.6.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-common-java8",
+          "ecosystem": "Maven"
+        },
+        "version": "2.9.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-common-java8",
+          "ecosystem": "Maven"
+        },
+        "version": "2.9.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-common-jvm",
+          "ecosystem": "Maven"
+        },
+        "version": "2.8.7"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-common-jvm",
+          "ecosystem": "Maven"
+        },
+        "version": "2.9.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-common-jvm",
+          "ecosystem": "Maven"
+        },
+        "version": "2.9.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-livedata",
+          "ecosystem": "Maven"
+        },
+        "version": "2.9.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-livedata",
+          "ecosystem": "Maven"
+        },
+        "version": "2.9.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-livedata-core",
+          "ecosystem": "Maven"
+        },
+        "version": "2.6.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-livedata-core",
+          "ecosystem": "Maven"
+        },
+        "version": "2.8.7"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-livedata-core",
+          "ecosystem": "Maven"
+        },
+        "version": "2.9.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-livedata-core",
+          "ecosystem": "Maven"
+        },
+        "version": "2.9.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-livedata-core-ktx",
+          "ecosystem": "Maven"
+        },
+        "version": "2.9.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-process",
+          "ecosystem": "Maven"
+        },
+        "version": "2.6.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-process",
+          "ecosystem": "Maven"
+        },
+        "version": "2.9.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-process",
+          "ecosystem": "Maven"
+        },
+        "version": "2.9.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-runtime",
+          "ecosystem": "Maven"
+        },
+        "version": "2.6.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-runtime",
+          "ecosystem": "Maven"
+        },
+        "version": "2.6.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-runtime",
+          "ecosystem": "Maven"
+        },
+        "version": "2.8.7"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-runtime",
+          "ecosystem": "Maven"
+        },
+        "version": "2.9.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-runtime",
+          "ecosystem": "Maven"
+        },
+        "version": "2.9.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-runtime-android",
+          "ecosystem": "Maven"
+        },
+        "version": "2.8.7"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-runtime-android",
+          "ecosystem": "Maven"
+        },
+        "version": "2.9.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-runtime-android",
+          "ecosystem": "Maven"
+        },
+        "version": "2.9.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-runtime-compose",
+          "ecosystem": "Maven"
+        },
+        "version": "2.8.7"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-runtime-compose",
+          "ecosystem": "Maven"
+        },
+        "version": "2.9.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-runtime-compose",
+          "ecosystem": "Maven"
+        },
+        "version": "2.9.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-runtime-compose-android",
+          "ecosystem": "Maven"
+        },
+        "version": "2.8.7"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-runtime-compose-android",
+          "ecosystem": "Maven"
+        },
+        "version": "2.9.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-runtime-compose-android",
+          "ecosystem": "Maven"
+        },
+        "version": "2.9.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-runtime-ktx",
+          "ecosystem": "Maven"
+        },
+        "version": "2.6.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-runtime-ktx",
+          "ecosystem": "Maven"
+        },
+        "version": "2.8.7"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-runtime-ktx",
+          "ecosystem": "Maven"
+        },
+        "version": "2.9.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-runtime-ktx",
+          "ecosystem": "Maven"
+        },
+        "version": "2.9.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-runtime-ktx-android",
+          "ecosystem": "Maven"
+        },
+        "version": "2.8.7"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-runtime-ktx-android",
+          "ecosystem": "Maven"
+        },
+        "version": "2.9.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-runtime-ktx-android",
+          "ecosystem": "Maven"
+        },
+        "version": "2.9.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-viewmodel",
+          "ecosystem": "Maven"
+        },
+        "version": "2.6.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-viewmodel",
+          "ecosystem": "Maven"
+        },
+        "version": "2.8.7"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-viewmodel",
+          "ecosystem": "Maven"
+        },
+        "version": "2.9.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-viewmodel",
+          "ecosystem": "Maven"
+        },
+        "version": "2.9.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-viewmodel-android",
+          "ecosystem": "Maven"
+        },
+        "version": "2.8.7"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-viewmodel-android",
+          "ecosystem": "Maven"
+        },
+        "version": "2.9.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-viewmodel-android",
+          "ecosystem": "Maven"
+        },
+        "version": "2.9.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-viewmodel-ktx",
+          "ecosystem": "Maven"
+        },
+        "version": "2.6.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-viewmodel-ktx",
+          "ecosystem": "Maven"
+        },
+        "version": "2.8.7"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-viewmodel-ktx",
+          "ecosystem": "Maven"
+        },
+        "version": "2.9.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-viewmodel-ktx",
+          "ecosystem": "Maven"
+        },
+        "version": "2.9.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-viewmodel-savedstate",
+          "ecosystem": "Maven"
+        },
+        "version": "2.6.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-viewmodel-savedstate",
+          "ecosystem": "Maven"
+        },
+        "version": "2.8.7"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-viewmodel-savedstate",
+          "ecosystem": "Maven"
+        },
+        "version": "2.9.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-viewmodel-savedstate",
+          "ecosystem": "Maven"
+        },
+        "version": "2.9.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-viewmodel-savedstate-android",
+          "ecosystem": "Maven"
+        },
+        "version": "2.9.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.lifecycle:lifecycle-viewmodel-savedstate-android",
+          "ecosystem": "Maven"
+        },
+        "version": "2.9.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.loader:loader",
+          "ecosystem": "Maven"
+        },
+        "version": "1.0.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.localbroadcastmanager:localbroadcastmanager",
+          "ecosystem": "Maven"
+        },
+        "version": "1.0.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.print:print",
+          "ecosystem": "Maven"
+        },
+        "version": "1.0.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.profileinstaller:profileinstaller",
+          "ecosystem": "Maven"
+        },
+        "version": "1.3.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.profileinstaller:profileinstaller",
+          "ecosystem": "Maven"
+        },
+        "version": "1.4.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.savedstate:savedstate",
+          "ecosystem": "Maven"
+        },
+        "version": "1.2.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.savedstate:savedstate",
+          "ecosystem": "Maven"
+        },
+        "version": "1.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.savedstate:savedstate",
+          "ecosystem": "Maven"
+        },
+        "version": "1.3.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.savedstate:savedstate-android",
+          "ecosystem": "Maven"
+        },
+        "version": "1.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.savedstate:savedstate-android",
+          "ecosystem": "Maven"
+        },
+        "version": "1.3.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.savedstate:savedstate-compose",
+          "ecosystem": "Maven"
+        },
+        "version": "1.3.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.savedstate:savedstate-compose",
+          "ecosystem": "Maven"
+        },
+        "version": "1.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.savedstate:savedstate-compose",
+          "ecosystem": "Maven"
+        },
+        "version": "1.3.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.savedstate:savedstate-compose-android",
+          "ecosystem": "Maven"
+        },
+        "version": "1.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.savedstate:savedstate-compose-android",
+          "ecosystem": "Maven"
+        },
+        "version": "1.3.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.savedstate:savedstate-ktx",
+          "ecosystem": "Maven"
+        },
+        "version": "1.2.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.savedstate:savedstate-ktx",
+          "ecosystem": "Maven"
+        },
+        "version": "1.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.savedstate:savedstate-ktx",
+          "ecosystem": "Maven"
+        },
+        "version": "1.3.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.startup:startup-runtime",
+          "ecosystem": "Maven"
+        },
+        "version": "1.1.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.test:annotation",
+          "ecosystem": "Maven"
+        },
+        "version": "1.0.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.test:core",
+          "ecosystem": "Maven"
+        },
+        "version": "1.5.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.test:monitor",
+          "ecosystem": "Maven"
+        },
+        "version": "1.6.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.test:runner",
+          "ecosystem": "Maven"
+        },
+        "version": "1.5.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.test.espresso:espresso-core",
+          "ecosystem": "Maven"
+        },
+        "version": "3.5.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.test.espresso:espresso-idling-resource",
+          "ecosystem": "Maven"
+        },
+        "version": "3.5.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.test.ext:junit",
+          "ecosystem": "Maven"
+        },
+        "version": "1.1.5"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.test.services:storage",
+          "ecosystem": "Maven"
+        },
+        "version": "1.4.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.tracing:tracing",
+          "ecosystem": "Maven"
+        },
+        "version": "1.0.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.tracing:tracing",
+          "ecosystem": "Maven"
+        },
+        "version": "1.2.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.transition:transition",
+          "ecosystem": "Maven"
+        },
+        "version": "1.6.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.versionedparcelable:versionedparcelable",
+          "ecosystem": "Maven"
+        },
+        "version": "1.1.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.window:window",
+          "ecosystem": "Maven"
+        },
+        "version": "1.5.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.window:window-core",
+          "ecosystem": "Maven"
+        },
+        "version": "1.5.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "androidx.window:window-core-android",
+          "ecosystem": "Maven"
+        },
+        "version": "1.5.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android:signflinger",
+          "ecosystem": "Maven"
+        },
+        "version": "9.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android:zipflinger",
+          "ecosystem": "Maven"
+        },
+        "version": "9.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.application:com.android.application.gradle.plugin",
+          "ecosystem": "Maven"
+        },
+        "version": "9.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.databinding:baseLibrary",
+          "ecosystem": "Maven"
+        },
+        "version": "9.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools:annotations",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools:common",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools:dvlib",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools:play-sdk-proto",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools:repository",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools:sdk-common",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools:sdklib",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.analytics-library:crash",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.analytics-library:protos",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.analytics-library:shared",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.analytics-library:tracker",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.build:aapt2",
+          "ecosystem": "Maven"
+        },
+        "version": "9.3.1-15703166"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.build:aapt2-proto",
+          "ecosystem": "Maven"
+        },
+        "version": "9.3.1-15703166"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.build:aaptcompiler",
+          "ecosystem": "Maven"
+        },
+        "version": "9.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.build:apksig",
+          "ecosystem": "Maven"
+        },
+        "version": "9.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.build:apkzlib",
+          "ecosystem": "Maven"
+        },
+        "version": "9.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.build:builder",
+          "ecosystem": "Maven"
+        },
+        "version": "9.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.build:builder-model",
+          "ecosystem": "Maven"
+        },
+        "version": "9.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.build:builder-test-api",
+          "ecosystem": "Maven"
+        },
+        "version": "9.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.build:bundletool",
+          "ecosystem": "Maven"
+        },
+        "version": "1.18.3"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.build:gradle",
+          "ecosystem": "Maven"
+        },
+        "version": "9.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.build:gradle-api",
+          "ecosystem": "Maven"
+        },
+        "version": "9.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.build:gradle-common-api",
+          "ecosystem": "Maven"
+        },
+        "version": "9.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.build:gradle-settings-api",
+          "ecosystem": "Maven"
+        },
+        "version": "9.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.build:manifest-merger",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.build.jetifier:jetifier-core",
+          "ecosystem": "Maven"
+        },
+        "version": "1.0.0-beta10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.build.jetifier:jetifier-processor",
+          "ecosystem": "Maven"
+        },
+        "version": "1.0.0-beta10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.ddms:ddmlib",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.emulator:proto",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.external.com-intellij:intellij-core",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.external.com-intellij:kotlin-compiler",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.external.org-jetbrains:uast",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.layoutlib:layoutlib-api",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.lint:lint",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.lint:lint-api",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.lint:lint-checks",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.lint:lint-gradle",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.lint:lint-model",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.lint:lint-typedef-remover",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.utp:android-device-provider-ddmlib",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.utp:android-device-provider-ddmlib-proto",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.utp:android-test-plugin-host-additional-test-output",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.utp:android-test-plugin-host-additional-test-output-proto",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.utp:android-test-plugin-host-apk-installer",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.utp:android-test-plugin-host-apk-installer-proto",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.utp:android-test-plugin-host-coverage",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.utp:android-test-plugin-host-coverage-proto",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.utp:android-test-plugin-host-device-info",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.utp:android-test-plugin-host-device-info-proto",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.utp:android-test-plugin-host-emulator-control",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.utp:android-test-plugin-host-emulator-control-proto",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.utp:android-test-plugin-host-logcat",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.utp:android-test-plugin-host-logcat-proto",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.utp:android-test-plugin-result-listener-gradle",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.utp:android-test-plugin-result-listener-gradle-proto",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.utp:gradle-work-action",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.utp:gradle-work-action-api",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.android.tools.utp:utp-common",
+          "ecosystem": "Maven"
+        },
+        "version": "32.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.android:annotations",
+          "ecosystem": "Maven"
+        },
+        "version": "4.1.1.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.api.grpc:proto-google-common-protos",
+          "ecosystem": "Maven"
+        },
+        "version": "2.17.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.api.grpc:proto-google-common-protos",
+          "ecosystem": "Maven"
+        },
+        "version": "2.48.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.auto:auto-common",
+          "ecosystem": "Maven"
+        },
+        "version": "1.2.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.auto:auto-parent",
+          "ecosystem": "Maven"
+        },
+        "version": "6"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.auto.service:auto-service",
+          "ecosystem": "Maven"
+        },
+        "version": "1.1.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.auto.service:auto-service-aggregator",
+          "ecosystem": "Maven"
+        },
+        "version": "1.1.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.auto.service:auto-service-annotations",
+          "ecosystem": "Maven"
+        },
+        "version": "1.1.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.auto.value:auto-value-annotations",
+          "ecosystem": "Maven"
+        },
+        "version": "1.6.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.auto.value:auto-value-parent",
+          "ecosystem": "Maven"
+        },
+        "version": "1.6.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.code.findbugs:jsr305",
+          "ecosystem": "Maven"
+        },
+        "version": "2.0.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.code.findbugs:jsr305",
+          "ecosystem": "Maven"
+        },
+        "version": "3.0.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.code.gson:gson",
+          "ecosystem": "Maven"
+        },
+        "version": "2.10.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.code.gson:gson",
+          "ecosystem": "Maven"
+        },
+        "version": "2.11.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.code.gson:gson",
+          "ecosystem": "Maven"
+        },
+        "version": "2.8.9"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.code.gson:gson-parent",
+          "ecosystem": "Maven"
+        },
+        "version": "2.10.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.code.gson:gson-parent",
+          "ecosystem": "Maven"
+        },
+        "version": "2.11.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.code.gson:gson-parent",
+          "ecosystem": "Maven"
+        },
+        "version": "2.8.9"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.crypto.tink:tink",
+          "ecosystem": "Maven"
+        },
+        "version": "1.18.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.crypto.tink:tink",
+          "ecosystem": "Maven"
+        },
+        "version": "1.7.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.dagger:dagger",
+          "ecosystem": "Maven"
+        },
+        "version": "2.28.3"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.dagger:dagger",
+          "ecosystem": "Maven"
+        },
+        "version": "2.48"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.errorprone:error_prone_annotations",
+          "ecosystem": "Maven"
+        },
+        "version": "2.18.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.errorprone:error_prone_annotations",
+          "ecosystem": "Maven"
+        },
+        "version": "2.22.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.errorprone:error_prone_annotations",
+          "ecosystem": "Maven"
+        },
+        "version": "2.23.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.errorprone:error_prone_annotations",
+          "ecosystem": "Maven"
+        },
+        "version": "2.27.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.errorprone:error_prone_annotations",
+          "ecosystem": "Maven"
+        },
+        "version": "2.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.errorprone:error_prone_annotations",
+          "ecosystem": "Maven"
+        },
+        "version": "2.36.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.errorprone:error_prone_parent",
+          "ecosystem": "Maven"
+        },
+        "version": "2.18.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.errorprone:error_prone_parent",
+          "ecosystem": "Maven"
+        },
+        "version": "2.22.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.errorprone:error_prone_parent",
+          "ecosystem": "Maven"
+        },
+        "version": "2.23.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.errorprone:error_prone_parent",
+          "ecosystem": "Maven"
+        },
+        "version": "2.27.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.errorprone:error_prone_parent",
+          "ecosystem": "Maven"
+        },
+        "version": "2.3.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.errorprone:error_prone_parent",
+          "ecosystem": "Maven"
+        },
+        "version": "2.36.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.flatbuffers:flatbuffers-java",
+          "ecosystem": "Maven"
+        },
+        "version": "1.12.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.guava:failureaccess",
+          "ecosystem": "Maven"
+        },
+        "version": "1.0.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.guava:failureaccess",
+          "ecosystem": "Maven"
+        },
+        "version": "1.0.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.guava:guava",
+          "ecosystem": "Maven"
+        },
+        "version": "32.0.1-jre"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.guava:guava",
+          "ecosystem": "Maven"
+        },
+        "version": "33.3.1-jre"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.guava:guava",
+          "ecosystem": "Maven"
+        },
+        "version": "33.4.0-jre"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.guava:guava-parent",
+          "ecosystem": "Maven"
+        },
+        "version": "26.0-android"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.guava:guava-parent",
+          "ecosystem": "Maven"
+        },
+        "version": "32.0.1-jre"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.guava:guava-parent",
+          "ecosystem": "Maven"
+        },
+        "version": "33.3.1-jre"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.guava:guava-parent",
+          "ecosystem": "Maven"
+        },
+        "version": "33.4.0-jre"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.guava:listenablefuture",
+          "ecosystem": "Maven"
+        },
+        "version": "1.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.guava:listenablefuture",
+          "ecosystem": "Maven"
+        },
+        "version": "9999.0-empty-to-avoid-conflict-with-guava"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.j2objc:j2objc-annotations",
+          "ecosystem": "Maven"
+        },
+        "version": "2.8"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.j2objc:j2objc-annotations",
+          "ecosystem": "Maven"
+        },
+        "version": "3.0.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.jimfs:jimfs",
+          "ecosystem": "Maven"
+        },
+        "version": "1.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.jimfs:jimfs-parent",
+          "ecosystem": "Maven"
+        },
+        "version": "1.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.protobuf:protobuf-bom",
+          "ecosystem": "Maven"
+        },
+        "version": "3.22.3"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.protobuf:protobuf-bom",
+          "ecosystem": "Maven"
+        },
+        "version": "3.25.5"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.protobuf:protobuf-bom",
+          "ecosystem": "Maven"
+        },
+        "version": "4.28.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.protobuf:protobuf-bom",
+          "ecosystem": "Maven"
+        },
+        "version": "4.28.3"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.protobuf:protobuf-java",
+          "ecosystem": "Maven"
+        },
+        "version": "3.25.5"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.protobuf:protobuf-java",
+          "ecosystem": "Maven"
+        },
+        "version": "4.28.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.protobuf:protobuf-java",
+          "ecosystem": "Maven"
+        },
+        "version": "4.28.3"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.protobuf:protobuf-java-util",
+          "ecosystem": "Maven"
+        },
+        "version": "3.22.3"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.protobuf:protobuf-java-util",
+          "ecosystem": "Maven"
+        },
+        "version": "3.25.5"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.protobuf:protobuf-java-util",
+          "ecosystem": "Maven"
+        },
+        "version": "4.28.3"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.protobuf:protobuf-kotlin",
+          "ecosystem": "Maven"
+        },
+        "version": "4.28.3"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.protobuf:protobuf-parent",
+          "ecosystem": "Maven"
+        },
+        "version": "3.22.3"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.protobuf:protobuf-parent",
+          "ecosystem": "Maven"
+        },
+        "version": "3.25.5"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.protobuf:protobuf-parent",
+          "ecosystem": "Maven"
+        },
+        "version": "4.28.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.protobuf:protobuf-parent",
+          "ecosystem": "Maven"
+        },
+        "version": "4.28.3"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.testing.platform:android-device-provider-local",
+          "ecosystem": "Maven"
+        },
+        "version": "0.0.9-alpha04"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.testing.platform:android-driver-instrumentation",
+          "ecosystem": "Maven"
+        },
+        "version": "0.0.9-alpha04"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.testing.platform:android-test-plugin",
+          "ecosystem": "Maven"
+        },
+        "version": "0.0.9-alpha04"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.testing.platform:core",
+          "ecosystem": "Maven"
+        },
+        "version": "0.0.9-alpha04"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.testing.platform:core-proto",
+          "ecosystem": "Maven"
+        },
+        "version": "0.0.9-alpha04"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.google.testing.platform:launcher",
+          "ecosystem": "Maven"
+        },
+        "version": "0.0.9-alpha04"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.googlecode.juniversalchardet:juniversalchardet",
+          "ecosystem": "Maven"
+        },
+        "version": "1.0.3"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.squareup:javapoet",
+          "ecosystem": "Maven"
+        },
+        "version": "1.13.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.squareup:javawriter",
+          "ecosystem": "Maven"
+        },
+        "version": "2.1.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.squareup:javawriter",
+          "ecosystem": "Maven"
+        },
+        "version": "2.5.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.sun.activation:all",
+          "ecosystem": "Maven"
+        },
+        "version": "1.2.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.sun.istack:istack-commons",
+          "ecosystem": "Maven"
+        },
+        "version": "3.0.8"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.sun.istack:istack-commons-runtime",
+          "ecosystem": "Maven"
+        },
+        "version": "3.0.8"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.sun.xml.bind:jaxb-bom-ext",
+          "ecosystem": "Maven"
+        },
+        "version": "2.3.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.sun.xml.bind.mvn:jaxb-parent",
+          "ecosystem": "Maven"
+        },
+        "version": "2.3.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.sun.xml.bind.mvn:jaxb-runtime-parent",
+          "ecosystem": "Maven"
+        },
+        "version": "2.3.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.sun.xml.bind.mvn:jaxb-txw-parent",
+          "ecosystem": "Maven"
+        },
+        "version": "2.3.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.sun.xml.fastinfoset:FastInfoset",
+          "ecosystem": "Maven"
+        },
+        "version": "1.2.16"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "com.sun.xml.fastinfoset:fastinfoset-project",
+          "ecosystem": "Maven"
+        },
+        "version": "1.2.16"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "commons-codec:commons-codec",
+          "ecosystem": "Maven"
+        },
+        "version": "1.17.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "commons-io:commons-io",
+          "ecosystem": "Maven"
+        },
+        "version": "2.16.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "commons-logging:commons-logging",
+          "ecosystem": "Maven"
+        },
+        "version": "1.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.grpc:grpc-api",
+          "ecosystem": "Maven"
+        },
+        "version": "1.57.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.grpc:grpc-api",
+          "ecosystem": "Maven"
+        },
+        "version": "1.69.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.grpc:grpc-context",
+          "ecosystem": "Maven"
+        },
+        "version": "1.27.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.grpc:grpc-context",
+          "ecosystem": "Maven"
+        },
+        "version": "1.57.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.grpc:grpc-context",
+          "ecosystem": "Maven"
+        },
+        "version": "1.69.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.grpc:grpc-core",
+          "ecosystem": "Maven"
+        },
+        "version": "1.57.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.grpc:grpc-core",
+          "ecosystem": "Maven"
+        },
+        "version": "1.69.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.grpc:grpc-netty",
+          "ecosystem": "Maven"
+        },
+        "version": "1.57.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.grpc:grpc-netty",
+          "ecosystem": "Maven"
+        },
+        "version": "1.69.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.grpc:grpc-protobuf",
+          "ecosystem": "Maven"
+        },
+        "version": "1.57.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.grpc:grpc-protobuf",
+          "ecosystem": "Maven"
+        },
+        "version": "1.69.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.grpc:grpc-protobuf-lite",
+          "ecosystem": "Maven"
+        },
+        "version": "1.57.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.grpc:grpc-protobuf-lite",
+          "ecosystem": "Maven"
+        },
+        "version": "1.69.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.grpc:grpc-services",
+          "ecosystem": "Maven"
+        },
+        "version": "1.57.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.grpc:grpc-stub",
+          "ecosystem": "Maven"
+        },
+        "version": "1.57.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.grpc:grpc-stub",
+          "ecosystem": "Maven"
+        },
+        "version": "1.69.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.grpc:grpc-util",
+          "ecosystem": "Maven"
+        },
+        "version": "1.69.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.netty:netty-buffer",
+          "ecosystem": "Maven"
+        },
+        "version": "4.1.110.Final"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.netty:netty-buffer",
+          "ecosystem": "Maven"
+        },
+        "version": "4.1.93.Final"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.netty:netty-codec",
+          "ecosystem": "Maven"
+        },
+        "version": "4.1.110.Final"
+      },
+      "vulnerabilities": [
+        {
+          "id": "GHSA-3p8m-j85q-pgmj",
+          "modified": "2026-09-10T03:50:27.942019Z"
+        },
+        {
+          "id": "GHSA-558v-64gr-wgg4",
+          "modified": "2026-09-10T03:50:12.358146Z"
+        },
+        {
+          "id": "GHSA-mj4r-2hfc-f8p6",
+          "modified": "2026-09-10T03:51:06.526589Z"
+        }
+      ]
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.netty:netty-codec",
+          "ecosystem": "Maven"
+        },
+        "version": "4.1.93.Final"
+      },
+      "vulnerabilities": [
+        {
+          "id": "GHSA-3p8m-j85q-pgmj",
+          "modified": "2026-09-10T03:50:27.942019Z"
+        },
+        {
+          "id": "GHSA-558v-64gr-wgg4",
+          "modified": "2026-09-10T03:50:12.358146Z"
+        },
+        {
+          "id": "GHSA-mj4r-2hfc-f8p6",
+          "modified": "2026-09-10T03:51:06.526589Z"
+        }
+      ]
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.netty:netty-codec-http",
+          "ecosystem": "Maven"
+        },
+        "version": "4.1.110.Final"
+      },
+      "vulnerabilities": [
+        {
+          "id": "GHSA-38f8-5428-x5cv",
+          "modified": "2026-09-10T03:51:04.415985Z"
+        },
+        {
+          "id": "GHSA-4mp9-239f-g9hg",
+          "modified": "2026-09-10T03:51:10.413004Z"
+        },
+        {
+          "id": "GHSA-57rv-r2g8-2cj3",
+          "modified": "2026-09-10T03:51:04.645242Z"
+        },
+        {
+          "id": "GHSA-6cqp-g7gg-8hr5",
+          "modified": "2026-09-10T03:51:10.615779Z"
+        },
+        {
+          "id": "GHSA-6jqx-86gh-f27w",
+          "modified": "2026-09-10T03:51:10.812069Z"
+        },
+        {
+          "id": "GHSA-84h7-rjj3-6jx4",
+          "modified": "2026-09-10T03:50:31.724062Z"
+        },
+        {
+          "id": "GHSA-8c42-7qj2-3j46",
+          "modified": "2026-09-10T03:51:13.389261Z"
+        },
+        {
+          "id": "GHSA-f6hv-jmp6-3vwv",
+          "modified": "2026-09-10T03:51:05.447415Z"
+        },
+        {
+          "id": "GHSA-fghv-69vj-qj49",
+          "modified": "2026-09-10T03:50:28.333050Z"
+        },
+        {
+          "id": "GHSA-gcjf-9mgh-3p7g",
+          "modified": "2026-09-10T03:50:52.172506Z"
+        },
+        {
+          "id": "GHSA-hvcg-qmg6-jm4c",
+          "modified": "2026-09-10T03:50:50.025404Z"
+        },
+        {
+          "id": "GHSA-jppx-w49h-x2qq",
+          "modified": "2026-09-10T03:50:12.368445Z"
+        },
+        {
+          "id": "GHSA-m4cv-j2px-7723",
+          "modified": "2026-09-10T03:51:06.379210Z"
+        },
+        {
+          "id": "GHSA-mvh2-crg5-v77c",
+          "modified": "2026-09-10T03:50:52.830435Z"
+        },
+        {
+          "id": "GHSA-pwqr-wmgm-9rr8",
+          "modified": "2026-09-10T03:50:40.493461Z"
+        },
+        {
+          "id": "GHSA-q4f6-jm68-57ww",
+          "modified": "2026-09-10T03:50:52.883743Z"
+        },
+        {
+          "id": "GHSA-v8h7-rr48-vmmv",
+          "modified": "2026-09-10T03:50:47.637727Z"
+        },
+        {
+          "id": "GHSA-xxqh-mfjm-7mv9",
+          "modified": "2026-09-10T03:51:07.381332Z"
+        }
+      ]
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.netty:netty-codec-http",
+          "ecosystem": "Maven"
+        },
+        "version": "4.1.93.Final"
+      },
+      "vulnerabilities": [
+        {
+          "id": "GHSA-38f8-5428-x5cv",
+          "modified": "2026-09-10T03:51:04.415985Z"
+        },
+        {
+          "id": "GHSA-4mp9-239f-g9hg",
+          "modified": "2026-09-10T03:51:10.413004Z"
+        },
+        {
+          "id": "GHSA-57rv-r2g8-2cj3",
+          "modified": "2026-09-10T03:51:04.645242Z"
+        },
+        {
+          "id": "GHSA-5jpm-x58v-624v",
+          "modified": "2026-09-10T03:50:10.174704Z"
+        },
+        {
+          "id": "GHSA-6cqp-g7gg-8hr5",
+          "modified": "2026-09-10T03:51:10.615779Z"
+        },
+        {
+          "id": "GHSA-6jqx-86gh-f27w",
+          "modified": "2026-09-10T03:51:10.812069Z"
+        },
+        {
+          "id": "GHSA-84h7-rjj3-6jx4",
+          "modified": "2026-09-10T03:50:31.724062Z"
+        },
+        {
+          "id": "GHSA-8c42-7qj2-3j46",
+          "modified": "2026-09-10T03:51:13.389261Z"
+        },
+        {
+          "id": "GHSA-f6hv-jmp6-3vwv",
+          "modified": "2026-09-10T03:51:05.447415Z"
+        },
+        {
+          "id": "GHSA-fghv-69vj-qj49",
+          "modified": "2026-09-10T03:50:28.333050Z"
+        },
+        {
+          "id": "GHSA-gcjf-9mgh-3p7g",
+          "modified": "2026-09-10T03:50:52.172506Z"
+        },
+        {
+          "id": "GHSA-hvcg-qmg6-jm4c",
+          "modified": "2026-09-10T03:50:50.025404Z"
+        },
+        {
+          "id": "GHSA-jppx-w49h-x2qq",
+          "modified": "2026-09-10T03:50:12.368445Z"
+        },
+        {
+          "id": "GHSA-m4cv-j2px-7723",
+          "modified": "2026-09-10T03:51:06.379210Z"
+        },
+        {
+          "id": "GHSA-mvh2-crg5-v77c",
+          "modified": "2026-09-10T03:50:52.830435Z"
+        },
+        {
+          "id": "GHSA-pwqr-wmgm-9rr8",
+          "modified": "2026-09-10T03:50:40.493461Z"
+        },
+        {
+          "id": "GHSA-q4f6-jm68-57ww",
+          "modified": "2026-09-10T03:50:52.883743Z"
+        },
+        {
+          "id": "GHSA-v8h7-rr48-vmmv",
+          "modified": "2026-09-10T03:50:47.637727Z"
+        },
+        {
+          "id": "GHSA-xxqh-mfjm-7mv9",
+          "modified": "2026-09-10T03:51:07.381332Z"
+        }
+      ]
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.netty:netty-codec-http2",
+          "ecosystem": "Maven"
+        },
+        "version": "4.1.110.Final"
+      },
+      "vulnerabilities": [
+        {
+          "id": "GHSA-563q-j3cm-6jxm",
+          "modified": "2026-09-10T03:50:48.396944Z"
+        },
+        {
+          "id": "GHSA-5x3r-wrvg-rp6q",
+          "modified": "2026-09-10T03:50:48.488084Z"
+        },
+        {
+          "id": "GHSA-93wv-jw9v-4972",
+          "modified": "2026-09-10T03:51:11.318239Z"
+        },
+        {
+          "id": "GHSA-c2gf-v879-257j",
+          "modified": "2026-09-18T15:45:05.615379Z"
+        },
+        {
+          "id": "GHSA-c69g-56f8-xwqj",
+          "modified": "2026-09-10T03:51:11.564389Z"
+        },
+        {
+          "id": "GHSA-f6hv-jmp6-3vwv",
+          "modified": "2026-09-10T03:51:05.447415Z"
+        },
+        {
+          "id": "GHSA-prj3-ccx8-p6x4",
+          "modified": "2026-09-10T03:50:27.396257Z"
+        },
+        {
+          "id": "GHSA-w9fj-cfpg-grvv",
+          "modified": "2026-09-10T03:50:41.535305Z"
+        }
+      ]
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.netty:netty-codec-http2",
+          "ecosystem": "Maven"
+        },
+        "version": "4.1.93.Final"
+      },
+      "vulnerabilities": [
+        {
+          "id": "GHSA-563q-j3cm-6jxm",
+          "modified": "2026-09-10T03:50:48.396944Z"
+        },
+        {
+          "id": "GHSA-5x3r-wrvg-rp6q",
+          "modified": "2026-09-10T03:50:48.488084Z"
+        },
+        {
+          "id": "GHSA-93wv-jw9v-4972",
+          "modified": "2026-09-10T03:51:11.318239Z"
+        },
+        {
+          "id": "GHSA-c2gf-v879-257j",
+          "modified": "2026-09-18T15:45:05.615379Z"
+        },
+        {
+          "id": "GHSA-c69g-56f8-xwqj",
+          "modified": "2026-09-10T03:51:11.564389Z"
+        },
+        {
+          "id": "GHSA-f6hv-jmp6-3vwv",
+          "modified": "2026-09-10T03:51:05.447415Z"
+        },
+        {
+          "id": "GHSA-prj3-ccx8-p6x4",
+          "modified": "2026-09-10T03:50:27.396257Z"
+        },
+        {
+          "id": "GHSA-w9fj-cfpg-grvv",
+          "modified": "2026-09-10T03:50:41.535305Z"
+        },
+        {
+          "id": "GHSA-xpw8-rcwv-8f8p",
+          "modified": "2026-09-10T03:49:58.760787Z"
+        }
+      ]
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.netty:netty-codec-socks",
+          "ecosystem": "Maven"
+        },
+        "version": "4.1.110.Final"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.netty:netty-codec-socks",
+          "ecosystem": "Maven"
+        },
+        "version": "4.1.93.Final"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.netty:netty-common",
+          "ecosystem": "Maven"
+        },
+        "version": "4.1.110.Final"
+      },
+      "vulnerabilities": [
+        {
+          "id": "GHSA-389x-839f-4rhx",
+          "modified": "2026-09-10T03:50:22.454183Z"
+        },
+        {
+          "id": "GHSA-xq3w-v528-46rv",
+          "modified": "2026-09-10T03:50:56.073045Z"
+        }
+      ]
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.netty:netty-common",
+          "ecosystem": "Maven"
+        },
+        "version": "4.1.93.Final"
+      },
+      "vulnerabilities": [
+        {
+          "id": "GHSA-389x-839f-4rhx",
+          "modified": "2026-09-10T03:50:22.454183Z"
+        },
+        {
+          "id": "GHSA-xq3w-v528-46rv",
+          "modified": "2026-09-10T03:50:56.073045Z"
+        }
+      ]
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.netty:netty-handler",
+          "ecosystem": "Maven"
+        },
+        "version": "4.1.110.Final"
+      },
+      "vulnerabilities": [
+        {
+          "id": "GHSA-3qp7-7mw8-wx86",
+          "modified": "2026-09-10T03:50:55.436123Z"
+        },
+        {
+          "id": "GHSA-4g8c-wm8x-jfhw",
+          "modified": "2026-09-10T03:50:22.400091Z"
+        },
+        {
+          "id": "GHSA-c4c3-7fpv-j4q5",
+          "modified": "2026-09-08T18:27:48.571082Z"
+        },
+        {
+          "id": "GHSA-c653-97m9-rcg9",
+          "modified": "2026-09-10T03:51:08.552933Z"
+        },
+        {
+          "id": "GHSA-fccg-mwvh-qqg4",
+          "modified": "2026-09-08T18:27:48.113951Z"
+        },
+        {
+          "id": "GHSA-x4gw-5cx5-pgmh",
+          "modified": "2026-09-10T03:50:12.401611Z"
+        }
+      ]
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.netty:netty-handler",
+          "ecosystem": "Maven"
+        },
+        "version": "4.1.93.Final"
+      },
+      "vulnerabilities": [
+        {
+          "id": "GHSA-3qp7-7mw8-wx86",
+          "modified": "2026-09-10T03:50:55.436123Z"
+        },
+        {
+          "id": "GHSA-4g8c-wm8x-jfhw",
+          "modified": "2026-09-10T03:50:22.400091Z"
+        },
+        {
+          "id": "GHSA-6mjq-h674-j845",
+          "modified": "2026-09-10T03:50:02.086375Z"
+        },
+        {
+          "id": "GHSA-c4c3-7fpv-j4q5",
+          "modified": "2026-09-08T18:27:48.571082Z"
+        },
+        {
+          "id": "GHSA-c653-97m9-rcg9",
+          "modified": "2026-09-10T03:51:08.552933Z"
+        },
+        {
+          "id": "GHSA-fccg-mwvh-qqg4",
+          "modified": "2026-09-08T18:27:48.113951Z"
+        },
+        {
+          "id": "GHSA-x4gw-5cx5-pgmh",
+          "modified": "2026-09-10T03:50:12.401611Z"
+        }
+      ]
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.netty:netty-handler-proxy",
+          "ecosystem": "Maven"
+        },
+        "version": "4.1.110.Final"
+      },
+      "vulnerabilities": [
+        {
+          "id": "GHSA-45q3-82m4-75jr",
+          "modified": "2026-09-10T03:51:04.662453Z"
+        }
+      ]
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.netty:netty-handler-proxy",
+          "ecosystem": "Maven"
+        },
+        "version": "4.1.93.Final"
+      },
+      "vulnerabilities": [
+        {
+          "id": "GHSA-45q3-82m4-75jr",
+          "modified": "2026-09-10T03:51:04.662453Z"
+        }
+      ]
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.netty:netty-parent",
+          "ecosystem": "Maven"
+        },
+        "version": "4.1.110.Final"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.netty:netty-parent",
+          "ecosystem": "Maven"
+        },
+        "version": "4.1.93.Final"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.netty:netty-resolver",
+          "ecosystem": "Maven"
+        },
+        "version": "4.1.110.Final"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.netty:netty-resolver",
+          "ecosystem": "Maven"
+        },
+        "version": "4.1.93.Final"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.netty:netty-transport",
+          "ecosystem": "Maven"
+        },
+        "version": "4.1.110.Final"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.netty:netty-transport",
+          "ecosystem": "Maven"
+        },
+        "version": "4.1.93.Final"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.netty:netty-transport-native-unix-common",
+          "ecosystem": "Maven"
+        },
+        "version": "4.1.110.Final"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.netty:netty-transport-native-unix-common",
+          "ecosystem": "Maven"
+        },
+        "version": "4.1.93.Final"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.opencensus:opencensus-api",
+          "ecosystem": "Maven"
+        },
+        "version": "0.31.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.opencensus:opencensus-proto",
+          "ecosystem": "Maven"
+        },
+        "version": "0.2.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.perfmark:perfmark-api",
+          "ecosystem": "Maven"
+        },
+        "version": "0.26.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "io.perfmark:perfmark-api",
+          "ecosystem": "Maven"
+        },
+        "version": "0.27.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "jakarta.activation:jakarta.activation-api",
+          "ecosystem": "Maven"
+        },
+        "version": "1.2.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "jakarta.xml.bind:jakarta.xml.bind-api",
+          "ecosystem": "Maven"
+        },
+        "version": "2.3.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "jakarta.xml.bind:jakarta.xml.bind-api-parent",
+          "ecosystem": "Maven"
+        },
+        "version": "2.3.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "javax.annotation:javax.annotation-api",
+          "ecosystem": "Maven"
+        },
+        "version": "1.3.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "javax.inject:javax.inject",
+          "ecosystem": "Maven"
+        },
+        "version": "1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "junit:junit",
+          "ecosystem": "Maven"
+        },
+        "version": "4.13.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "net.java:jvnet-parent",
+          "ecosystem": "Maven"
+        },
+        "version": "3"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "net.java.dev.jna:jna",
+          "ecosystem": "Maven"
+        },
+        "version": "5.6.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "net.java.dev.jna:jna-platform",
+          "ecosystem": "Maven"
+        },
+        "version": "5.6.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "net.sf.jopt-simple:jopt-simple",
+          "ecosystem": "Maven"
+        },
+        "version": "4.9"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "net.sf.kxml:kxml2",
+          "ecosystem": "Maven"
+        },
+        "version": "2.3.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.apache:apache",
+          "ecosystem": "Maven"
+        },
+        "version": "13"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.apache:apache",
+          "ecosystem": "Maven"
+        },
+        "version": "18"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.apache:apache",
+          "ecosystem": "Maven"
+        },
+        "version": "21"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.apache:apache",
+          "ecosystem": "Maven"
+        },
+        "version": "31"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.apache:apache",
+          "ecosystem": "Maven"
+        },
+        "version": "32"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.apache:apache",
+          "ecosystem": "Maven"
+        },
+        "version": "33"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.apache.commons:commons-compress",
+          "ecosystem": "Maven"
+        },
+        "version": "1.27.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.apache.commons:commons-lang3",
+          "ecosystem": "Maven"
+        },
+        "version": "3.16.0"
+      },
+      "vulnerabilities": [
+        {
+          "id": "GHSA-j288-q9x7-2f5v",
+          "modified": "2026-09-10T03:50:26.176912Z"
+        }
+      ]
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.apache.commons:commons-parent",
+          "ecosystem": "Maven"
+        },
+        "version": "34"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.apache.commons:commons-parent",
+          "ecosystem": "Maven"
+        },
+        "version": "69"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.apache.commons:commons-parent",
+          "ecosystem": "Maven"
+        },
+        "version": "71"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.apache.commons:commons-parent",
+          "ecosystem": "Maven"
+        },
+        "version": "72"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.apache.httpcomponents:httpclient",
+          "ecosystem": "Maven"
+        },
+        "version": "4.5.14"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.apache.httpcomponents:httpclient",
+          "ecosystem": "Maven"
+        },
+        "version": "4.5.6"
+      },
+      "vulnerabilities": [
+        {
+          "id": "GHSA-7r82-7xv7-xcpj",
+          "modified": "2026-09-10T03:49:05.835118Z"
+        }
+      ]
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.apache.httpcomponents:httpcomponents-client",
+          "ecosystem": "Maven"
+        },
+        "version": "4.5.14"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.apache.httpcomponents:httpcomponents-client",
+          "ecosystem": "Maven"
+        },
+        "version": "4.5.6"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.apache.httpcomponents:httpcomponents-core",
+          "ecosystem": "Maven"
+        },
+        "version": "4.4.16"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.apache.httpcomponents:httpcomponents-parent",
+          "ecosystem": "Maven"
+        },
+        "version": "10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.apache.httpcomponents:httpcomponents-parent",
+          "ecosystem": "Maven"
+        },
+        "version": "11"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.apache.httpcomponents:httpcore",
+          "ecosystem": "Maven"
+        },
+        "version": "4.4.16"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.apache.httpcomponents:httpmime",
+          "ecosystem": "Maven"
+        },
+        "version": "4.5.6"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.bitbucket.b_c:jose4j",
+          "ecosystem": "Maven"
+        },
+        "version": "0.9.5"
+      },
+      "vulnerabilities": [
+        {
+          "id": "GHSA-3677-xxcr-wjqv",
+          "modified": "2026-09-10T03:50:31.318789Z"
+        }
+      ]
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.bouncycastle:bcpkix-jdk18on",
+          "ecosystem": "Maven"
+        },
+        "version": "1.79"
+      },
+      "vulnerabilities": [
+        {
+          "id": "GHSA-wg6q-6289-32hp",
+          "modified": "2026-09-10T03:50:45.075900Z"
+        }
+      ]
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.bouncycastle:bcprov-jdk18on",
+          "ecosystem": "Maven"
+        },
+        "version": "1.79"
+      },
+      "vulnerabilities": [
+        {
+          "id": "GHSA-574f-3g2m-x479",
+          "modified": "2026-09-10T03:50:43.878677Z"
+        },
+        {
+          "id": "GHSA-9pwp-9qqc-pr26",
+          "modified": "2026-09-18T17:45:06.105254Z"
+        },
+        {
+          "id": "GHSA-c3fc-8qff-9hwx",
+          "modified": "2026-09-10T03:51:01.534612Z"
+        },
+        {
+          "id": "GHSA-qp49-qgx5-5m26",
+          "modified": "2026-09-18T17:45:06.096277Z"
+        }
+      ]
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.bouncycastle:bcutil-jdk18on",
+          "ecosystem": "Maven"
+        },
+        "version": "1.79"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.checkerframework:checker-qual",
+          "ecosystem": "Maven"
+        },
+        "version": "2.5.8"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.checkerframework:checker-qual",
+          "ecosystem": "Maven"
+        },
+        "version": "3.33.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.checkerframework:checker-qual",
+          "ecosystem": "Maven"
+        },
+        "version": "3.43.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.codehaus.groovy:groovy",
+          "ecosystem": "Maven"
+        },
+        "version": "3.0.22"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.codehaus.mojo:animal-sniffer-annotations",
+          "ecosystem": "Maven"
+        },
+        "version": "1.23"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.codehaus.mojo:animal-sniffer-annotations",
+          "ecosystem": "Maven"
+        },
+        "version": "1.24"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.codehaus.mojo:animal-sniffer-parent",
+          "ecosystem": "Maven"
+        },
+        "version": "1.23"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.codehaus.mojo:animal-sniffer-parent",
+          "ecosystem": "Maven"
+        },
+        "version": "1.24"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.codehaus.mojo:mojo-parent",
+          "ecosystem": "Maven"
+        },
+        "version": "74"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.codehaus.mojo:mojo-parent",
+          "ecosystem": "Maven"
+        },
+        "version": "84"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.eclipse.ee4j:project",
+          "ecosystem": "Maven"
+        },
+        "version": "1.0.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.eclipse.ee4j:project",
+          "ecosystem": "Maven"
+        },
+        "version": "1.0.5"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.glassfish.jaxb:jaxb-bom",
+          "ecosystem": "Maven"
+        },
+        "version": "2.3.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.glassfish.jaxb:jaxb-runtime",
+          "ecosystem": "Maven"
+        },
+        "version": "2.3.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.glassfish.jaxb:txw2",
+          "ecosystem": "Maven"
+        },
+        "version": "2.3.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.hamcrest:hamcrest-core",
+          "ecosystem": "Maven"
+        },
+        "version": "1.3"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.hamcrest:hamcrest-integration",
+          "ecosystem": "Maven"
+        },
+        "version": "1.3"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.hamcrest:hamcrest-library",
+          "ecosystem": "Maven"
+        },
+        "version": "1.3"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.hamcrest:hamcrest-parent",
+          "ecosystem": "Maven"
+        },
+        "version": "1.3"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jdom:jdom2",
+          "ecosystem": "Maven"
+        },
+        "version": "2.0.6"
+      },
+      "vulnerabilities": [
+        {
+          "id": "GHSA-2363-cqg2-863c",
+          "modified": "2025-09-16T15:52:31.388959Z"
+        }
+      ]
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains:annotations",
+          "ecosystem": "Maven"
+        },
+        "version": "13.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains:annotations",
+          "ecosystem": "Maven"
+        },
+        "version": "23.0.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:abi-tools-api",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:compose-compiler-gradle-plugin",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:fus-statistics-gradle-plugin",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-build-statistics",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-build-tools-api",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-build-tools-impl",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-compiler-embeddable",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-compiler-runner",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-compose-compiler-plugin-embeddable",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-daemon-client",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-daemon-embeddable",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-gradle-plugin",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.10"
+      },
+      "vulnerabilities": [
+        {
+          "id": "GHSA-r937-wjx7-w2jp",
+          "modified": "2026-08-12T19:40:59.256901Z"
+        }
+      ]
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-gradle-plugin-annotations",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-gradle-plugin-api",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-gradle-plugin-idea",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-gradle-plugin-idea-proto",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-gradle-plugin-model",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-gradle-plugins-bom",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-klib-commonizer-api",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-native-utils",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-reflect",
+          "ecosystem": "Maven"
+        },
+        "version": "1.6.10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-reflect",
+          "ecosystem": "Maven"
+        },
+        "version": "1.8.21"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-reflect",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-reflect",
+          "ecosystem": "Maven"
+        },
+        "version": "2.3.20"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-script-runtime",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-scripting-common",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-scripting-compiler-embeddable",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-scripting-compiler-impl-embeddable",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-scripting-jvm",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-stdlib",
+          "ecosystem": "Maven"
+        },
+        "version": "1.8.21"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-stdlib",
+          "ecosystem": "Maven"
+        },
+        "version": "1.9.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-stdlib",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-stdlib",
+          "ecosystem": "Maven"
+        },
+        "version": "2.3.20"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-stdlib-common",
+          "ecosystem": "Maven"
+        },
+        "version": "1.8.21"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-stdlib-common",
+          "ecosystem": "Maven"
+        },
+        "version": "1.9.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-stdlib-common",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-stdlib-jdk7",
+          "ecosystem": "Maven"
+        },
+        "version": "1.8.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-stdlib-jdk7",
+          "ecosystem": "Maven"
+        },
+        "version": "1.8.20"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-stdlib-jdk7",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-stdlib-jdk8",
+          "ecosystem": "Maven"
+        },
+        "version": "1.8.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-stdlib-jdk8",
+          "ecosystem": "Maven"
+        },
+        "version": "1.8.20"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-stdlib-jdk8",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-tooling-core",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-util-io",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-util-klib",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin:kotlin-util-klib-metadata",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlin.plugin.compose:org.jetbrains.kotlin.plugin.compose.gradle.plugin",
+          "ecosystem": "Maven"
+        },
+        "version": "2.2.10"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlinx:atomicfu",
+          "ecosystem": "Maven"
+        },
+        "version": "0.22.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlinx:atomicfu-jvm",
+          "ecosystem": "Maven"
+        },
+        "version": "0.22.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlinx:kotlinx-coroutines-android",
+          "ecosystem": "Maven"
+        },
+        "version": "1.6.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlinx:kotlinx-coroutines-android",
+          "ecosystem": "Maven"
+        },
+        "version": "1.9.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlinx:kotlinx-coroutines-bom",
+          "ecosystem": "Maven"
+        },
+        "version": "1.6.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlinx:kotlinx-coroutines-bom",
+          "ecosystem": "Maven"
+        },
+        "version": "1.7.3"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlinx:kotlinx-coroutines-bom",
+          "ecosystem": "Maven"
+        },
+        "version": "1.8.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlinx:kotlinx-coroutines-bom",
+          "ecosystem": "Maven"
+        },
+        "version": "1.9.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlinx:kotlinx-coroutines-core",
+          "ecosystem": "Maven"
+        },
+        "version": "1.6.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlinx:kotlinx-coroutines-core",
+          "ecosystem": "Maven"
+        },
+        "version": "1.7.3"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlinx:kotlinx-coroutines-core",
+          "ecosystem": "Maven"
+        },
+        "version": "1.9.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm",
+          "ecosystem": "Maven"
+        },
+        "version": "1.6.4"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm",
+          "ecosystem": "Maven"
+        },
+        "version": "1.7.3"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm",
+          "ecosystem": "Maven"
+        },
+        "version": "1.8.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm",
+          "ecosystem": "Maven"
+        },
+        "version": "1.9.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlinx:kotlinx-serialization-bom",
+          "ecosystem": "Maven"
+        },
+        "version": "1.7.3"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlinx:kotlinx-serialization-core",
+          "ecosystem": "Maven"
+        },
+        "version": "1.7.3"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jetbrains.kotlinx:kotlinx-serialization-core-jvm",
+          "ecosystem": "Maven"
+        },
+        "version": "1.7.3"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.json:json",
+          "ecosystem": "Maven"
+        },
+        "version": "20250517"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jspecify:jspecify",
+          "ecosystem": "Maven"
+        },
+        "version": "1.0.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.junit:junit-bom",
+          "ecosystem": "Maven"
+        },
+        "version": "5.10.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.junit:junit-bom",
+          "ecosystem": "Maven"
+        },
+        "version": "5.11.0-M2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.junit:junit-bom",
+          "ecosystem": "Maven"
+        },
+        "version": "5.9.2"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.jvnet.staxex:stax-ex",
+          "ecosystem": "Maven"
+        },
+        "version": "1.8.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.ow2:ow2",
+          "ecosystem": "Maven"
+        },
+        "version": "1.5.1"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.ow2.asm:asm",
+          "ecosystem": "Maven"
+        },
+        "version": "9.9"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.ow2.asm:asm-analysis",
+          "ecosystem": "Maven"
+        },
+        "version": "9.9"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.ow2.asm:asm-commons",
+          "ecosystem": "Maven"
+        },
+        "version": "9.9"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.ow2.asm:asm-tree",
+          "ecosystem": "Maven"
+        },
+        "version": "9.9"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.ow2.asm:asm-util",
+          "ecosystem": "Maven"
+        },
+        "version": "9.9"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.slf4j:slf4j-api",
+          "ecosystem": "Maven"
+        },
+        "version": "1.7.30"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.slf4j:slf4j-parent",
+          "ecosystem": "Maven"
+        },
+        "version": "1.7.30"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.sonatype.oss:oss-parent",
+          "ecosystem": "Maven"
+        },
+        "version": "7"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.sonatype.oss:oss-parent",
+          "ecosystem": "Maven"
+        },
+        "version": "9"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.tensorflow:tensorflow-lite-metadata",
+          "ecosystem": "Maven"
+        },
+        "version": "0.2.0"
+      },
+      "vulnerabilities": []
+    },
+    {
+      "query": {
+        "package": {
+          "name": "org.yaml:snakeyaml",
+          "ecosystem": "Maven"
+        },
+        "version": "2.5"
+      },
+      "vulnerabilities": []
+    }
+  ]
+}

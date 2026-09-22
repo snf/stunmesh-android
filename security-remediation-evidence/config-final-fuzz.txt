@@ -1,0 +1,15 @@
+fuzz: elapsed: 0s, gathering baseline coverage: 0/73 completed
+fuzz: elapsed: 0s, gathering baseline coverage: 73/73 completed, now fuzzing with 4 workers
+fuzz: elapsed: 3s, execs: 16583 (5526/sec), new interesting: 34 (total: 107)
+fuzz: elapsed: 6s, execs: 44422 (9281/sec), new interesting: 36 (total: 109)
+fuzz: elapsed: 9s, execs: 76468 (10682/sec), new interesting: 62 (total: 135)
+fuzz: elapsed: 12s, execs: 76468 (0/sec), new interesting: 62 (total: 135)
+fuzz: elapsed: 15s, execs: 104619 (9386/sec), new interesting: 64 (total: 137)
+fuzz: elapsed: 18s, execs: 104619 (0/sec), new interesting: 64 (total: 137)
+fuzz: elapsed: 21s, execs: 132157 (9182/sec), new interesting: 83 (total: 156)
+fuzz: elapsed: 24s, execs: 132157 (0/sec), new interesting: 83 (total: 156)
+fuzz: elapsed: 27s, execs: 132157 (0/sec), new interesting: 83 (total: 156)
+fuzz: elapsed: 30s, execs: 132157 (0/sec), new interesting: 83 (total: 156)
+fuzz: elapsed: 31s, execs: 132157 (0/sec), new interesting: 83 (total: 156)
+PASS
+ok  	github.com/tjjh89017/stunmesh-go/internal/config	31.046s

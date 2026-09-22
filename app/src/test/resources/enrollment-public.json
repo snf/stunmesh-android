@@ -1,0 +1,1 @@
+{"schema":"stunmesh-enroll-v1","proposal_id":"01234567-89ab-4cde-8fab-0123456789ab","name":"Server","address":"10.77.0.2/32","server_public_key":"AgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgI=","allowed_ips":["10.77.0.1/32"],"stun_servers":["stun.example.com:3478"],"opendht":["https://proxy.example.com"],"protocol":"ipv4","psk_required":true}

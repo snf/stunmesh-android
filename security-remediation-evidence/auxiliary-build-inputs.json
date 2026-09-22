@@ -1,0 +1,58 @@
+{
+  "auxiliary_inputs": [
+    {
+      "file": "buildah_1.39.3+ds1-1+b7_amd64.deb",
+      "package_version": "Package: buildah\nVersion: 1.39.3+ds1-1+b7",
+      "sha256": "7a3e35194f2664aa1c32be79647da3c7c532ff44e47c53247ab31672442c6fc3",
+      "source": "Debian authenticated APT repository; apt-get download"
+    },
+    {
+      "file": "libgpgme11t64_1.24.2-3_amd64.deb",
+      "package_version": "Package: libgpgme11t64\nVersion: 1.24.2-3",
+      "sha256": "6650203af59ccf73b22cd6904fb179a799cb70d62885b19ae725c0655c04241c",
+      "source": "Debian authenticated APT repository; apt-get download"
+    },
+    {
+      "file": "libqrencode4_4.1.1-2_amd64.deb",
+      "package_version": "Package: libqrencode4\nVersion: 4.1.1-2",
+      "sha256": "67607d8b6f03707abc388bc946c5e86ef9a9a415c26f765005ec6c71fd5211ed",
+      "source": "Debian authenticated APT repository; apt-get download"
+    },
+    {
+      "file": "libsubid5_1%3a4.17.4-2_amd64.deb",
+      "package_version": "Package: libsubid5\nVersion: 1:4.17.4-2",
+      "sha256": "4d4faef8143c117a055a9041a7e99f8ba014c420a9b6e2fef5c693482581a204",
+      "source": "Debian authenticated APT repository; apt-get download"
+    },
+    {
+      "file": "netavark_1.14.0-2_amd64.deb",
+      "package_version": "Package: netavark\nVersion: 1.14.0-2",
+      "sha256": "34820688e7c671e746d88d109d4f7a34ffbb4a013b7dd2035d2762baf8e50a79",
+      "source": "Debian authenticated APT repository; apt-get download"
+    },
+    {
+      "file": "qrencode_4.1.1-2_amd64.deb",
+      "package_version": "Package: qrencode\nVersion: 4.1.1-2",
+      "sha256": "ddbebcdc0fc9308bb53816ccd533f8014e1a9b3709f2d4e363c98a5b2b21a521",
+      "source": "Debian authenticated APT repository; apt-get download"
+    },
+    {
+      "file": "skopeo_1.18.0+ds1-1+b5_amd64.deb",
+      "package_version": "Package: skopeo\nVersion: 1.18.0+ds1-1+b5",
+      "sha256": "7ca44a3f31f3cddca9d9dc858029dd08c30faf6e93456753825509e6a59192e2",
+      "source": "Debian authenticated APT repository; apt-get download"
+    }
+  ],
+  "static_wg_build_host_packages": [
+    "binutils\t2.44-3",
+    "gcc\t4:14.2.0-1",
+    "libc6:amd64\t2.41-12+deb13u3",
+    "libc6-dev:amd64\t2.41-12+deb13u3"
+  ],
+  "one_time_formatter": {
+    "name": "ktfmt",
+    "version": "0.58",
+    "sha256": "0369a4351367b0de2374b0f1c3962ef7d5d222a4bc58d7197d06948d46e4bea5",
+    "source": "https://repo.maven.apache.org/maven2/com/facebook/ktfmt/0.58/ktfmt-0.58-with-dependencies.jar"
+  }
+}

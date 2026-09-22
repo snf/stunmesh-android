@@ -1,0 +1,2134 @@
+[
+  {
+    "id": "GHSA-2363-cqg2-863c",
+    "summary": "XML External Entity (XXE) Injection in JDOM",
+    "aliases": [
+      "BIT-solr-2021-33813",
+      "CVE-2021-33813"
+    ],
+    "modified": "2025-09-16T15:52:31.388959Z",
+    "references": [
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-33813"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/hunterhacker/jdom/issues/189"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/hunterhacker/jdom/pull/188"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/hunterhacker/jdom/commit/dd4f3c2fc7893edd914954c73eb577f925a7d361"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.oracle.com/security-alerts/cpujul2022.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.oracle.com/security-alerts/cpuapr2022.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/EWFVYTHGILOQXUA7U3SPOERQXL7OPSZG"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/AH46QHE5GIMT6BL6C3GDTOYF27JYILXM"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.debian.org/debian-lts-announce/2021/07/msg00012.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.debian.org/debian-lts-announce/2021/06/msg00026.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/rfb7a93e40ebeb1e0068cde0bf3834dcab46bb1ef06d6424db48ed9fd@%3Cdev.tika.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/rbc075a4ac85e7a8e47420b7383f16ffa0af3b792b8423584735f369f@%3Cissues.solr.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r9974f64723875052e02787b2a5eda689ac5247c71b827d455e5dc9a6@%3Cissues.solr.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r89b3800cfabb1e773e49425e5d4239c28a659839a2eca6af3431482e@%3Cissues.solr.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r845e987b7cd8efe610284958e997b84583f5a98d3394adc09e3482fe@%3Cissues.solr.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r6db397ae7281ead825338200d1f62d2827585a70797cc9ac0c4bd23f@%3Cissues.solr.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r5674106135bb1a6ef57483f4c63a9c44bca85d0e2a8a05895a8f1d89@%3Cissues.solr.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r21c406c7ed88fe340db7dbae75e58355159e6c324037c7d5547bf40b@%3Cissues.solr.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/hunterhacker/jdom/releases/tag/JDOM-2.0.6.1"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/hunterhacker/jdom/releases"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/hunterhacker/jdom"
+      },
+      {
+        "type": "WEB",
+        "url": "https://alephsecurity.com/vulns/aleph-2021003"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-3677-xxcr-wjqv",
+    "summary": "jose4j is vulnerable to DoS via compressed JWE content",
+    "aliases": [
+      "CVE-2024-29371"
+    ],
+    "modified": "2026-09-10T03:50:31.318789886Z",
+    "references": [
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-29371"
+      },
+      {
+        "type": "WEB",
+        "url": "https://bitbucket.org/b_c/jose4j/commits/19a90a64c47bb07c4aa5462f1316d5c293d81fcf"
+      },
+      {
+        "type": "WEB",
+        "url": "https://bitbucket.org/b_c/jose4j/issues/220/vuln-zip-bomb-attack"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://bitbucket.org/b_c/jose4j/wiki/Home"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-389x-839f-4rhx",
+    "summary": "Denial of Service attack on windows app using Netty",
+    "aliases": [
+      "CVE-2025-25193"
+    ],
+    "modified": "2026-09-10T03:50:22.454183571Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-389x-839f-4rhx"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-25193"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/commit/d1fbda62d3a47835d3fb35db8bd42ecc205a5386"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      },
+      {
+        "type": "WEB",
+        "url": "https://security.netapp.com/advisory/ntap-20250221-0006"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-38f8-5428-x5cv",
+    "summary": "Netty vulnerable to HTTP Request Smuggling due to malformed Transfer-Encoding",
+    "aliases": [
+      "CVE-2026-42585"
+    ],
+    "modified": "2026-09-10T03:51:04.415985581Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-38f8-5428-x5cv"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42585"
+      },
+      {
+        "type": "WEB",
+        "url": "https://datatracker.ietf.org/doc/html/rfc9112#name-message-body-length"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-3p8m-j85q-pgmj",
+    "summary": "Netty's decoders vulnerable to DoS via zip bomb style attack",
+    "aliases": [
+      "CVE-2025-58057"
+    ],
+    "modified": "2026-09-10T03:50:27.942019467Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-3p8m-j85q-pgmj"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-58057"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/commit/9d804c54ce962408ae6418255a83a13924f7145d"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-3qp7-7mw8-wx86",
+    "summary": "Netty has an IPv6 Subnet Filter Bypass via Incorrect Comparator Masking",
+    "aliases": [
+      "CVE-2026-44249"
+    ],
+    "modified": "2026-09-10T03:50:55.436123619Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-3qp7-7mw8-wx86"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44249"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.1.135.Final"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.2.15.Final"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-45q3-82m4-75jr",
+    "summary": "Netty has HTTP Header Injection via HttpProxyHandler Disabled Validation (Incomplete Fix CVE-2025-67735)",
+    "aliases": [
+      "CVE-2026-42578"
+    ],
+    "modified": "2026-09-10T03:51:04.662453637Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-45q3-82m4-75jr"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42578"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://github.com/advisories/GHSA-84h7-rjj3-6jx4"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-4g8c-wm8x-jfhw",
+    "summary": "SslHandler doesn't correctly validate packets which can lead to native crash when using native SSLEngine",
+    "aliases": [
+      "CVE-2025-24970"
+    ],
+    "modified": "2026-09-10T03:50:22.400091931Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-4g8c-wm8x-jfhw"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-24970"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/commit/87f40725155b2f89adfde68c7732f97c153676c4"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      },
+      {
+        "type": "WEB",
+        "url": "https://security.netapp.com/advisory/ntap-20250221-0005"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.vicarius.io/vsociety/posts/cve-2025-24970-netty-vulnerability-detection"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.vicarius.io/vsociety/posts/cve-2025-24970-netty-vulnerability-mitigation"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-4mp9-239f-g9hg",
+    "summary": "Netty: WebSockets V07/V08 handshaker missing Connection/Upgrade validation",
+    "aliases": [
+      "CVE-2026-59898"
+    ],
+    "modified": "2026-09-10T03:51:10.413004153Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-4mp9-239f-g9hg"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.1.136.Final"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.2.16.Final"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-558v-64gr-wgg4",
+    "summary": "Netty: [Bzip2Decoder] Infinite Loop in RLE State Machine Leads to Event-Loop Thread Hang",
+    "aliases": [
+      "CVE-2026-59901"
+    ],
+    "modified": "2026-09-10T03:50:12.358146459Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-558v-64gr-wgg4"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.1.136.Final"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.2.16.Final"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-563q-j3cm-6jxm",
+    "summary": "Netty susceptible to HTTP/2 Reset Attack with different on-the-wire signature",
+    "aliases": [
+      "CVE-2026-50560"
+    ],
+    "modified": "2026-09-10T03:50:48.396944762Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-563q-j3cm-6jxm"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50560"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.1.135.Final"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.2.15.Final"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.rfc-editor.org/rfc/rfc9113.html#name-defined-settings"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-574f-3g2m-x479",
+    "summary": "Bouncy Castle for Java GOST 28147 CTR mode reuses keystream after 255 blocks",
+    "aliases": [
+      "CVE-2025-14813"
+    ],
+    "modified": "2026-09-10T03:50:43.878677700Z",
+    "references": [
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-14813"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/bcgit/bc-java/commit/b42574345414e4b7c8051b16fa1fafe01c29871f"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/bcgit/bc-java/commit/701686cb0184cd9ae103c801b3581fdf95c6d4f3"
+      },
+      {
+        "type": "WEB",
+        "url": "https://security.access.redhat.com/data/csaf/v2/vex/2025/cve-2025-14813.json"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/bcgit/bc-java/wiki/CVE%E2%80%902025%E2%80%9014813"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/bcgit/bc-java"
+      },
+      {
+        "type": "WEB",
+        "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2458640"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/security/cve/CVE-2025-14813"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHSA-2026:24977"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHSA-2026:21772"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHSA-2026:18059"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHSA-2026:18055"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHSA-2026:18054"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHSA-2026:17668"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHSA-2026:14276"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHSA-2026:14272"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHSA-2026:13631"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHSA-2026:11721"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHSA-2026:11720"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-57rv-r2g8-2cj3",
+    "summary": "Netty has HttpClientCodec response desynchronization",
+    "aliases": [
+      "CVE-2026-42584"
+    ],
+    "modified": "2026-09-10T03:51:04.645242629Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-57rv-r2g8-2cj3"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42584"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-5jpm-x58v-624v",
+    "summary": "Netty's HttpPostRequestDecoder can OOM",
+    "aliases": [
+      "CVE-2024-29025"
+    ],
+    "modified": "2026-09-10T03:50:10.174704931Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-5jpm-x58v-624v"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-29025"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/commit/0d0c6ed782d13d423586ad0c71737b2c7d02058c"
+      },
+      {
+        "type": "WEB",
+        "url": "https://gist.github.com/vietj/f558b8ea81ec6505f1e9a6ca283c9ae3"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/vietj/netty/tree/post-request-decoder"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.debian.org/debian-lts-announce/2024/06/msg00015.html"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-5x3r-wrvg-rp6q",
+    "summary": "Netty HTTP/2: Advertised MAX_CONCURRENT_STREAMS are not enforced",
+    "aliases": [
+      "CVE-2026-47244"
+    ],
+    "modified": "2026-09-10T03:50:48.488084830Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-5x3r-wrvg-rp6q"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47244"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.1.135.Final"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.2.15.Final"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-6cqp-g7gg-8hr5",
+    "summary": "Netty: Security Control Bypass via CORS Short-Circuit Failure",
+    "aliases": [
+      "CVE-2026-56746"
+    ],
+    "modified": "2026-09-10T03:51:10.615779608Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-6cqp-g7gg-8hr5"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56746"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.1.136.Final"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.2.16.Final"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-6jqx-86gh-f27w",
+    "summary": "Netty SPDY SETTINGS frame count materializes unbounded settings map",
+    "aliases": [
+      "CVE-2026-55831"
+    ],
+    "modified": "2026-09-10T03:51:10.812069139Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-6jqx-86gh-f27w"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55831"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/commit/5b68c61f37aa4a3045cba624cbea239655c9003b"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/commit/bb2ff68a1fb71cb4b0eb9a9e17b66c52aff680c6"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.1.136.Final"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.2.16.Final"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-6mjq-h674-j845",
+    "summary": "netty-handler SniHandler 16MB allocation",
+    "aliases": [
+      "CVE-2023-34462"
+    ],
+    "modified": "2026-09-10T03:50:02.086375075Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-6mjq-h674-j845"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-34462"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/commit/535da17e45201ae4278c0479e6162bb4127d4c32"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      },
+      {
+        "type": "WEB",
+        "url": "https://security.netapp.com/advisory/ntap-20230803-0001"
+      },
+      {
+        "type": "WEB",
+        "url": "https://security.netapp.com/advisory/ntap-20240621-0007"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.debian.org/security/2023/dsa-5558"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-7r82-7xv7-xcpj",
+    "summary": "Cross-site scripting in Apache HttpClient",
+    "aliases": [
+      "CVE-2020-13956"
+    ],
+    "modified": "2026-09-10T03:49:05.835118505Z",
+    "references": [
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-13956"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/re504acd4d63b8df2a7353658f45c9a3137e5f80e41cf7de50058b2c1@%3Cissues.solr.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/rd5ab56beb2ac6879f6ab427bc4e5f7691aed8362d17b713f61779858@%3Cissues.hive.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/rd0e44e8ef71eeaaa3cf3d1b8b41eb25894372e2995ec908ce7624d26@%3Ccommits.pulsar.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/rcd9ad5dda60c82ab0d0c9bd3e9cb1dc740804451fc20c7f451ef5cc4@%3Cgitbox.hive.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/rcced7ed3237c29cd19c1e9bf465d0038b8b2e967b99fc283db7ca553@%3Cdev.ranger.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/rc990e2462ec32b09523deafb2c73606208599e196fa2d7f50bdbc587@%3Cissues.maven.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/rc5c6ccb86d2afe46bbd4b71573f0448dc1f87bbcd5a0d8c7f8f904b2@%3Cissues.lucene.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/rc505fee574fe8d18f9b0c655a4d120b0ae21bb6a73b96003e1d9be35@%3Cissues.solr.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/rc3739e0ad4bcf1888c6925233bfc37dd71156bbc8416604833095c42@%3Cdev.drill.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/rc0863892ccfd9fd0d0ae10091f24ee769fb39b8957fe4ebabfc11f17@%3Cdev.jackrabbit.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/rb725052404fabffbe093c83b2c46f3f87e12c3193a82379afbc529f8@%3Csolr-user.lucene.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/rb4ba262d6f08ab9cf8b1ebbcd9b00b0368ffe90dad7ad7918b4b56fc@%3Cdev.drill.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/rb33212dab7beccaf1ffef9b88610047c644f644c7a0ebdc44d77e381@%3Ccommits.turbine.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/rae14ae25ff4a60251e3ba2629c082c5ba3851dfd4d21218b99b56652@%3Cissues.solr.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/rad6222134183046f3928f733bf680919e0c390739bfbfe6c90049673@%3Cissues.drill.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/ra8bc6b61c5df301a6fe5a716315528ecd17ccb8a7f907e24a47a1a5e@%3Cissues.lucene.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/rea3dbf633dde5008d38bf6600a3738b9216e733e03f9ff7becf79625@%3Cissues.drill.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/ree942561f4620313c75982a4e5f3b74fe6f7062b073210779648eec2@%3Cissues.lucene.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/reef569c2419705754a3acf42b5f19b2a158153cef0e448158bc54917@%3Cdev.drill.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/rf03228972e56cb4a03e6d9558188c2938078cf3ceb23a3fead87c9ca@%3Cissues.bookkeeper.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/rf43d17ed0d1fb4fb79036b582810ef60b18b1ef3add0d5dea825af1e@%3Cissues.lucene.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/rf4db88c22e1be9eb60c7dc623d0528642c045fb196a24774ac2fa3a3@%3Cissues.lucene.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/rf7ca60f78f05b772cc07d27e31bcd112f9910a05caf9095e38ee150f@%3Cdev.ranger.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/rfb35f6db9ba1f1e061b63769a4eff5abadcc254ebfefc280e5a0dcf1@%3Ccommits.creadur.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/rfbedcb586a1e7dfce87ee03c720e583fc2ceeafa05f35c542cecc624@%3Cissues.solr.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/rfc00884c7b7ca878297bffe45fcb742c362b00b26ba37070706d44c3@%3Cissues.hive.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://security.netapp.com/advisory/ntap-20220210-0002"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.oracle.com//security-alerts/cpujul2021.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.oracle.com/security-alerts/cpuApr2021.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.oracle.com/security-alerts/cpuapr2022.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.oracle.com/security-alerts/cpujan2022.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.oracle.com/security-alerts/cpuoct2021.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r4850b3fbaea02fde2886e461005e4af8d37c80a48b3ce2a6edca0e30@%3Cissues.solr.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r3f740e4c38bba1face49078aa5cbeeb558c27be601cc9712ad2dcd1e@%3Ccommits.creadur.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r3cecd59fba74404cbf4eb430135e1080897fb376f111406a78bed13a@%3Cissues.lucene.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r34efec51cb817397ccf9f86e25a75676d435ba5f83ee7b2eabdad707@%3Ccommits.creadur.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r34178ab6ef106bc940665fd3f4ba5026fac3603b3fa2aefafa0b619d@%3Cdev.ranger.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r2dc7930b43eadc78220d269b79e13ecd387e4bee52db67b2f47d4303@%3Cgitbox.hive.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r2a03dc210231d7e852ef73015f71792ac0fcaca6cccc024c522ef17d@%3Ccommits.creadur.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r2835543ef0f91adcc47da72389b816e36936f584c7be584d2314fac3@%3Cissues.lucene.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r132e4c6a560cfc519caa1aaee63bdd4036327610eadbd89f76dd5457@%3Cdev.creadur.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r12cb62751b35bdcda0ae2a08b67877d665a1f4d41eee0fa7367169e0@%3Cdev.ranger.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r0bebe6f9808ac7bdf572873b4fa96a29c6398c90dab29f131f3ebffe@%3Cissues.solr.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r0a75b8f0f72f3e18442dc56d33f3827b905f2fe5b7ba48997436f5d1@%3Cissues.solr.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r06cf3ca5c8ceb94b39cd24a73d4e96153b485a7dac88444dd876accb@%3Cissues.drill.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r043a75acdeb52b15dd5e9524cdadef4202e6a5228644206acf9363f9@%3Cdev.hive.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r03bbc318c81be21f5c8a9b85e34f2ecc741aa804a8e43b0ef2c37749@%3Cissues.maven.apache.org%3E"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/apache/httpcomponents-client"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/ra539f20ef0fb0c27ee39945b5f56bf162e5c13d1c60f7344dab8de3b@%3Cissues.maven.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r9e52a6c72c8365000ecd035e48cc9fee5a677a150350d4420c46443d@%3Cdev.drill.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r8aa1e5c343b89aec5b69961471950e862f15246cb6392910161c389b@%3Cissues.maven.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r87ddc09295c27f25471269ad0a79433a91224045988b88f0413a97ec@%3Cissues.bookkeeper.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r70c429923100c5a4fae8e5bc71c8a2d39af3de4888f50a0ac3755e6f@%3Ccommits.creadur.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r6eb2dae157dbc9af1f30d1f64e9c60d4ebef618f3dce4a0e32d6ea4d@%3Ccommits.drill.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r6dab7da30f8bf075f79ee189e33b45a197502e2676481bb8787fc0d7%40%3Cdev.hc.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r6d672b46622842e565e00f6ef6bef83eb55d8792aac2bee75bff9a2a@%3Cissues.lucene.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r6a3cda38d050ebe13c1bc9a28d0a8ec38945095d07eca49046bcb89f@%3Cissues.solr.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r69a94e2f302d1b778bdfefe90fcb4b8c50b226438c3c8c1d0de85a19@%3Cdev.ranger.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r63296c45d5d84447babaf39bd1487329d8a80d8d563e67a4b6f3d8a7@%3Cdev.ranger.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r5fec9c1d67f928179adf484b01e7becd7c0a6fdfe3a08f92ea743b90@%3Cissues.hive.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r5de3d3808e7b5028df966e45115e006456c4e8931dc1e29036f17927@%3Cissues.solr.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r5b55f65c123a7481104d663a915ec45a0d103e6aaa03f42ed1c07a89@%3Cdev.jackrabbit.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r55b2a1d1e9b1ec9db792b93da8f0f99a4fd5a5310b02673359d9b4d1@%3Cdev.drill.apache.org%3E"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread.html/r549ac8c159bf0c568c19670bedeb8d7c0074beded951d34b1c1d0d05@%3Cdev.drill.apache.org%3E"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-84h7-rjj3-6jx4",
+    "summary": "Netty has a CRLF Injection vulnerability in io.netty.handler.codec.http.HttpRequestEncoder",
+    "aliases": [
+      "CVE-2025-67735"
+    ],
+    "modified": "2026-09-10T03:50:31.724062875Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-84h7-rjj3-6jx4"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-67735"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/commit/77e81f1e5944d98b3acf887d3aa443b252752e94"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-8c42-7qj2-3j46",
+    "summary": "Netty Vulnerable to Cache Poisoning and Information Disclosure via CORS Vary Header Overwrite",
+    "aliases": [
+      "CVE-2026-59903"
+    ],
+    "modified": "2026-09-10T03:51:13.389261985Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-8c42-7qj2-3j46"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/pull/17213"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/pull/17217"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.1.137.Final"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.2.17.Final"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-93wv-jw9v-4972",
+    "summary": "Netty: HTTP/2 decompression leaks ByteBuf reference count when the decompressor channel is already closed (Direct memory leak / OOM DoS)",
+    "aliases": [
+      "CVE-2026-56819"
+    ],
+    "modified": "2026-09-10T03:51:11.318239719Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-93wv-jw9v-4972"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56819"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/commit/5b68c61f37aa4a3045cba624cbea239655c9003b"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/commit/bb2ff68a1fb71cb4b0eb9a9e17b66c52aff680c6"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.1.136.Final"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.2.16.Final"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-9pwp-9qqc-pr26",
+    "summary": "Bouncy Castle: Name Constraints bypass via trailing dot in rfc822Name and URI",
+    "aliases": [
+      "CVE-2026-8763"
+    ],
+    "modified": "2026-09-18T17:45:06.105254943Z",
+    "references": [
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8763"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/bcgit/bc-java/commit/2c28b253a44681fbbc562561eab6ad383d2ae558"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/bcgit/bc-java"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/bcgit/bc-java/releases/tag/r1rv85v2"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/bcgit/bc-java/wiki/CVE%E2%80%902026%E2%80%908763"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/bcgit/bc-java/wiki/CVE-2026-8763"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-c2gf-v879-257j",
+    "summary": "netty-codec-http2: ByteBuf Reference-Count Leak in DelegatingDecompressorFrameListener Leads to Memory Exhaustion",
+    "aliases": [
+      "CVE-2026-48043"
+    ],
+    "modified": "2026-09-18T15:45:05.615379396Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-c2gf-v879-257j"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48043"
+      },
+      {
+        "type": "WEB",
+        "url": "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-48043.json"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.2.15.Final"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.1.135.Final"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      },
+      {
+        "type": "WEB",
+        "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2488442"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/security/cve/CVE-2026-48043"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHSA-2026:66488"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHSA-2026:65126"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHSA-2026:54435"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHSA-2026:53806"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHSA-2026:53646"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHSA-2026:53645"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHSA-2026:53644"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHSA-2026:50085"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHSA-2026:48151"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHSA-2026:48124"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHSA-2026:41951"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHSA-2026:37390"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHSA-2026:36820"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHSA-2026:34608"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHSA-2026:26586"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHSA-2026:26018"
+      },
+      {
+        "type": "WEB",
+        "url": "https://access.redhat.com/errata/RHSA-2026:26017"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-c3fc-8qff-9hwx",
+    "summary": "Bouncy Castle has an LDAP injection",
+    "aliases": [
+      "CVE-2026-0636"
+    ],
+    "modified": "2026-09-10T03:51:01.534612930Z",
+    "references": [
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0636"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/bcgit/bc-java/commit/d20cdb8430e09224114fec0179a71859929fcbde"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/bcgit/bc-java"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/bcgit/bc-java/wiki/CVE%E2%80%902026%E2%80%900636"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-c4c3-7fpv-j4q5",
+    "summary": "Netty: SNI Routing Bypass via Fragmented TLS ClientHello Causing Fallback to Default SslContext",
+    "aliases": [
+      "CVE-2026-75595"
+    ],
+    "modified": "2026-09-08T18:27:48.571082951Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-c4c3-7fpv-j4q5"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75595"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/pull/17213"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/pull/17217"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/commit/1b5abc6443b63726c72cdd285af2feb7ddbb8ff7"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/commit/9e0519239108a69b7e9bbc5e9182ee139a0d7961"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.1.137.Final"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.2.17.Final"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-c653-97m9-rcg9",
+    "summary": "Netty: Wrapping plain trust manager silently disables hostname verification",
+    "aliases": [
+      "CVE-2026-50010"
+    ],
+    "modified": "2026-09-10T03:51:08.552933314Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-c653-97m9-rcg9"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50010"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.1.135.Final"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.2.15.Final"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-c69g-56f8-xwqj",
+    "summary": "Netty: [codec-http2] Lack of Host Header Deduplication in HTTP/2\u2192HTTP/1.x Translation Leads to Request Routing Bypass",
+    "aliases": [
+      "CVE-2026-59900"
+    ],
+    "modified": "2026-09-10T03:51:11.564389466Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-c69g-56f8-xwqj"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.1.136.Final"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.2.16.Final"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-f6hv-jmp6-3vwv",
+    "summary": "Netty: HttpContentDecompressor maxAllocation bypass when Content-Encoding set to br/zstd/snappy leads to decompression bomb DoS",
+    "aliases": [
+      "CVE-2026-42587"
+    ],
+    "modified": "2026-09-10T03:51:05.447415711Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-f6hv-jmp6-3vwv"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42587"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-fccg-mwvh-qqg4",
+    "summary": "Netty: Fragmented ClientHello records trigger quadratic pre-handshake reassembly in default SNI parsing",
+    "aliases": [
+      "CVE-2026-75596"
+    ],
+    "modified": "2026-09-08T18:27:48.113951573Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-fccg-mwvh-qqg4"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75596"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/pull/17213"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/pull/17217"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/commit/1b5abc6443b63726c72cdd285af2feb7ddbb8ff7"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/commit/9e0519239108a69b7e9bbc5e9182ee139a0d7961"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.1.137.Final"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.2.17.Final"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-fghv-69vj-qj49",
+    "summary": "Netty vulnerable to request smuggling due to incorrect parsing of chunk extensions",
+    "aliases": [
+      "CVE-2025-58056"
+    ],
+    "modified": "2026-09-10T03:50:28.333050757Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-fghv-69vj-qj49"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-58056"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/JLLeitschuh/unCVEed/issues/1"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/issues/15522"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/github/advisory-database/pull/6092"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/pull/15611"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/commit/edb55fd8e0a3bcbd85881e423464f585183d1284"
+      },
+      {
+        "type": "WEB",
+        "url": "https://datatracker.ietf.org/doc/html/rfc9112#name-chunked-transfer-coding"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      },
+      {
+        "type": "WEB",
+        "url": "https://w4ke.info/2025/06/18/funky-chunks.html"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-gcjf-9mgh-3p7g",
+    "summary": "Netty: CRLF Injection via Multipart Filename in Netty HttpPostRequestEncoder",
+    "aliases": [
+      "CVE-2026-59921"
+    ],
+    "modified": "2026-09-10T03:50:52.172506654Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-gcjf-9mgh-3p7g"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.1.136.Final"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.2.16.Final"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-hvcg-qmg6-jm4c",
+    "summary": "Netty: HttpObjectDecoder skips arbitrary initial control characters when only initial CRLF characters are permitted",
+    "aliases": [
+      "CVE-2026-50020"
+    ],
+    "modified": "2026-09-10T03:50:50.025404342Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-hvcg-qmg6-jm4c"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50020"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.1.135.Final"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.2.15.Final"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-j288-q9x7-2f5v",
+    "summary": "Apache Commons Lang is vulnerable to Uncontrolled Recursion when processing long inputs",
+    "aliases": [
+      "CVE-2025-48924"
+    ],
+    "modified": "2026-09-10T03:50:26.176912270Z",
+    "references": [
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-48924"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/apache/commons-lang/commit/b424803abdb2bec818e4fbcb251ce031c22aca53"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/apache/commons-lang"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.apache.org/thread/bgv0lpswokgol11tloxnjfzdl7yrc1g1"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.debian.org/debian-lts-announce/2025/08/msg00000.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.debian.org/debian-lts-announce/2025/08/msg00026.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.debian.org/debian-lts-announce/2025/09/msg00032.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://lists.debian.org/debian-lts-announce/2025/09/msg00036.html"
+      },
+      {
+        "type": "WEB",
+        "url": "http://www.openwall.com/lists/oss-security/2025/07/11/1"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-jppx-w49h-x2qq",
+    "summary": "Netty: [SpdyHttpDecoder] ByteBuf Reference Leak on RST_STREAM Leads to Native Memory Exhaustion",
+    "aliases": [
+      "CVE-2026-56745"
+    ],
+    "modified": "2026-09-10T03:50:12.368445504Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-jppx-w49h-x2qq"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56745"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/commit/5b68c61f37aa4a3045cba624cbea239655c9003b"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/commit/bb2ff68a1fb71cb4b0eb9a9e17b66c52aff680c6"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.1.136.Final"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.2.16.Final"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-m4cv-j2px-7723",
+    "summary": "Netty vulnerable to HTTP Request Smuggling due to incorrect chunk size parsing",
+    "aliases": [
+      "CVE-2026-42580"
+    ],
+    "modified": "2026-09-10T03:51:06.379210477Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-m4cv-j2px-7723"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42580"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-mj4r-2hfc-f8p6",
+    "summary": "Netty Lz4FrameDecoder is vulnerable to resource exhaustion ",
+    "aliases": [
+      "CVE-2026-42583"
+    ],
+    "modified": "2026-09-10T03:51:06.526589004Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-mj4r-2hfc-f8p6"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42583"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-mvh2-crg5-v77c",
+    "summary": "Netty SPDY zlib header block continues decoded expansion after maxHeaderSize truncation",
+    "aliases": [
+      "CVE-2026-55833"
+    ],
+    "modified": "2026-09-10T03:50:52.830435122Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-mvh2-crg5-v77c"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55833"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/commit/5b68c61f37aa4a3045cba624cbea239655c9003b"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/commit/bb2ff68a1fb71cb4b0eb9a9e17b66c52aff680c6"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.1.136.Final"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.2.16.Final"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-prj3-ccx8-p6x4",
+    "summary": "Netty affected by MadeYouReset HTTP/2 DDoS vulnerability",
+    "aliases": [
+      "CVE-2025-55163"
+    ],
+    "modified": "2026-09-10T03:50:27.396257754Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-prj3-ccx8-p6x4"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-55163"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/grpc/grpc-java/commit/6462ef9a11980e168c21d90bbc7245c728fd1a7a"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/commit/be53dc3c9acd9af2e20d0c3c07cd77115a594cf1"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.kb.cert.org/vuls/id/767506"
+      },
+      {
+        "type": "WEB",
+        "url": "http://www.openwall.com/lists/oss-security/2025/08/16/1"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-pwqr-wmgm-9rr8",
+    "summary": "Netty: HTTP Request Smuggling via Chunked Extension Quoted-String Parsing",
+    "aliases": [
+      "CVE-2026-33870"
+    ],
+    "modified": "2026-09-10T03:50:40.493461444Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-pwqr-wmgm-9rr8"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33870"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      },
+      {
+        "type": "WEB",
+        "url": "https://w4ke.info/2025/06/18/funky-chunks.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://w4ke.info/2025/10/29/funky-chunks-2.html"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.rfc-editor.org/rfc/rfc9110"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-q4f6-jm68-57ww",
+    "summary": "Netty: [HttpContentEncoder] Unbounded Per-Connection Queue Growth via HTTP/1.1 Pipelining Leads to Denial of Service",
+    "aliases": [
+      "CVE-2026-59899"
+    ],
+    "modified": "2026-09-10T03:50:52.883743437Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-q4f6-jm68-57ww"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.1.136.Final"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.2.16.Final"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-qp49-qgx5-5m26",
+    "summary": "Bouncy Castle: Lazy ASN.1 sequence forcing resets nesting-depth guard",
+    "aliases": [
+      "CVE-2026-13506"
+    ],
+    "modified": "2026-09-18T17:45:06.096277818Z",
+    "references": [
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13506"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/bcgit/bc-java/commit/77454da9b3dcaaa2991412d1c3c1a6e1a338ff84"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/bcgit/bc-java"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/bcgit/bc-java/wiki/CVE-2026-13506"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-r937-wjx7-w2jp",
+    "summary": "JetBrains Kotlin: Unsafe Deserialization in Kotlin Build Cache Enables Code Execution",
+    "aliases": [
+      "CVE-2026-53914"
+    ],
+    "modified": "2026-08-12T19:40:59.256901Z",
+    "references": [
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53914"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/JetBrains/kotlin/commit/bf51df665b458fda7c3eaf436c4d88dc119d7ec6"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/JetBrains/kotlin"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/JetBrains/kotlin/releases/tag/v2.4.20-Beta1"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.jetbrains.com/privacy-security/issues-fixed"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-v8h7-rr48-vmmv",
+    "summary": "Netty: Start-Line Injection in DefaultHttpRequest.setUri() Allows HTTP Request Smuggling and RTSP Request Injection",
+    "aliases": [
+      "CVE-2026-41417"
+    ],
+    "modified": "2026-09-10T03:50:47.637727522Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-v8h7-rr48-vmmv"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41417"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-w9fj-cfpg-grvv",
+    "summary": "Netty HTTP/2 CONTINUATION Frame Flood DoS via Zero-Byte Frame Bypass",
+    "aliases": [
+      "CVE-2026-33871"
+    ],
+    "modified": "2026-09-10T03:50:41.535305906Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-w9fj-cfpg-grvv"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33871"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-wg6q-6289-32hp",
+    "summary": "Bouncy Castle Crypto Package For Java: Use of a Broken or Risky Cryptographic Algorithm vulnerability in bcpkix modules",
+    "aliases": [
+      "CVE-2026-5588"
+    ],
+    "modified": "2026-09-10T03:50:45.075900186Z",
+    "references": [
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5588"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/bcgit/bc-java/commit/656bae0dbd9b1521f840521ff786e78749fe3057"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/bcgit/bc-java"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/bcgit/bc-java/wiki/CVE%E2%80%902026%E2%80%905588"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-x4gw-5cx5-pgmh",
+    "summary": "Netty: SNI handler pre-allocates up to 16 MiB from nine attacker bytes",
+    "aliases": [
+      "CVE-2026-45416"
+    ],
+    "modified": "2026-09-10T03:50:12.401611631Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-x4gw-5cx5-pgmh"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45416"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.1.135.Final"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/releases/tag/netty-4.2.15.Final"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-xpw8-rcwv-8f8p",
+    "summary": "io.netty:netty-codec-http2 vulnerable to HTTP/2 Rapid Reset Attack",
+    "modified": "2026-09-10T03:49:58.760787330Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/apple/swift-nio-http2/security/advisories/GHSA-qppj-fm5r-hxr3"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-xpw8-rcwv-8f8p"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-44487"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/commit/58f75f665aa81a8cbcf6ffa74820042a285c5e61"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      },
+      {
+        "type": "WEB",
+        "url": "https://www.cve.org/CVERecord?id=CVE-2023-44487"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-xq3w-v528-46rv",
+    "summary": "Denial of Service attack on windows app using netty",
+    "aliases": [
+      "CVE-2024-47535"
+    ],
+    "modified": "2026-09-10T03:50:56.073045057Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-xq3w-v528-46rv"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-47535"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/commit/fbf7a704a82e7449b48bd0bbb679f5661c6d61a3"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      }
+    ]
+  },
+  {
+    "id": "GHSA-xxqh-mfjm-7mv9",
+    "summary": "Netty HTTP/1.0 TE+CL Coexistence Bypasses Smuggling Sanitization",
+    "aliases": [
+      "CVE-2026-42581"
+    ],
+    "modified": "2026-09-10T03:51:07.381332705Z",
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/netty/netty/security/advisories/GHSA-xxqh-mfjm-7mv9"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42581"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/netty/netty"
+      }
+    ]
+  },
+  {
+    "id": "GO-2026-5320",
+    "summary": "Cross-site Scripting (XSS) in github.com/yuin/goldmark",
+    "aliases": [
+      "CVE-2026-5160",
+      "GHSA-c97m-vxhj-p7j6"
+    ],
+    "modified": "2026-07-22T20:59:36.886153285Z",
+    "references": [
+      {
+        "type": "ADVISORY",
+        "url": "https://github.com/advisories/GHSA-c97m-vxhj-p7j6"
+      },
+      {
+        "type": "FIX",
+        "url": "https://github.com/yuin/goldmark/commit/cb46bbc4eca29d55aa9721e04ad207c23ccc44f9"
+      },
+      {
+        "type": "WEB",
+        "url": "https://security.snyk.io/vuln/SNYK-GOLANG-GITHUBCOMYUINGOLDMARKRENDERERHTML-15838406"
+      }
+    ]
+  },
+  {
+    "id": "GO-2026-5932",
+    "summary": "The golang.org/x/crypto/openpgp package is unmaintained, unsafe by design, and has known security issues",
+    "modified": "2026-07-10T05:44:31.101996029Z",
+    "references": [
+      {
+        "type": "REPORT",
+        "url": "https://go.dev/issue/44226"
+      }
+    ]
+  },
+  {
+    "id": "GO-2026-6179",
+    "summary": "Fix transparency log tile verification bypass in golang.org/x/mod/sumdb/tlog",
+    "aliases": [
+      "BIT-golang-2026-56865",
+      "CVE-2026-56865"
+    ],
+    "modified": "2026-08-19T12:25:40.780492871Z",
+    "references": [
+      {
+        "type": "REPORT",
+        "url": "https://go.dev/issue/80744"
+      },
+      {
+        "type": "WEB",
+        "url": "https://groups.google.com/g/golang-announce/c/94pEornpRlI"
+      },
+      {
+        "type": "FIX",
+        "url": "https://go.dev/cl/814960"
+      },
+      {
+        "type": "FIX",
+        "url": "https://go.dev/cl/815020"
+      }
+    ]
+  },
+  {
+    "id": "GO-2026-6180",
+    "summary": "Ignore unrelated, unauthenticated hashes in Lookup in golang.org/x/mod/sumdb",
+    "aliases": [
+      "BIT-golang-2026-56864",
+      "CVE-2026-56864"
+    ],
+    "modified": "2026-08-19T12:25:49.995487491Z",
+    "references": [
+      {
+        "type": "REPORT",
+        "url": "https://go.dev/issue/80745"
+      },
+      {
+        "type": "WEB",
+        "url": "https://groups.google.com/g/golang-announce/c/94pEornpRlI"
+      },
+      {
+        "type": "FIX",
+        "url": "https://go.dev/cl/815000"
+      },
+      {
+        "type": "FIX",
+        "url": "https://go.dev/cl/815020"
+      }
+    ]
+  },
+  {
+    "id": "GO-2026-6222",
+    "summary": "Excessive memory allocation during VP8L decoding in golang.org/x/image",
+    "aliases": [
+      "CVE-2026-46603"
+    ],
+    "modified": "2026-08-15T09:41:53.891904586Z",
+    "references": [
+      {
+        "type": "REPORT",
+        "url": "https://go.dev/issue/80069"
+      },
+      {
+        "type": "FIX",
+        "url": "https://go.dev/cl/793460"
+      }
+    ]
+  },
+  {
+    "id": "GO-2026-6354",
+    "summary": "Prevent DoS on deadlocked undecided channel in golang.org/x/crypto/ssh",
+    "aliases": [
+      "CVE-2026-78662"
+    ],
+    "modified": "2026-09-03T10:10:55.147673102Z",
+    "references": [
+      {
+        "type": "REPORT",
+        "url": "https://go.dev/issue/81316"
+      },
+      {
+        "type": "FIX",
+        "url": "https://go.dev/cl/826504"
+      },
+      {
+        "type": "WEB",
+        "url": "https://groups.google.com/g/golang-announce/c/1y3fb2np35U"
+      }
+    ]
+  },
+  {
+    "id": "GO-2026-6355",
+    "summary": "Prevent DoS on deadlocked established channel in golang.org/x/crypto/ssh",
+    "aliases": [
+      "CVE-2026-56855"
+    ],
+    "modified": "2026-09-03T10:10:55.101133330Z",
+    "references": [
+      {
+        "type": "REPORT",
+        "url": "https://go.dev/issue/81317"
+      },
+      {
+        "type": "FIX",
+        "url": "https://go.dev/cl/826524"
+      },
+      {
+        "type": "WEB",
+        "url": "https://groups.google.com/g/golang-announce/c/1y3fb2np35U"
+      }
+    ]
+  }
+]

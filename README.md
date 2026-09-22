@@ -1,72 +1,21 @@
-# stunmesh-android
+# STUNMESH for Android
 
-Android client for [STUNMESH](https://github.com/tjjh89017/stunmesh-go) —
-peer-to-peer WireGuard connections through Full-Cone NAT using STUN discovery
-and encrypted peer-endpoint exchange, with no root required.
+Local, owner-built fork pairing Android's `VpnService` with the locally built STUNMESH Go core and upstream WireGuard. WireGuard authenticates peers and encrypts tunnel traffic. STUN/OpenDHT supply **public, unauthenticated endpoint hints**; they cannot enroll peers or change keys/routes. There is no payload relay, Tailscale control service, analytics SDK, remote updater or executable plugin.
 
-> **Status: early development.** The Go core (embedded wireguard-go with a
-> custom STUN-demuxing `conn.Bind`, built with gomobile from stunmesh-go's
-> `mobile/` package) is bundled when `app/libs/stunmesh.aar` is present —
-> download it from the stunmesh-go Mobile workflow artifacts. Without the
-> AAR the app builds against a stub data plane that moves no packets.
-> On-device validation is still in progress.
+The VPN routes only explicitly selected server destination addresses/ranges (`AllowedIPs`); ordinary phone traffic and DNS keep using the phone's network. Prefer server `/32` and `/128` routes. Leave Android's **Block connections without VPN off**. Only one VPN can be active on Android. Direct NAT traversal is not guaranteed on every network, and public hints expose endpoint metadata/permit denial of service.
 
-## How it works
+## Install and enroll
 
-- The app is a full VPN app built on Android's `VpnService` API (no root, no
-  raw sockets).
-- The data plane is an embedded [wireguard-go](https://git.zx2c4.com/wireguard-go/)
-  device inside the Go core, delivered as an AAR (`libgojni.so`) built with
-  `gomobile bind` from the stunmesh-go repository.
-- STUNMESH owns the outer UDP socket inside a custom `conn.Bind`: STUN
-  discovery and hole punching share the socket with WireGuard traffic, and a
-  demux on the receive path separates STUN responses from WG packets.
-- Peer endpoints are exchanged through storage plugins (v1: built-in
-  Cloudflare DNS) and applied at run time over WireGuard's UAPI — the tunnel
-  never restarts for an endpoint change.
-- On a network change the app hands a fresh tun fd to the running core; the
-  WG device survives without a restart.
+Use the signed release APK and certificate/checksums in `ARTIFACT_MANIFEST.json`, not an upstream APK or CI artifact. The application ID is **`dev.stunmesh.local`**, minimum Android 9, supported ABIs ARM64 and x86-64. Debug installs use `.debug` and synthetic identities only.
 
-## Limitations
+Follow [PROVISIONING.md](PROVISIONING.md). The phone generates its own private key after reviewing a public proposal; only its public reply is copied to the server. Optional PSKs use a protected separate input. No ordinary private-key import/display/export or secret QR exists. Profiles are read-only apart from rename/remove/selection; an encrypted OS restore can preserve full configuration without a lossy editor.
 
-- Android allows one active VPN app at a time; STUNMESH cannot run alongside
-  another VPN app.
-- Only built-in endpoint-exchange plugins are supported (`exec`/`shell`
-  plugins need external processes and stay desktop-only).
-- Battery optimization (Doze) can delay keepalives in deep sleep; consider
-  exempting the app from battery optimization for reliable long-lived
-  tunnels.
+Configuration is atomically stored under hardware-backed AES-GCM wrapping. Software-only Keystore protection fails closed. Only the trusted OS backup agent can intentionally emit the logical configuration, and only to a transport reporting client-side encryption. Restore re-wraps under the new hardware key and leaves profiles inactive. Protect backup recovery secrets; never run old and restored copies of the same identity concurrently. Real GrapheneOS transport behavior remains a device gate.
 
-## Installing
+## Operation and validation
 
-Grab `stunmesh-android-<tag>.apk` from the
-[latest release](https://github.com/tjjh89017/stunmesh-android/releases) and open
-it on the device; sideloading needs "install unknown apps" allowed for whatever
-opened it (browser or file manager). The APK is universal — one file covers
-arm64-v8a, armeabi-v7a, x86 and x86_64.
+One foreground service owns the backend. Underlay callbacks suspend network work while offline and coalesce handovers; no periodic app health poll, wakelock, WorkManager job or backup scheduler exists. Bounded discovery renews below record expiry; WireGuard's own keepalive remains independent. Doze, carrier NAT and proxy availability still affect connectivity. Measure before granting battery exemptions; no exemption is requested automatically.
 
-Releases are signed with the project's release key, so an installed copy upgrades
-in place. A debug APK from CI is signed with a different key and cannot upgrade a
-release install (or vice versa) — uninstall first to switch.
+[LOCAL_BUILD.md](LOCAL_BUILD.md) describes verified offline builds, mandatory local AAR input and isolated owner signing. [IMPLEMENTATION_PROGRESS.md](IMPLEMENTATION_PROGRESS.md) records work and validation; [DEVICE_TESTS.md](DEVICE_TESTS.md) covers the later NAS/GrapheneOS tests. The original [SECURITY_AUDIT.md](SECURITY_AUDIT.md) describes the upstream baseline; [SECURITY_REMEDIATION_PLAN.md](SECURITY_REMEDIATION_PLAN.md) records decisions and acceptance criteria.
 
-## Building
-
-Open in Android Studio, or from the command line:
-
-```
-./gradlew assembleDebug
-```
-
-Published APKs come from the `Release` workflow: pushing a `v*` tag builds,
-signs and uploads one to a GitHub release.
-
-## License
-
-The app code in this repository is licensed under the
-[Apache License 2.0](LICENSE).
-
-The distributed APK will additionally contain the STUNMESH Go core from
-[stunmesh-go](https://github.com/tjjh89017/stunmesh-go), which carries its own
-license; see that repository for details.
-
-WireGuard is a registered trademark of Jason A. Donenfeld.
+App code is [Apache-2.0](LICENSE); the Go core and WireGuard retain their own licenses. WireGuard is a registered trademark of Jason A. Donenfeld.

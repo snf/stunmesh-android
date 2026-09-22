@@ -32,6 +32,7 @@ android {
         targetSdk = 36
         versionCode = 1
         versionName = "0.3.0-local.1"
+        buildConfigField("String", "CORE_SHA256", "\"$coreHash\"")
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         ndk { abiFilters += listOf("arm64-v8a", "x86_64") }
     }
@@ -47,6 +48,7 @@ android {
 configurations.configureEach {
     resolutionStrategy { activateDependencyLocking() }
 }
+dependencyLocking { lockMode.set(LockMode.STRICT) }
 dependencies {
     implementation(files(core))
     implementation(platform(libs.androidx.compose.bom))

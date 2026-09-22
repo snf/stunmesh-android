@@ -1,0 +1,105 @@
+fuzz: elapsed: 0s, gathering baseline coverage: 0/5 completed
+fuzz: elapsed: 0s, gathering baseline coverage: 5/5 completed, now fuzzing with 4 workers
+fuzz: elapsed: 3s, execs: 102515 (34160/sec), new interesting: 21 (total: 26)
+fuzz: elapsed: 6s, execs: 240583 (46028/sec), new interesting: 61 (total: 66)
+fuzz: elapsed: 9s, execs: 384843 (48081/sec), new interesting: 108 (total: 113)
+fuzz: elapsed: 12s, execs: 525759 (46981/sec), new interesting: 165 (total: 170)
+fuzz: elapsed: 15s, execs: 663580 (45945/sec), new interesting: 182 (total: 187)
+fuzz: elapsed: 18s, execs: 785768 (40723/sec), new interesting: 195 (total: 200)
+fuzz: elapsed: 21s, execs: 874933 (29722/sec), new interesting: 246 (total: 251)
+fuzz: elapsed: 24s, execs: 909270 (11447/sec), new interesting: 266 (total: 271)
+fuzz: elapsed: 27s, execs: 921136 (3954/sec), new interesting: 268 (total: 273)
+fuzz: elapsed: 30s, execs: 921136 (0/sec), new interesting: 268 (total: 273)
+fuzz: elapsed: 31s, execs: 921136 (0/sec), new interesting: 268 (total: 273)
+PASS
+ok  	github.com/tjjh89017/stunmesh-go/mobile	31.055s
+fuzz: elapsed: 0s, gathering baseline coverage: 0/3 completed
+fuzz: elapsed: 0s, gathering baseline coverage: 3/3 completed, now fuzzing with 4 workers
+fuzz: elapsed: 3s, execs: 401158 (133676/sec), new interesting: 17 (total: 20)
+fuzz: elapsed: 6s, execs: 818864 (139248/sec), new interesting: 17 (total: 20)
+fuzz: elapsed: 9s, execs: 1237630 (139583/sec), new interesting: 17 (total: 20)
+fuzz: elapsed: 12s, execs: 1659989 (140799/sec), new interesting: 17 (total: 20)
+fuzz: elapsed: 15s, execs: 2077116 (139032/sec), new interesting: 17 (total: 20)
+fuzz: elapsed: 18s, execs: 2498427 (140472/sec), new interesting: 17 (total: 20)
+fuzz: elapsed: 21s, execs: 2916397 (139302/sec), new interesting: 17 (total: 20)
+fuzz: elapsed: 24s, execs: 3332190 (138588/sec), new interesting: 17 (total: 20)
+fuzz: elapsed: 27s, execs: 3755542 (141133/sec), new interesting: 17 (total: 20)
+fuzz: elapsed: 30s, execs: 4165107 (136521/sec), new interesting: 17 (total: 20)
+fuzz: elapsed: 30s, execs: 4165107 (0/sec), new interesting: 17 (total: 20)
+PASS
+ok  	github.com/tjjh89017/stunmesh-go/internal/mobilebind	30.060s
+fuzz: elapsed: 0s, gathering baseline coverage: 0/4 completed
+fuzz: elapsed: 0s, gathering baseline coverage: 4/4 completed, now fuzzing with 4 workers
+fuzz: elapsed: 3s, execs: 21860 (7285/sec), new interesting: 58 (total: 62)
+fuzz: elapsed: 6s, execs: 21860 (0/sec), new interesting: 58 (total: 62)
+fuzz: elapsed: 9s, execs: 21860 (0/sec), new interesting: 58 (total: 62)
+fuzz: elapsed: 12s, execs: 21860 (0/sec), new interesting: 58 (total: 62)
+fuzz: elapsed: 15s, execs: 21860 (0/sec), new interesting: 58 (total: 62)
+fuzz: elapsed: 18s, execs: 21860 (0/sec), new interesting: 58 (total: 62)
+fuzz: elapsed: 21s, execs: 254315 (77515/sec), new interesting: 69 (total: 73)
+fuzz: elapsed: 24s, execs: 254315 (0/sec), new interesting: 69 (total: 73)
+fuzz: elapsed: 27s, execs: 254315 (0/sec), new interesting: 69 (total: 73)
+fuzz: elapsed: 30s, execs: 254315 (0/sec), new interesting: 69 (total: 73)
+fuzz: elapsed: 31s, execs: 254315 (0/sec), new interesting: 69 (total: 73)
+PASS
+ok  	github.com/tjjh89017/stunmesh-go/internal/config	31.027s
+fuzz: elapsed: 0s, gathering baseline coverage: 0/2 completed
+fuzz: elapsed: 0s, gathering baseline coverage: 2/2 completed, now fuzzing with 4 workers
+fuzz: elapsed: 3s, execs: 104267 (34755/sec), new interesting: 79 (total: 81)
+fuzz: elapsed: 6s, execs: 183803 (26511/sec), new interesting: 129 (total: 131)
+fuzz: elapsed: 9s, execs: 298218 (38132/sec), new interesting: 187 (total: 189)
+fuzz: elapsed: 12s, execs: 375254 (25682/sec), new interesting: 242 (total: 244)
+fuzz: elapsed: 15s, execs: 456268 (27006/sec), new interesting: 272 (total: 274)
+fuzz: elapsed: 18s, execs: 489668 (11132/sec), new interesting: 296 (total: 298)
+fuzz: elapsed: 21s, execs: 514891 (8408/sec), new interesting: 313 (total: 315)
+fuzz: elapsed: 24s, execs: 541041 (8715/sec), new interesting: 337 (total: 339)
+fuzz: elapsed: 27s, execs: 568346 (9102/sec), new interesting: 348 (total: 350)
+fuzz: elapsed: 30s, execs: 572381 (1345/sec), new interesting: 350 (total: 352)
+fuzz: elapsed: 31s, execs: 572381 (0/sec), new interesting: 350 (total: 352)
+PASS
+ok  	github.com/tjjh89017/stunmesh-go/internal/plugin/builtin/opendht	31.066s
+fuzz: elapsed: 0s, gathering baseline coverage: 0/1 completed
+fuzz: elapsed: 0s, gathering baseline coverage: 1/1 completed, now fuzzing with 4 workers
+fuzz: elapsed: 3s, execs: 80573 (26854/sec), new interesting: 178 (total: 179)
+fuzz: elapsed: 6s, execs: 80573 (0/sec), new interesting: 178 (total: 179)
+fuzz: elapsed: 9s, execs: 266436 (61995/sec), new interesting: 194 (total: 195)
+fuzz: elapsed: 12s, execs: 284021 (5861/sec), new interesting: 207 (total: 208)
+fuzz: elapsed: 15s, execs: 284021 (0/sec), new interesting: 207 (total: 208)
+fuzz: elapsed: 18s, execs: 284021 (0/sec), new interesting: 207 (total: 208)
+fuzz: elapsed: 21s, execs: 1896775 (537952/sec), new interesting: 215 (total: 216)
+fuzz: elapsed: 24s, execs: 1896775 (0/sec), new interesting: 215 (total: 216)
+fuzz: elapsed: 27s, execs: 1896775 (0/sec), new interesting: 215 (total: 216)
+fuzz: elapsed: 30s, execs: 2439892 (181028/sec), new interesting: 224 (total: 225)
+fuzz: elapsed: 31s, execs: 2439892 (0/sec), new interesting: 224 (total: 225)
+PASS
+ok  	github.com/tjjh89017/stunmesh-go/internal/discovery	31.031s
+fuzz: elapsed: 0s, gathering baseline coverage: 0/2 completed
+fuzz: elapsed: 0s, gathering baseline coverage: 2/2 completed, now fuzzing with 4 workers
+fuzz: elapsed: 3s, execs: 116950 (38983/sec), new interesting: 218 (total: 220)
+fuzz: elapsed: 6s, execs: 116950 (0/sec), new interesting: 218 (total: 220)
+fuzz: elapsed: 9s, execs: 261497 (48192/sec), new interesting: 241 (total: 243)
+fuzz: elapsed: 12s, execs: 324149 (20887/sec), new interesting: 260 (total: 262)
+fuzz: elapsed: 15s, execs: 363652 (13168/sec), new interesting: 265 (total: 267)
+fuzz: elapsed: 18s, execs: 363652 (0/sec), new interesting: 265 (total: 267)
+fuzz: elapsed: 21s, execs: 507465 (47953/sec), new interesting: 268 (total: 270)
+fuzz: elapsed: 24s, execs: 534915 (9151/sec), new interesting: 271 (total: 273)
+fuzz: elapsed: 27s, execs: 534915 (0/sec), new interesting: 271 (total: 273)
+fuzz: elapsed: 30s, execs: 534915 (0/sec), new interesting: 271 (total: 273)
+fuzz: elapsed: 31s, execs: 534915 (0/sec), new interesting: 271 (total: 273)
+PASS
+ok  	github.com/tjjh89017/stunmesh-go/internal/validation	31.040s
+fuzz: elapsed: 0s, gathering baseline coverage: 0/2 completed
+fuzz: elapsed: 0s, gathering baseline coverage: 2/2 completed, now fuzzing with 4 workers
+fuzz: elapsed: 3s, execs: 19875 (6624/sec), new interesting: 26 (total: 28)
+fuzz: elapsed: 6s, execs: 167692 (49283/sec), new interesting: 49 (total: 51)
+fuzz: elapsed: 9s, execs: 323078 (51794/sec), new interesting: 80 (total: 82)
+fuzz: elapsed: 12s, execs: 360252 (12389/sec), new interesting: 105 (total: 107)
+fuzz: elapsed: 15s, execs: 482148 (40638/sec), new interesting: 138 (total: 140)
+fuzz: elapsed: 18s, execs: 500876 (6242/sec), new interesting: 142 (total: 144)
+fuzz: elapsed: 21s, execs: 566350 (21825/sec), new interesting: 146 (total: 148)
+fuzz: elapsed: 24s, execs: 637462 (23709/sec), new interesting: 147 (total: 149)
+fuzz: elapsed: 27s, execs: 637462 (0/sec), new interesting: 147 (total: 149)
+fuzz: elapsed: 30s, execs: 637462 (0/sec), new interesting: 147 (total: 149)
+fuzz: elapsed: 31s, execs: 637462 (0/sec), new interesting: 147 (total: 149)
+PASS
+ok  	github.com/tjjh89017/stunmesh-go/internal/provision	31.039s
