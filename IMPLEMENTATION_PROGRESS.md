@@ -92,3 +92,11 @@ Final documentation/evidence commits follow these build/test commits. See Git hi
 - Remove release binaries and identifying deployment records from public history. Replace owner-specific paths, endpoints, names and public peer keys with generic examples. Original operational records are retained privately.
 - Publish the signed APK and OCI image only as GitHub Release assets, with checksums and sanitized provenance; `RELEASES.md` describes installation and remaining gates.
 - Complete a fresh credential/privacy review of Git objects and decompressed artifacts, plus release signature verification and source/test checks before pushing. See `SECRET_REVIEW.md`. Earlier credentials exposed through logs/tool output still require rotation; a clean publication scan does not undo those incidents.
+
+
+## Publication naming cleanup
+
+- Fork histories, paths and messages normalized; upstream ancestry preserved.
+- Display name STUNMESH; neutral Android package and signer; matching discovery/enrollment namespaces across both codebases.
+- Rebuilding release artifacts and re-running automated checks. Physical-device migration remains a separate acceptance gate.
+- Compatibility and host migration requirements: [PUBLICATION_TRANSITION.md](PUBLICATION_TRANSITION.md).

@@ -1,4 +1,6 @@
-> **Owner fork:** use the [owner-signed GitHub Release and Obtainium instructions](RELEASES.md). The package is `dev.stunmesh.local`; upstream-signed APKs are a different application.
+> **Installation transition:** Read [PUBLICATION_TRANSITION.md](PUBLICATION_TRANSITION.md) before using these rebuilt releases. Android requires a fresh installation and enrollment; all endpoints need the matching discovery namespace.
+
+> **Audited fork:** use the [owner-signed GitHub Release and Obtainium instructions](RELEASES.md). The package is `dev.stunmesh.local`; upstream-signed APKs are a different application.
 
 # STUNMESH for Android
 
