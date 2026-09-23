@@ -36,6 +36,12 @@ signing.properties
 *-enrollment-v*.svg
 /local-secrets/
 
-# Only this reviewed, owner-signed release is versioned.
+# Release binaries are assets on GitHub Releases, never ordinary Git files.
 *.apk
-!/releases/stunmesh-0.3.0-local.4.apk
+
+# Release assets and private execution records.
+*.oci.tar
+*.aar
+*-sources.jar
+/device-test-evidence/
+/client-test-evidence/

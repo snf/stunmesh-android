@@ -1,6 +1,6 @@
 # Local build and artifact trust
 
-Use sibling checkouts `stunmesh-go` and `stunmesh-android`, and a separate `stunmesh-build` directory containing `tools`, `cache`, `work`, `artifacts`, and `logs`. Override the latter with `STUNMESH_BUILD_ROOT`. Do not put owner signing material in any of these directories or a container context. No release upload or automatic updater exists.
+Use sibling checkouts `stunmesh-go` and `stunmesh-android`, and a separate `stunmesh-build` directory containing `tools`, `cache`, `work`, `artifacts`, and `logs`. Override the latter with `STUNMESH_BUILD_ROOT`. Do not put owner signing material in any of these directories or a container context. Publishing is an explicit owner action using GitHub Releases; there is no automatic release uploader or in-app updater.
 
 `scripts/sandbox.py` needs Linux, Python 3.12+, bubblewrap and the pinned toolchain below. Source builds have no host home, credentials or signing directory; tools/source are read-only, cache/output writable, and networking is off. `--network` is only for an intentional fetch of reviewed pins. `--net-admin` is only for isolated synthetic WG tests. No production interfaces/routes are visible. Gradle needs a writable project directory: `--snapshot` builds an archive of a **clean committed HEAD**, without making the original checkout writable.
 

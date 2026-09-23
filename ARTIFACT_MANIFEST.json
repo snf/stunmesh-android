@@ -3,11 +3,11 @@
   "created_utc": "2026-09-22T15:58:01.403908+00:00",
   "scope": "Recovery release: source/build/image checks, physical hardware/encrypted disk round-trip, compatible owner-profile reload, authenticated LAN/split routing and actual external-hotspot/home-return traffic pass. Owner estimates 10s home recovery; outbound setup still depends on discovery. One tested NAT path only. Service integration, encrypted OS restore, IPv6, reboot/Doze and battery remain untested.",
   "source_commits": {
-    "go": "d4d12e9f2e17f6259fbb496854b7117ac300e6c8",
-    "android": "3cfcb6116a1d8f10baa76eb16aed44df70731e49",
-    "kernel_integration_test": "d4d12e9f2e17f6259fbb496854b7117ac300e6c8",
-    "provisioner": "893c85a677c3138690144056cb2937b458496002",
-    "android_device_probe": "3cfcb6116a1d8f10baa76eb16aed44df70731e49"
+    "go": "c95ff5a1fb31f27fb220d0835cbbb5a9bfbf26a9",
+    "android": "a9c9c875e0137a0763ccdcf2dba9cb46b8f1cd24",
+    "kernel_integration_test": "c95ff5a1fb31f27fb220d0835cbbb5a9bfbf26a9",
+    "provisioner": "75c200e87972742d75f1cbd10579cf8eb8c70a0f",
+    "android_device_probe": "a9c9c875e0137a0763ccdcf2dba9cb46b8f1cd24"
   },
   "android": {
     "application_id": "dev.stunmesh.local",
@@ -21,7 +21,6 @@
     ],
     "signer_certificate_sha256": "1e7a77c5f73ccb78259d60677e37147d7e50c5a50644e2ecb57cc6b58b1cef82",
     "signature_scheme_verified": "v3",
-    "owner_key_location": "/workspace/stunmesh-signing (private; never commit or publish)",
     "device_validation": "Pixel 4a Android 13/API33: unchanged owner certificate and phone identity after compatible update; actual hardware/encrypted disk parsing/native validation 2/2; live split-route probe 1/1 with 32 KiB echo and ordinary HTTPS. Installed release hash and non-debuggable confinement verified."
   },
   "oci": {
@@ -140,7 +139,7 @@
   ],
   "reproducibility": "Offline committed-source builds with strict locks/hash verification; signer isolated from builds. Android clean output build executed 135 tasks. No independent bit-for-bit reproducibility claim. Go d4d12e9 artifacts are reused unchanged between diagnostic release 3 and final release 4; Android source commit identifies actual release/test inputs, not later documentation commits.",
   "installed_debug_probe": {
-    "source_commit": "3cfcb6116a1d8f10baa76eb16aed44df70731e49",
+    "source_commit": "a9c9c875e0137a0763ccdcf2dba9cb46b8f1cd24",
     "scope": "Separate debug UID; synthetic hardware/enrollment tests and ordinary app sockets through the signed release VPN. No release-store access.",
     "artifacts": [
       {
@@ -159,10 +158,12 @@
     "manifest": "history/manifest-before-handover-0.3.0-local.2.json",
     "retained_for": "Provenance and server rollback; previous bytes retained outside Git. Android release 3 was an intermediate recovery build that exposed the pre-existing persisted JSON-read defect; use release 4."
   },
-  "repository_release": {
-    "repository": "snf/stunmesh-android",
-    "path": "releases/stunmesh-0.3.0-local.4.apk",
-    "sha256": "8bed3a5ec0196e6aa28ff4a7de1118e073a8e80f2399d0a58f8f8860f51e409e",
-    "note": "Exact signed release copied into Android Git without rebuilding; source_commits remain the actual build inputs. Other artifact paths are relative to the external stunmesh-build/artifacts directory."
+  "release_distribution": {
+    "android": {
+      "tag": "v0.3.0-local.4",
+      "url": "https://github.com/snf/stunmesh-android/releases/download/v0.3.0-local.4/stunmesh-0.3.0-local.4.apk",
+      "sha256": "8bed3a5ec0196e6aa28ff4a7de1118e073a8e80f2399d0a58f8f8860f51e409e"
+    },
+    "note": "Release binaries are GitHub Release assets only. Source commit IDs identify privacy-rewritten equivalents with byte-identical runtime source/dependencies; binaries retain their original embedded build IDs. Detailed original-to-public provenance is retained privately."
   }
 }

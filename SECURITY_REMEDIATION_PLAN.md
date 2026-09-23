@@ -9,7 +9,7 @@ This is one plan for both Owner forks. An identical copy belongs at the root of 
 | Repository | Role | Audited production commit | Local audit commit |
 | --- | --- | --- | --- |
 | [snf/stunmesh-go](https://github.com/snf/stunmesh-go) | Desktop discovery daemon, optional local UDP proxy, and Go mobile core embedded in Android | `71a73228cd2bc001cdc5d485a16621a24bfae15a` | `934d4ef423a20498f3d9e579b6581ff5e3829a8c` |
-| [snf/stunmesh-android](https://github.com/snf/stunmesh-android) | Kotlin UI, configuration/import/export, Android VPN lifecycle; consumes the Go core as an AAR | `e0cc30951e24ec018423bb113acfe7849f9836d5` | `6641b916be56f9dcdd298a1ba1ef9c69f2b0f48d` |
+| [snf/stunmesh-android](https://github.com/snf/stunmesh-android) | Kotlin UI, configuration/import/export, Android VPN lifecycle; consumes the Go core as an AAR | `e0cc30951e24ec018423bb113acfe7849f9836d5` | `01572bbae0da2c4f6483109a8524eef2c1426be6` |
 
 Implementation is on `security-remediation/2026-09-22`; the following audit revisions are the historical baseline. Both local audit branches are `security-audit/2026-09-13`. Public forks may not contain those branches: obtain the local audit commits and `security-audit-evidence/` before implementing. The audited Go mobile source matches `v1.15.1`; Android matches `v0.2.1`. Review intervening changes before any rebase/update.
 

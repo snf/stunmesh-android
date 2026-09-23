@@ -1,3 +1,5 @@
+> **Owner fork:** use the [owner-signed GitHub Release and Obtainium instructions](RELEASES.md). The package is `dev.stunmesh.local`; upstream-signed APKs are a different application.
+
 # STUNMESH for Android
 
 Local, owner-built fork pairing Android's `VpnService` with the locally built STUNMESH Go core and upstream WireGuard. WireGuard authenticates peers and encrypts tunnel traffic. STUN/OpenDHT supply **public, unauthenticated endpoint hints**; they cannot enroll peers or change keys/routes. There is no payload relay, Tailscale control service, analytics SDK, remote updater or executable plugin.

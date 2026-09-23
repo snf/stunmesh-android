@@ -1,3 +1,3 @@
-cd mobile && gomobile bind -target=android/arm64,android/amd64 -androidapi 28 -tags mobile -trimpath -ldflags '-s -w -X github.com/tjjh89017/stunmesh-go/mobile.version=ca7f90144dfc944900769c5764a1eb5779f5d479 -extldflags=-Wl,-z,max-page-size=16384' -o /artifacts/stunmesh-core.aar .
-CGO_ENABLED=0 go build -mod=readonly -trimpath -buildvcs=false -tags embedca -ldflags '-s -w -X main.buildVersion=ca7f90144dfc944900769c5764a1eb5779f5d479' -o /artifacts/stunmesh-go .
+cd mobile && gomobile bind -target=android/arm64,android/amd64 -androidapi 28 -tags mobile -trimpath -ldflags '-s -w -X github.com/tjjh89017/stunmesh-go/mobile.version=9d3abb334a108c05d9c4f4f7f9c110f47bcbc7eb -extldflags=-Wl,-z,max-page-size=16384' -o /artifacts/stunmesh-core.aar .
+CGO_ENABLED=0 go build -mod=readonly -trimpath -buildvcs=false -tags embedca -ldflags '-s -w -X main.buildVersion=9d3abb334a108c05d9c4f4f7f9c110f47bcbc7eb' -o /artifacts/stunmesh-go .
 CGO_ENABLED=0 go build -mod=readonly -trimpath -buildvcs=false -ldflags '-s -w' -o /artifacts/provision ./cmd/provision
