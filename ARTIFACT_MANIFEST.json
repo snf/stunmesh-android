@@ -1,31 +1,50 @@
 {
-  "schema": 1,
-  "created_utc": "2026-09-22T15:58:01.403908+00:00",
-  "scope": "Recovery release: source/build/image checks, physical hardware/encrypted disk round-trip, compatible owner-profile reload, authenticated LAN/split routing and actual external-hotspot/home-return traffic pass. Owner estimates 10s home recovery; outbound setup still depends on discovery. One tested NAT path only. Service integration, encrypted OS restore, IPv6, reboot/Doze and battery remain untested.",
+  "schema": 2,
+  "created_utc": "2026-09-23",
+  "project": "STUNMESH",
+  "scope": "Fresh unbranded builds. Automated checks passed; renamed app identity, signer and deployment require new physical-device/NAS acceptance. No running service changed.",
   "source_commits": {
-    "go": "c95ff5a1fb31f27fb220d0835cbbb5a9bfbf26a9",
-    "android": "a9c9c875e0137a0763ccdcf2dba9cb46b8f1cd24",
-    "kernel_integration_test": "c95ff5a1fb31f27fb220d0835cbbb5a9bfbf26a9",
-    "provisioner": "75c200e87972742d75f1cbd10579cf8eb8c70a0f",
-    "android_device_probe": "a9c9c875e0137a0763ccdcf2dba9cb46b8f1cd24"
+    "go_runtime": "e0c9aaa85acebf0c9f63c07d8085d12c175cc821",
+    "go_validation": "ab510cfbb908cbd680de99d1198b0c69afa3f24a",
+    "android": "5f4f164a9a23f40b8a6089fd8ec3f435334e7bc8"
+  },
+  "releases": {
+    "go": {
+      "tag": "v0.3.0",
+      "artifact": {
+        "file": "stunmesh-linux-amd64.oci.tar",
+        "size": 5324288,
+        "sha256": "315bcc64b85294c329d0caa25a9b139879e6a7087557ca484d8ee9ae92eea1e8"
+      }
+    },
+    "android": {
+      "tag": "v0.3.1",
+      "artifact": {
+        "file": "stunmesh-0.3.1.apk",
+        "size": 36825882,
+        "sha256": "88e3ffc4e55cc01961c4e5dd63ce934ca66d4d15ff538fdeb3e5515af0bbf223"
+      }
+    }
   },
   "android": {
     "application_id": "dev.stunmesh.local",
-    "version_name": "0.3.0-local.4",
-    "version_code": 4,
+    "version_name": "0.3.1",
+    "version_code": 5,
     "min_sdk": 28,
     "target_sdk": 36,
     "abis": [
       "arm64-v8a",
       "x86_64"
     ],
-    "signer_certificate_sha256": "1e7a77c5f73ccb78259d60677e37147d7e50c5a50644e2ecb57cc6b58b1cef82",
+    "debuggable": false,
+    "signer_subject": "CN=STUNMESH",
+    "signer_certificate_sha256": "4fe0a475cdc290f2b5f45379e796d948983ca6b813367fb8ab4f2c5f883e8524",
     "signature_scheme_verified": "v3",
-    "device_validation": "Pixel 4a Android 13/API33: unchanged owner certificate and phone identity after compatible update; actual hardware/encrypted disk parsing/native validation 2/2; live split-route probe 1/1 with 32 KiB echo and ordinary HTTPS. Installed release hash and non-debuggable confinement verified."
+    "installation": "Fresh app installation and peer enrollment; not an in-place update of the retired app."
   },
   "oci": {
-    "manifest_digest": "sha256:4ee1a48e12b524d66e6b235ea0b442bb12ceffb1d7c0343ef807bc60d5bb1593",
-    "config_digest": "sha256:470285618081f8b2ecb049f0b8280a815b9a7d88bbed2c6933ad1e7a34d7d8e8",
+    "manifest_digest": "sha256:fa297c3c910ed75db20446bdfcb2c071b34411b96db3ff4f5c13a9fb1255ae17",
+    "config_digest": "sha256:2570f2efddc079baa05449d2e4be854ab472f816b752fdbd7873b14893fa041d",
     "platform": "linux/amd64",
     "image_files": [
       "bin/busybox",
@@ -33,74 +52,18 @@
       "lib/ld-musl-x86_64.so.1",
       "usr/local/bin/stunmesh-go",
       "usr/local/bin/wg"
-    ],
-    "runtime_test": "Rootless Podman operator, NAS trial commit 18826ce: NET_ADMIN only, expected ownership and read-only confinement. New image/kernel positive and negative WG tests pass. Updated phone authenticated LAN traffic passes. Existing LAN bindings WG51824/proxy51826 retained. Updated external hotspot and home return pass; temporary diagnostic listeners removed and info logging restored at NAS 0f1b00d."
+    ]
   },
-  "artifacts": [
+  "build_inputs": [
     {
-      "path": "release/stunmesh-0.3.0-local.4.apk",
-      "size": 36825882,
-      "sha256": "8bed3a5ec0196e6aa28ff4a7de1118e073a8e80f2399d0a58f8f8860f51e409e"
+      "file": "stunmesh-core.aar",
+      "size": 6496501,
+      "sha256": "9ee04e070b84d76c2d54f55882a5f201b8e27edd42a0fa19f99c30fa7155a9eb"
     },
     {
-      "path": "handover4/stunmesh-release-unsigned.apk",
-      "size": 36814658,
-      "sha256": "ebd204373477c6e753a68ef70cd2aab2bd0a0cbd5b3fb87ccd52400f92b5b616"
-    },
-    {
-      "path": "handover/stunmesh-core.aar",
-      "size": 6492409,
-      "sha256": "0f1a38d40ca2c37902d379882c3dc7aa3c767598968d84a13f928bb05a87a5f5"
-    },
-    {
-      "path": "handover/stunmesh-core-sources.jar",
-      "size": 9235,
-      "sha256": "337042e82840a26c51f1e6a48085357702c911f383bb58f84721cf09e9ee5fa7"
-    },
-    {
-      "path": "handover/stunmesh-linux-amd64.oci.tar",
-      "size": 5236224,
-      "sha256": "8020acf13bae04463a09289615e7591653b84da3e84e04ca5c9e11878af11380"
-    },
-    {
-      "path": "handover/stunmesh-go",
-      "size": 8462496,
-      "sha256": "daad8dbefc70cc0127e40ca53096bf2b498621558f722050ba166194a7e68a60"
-    },
-    {
-      "path": "handover/wg",
-      "size": 1120280,
-      "sha256": "9a7f322c1877c0d46a49b94012ab2887d267bc2c922d7adee06f5ec4fea4c7f1"
-    },
-    {
-      "path": "enrollment-v2/provision",
-      "size": 6811808,
-      "sha256": "9421884d4f36c8dbae95c96c52799dba2189dda46246ac7ec5fd4e1f5e3a41e1"
-    },
-    {
-      "path": "handover4/stunmesh-debug.apk",
-      "size": 43001088,
-      "sha256": "9e3044a782d51105c0d16f5c92d2dfeca73e294dee432dd13ef1ae54aacc8528"
-    },
-    {
-      "path": "handover4/stunmesh-debug-androidTest.apk",
-      "size": 1552436,
-      "sha256": "97cc7098d1eb61be24e01c1c81b783a6969c30e7869c8cab994dae2a03d363bc"
-    },
-    {
-      "path": "handover/kernel-integration.test",
-      "size": 13003473,
-      "sha256": "bfd61d814d5a9e84172d07d08ae5cb32029170f4e55fbab5ddeda346edac0f78"
-    },
-    {
-      "path": "enrollment-v2/enrollment-example.json",
-      "size": 390,
-      "sha256": "e162a0521f81c1c25533d0eb247367f0616c7f686f94c35362f77e01d738c6cf"
-    },
-    {
-      "path": "enrollment-v2/enrollment-example.svg",
-      "size": 181162,
-      "sha256": "58072ae4953f5b103139db23a294bdaf7cff4bed2618fa284363223c47da31e8"
+      "file": "stunmesh-release-unsigned.apk",
+      "size": 36814506,
+      "sha256": "cc9447fdb211da1914af40b79ec260a224e8fbbcf7950989c2b6e70cd249a843"
     }
   ],
   "tool_archives": [
@@ -137,33 +100,33 @@
       "sha256": "af459827b80bfd31b83b08077f4b5843acb7d18ad9a33a2ef532d3090f291fbf"
     }
   ],
-  "reproducibility": "Offline committed-source builds with strict locks/hash verification; signer isolated from builds. Android clean output build executed 135 tasks. No independent bit-for-bit reproducibility claim. Go d4d12e9 artifacts are reused unchanged between diagnostic release 3 and final release 4; Android source commit identifies actual release/test inputs, not later documentation commits.",
-  "installed_debug_probe": {
-    "source_commit": "a9c9c875e0137a0763ccdcf2dba9cb46b8f1cd24",
-    "scope": "Separate debug UID; synthetic hardware/enrollment tests and ordinary app sockets through the signed release VPN. No release-store access.",
-    "artifacts": [
-      {
-        "path": "handover4/stunmesh-debug.apk",
-        "size": 43001088,
-        "sha256": "9e3044a782d51105c0d16f5c92d2dfeca73e294dee432dd13ef1ae54aacc8528"
+  "checks": {
+    "go": "race tests and vet passed; discovery namespace test vectors independently recalculated",
+    "python_helpers": "6 client and 9 service checks passed",
+    "kernel_image": "authorized bidirectional WireGuard traffic passed; unknown key, wrong PSK and unapproved source rejected in isolated namespace",
+    "android_unit_tests": {
+      "debug": {
+        "tests": 12,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
       },
-      {
-        "path": "handover4/stunmesh-debug-androidTest.apk",
-        "size": 1552436,
-        "sha256": "97cc7098d1eb61be24e01c1c81b783a6969c30e7869c8cab994dae2a03d363bc"
+      "release": {
+        "tests": 12,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
       }
-    ]
-  },
-  "previous_artifacts": {
-    "manifest": "history/manifest-before-handover-0.3.0-local.2.json",
-    "retained_for": "Provenance and server rollback; previous bytes retained outside Git. Android release 3 was an intermediate recovery build that exposed the pre-existing persisted JSON-read defect; use release 4."
-  },
-  "release_distribution": {
-    "android": {
-      "tag": "v0.3.0-local.4",
-      "url": "https://github.com/snf/stunmesh-android/releases/download/v0.3.0-local.4/stunmesh-0.3.0-local.4.apk",
-      "sha256": "8bed3a5ec0196e6aa28ff4a7de1118e073a8e80f2399d0a58f8f8860f51e409e"
     },
-    "note": "Release binaries are GitHub Release assets only. Source commit IDs identify privacy-rewritten equivalents with byte-identical runtime source/dependencies; binaries retain their original embedded build IDs. Detailed original-to-public provenance is retained privately."
-  }
+    "android_build": "135 Gradle tasks executed offline: release, debug and instrumentation APK builds; release lint passed",
+    "artifact_inspection": "APK signature, package, label, SDK/ABI and non-debuggable manifest verified; OCI rootfs restricted to five files"
+  },
+  "limitations": [
+    "No physical-device execution of this rebuilt release or its instrumentation APK.",
+    "Prior LAN/hotspot/Keystore results apply only to earlier builds.",
+    "NAT traversal has no guaranteed relay fallback.",
+    "No independent bit-for-bit reproducibility claim.",
+    "Existing credential incidents still require coordinated rotation."
+  ],
+  "distribution": "Binaries only in GitHub Release assets; no APK, AAR or OCI archive in repository history. Runtime credentials/signing keys stay private."
 }

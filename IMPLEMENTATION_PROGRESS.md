@@ -98,5 +98,5 @@ Final documentation/evidence commits follow these build/test commits. See Git hi
 
 - Fork histories, paths and messages normalized; upstream ancestry preserved.
 - Display name STUNMESH; neutral Android package and signer; matching discovery/enrollment namespaces across both codebases.
-- Rebuilding release artifacts and re-running automated checks. Physical-device migration remains a separate acceptance gate.
+- Rebuilt release APK, shared core and OCI image. Android unit tests/lint/release build, Go race/vet, helper tests and isolated image/kernel authentication checks passed. Physical-device migration remains a separate acceptance gate.
 - Compatibility and host migration requirements: [PUBLICATION_TRANSITION.md](PUBLICATION_TRANSITION.md).

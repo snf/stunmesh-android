@@ -1,3 +1,5 @@
+> **Historical evidence:** The device results below concern earlier builds. Names were normalized during history cleanup. Current build/checksum evidence is in [ARTIFACT_MANIFEST.json](ARTIFACT_MANIFEST.json); the rebuilt release still requires the physical-device migration checks in [PUBLICATION_TRANSITION.md](PUBLICATION_TRANSITION.md).
+
 # Device and service validation summary
 
 Identifying device captures and deployment records are retained privately and removed from public Git history. Addresses and paths elsewhere in this repository are generic examples, not a live inventory.

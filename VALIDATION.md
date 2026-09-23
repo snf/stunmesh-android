@@ -1,3 +1,5 @@
+> **Historical evidence:** The device results below concern earlier builds. Names were normalized during history cleanup. Current build/checksum evidence is in [ARTIFACT_MANIFEST.json](ARTIFACT_MANIFEST.json); the rebuilt release still requires the physical-device migration checks in [PUBLICATION_TRANSITION.md](PUBLICATION_TRANSITION.md).
+
 # Local remediation result — 2026-09-22
 
 The signed Android release and Linux OCI image are distributed only through [GitHub Releases](RELEASES.md). The privacy rewrite preserves runtime source and dependencies; binary hashes and signatures remain unchanged. Device checks established authenticated narrow split routing, protected storage and one external hotspot/home-return path. OS recovery, IPv6, Doze/reboot, extended reliability and battery gates remain open. Private deployment evidence has been removed from public history; [DEVICE_TEST_RESULTS.md](DEVICE_TEST_RESULTS.md) retains a non-identifying summary.

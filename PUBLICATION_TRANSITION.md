@@ -11,3 +11,5 @@ Linux deployment paths, systemd units, interface names and container names also 
 The rebuilt application and container require physical-device and NAS acceptance tests. Earlier LAN/hotspot/hardware results concern previous builds; they are not proof that the new application identity, signer and enrollment have passed those tests. See `DEVICE_TESTS.md`.
 
 The hosting account remains unchanged. Its name in actual GitHub repository/download URLs is an ownership identifier, not project branding. Existing clones should be archived privately and replaced with fresh clones; merging old history would reintroduce removed content. Historical commit IDs in normalized reports may no longer be reachable.
+
+Android application identity and signing requirements: [application ID](https://developer.android.com/build/configure-app-module#set-application-id), [app signing](https://developer.android.com/studio/publish/app-signing).
